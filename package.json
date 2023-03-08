@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "lab-pages",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "eslint": "eslint ."
   },
   "dependencies": {
     "@astrojs/image": "^0.16.0",

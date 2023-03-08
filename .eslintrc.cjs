@@ -1,6 +1,10 @@
 module.exports = {
   extends: ['plugin:astro/recommended'],
   ignorePatterns: ['*.d.ts'],
+  parserOptions: {
+    sourceType: 'module',
+    ecmaVersion: 2015
+  },
   overrides: [
     {
       // Define the configuration for `.astro` file.
