@@ -1,5 +1,5 @@
 {
-  "name": "lab-pages",
+  "name": "lab-page",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -15,6 +15,7 @@
     "@astrojs/sitemap": "^1.2.0",
     "@astrojs/tailwind": "^3.1.0",
     "astro": "^2.1.0",
+    "astro-seo": "^0.7.1",
     "daisyui": "^2.51.3",
     "tailwindcss": "^3.0.24"
   },

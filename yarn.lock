@@ -932,6 +932,11 @@ astro-eslint-parser@^0.11.0:
     eslint-visitor-keys "^3.0.0"
     espree "^9.0.0"
 
+astro-seo@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/astro-seo/-/astro-seo-0.7.1.tgz#b1921ba94bc80319f091d3dbf93d9450f3fa5ffe"
+  integrity sha512-8Yo1nQrl2iB5zj+VUAHrvGIck8bZ4WAmXQgJOeF9FuAZGQD5qK6DtSZaRbpBXsFfZYHA6tE8pjs3btHhLbC1zQ==
+
 astro@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/astro/-/astro-2.1.0.tgz"
