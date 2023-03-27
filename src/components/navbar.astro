@@ -1,0 +1,26 @@
+---
+import { Icon } from 'astro-icon'
+---
+
+<nav class="bg-primary">
+  <div class="navbar h-4">
+    <div class="navbar-start">
+      <h1>高橋・狩川研究室</h1>
+    </div>
+    <div class="navbar-end">
+      <div class="dropdown dropdown-end">
+        <label tabindex={0} class="btn-ghost btn-circle btn">
+          <Icon size={20} name="ic:baseline-more-horiz" />
+        </label>
+        <ul
+          tabindex={0}
+          class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
+        >
+          <li><a>Homepage</a></li>
+          <li><a>Portfolio</a></li>
+          <li><a>About</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
