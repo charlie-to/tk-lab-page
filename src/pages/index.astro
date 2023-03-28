@@ -1,10 +1,84 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Card from '../components/Card.astro'
 ---
 
 <Layout title="Hello">
-  <main>
-    <h1 class="text-4xl">hello</h1>
+  <main class="container mx-auto">
+    <!-- 研究概要 -->
+    <section>
+      <div class="relative h-[600px] bg-blue-50">
+        <!-- 文字 -->
+        <div class="absolute inset-0 grid place-items-center">
+          <div class="z-50">
+            <h1 class="text-center align-middle text-4xl">高橋・狩川研究室</h1>
+          </div>
+        </div>
+        <!-- 写真 -->
+        <div class="absolute inset-0 grid grid-cols-2 place-items-center">
+          <div class="relative">
+            <img
+              src="pic_aircraft_a350.jpg"
+              alt="飛行機の写真"
+              class="static h-[300px] object-cover"
+            />
+            <div
+              class="absolute bottom-0 mx-auto flex w-full items-center justify-center"
+            >
+              <button class="glass btn mb-3 text-white">航空グループ</button>
+            </div>
+          </div>
+          <div class="h-[300px]">認知</div>
+          <div class="h-[300px]">GPAI</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 研究室のようす -->
+    <section class="mt-8">
+      <h1 class="mb-4 text-3xl">研究室紹介</h1>
+      <div
+        class="grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-y-96"
+      >
+        <div class="card-compact card w-96 rounded-xl bg-base-100 shadow-xl">
+          <figure>
+            <img src="/pic_aircraft_a350.jpg" alt="Shoes" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">研究紹介</h2>
+            <p>研究内容について</p>
+          </div>
+        </div>
+        <div class="card-compact card w-96 rounded-xl bg-base-100 shadow-xl">
+          <figure>
+            <img src="/pic_aircraft_a350.jpg" alt="Shoes" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">研究紹介</h2>
+            <p>研究内容について</p>
+          </div>
+        </div>
+        <div class="card-compact card w-96 rounded-xl bg-base-100 shadow-xl">
+          <figure>
+            <img src="/pic_aircraft_a350.jpg" alt="Shoes" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">研究紹介</h2>
+            <p>研究内容について</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ニュース -->
+    <section class="mt-8">
+      <h1 class="text-3xl">ニュース</h1>
+      <div></div>
+    </section>
+
+    <!-- お問い合わせ -->
+    <section class="mt-8">
+      <h1 class="text-3xl">コンタクト</h1>
+      <div></div>
+    </section>
   </main>
 </Layout>
