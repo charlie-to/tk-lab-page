@@ -1,5 +1,5 @@
 ---
-title: 'test post 2'
+title: '新メンバー追加'
 tag: ['news', 'test']
 ---
 
