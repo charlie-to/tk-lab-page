@@ -1,5 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
+
+interface INewsPostFrontmatter {
+  title: string
+  tag: Array<string>
+}
+
+const news_posts = await Astro.glob<INewsPostFrontmatter>('./news/*.md')
 ---
 
 <Layout title="Hello">
@@ -71,8 +78,59 @@ import Layout from '../layouts/Layout.astro'
 
     <!-- ニュース -->
     <section class="mt-8">
-      <h1 class="text-3xl">ニュース</h1>
-      <div></div>
+      <div class="w-full overflow-x-auto">
+        <table class="table w-full">
+          <!-- head -->
+          <thead>
+            <tr>
+              <th>
+                <label> index</label>
+              </th>
+              <th>title</th>
+              <th>tag</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- row -->
+            {
+              news_posts.map((news_post) => (
+                <tr>
+                  <th> {news_posts.indexOf(news_post) + 1} </th>
+                  <td>
+                    <div class="flex items-center space-x-3">
+                      <div class="avatar">
+                        <div class="mask mask-squircle h-12 w-12">
+                          <img
+                            src="/pic_aircraft_a350.jpg"
+                            alt="Avatar News Component"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <div class="font-bold">
+                          {news_post.frontmatter.title}
+                        </div>
+                        <div class="text-sm opacity-50">
+                          {news_post.frontmatter.tag.map((tag) => (
+                            <div class="badge-secondary badge-outline badge mr-3">
+                              {tag}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <th>
+                    <a href={news_post.url}>
+                      <button class="btn-xs btn">詳細</button>
+                    </a>
+                  </th>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- お問い合わせ -->
