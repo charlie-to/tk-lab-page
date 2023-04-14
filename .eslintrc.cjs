@@ -1,9 +1,13 @@
 module.exports = {
-  extends: ['plugin:astro/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:astro/recommended'
+  ],
   ignorePatterns: ['*.d.ts'],
   parserOptions: {
     sourceType: 'module',
-    ecmaVersion: 2015
+    ecmaVersion: 13
   },
   overrides: [
     {
