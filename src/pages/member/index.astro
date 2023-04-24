@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro'
 import type { IMemberFrontmatter } from './member'
 
+import { getCollection, getEntryBySlug } from 'astro:content'
 const members = await Astro.glob<IMemberFrontmatter>('./member_md/*.md')
 ---
 
