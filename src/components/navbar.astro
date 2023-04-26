@@ -1,0 +1,34 @@
+---
+import { Icon } from 'astro-icon'
+---
+
+<nav class="bg-blue-200">
+  <div class="navbar h-4">
+    <div class="container navbar-start">
+      <h1>
+        <a href="/" class="flex">
+          <img src="/favicon.ico" alt="研究室ロゴ" class="h-10 object-fill" />
+          <div class="my-auto ml-3">
+            <h1 class="text-xl font-extrabold">高橋・狩川研究室</h1>
+          </div>
+        </a>
+      </h1>
+    </div>
+    <div class="navbar-end">
+      <div class="dropdown-end dropdown">
+        <label tabindex={0} class="btn-ghost btn-circle btn">
+          <Icon size={20} name="ic:baseline-more-horiz" />
+        </label>
+        <ul
+          tabindex={0}
+          class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow md:w-64"
+        >
+          <li><a href="/research" class="md:text-xl">研究</a></li>
+          <li><a href="/member" class="md:text-xl">メンバー</a></li>
+          <li><a href="/alumni" class="md:text-xl">進路</a></li>
+          <li><a href="/blog" class="md:text-xl">ブログ</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,10 +1,223 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Card from '../components/Card.astro'
+
+interface INewsPostFrontmatter {
+  title: string
+  tag: Array<string>
+}
+
+const news_posts = await Astro.glob<INewsPostFrontmatter>('./news/*.md')
 ---
 
 <Layout title="Hello">
-  <main>
-    <h1 class="text-4xl">hello</h1>
+  <main class="container mx-auto">
+    <!-- 研究概要 -->
+    <section>
+      <div class="relative h-[600px]">
+        <!-- 文字 -->
+        <div class="absolute inset-0 grid place-items-center">
+          <div class="z-50">
+            <h1
+              class="text-center align-middle text-5xl font-extrabold text-white"
+            >
+              高橋・狩川研究室
+            </h1>
+          </div>
+        </div>
+        <!-- 各グループ -->
+        <div
+          class="absolute inset-0 mx-auto grid max-w-5xl grid-cols-2 place-items-center"
+        >
+          <!-- 航空グループ -->
+          <div class="relative">
+            <img
+              src="pic_aircraft_a350.jpg"
+              alt="飛行機の写真"
+              class="static h-[300px] object-cover brightness-50"
+            />
+            <div
+              class="absolute bottom-0 mx-auto flex w-full items-center justify-center"
+            >
+              <a href="research/aviation/">
+                <button class="btn-outline btn mb-10 text-white"
+                  >航空グループ</button
+                ></a
+              >
+            </div>
+          </div>
+          <!-- 認知グループ -->
+          <div class="relative">
+            <img
+              src="pic_aircraft_a350.jpg"
+              alt="飛行機の写真"
+              class="static h-[300px] object-cover brightness-50"
+            />
+            <div
+              class="absolute bottom-0 mx-auto flex w-full items-center justify-center"
+            >
+              <button class="btn-outline btn mb-10 text-white"
+                >認知グループ</button
+              >
+            </div>
+          </div>
+          <!-- GPAI -->
+          <div class="relative">
+            <img
+              src="pic_aircraft_a350.jpg"
+              alt="飛行機の写真"
+              class="static h-[300px] object-cover brightness-50"
+            />
+            <div
+              class="absolute bottom-0 mx-auto flex w-full items-center justify-center"
+            >
+              <button class="btn-outline btn mb-10 text-white"
+                >GPAIグループ</button
+              >
+            </div>
+          </div>
+          <!-- その他 -->
+          <div class="relative">
+            <img
+              src="pic_aircraft_a350.jpg"
+              alt="飛行機の写真"
+              class="static h-[300px] object-cover brightness-50"
+            />
+            <div
+              class="absolute bottom-0 mx-auto flex w-full items-center justify-center"
+            >
+              <button class="btn-outline btn mb-10 text-white"
+                >GPAIグループ</button
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 研究室のようす -->
+    <section class="mt-12 rounded-sm bg-slate-100 py-10">
+      <div class="mx-auto w-full p-10 text-center">
+        <h1 class="text-3xl font-bold">研究室紹介</h1>
+      </div>
+      <div
+        class="mx-auto mb-3 grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-y-96"
+      >
+        <div class="card card-compact w-96 rounded-xl bg-base-100 shadow-xl">
+          <figure>
+            <img src="/pic_aircraft_a350.jpg" alt="Shoes" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">研究紹介</h2>
+            <p>研究内容について</p>
+          </div>
+        </div>
+        <div class="card-compact card w-96 rounded-xl bg-base-100 shadow-xl">
+          <figure>
+            <img src="/pic_aircraft_a350.jpg" alt="Shoes" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">研究紹介</h2>
+            <p>研究内容について</p>
+          </div>
+        </div>
+        <div class="card-compact card w-96 rounded-xl bg-base-100 shadow-xl">
+          <figure>
+            <img src="/pic_aircraft_a350.jpg" alt="Shoes" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">研究紹介</h2>
+            <p>研究内容について</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ニュース -->
+    <section class="mt-4 py-10">
+      <div class="mx-auto py-10 text-center">
+        <h1 class="text-3xl font-bold">ニュース</h1>
+      </div>
+      <div class="mx-auto w-5/6">
+        <div class="w-full overflow-x-auto">
+          <table class="table w-full">
+            <!-- head -->
+            <thead>
+              <tr>
+                <th>
+                  <label> index</label>
+                </th>
+                <th>title</th>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- row -->
+              {
+                news_posts.map((news_post) => (
+                  <tr>
+                    <th> {news_posts.indexOf(news_post) + 1} </th>
+                    <td>
+                      <div class="flex items-center space-x-3">
+                        <div class="avatar">
+                          <div class="mask mask-squircle h-12 w-12">
+                            <img
+                              src="/pic_aircraft_a350.jpg"
+                              alt="Avatar News Component"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <div class="font-bold">
+                            {news_post.frontmatter.title}
+                          </div>
+                          <div class="text-sm opacity-90">
+                            {news_post.frontmatter.tag.map((tag) => (
+                              <div class="badge-secondary badge-outline badge mr-3">
+                                {tag}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <th>
+                      <a href={news_post.url}>
+                        <button class="btn-md btn">詳細</button>
+                      </a>
+                    </th>
+                  </tr>
+                ))
+              }
+            </tbody>
+            <tfoot>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- お問い合わせ -->
+    <section class="mt-8 mb-2">
+      <div
+        class="hero h-1/2"
+        style="background-image: url(/pic_aircraft_a350.jpg);"
+      >
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+          <div class="max-w-md">
+            <h1 class="mb-5 text-5xl font-bold">お問い合わせ</h1>
+            <p class="mb-5">Google Form よりお問い合わせください！</p>
+            <a href="https://forms.gle/vwA58wTFZpv5nXQV8">
+              <button class="btn-primary btn"> <h4>お問い合わせ</h4></button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>

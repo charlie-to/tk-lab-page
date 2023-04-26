@@ -1,5 +1,17 @@
 {
-  "cSpell.words": ["astro", "astrojs", "daisyui", "tabindex", "tailwindcss"],
+  "cSpell.words": [
+    "airplanemode",
+    "astro",
+    "astrojs",
+    "daisyui",
+    "Frontmatter",
+    "gpai",
+    "horiz",
+    "linecap",
+    "linejoin",
+    "tabindex",
+    "tailwindcss"
+  ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.quickSuggestions": {
     "other": "on",
