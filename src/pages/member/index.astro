@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro'
 import type { IMemberFrontmatter } from './member'
 
 import { getCollection, getEntryBySlug } from 'astro:content'
-const members = await Astro.glob<IMemberFrontmatter>('./member_md/*.md')
+const members = await getCollection('member')
 ---
 
 <Layout title="メンバー">
@@ -14,7 +14,7 @@ const members = await Astro.glob<IMemberFrontmatter>('./member_md/*.md')
     >
       {
         members.map((member) => (
-          <a href="/">
+          <a href={`member/${member.slug}`}>
             <div class="card bg-base-300 w-80 shadow-xl duration-200 hover:scale-105">
               <figure>
                 <img
@@ -25,17 +25,13 @@ const members = await Astro.glob<IMemberFrontmatter>('./member_md/*.md')
               </figure>
               <div class="card-body">
                 <h2 class="card-title flex align-bottom">
-                  {member.frontmatter.name.main}
+                  {member.data.name.main}
                   <p class="text-sm font-thin text-gray-600">
-                    {member.frontmatter.name.sub}
+                    {member.data.name.sub}
                   </p>
                 </h2>
-                <div class="badge-outline badge">
-                  {member.frontmatter.major}
-                </div>
-                <div class="badge-outline badge">
-                  {member.frontmatter.grade}
-                </div>
+                <div class="badge-outline badge">{member.data.major}</div>
+                <div class="badge-outline badge">{member.data.grade}</div>
               </div>
             </div>
           </a>

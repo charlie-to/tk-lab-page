@@ -38,8 +38,10 @@ const news_posts = await Astro.glob<INewsPostFrontmatter>('./news/*.md')
             <div
               class="absolute bottom-0 mx-auto flex w-full items-center justify-center"
             >
-              <button class="btn-outline btn mb-10 text-white"
-                >航空グループ</button
+              <a href="research/aviation/">
+                <button class="btn-outline btn mb-10 text-white"
+                  >航空グループ</button
+                ></a
               >
             </div>
           </div>
@@ -100,7 +102,7 @@ const news_posts = await Astro.glob<INewsPostFrontmatter>('./news/*.md')
       <div
         class="mx-auto mb-3 grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-y-96"
       >
-        <div class="card-compact card w-96 rounded-xl bg-base-100 shadow-xl">
+        <div class="card card-compact w-96 rounded-xl bg-base-100 shadow-xl">
           <figure>
             <img src="/pic_aircraft_a350.jpg" alt="Shoes" />
           </figure>
