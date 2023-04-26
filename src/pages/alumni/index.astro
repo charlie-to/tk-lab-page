@@ -1,7 +1,74 @@
 ---
 import Layout from '../../layouts/Layout.astro'
+
+const company_name = [
+  '企業１',
+  '企業２',
+  '企業３',
+  '企業４',
+  '企業５',
+  '企業６',
+  '企業７',
+  '企業８',
+  '企業９',
+  '企業１０'
+]
 ---
 
 <Layout title="進路">
-  <h1>卒業後の進路</h1>
+  <!--カード -->
+  <section
+    class="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row xl:justify-center xl:gap-24 xl:align-middle"
+  >
+    <!-- content - start -->
+    <div class="flex flex-col justify-between xl:w-4/12">
+      <div class="sm:text-center lg:py-12 lg:pl-12 lg:text-left xl:py-24">
+        <h1
+          class="text-black-800 mb-8 text-4xl font-bold sm:text-5xl md:mb-12 md:text-6xl"
+        >
+          卒業後の進路
+        </h1>
+
+        <div
+          class="flex flex-col gap-2.5 sm:flex-row sm:justify-center lg:justify-start"
+        >
+          <a
+            href="#"
+            class="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-800 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-300 focus-visible:ring active:bg-indigo-700 md:text-base"
+            >進学</a
+          >
+
+          <a
+            href="#"
+            class="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-800 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-300 focus-visible:ring active:text-gray-700 md:text-base"
+            >就職</a
+          >
+        </div>
+      </div>
+    </div>
+    <!-- content - end -->
+
+    <!-- image - start -->
+    <div
+      class="h-48 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:w-1/2 xl:mt-20 xl:max-h-96 xl:w-7/12"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&q=75&fit=crop&w=1000"
+        loading="lazy"
+        alt="Photo by Fakurian Design"
+        class="h-full w-full object-cover object-center"
+      />
+    </div>
+    <!-- image - end -->
+  </section>
+  <!--進路先の企業名のリスト -->
+  <section class="mt-16">
+    <h2 class="mb-2 text-lg font-semibold text-gray-900 md:py-4 md:text-4xl">
+      就職先
+    </h2>
+    <ul class="max-w-md list-inside list-disc space-y-1 text-gray-800">
+      {company_name.map((name) => <li>{name}</li>)}
+      <li>etc...</li>
+    </ul>
+  </section>
 </Layout>
