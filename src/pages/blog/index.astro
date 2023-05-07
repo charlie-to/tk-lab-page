@@ -1,7 +1,71 @@
 ---
+import { map } from 'astro/zod'
 import Layout from '../../layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+
+const blog_posts = await getCollection('blog')
+const recent_posts = blog_posts.slice(0, 6)
 ---
 
 <Layout title="研究室のようす">
-  <h1>研究室のようす</h1>
+  <section>
+    <div>
+      <!-- コンテント -->
+      <div class="">
+        <!-- 題名とリード -->
+        <div class="mb-12 space-y-2 text-center">
+          <h1 class="text-3xl font-bold text-gray-800 md:text-4xl">
+            研究室のようす
+          </h1>
+          <p class="text-gray-600 lg:mx-auto lg:w-6/12">
+            最近の高橋・狩川研究室の中をのぞいてみましょう。
+          </p>
+        </div>
+        <!-- 題名とリードここまで -->
+        <!-- ここからブログ投稿のカード -->
+        <div
+          class="grid grid-cols-1 place-items-center gap-6 lg:grid-cols-2 xl:grid-cols-3"
+        >
+          {
+            recent_posts.map((recent_post) => (
+              <a href={'/blog/' + recent_post.slug}>
+                <div class="card bg-base-100 w-96 shadow-xl">
+                  <figure class="max-h-72">
+                    <img
+                      src={
+                        recent_post.data.cover_image || '/blog/dummy_cover.jpg'
+                      }
+                      alt="blog cover image"
+                    />
+                  </figure>
+                  <div class="card-body">
+                    <h2 class="card-title">{recent_post.data.title}</h2>
+                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <div class="card-actions justify-end">
+                      {recent_post.data.tag.map((tag) => (
+                        <div class="badge-outline badge">{tag}</div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+        <!-- ここまでブログ投稿のカード -->
+      </div>
+      <!-- コンテントここまで -->
+    </div>
+
+    <!-- 詳細へ -->
+    <div class="mt-10">
+      <a href="/blog/all" class="flex justify-center">
+        <div class="btn-accent btn m-4 mx-auto">もっとブログを見る</div>
+      </a>
+      <div class="text-center text-gray-700">
+        これまでの全投稿を見ることができます。
+      </div>
+    </div>
+    <!-- 詳細へここまで -->
+  </section>
 </Layout>
