@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content'
+export async function getStaticPaths() {
+  const newsEntries = await getCollection('blog')
+  return newsEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry }
+  }))
+}
+import Layout from '@layouts/Layout.astro'
+
+const { entry } = Astro.props
+const { Content } = await entry.render()
+---
+
+<Layout title={entry.data.title}>
+  <h1>{entry.data.title}</h1>
+
+  <div id="content-container">
+    <Content />
+  </div>
+
+  <!-- markdown のスタイル -->
+  <style is:inline>
+    #content-container > h1 {
+      font-size: x-large;
+      font-weight: bold;
+    }
+  </style>
+</Layout>

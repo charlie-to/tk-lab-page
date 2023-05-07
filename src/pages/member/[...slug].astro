@@ -8,7 +8,7 @@ export async function getStaticPaths() {
   }))
 }
 
-import Layout from '../../layouts/Layout.astro'
+import Layout from '@layouts/Layout.astro'
 const { entry } = Astro.props
 const { Content } = await entry.render()
 ---

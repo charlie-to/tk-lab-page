@@ -1,0 +1,69 @@
+---
+import Layout from '@layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+
+const news_posts = await getCollection('blog', ({ data }) => {
+  return data.tag.includes('news')
+})
+---
+
+<Layout title="ニュース一覧">
+  <h1 class="text-lg font-bold">高橋・狩川研究室のニュース</h1>
+  <!-- ニュース一覧 -->
+  <section>
+    <div>
+      <div class="body-font overflow-hidden text-gray-600">
+        <div class="container mx-auto px-5 py-24">
+          <div class="-my-8 divide-y-2 divide-gray-100">
+            {
+              news_posts.map((news_post) => (
+                <div class="flex flex-wrap py-8 md:flex-nowrap">
+                  <div class="mb-6 flex flex-shrink-0 flex-col md:mb-0 md:w-64">
+                    <span class="title-font font-semibold text-gray-700">
+                      {news_post.data.tag.map((tag) => (
+                        <span class="mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+                          {tag}
+                        </span>
+                      ))}
+                    </span>
+                    <span class="mt-1 text-sm text-gray-500">
+                      {news_post.data.date}
+                    </span>
+                  </div>
+                  <div class="md:flex-grow">
+                    <h2 class="title-font mb-2 text-2xl font-medium text-gray-900">
+                      {news_post.data.title}
+                    </h2>
+                    <p class="leading-relaxed">
+                      親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。
+                      新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。
+                      弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）
+                    </p>
+                    <a
+                      href={news_post.slug}
+                      class="mt-4 inline-flex items-center text-indigo-500"
+                    >
+                      詳細を見る
+                      <svg
+                        class="ml-2 h-4 w-4"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="M12 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
