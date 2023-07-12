@@ -7,6 +7,6 @@ import sitemap from '@astrojs/sitemap'
 // https://astro.build/config
 /** @type {import('astro').AstroUserConfig;} */
 export default defineConfig({
-  site: 'http://tohoku-takahashi.sakura.ne.jp',
+  site: 'http://example.tohoku.ac.jp',
   integrations: [tailwind(), image(), sitemap()]
 })
