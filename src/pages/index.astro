@@ -38,16 +38,18 @@ const news_posts = await getCollection('blog', ({ data }) => {
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
                     <div
-                      class="mx-auto rounded-full w-12 h-12 m-4 text-indigo-600"
+                      class="m-4 mx-auto h-12 w-12 rounded-full text-indigo-600"
                     >
                       <Icon name="ph:magnifying-glass" />
                     </div>
-                    <h2 class="title-font text-lg font-medium text-gray-900">研究内容</h2>
+                    <h2 class="title-font text-lg font-medium text-gray-900">
+                      研究内容
+                    </h2>
                     <p class="text-base text-gray-600">
                       高橋・狩川研の研究内容を知る
                     </p>
                     <a href="#research">
-                      <div class="mx-auto mt-3 w-10 h-10 text-indigo-500">
+                      <div class="mx-auto mt-3 h-10 w-10 text-indigo-500">
                         <Icon name="mdi:chevron-down" />
                       </div>
                     </a>
@@ -60,16 +62,18 @@ const news_posts = await getCollection('blog', ({ data }) => {
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
                     <div
-                      class="mx-auto rounded-full w-12 h-12 m-4 text-indigo-600"
+                      class="m-4 mx-auto h-12 w-12 rounded-full text-indigo-600"
                     >
                       <Icon name="ic:baseline-newspaper" />
                     </div>
-                    <h2 class="title-font text-lg font-medium text-gray-900">ニュース</h2>
+                    <h2 class="title-font text-lg font-medium text-gray-900">
+                      ニュース
+                    </h2>
                     <p class="text-base text-gray-600">
                       高橋・狩川研の最近の様子を知る
                     </p>
                     <a href="#news">
-                      <div class="mx-auto mt-3 w-10 h-10 text-indigo-500">
+                      <div class="mx-auto mt-3 h-10 w-10 text-indigo-500">
                         <Icon name="mdi:chevron-down" />
                       </div>
                     </a>
@@ -82,16 +86,18 @@ const news_posts = await getCollection('blog', ({ data }) => {
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
                     <div
-                      class="mx-auto rounded-full w-12 h-12 m-4 text-indigo-600"
+                      class="m-4 mx-auto h-12 w-12 rounded-full text-indigo-600"
                     >
                       <Icon name="ic:outline-info" />
                     </div>
-                    <h2 class="title-font text-lg font-medium text-gray-900">トピック</h2>
+                    <h2 class="title-font text-lg font-medium text-gray-900">
+                      特徴
+                    </h2>
                     <p class="text-base text-gray-600">
                       高橋・狩川研はこんな研究室です
                     </p>
-                    <a href="#topics">
-                      <div class="mx-auto mt-3 w-10 h-10 text-indigo-500">
+                    <a href="#aboutUs">
+                      <div class="mx-auto mt-3 h-10 w-10 text-indigo-500">
                         <Icon name="mdi:chevron-down" />
                       </div>
                     </a>
@@ -99,8 +105,6 @@ const news_posts = await getCollection('blog', ({ data }) => {
                 </div>
               </div>
               <!-- items end -->
-
-              
             </div>
           </div>
         </section>
@@ -119,14 +123,14 @@ const news_posts = await getCollection('blog', ({ data }) => {
           研究内容
         </h2>
         <h1 class="title-font text-2xl font-medium text-gray-900 sm:text-3xl">
-          研究グループに分かれて研究を行っています
+          幅広い分野で研究を行っています
         </h1>
       </div>
       <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
         <div class="grid sm:grid-cols-2">
           <!-- product - start -->
           <a
-            href="#"
+            href="/research/aviation"
             class="group relative flex h-80 items-end overflow-hidden bg-gray-100 p-4"
           >
             <img
@@ -152,7 +156,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
 
           <!-- product - start -->
           <a
-            href="#"
+            href="/research/team-ai"
             class="group relative flex h-80 items-end overflow-hidden bg-gray-100 p-4"
           >
             <img
@@ -177,7 +181,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
 
           <!-- product - start -->
           <a
-            href="#"
+            href="/research/team-risk"
             class="group relative flex h-80 items-end overflow-hidden bg-gray-100 p-4"
           >
             <img
@@ -203,7 +207,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
 
           <!-- product - start -->
           <a
-            href="#"
+            href="/research/team-cognitive"
             class="group relative flex h-80 items-end overflow-hidden bg-gray-100 p-4"
           >
             <img
@@ -260,7 +264,10 @@ const news_posts = await getCollection('blog', ({ data }) => {
                       <div class="avatar">
                         <div class="mask mask-squircle h-12 w-12">
                           <img
-                            src={news_post.data.coverImagePath ?? '/lego-unsplash.jpg'}
+                            src={
+                              news_post.data.coverImagePath ??
+                              '/lego-unsplash.jpg'
+                            }
                             alt="Avatar News Component"
                           />
                         </div>
@@ -278,7 +285,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
                     </div>
                   </td>
                   <th>
-                    <a href={news_post.slug}>
+                    <a href={'/blog/' + news_post.slug}>
                       <button class="btn-md btn">詳細</button>
                     </a>
                   </th>
@@ -303,9 +310,9 @@ const news_posts = await getCollection('blog', ({ data }) => {
     </div>
   </section>
   <!-- 研究室のようす -->
-  <section class="mt-12 rounded-sm bg-white py-10" id="topics">
+  <section class="mt-12 rounded-sm bg-white py-10" id="aboutUs">
     <div class="mx-auto w-full p-10 text-center">
-      <h1 class="text-3xl font-bold">注目トピック</h1>
+      <h1 class="text-3xl font-bold">研究室の特徴</h1>
     </div>
     <div
       class="mx-auto mb-3 grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-y-96"
