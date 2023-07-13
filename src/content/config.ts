@@ -9,7 +9,7 @@ const memberCollection = defineCollection({
     }),
     major: z.string(),
     grade: z.string(),
-    image: z.string().optional(),
+    imagePath: z.string().optional(),
   }),
 });
 

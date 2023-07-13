@@ -18,15 +18,15 @@ const members = await getCollection('member')
             <div class="card bg-base-300 w-80 shadow-xl duration-200 hover:scale-105">
               <figure>
                 <img
-                  src="/pic_aircraft_sample.jpg"
+                  src={member.data.imagePath ?? '/Logo2020_black.png'}
                   alt="Shoes"
-                  class="h-64 brightness-90"
+                  class="h-52 w-full object-cover object-center brightness-90"
                 />
               </figure>
               <div class="card-body">
                 <h2 class="card-title flex align-bottom">
                   {member.data.name.main}
-                  <p class="text-sm font-thin text-gray-600">
+                  <p class="text-sm font-thin text-gray-800">
                     {member.data.name.sub}
                   </p>
                 </h2>
