@@ -10,12 +10,12 @@ export async function getStaticPaths() {
 import BlogDetail from '@layouts/BlogDetail.astro'
 const { entry } = Astro.props
 const { Content, remarkPluginFrontmatter, headings } = await entry.render()
-console.log(entry)
-console.log(Content)
-console.log(remarkPluginFrontmatter)
-console.log(headings)
+// console.log(entry)
+// console.log(Content)
+// console.log(remarkPluginFrontmatter)
+// console.log(headings)
 ---
 
-<BlogDetail data={entry.data}>
+<BlogDetail data={entry.data} headings={headings}>
   <Content />
 </BlogDetail>

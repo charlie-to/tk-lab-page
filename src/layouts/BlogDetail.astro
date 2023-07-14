@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro'
-const { data } = Astro.props
+import ToC from '@components/ToC.astro'
+const { data, headings } = Astro.props
 ---
 
 <Layout title={data.title}>
@@ -11,17 +12,17 @@ const { data } = Astro.props
     .markdown-body h1,
     h2,
     h3 {
-      @apply mb-4 flex font-bold;
+      @apply mb-4 flex;
     }
     .markdown-body h1,
     h2 {
       @apply border-b-2 border-solid border-gray-200;
     }
     .markdown-body h1 {
-      @apply pb-2 text-3xl;
+      @apply mt-8 pb-2 text-3xl font-bold;
     }
     .markdown-body h2 {
-      @apply text-2xl;
+      @apply text-xl font-medium;
     }
     .markdown-body h3 {
       @apply text-lg;
@@ -93,7 +94,9 @@ const { data } = Astro.props
     <!-- sidebar start -->
     <div class="hidden w-1/3 space-y-12 py-16 lg:block">
       <div>author detail here</div>
-      <div>toc</div>
+      <div class="border-base rounded-lg border-4 p-3">
+        <ToC links={headings} />
+      </div>
     </div>
   </div>
 </Layout>

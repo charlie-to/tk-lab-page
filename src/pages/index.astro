@@ -236,7 +236,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
   </section>
 
   <!-- ニュース -->
-  <section class="mt-4 bg-slate-100 py-10" id="news">
+  <section class="bg-base mt-4 bg-base-200 py-10" id="news">
     <div class="mx-auto py-24 text-center">
       <h1 class="text-3xl font-bold">新着ニュース</h1>
     </div>
@@ -286,7 +286,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
                   </td>
                   <th>
                     <a href={'/blog/' + news_post.slug}>
-                      <button class="btn-md btn">詳細</button>
+                      <button class="btn-md btn btn-primary">詳細</button>
                     </a>
                   </th>
                 </tr>
@@ -305,7 +305,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
     </div>
     <div class="container mx-auto w-screen py-4">
       <a href="/blog/news" class="flex justify-center"
-        ><div class="btn-primary btn">ニュース一覧</div></a
+        ><div class="btn-secondary btn">ニュース一覧</div></a
       >
     </div>
   </section>
@@ -317,7 +317,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
     <div
       class="mx-auto mb-3 grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-y-96"
     >
-      <div class="card-compact card w-96 rounded-xl bg-base-100 shadow-xl">
+      <div class="card card-compact w-96 rounded-xl bg-base-100 shadow-xl">
         <figure>
           <img src="/pic_aircraft_sample.jpg" alt="Shoes" />
         </figure>
@@ -326,7 +326,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
           <p>研究内容について</p>
         </div>
       </div>
-      <div class="card-compact card w-96 rounded-xl bg-base-100 shadow-xl">
+      <div class="card card-compact w-96 rounded-xl bg-base-100 shadow-xl">
         <figure>
           <img src="/pic_aircraft_sample.jpg" alt="Shoes" />
         </figure>
@@ -335,7 +335,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
           <p>研究内容について</p>
         </div>
       </div>
-      <div class="card-compact card w-96 rounded-xl bg-base-100 shadow-xl">
+      <div class="card card-compact w-96 rounded-xl bg-base-100 shadow-xl">
         <figure>
           <img src="/pic_aircraft_sample.jpg" alt="Shoes" />
         </figure>
