@@ -2,9 +2,37 @@
 title: '風船を膨らませて'
 date: '2023-07-07'
 tag: ['blog']
+lead: '風船を沢山膨らませました。とてもつかれました。'
 coverImagePath: '/balloon-unsplash.jpg'
 ---
 
 # 風船をふくらませる夏の日
 
 風船をふくらませる
+
+## 自動リンク
+
+www.example.com
+https://example.com
+contact@example.com
+
+## 脚注
+
+GFM [^1] によって Markdown の機能を拡張することができます。
+
+[^1]: GFM は GitHub Flavored Markdown の略称です。
+
+## 打ち消し線
+
+~3 月 13 日公開予定~ 3 月 20 日公開
+
+## 表組み
+
+| 指定なし | 左揃え | 右揃え | 中央揃え |
+| -------- | :----- | -----: | :------: |
+| a        | b      |      c |    d     |
+
+## タスクリスト
+
+- [ ] タスク 1
+- [x] タスク 2

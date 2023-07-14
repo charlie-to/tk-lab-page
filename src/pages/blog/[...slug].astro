@@ -7,24 +7,15 @@ export async function getStaticPaths() {
     props: { entry }
   }))
 }
-import Layout from '@layouts/Layout.astro'
-
+import BlogDetail from '@layouts/BlogDetail.astro'
 const { entry } = Astro.props
-const { Content } = await entry.render()
+const { Content, remarkPluginFrontmatter, headings } = await entry.render()
+console.log(entry)
+console.log(Content)
+console.log(remarkPluginFrontmatter)
+console.log(headings)
 ---
 
-<Layout title={entry.data.title}>
-  <h1>{entry.data.title}</h1>
-
-  <div id="content-container">
-    <Content />
-  </div>
-
-  <!-- markdown のスタイル -->
-  <style is:inline>
-    #content-container > h1 {
-      font-size: x-large;
-      font-weight: bold;
-    }
-  </style>
-</Layout>
+<BlogDetail data={entry.data}>
+  <Content />
+</BlogDetail>

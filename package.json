@@ -19,7 +19,12 @@
     "astro-icon": "^0.8.0",
     "astro-seo": "^0.7.5",
     "daisyui": "^2.51.3",
-    "tailwindcss": "^3.0.24"
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-slug": "^5.1.0",
+    "rehype-toc": "^3.0.2",
+    "remark-slug": "^7.0.1",
+    "remark-toc": "^8.0.1",
+    "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
     "@playwright/test": "^1.31.2",
