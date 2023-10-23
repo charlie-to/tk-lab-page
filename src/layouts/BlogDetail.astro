@@ -1,0 +1,142 @@
+---
+import Layout from '@layouts/Layout.astro'
+import ToC from '@components/ToC.astro'
+import { getCollection } from 'astro:content'
+const { data, headings } = Astro.props
+const author_name = data.author_name_main
+
+const author = await getCollection('member')
+  .then((authors) =>
+    authors.find((author) => author.data.name.main === author_name)
+  )
+  .catch((e) => console.error(e))
+---
+
+<Layout title={data.title}>
+  <style is:global>
+    .markdown-body ul {
+      @apply mb-4 list-inside list-disc pl-4;
+    }
+    .markdown-body h1,
+    h2,
+    h3 {
+      @apply mb-4 flex;
+    }
+    .markdown-body h1,
+    h2 {
+      @apply border-b-2 border-solid border-gray-200;
+    }
+    .markdown-body h1 {
+      @apply mt-8 pb-2 text-3xl font-bold;
+    }
+    .markdown-body h2 {
+      @apply text-xl font-medium;
+    }
+    .markdown-body h3 {
+      @apply text-lg;
+    }
+    .markdown-body p {
+      @apply mb-4;
+    }
+    .markdown-body a {
+      @apply text-primary underline hover:text-primary-focus;
+    }
+    /* ヘディングのアンカーのスタイル */
+    .markdown-body a.anchor {
+      @apply opacity-30 hover:opacity-100;
+    }
+    .markdown-body.sr-only {
+      @apply hidden;
+    }
+    /* リストのアイテムのスタイル */
+    .markdown-body li.task-list-item {
+      @apply list-none;
+    }
+    .markdown-body input[type='checkbox'] {
+      @apply checkbox checkbox-primary checkbox-md;
+    }
+  </style>
+
+  <div class="flex">
+    <!-- article start -->
+    <div class="mx-auto max-w-2xl space-y-12 px-6 py-16 lg:w-3/4">
+      <article class="space-y-6">
+        <div class="space-y-3">
+          <h1 class="text-4xl font-bold md:text-5xl">
+            {data.title}
+          </h1>
+          <div
+            class="flex w-full flex-col items-start justify-between dark:text-gray-400 md:flex-row md:items-center"
+          >
+            <div class="flex items-center md:space-x-1">
+              <p class="text-sm">
+                <span>{data.date.replace(/-/g, ' / ')}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <p>{data.lead ?? ''}</p>
+        </div>
+
+        <div>
+          <div class="flex flex-wrap space-x-2">
+            {
+              data.tag.map((tag: string) => (
+                <a
+                  rel="noopener noreferrer"
+                  href="#"
+                  class="btn btn-outline btn-sm rounded-sm px-3 py-1 hover:underline"
+                >
+                  #{tag}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+        <div class="markdown-body border-t border-dashed border-neutral py-6">
+          <slot />
+        </div>
+      </article>
+    </div>
+    <!-- article end -->
+    <!-- sidebar start -->
+    <div class="hidden w-1/4 space-y-12 py-16 lg:block">
+      {
+        author && (
+          <div class="border border-gray-600 py-8 text-center">
+            <div class="inline-flex h-20 w-20 items-center justify-center rounded-full bg-gray-200 text-gray-400">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="h-10 w-10"
+                viewBox="0 0 24 24"
+              >
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
+            <div class="flex flex-col items-center justify-center text-center">
+              <h2 class="title-font mt-4 text-lg font-medium text-gray-900">
+                {author?.data.name.main}
+              </h2>
+              <div class="mb-4 mt-2 h-1 w-12 rounded bg-indigo-500" />
+              <p class="text-base">
+                {author?.data.major}
+                <br />
+                {author?.data.grade}
+              </p>
+            </div>
+          </div>
+        )
+      }
+
+      <div class="border-base rounded-lg border-4 p-3">
+        <ToC links={headings} />
+      </div>
+    </div>
+  </div>
+</Layout>

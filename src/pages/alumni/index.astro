@@ -2,73 +2,111 @@
 import Layout from '../../layouts/Layout.astro'
 
 const company_name = [
-  '企業１',
-  '企業２',
-  '企業３',
-  '企業４',
-  '企業５',
-  '企業６',
-  '企業７',
-  '企業８',
-  '企業９',
-  '企業１０'
+  { text: '博士（QSE）', company_names: ['NEC'] },
+  { text: '博士(MOST)', company_names: ['AIG'] },
+  {
+    text: '修士（QSE）',
+    company_names: [
+      'いすゞ自動車',
+      '原子力規制庁',
+      '七十七銀行',
+      '全日本空輸',
+      '中部電気保安協会',
+      'デンソー',
+      '日本航空',
+      '三菱化学エンジニアリング',
+      '明電舎',
+      '三菱重工業',
+      'NEC',
+      '日本航空',
+      'ヤフー',
+      'アルプス技研',
+      '野村総合研究所',
+      'コマツ',
+      'NTTデータ',
+      '日本郵船',
+      '群馬銀行',
+      '東京エレクトロン',
+      'JR西日本'
+    ]
+  },
+  {
+    text: '修士(MOST)',
+    company_names: [
+      'アルプス電気',
+      '仙台市',
+      '東京機材工業',
+      '豊田自動織機',
+      '日本貨物鉄道',
+      'オロ',
+      'JR東海',
+      'パーソナルプロセス＆テクノロジー',
+      '日本貨物鉄道',
+      '国際石油開発帝石',
+      '三菱UFJモルガンスタンレー証券'
+    ]
+  },
+  {
+    text: '学士',
+    company_names: [
+      '特許庁',
+      '日本貨物航空',
+      '日本航空',
+      '住友ケミカルエンジニアリング',
+      'ANA'
+    ]
+  }
 ]
 ---
 
 <Layout title="進路">
   <!--カード -->
-  <section
-    class="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row xl:justify-center xl:gap-24 xl:align-middle"
-  >
-    <!-- content - start -->
-    <div class="flex flex-col justify-between xl:w-4/12">
-      <div class="sm:text-center lg:py-12 lg:pl-12 lg:text-left xl:py-24">
-        <h1
-          class="text-black-800 mb-8 text-4xl font-bold sm:text-5xl md:mb-12 md:text-6xl"
-        >
-          卒業後の進路
-        </h1>
-
-        <div
-          class="flex flex-col gap-2.5 sm:flex-row sm:justify-center lg:justify-start"
-        >
-          <a
-            href="#"
-            class="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-800 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-300 focus-visible:ring active:bg-indigo-700 md:text-base"
-            >進学</a
-          >
-
-          <a
-            href="#"
-            class="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-800 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-300 focus-visible:ring active:text-gray-700 md:text-base"
-            >就職</a
-          >
+  <section class="">
+    <div class="w-full px-2">
+      <div
+        class="relative flex w-full flex-wrap bg-gray-100 px-6 py-16 sm:px-10 sm:py-24"
+      >
+        <img
+          alt="gallery"
+          class="absolute inset-0 block h-full w-full object-cover object-center brightness-50"
+          src="/graduation-unsplash.jpg"
+        />
+        <div class="relative z-10 w-full text-center">
+          <h2 class="mb-2 text-3xl font-bold text-gray-200">卒業後の進路</h2>
+          <p class="leading-relaxed text-gray-300">
+            掲載企業以外にも様々な進路に進んでいる卒業生がいます。これを見ても参考にならないかもしれません。
+          </p>
         </div>
       </div>
+      <!-- content - start -->
+      <div class="mx-auto">
+        <div class="sm:text-center lg:pt-12 lg:text-left">
+          <h1 class="text-center text-4xl font-bold text-gray-800 md:text-6xl">
+            卒業後の進路
+          </h1>
+        </div>
+      </div>
+      <!-- content - end -->
     </div>
-    <!-- content - end -->
-
-    <!-- image - start -->
-    <div
-      class="h-48 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:w-1/2 xl:mt-20 xl:max-h-96 xl:w-7/12"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&q=75&fit=crop&w=1000"
-        loading="lazy"
-        alt="Photo by Fakurian Design"
-        class="h-full w-full object-cover object-center"
-      />
-    </div>
-    <!-- image - end -->
-  </section>
-  <!--進路先の企業名のリスト -->
-  <section class="mt-16">
-    <h2 class="mb-2 text-lg font-semibold text-gray-900 md:py-4 md:text-4xl">
-      就職先
-    </h2>
-    <ul class="max-w-md list-inside list-disc space-y-1 text-gray-800">
-      {company_name.map((name) => <li>{name}</li>)}
-      <li>etc...</li>
-    </ul>
+    <!--進路先の企業名のリスト -->
+    <section class="mt-8 w-full">
+      {
+        company_name.map((company_name_grade) => (
+          <div class="my-12 bg-base-200 py-12">
+            <div class="mx-auto text-center">
+              <h2 class="text-2xl">{company_name_grade.text}</h2>
+            </div>
+            <div class="mx-auto max-w-xl">
+              <ul class="flex w-full list-inside flex-wrap align-bottom text-gray-800">
+                {company_name_grade.company_names.map((name) => (
+                  <li class="w-1/2 px-8 py-4">{name}</li>
+                ))}
+                <li class="px-8 py-4">etc...</li>
+              </ul>
+            </div>
+          </div>
+        ))
+      }
+    </section>
   </section>
 </Layout>

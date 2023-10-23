@@ -19,17 +19,22 @@
     "astro-icon": "^0.8.0",
     "astro-seo": "^0.7.5",
     "daisyui": "^2.51.3",
-    "tailwindcss": "^3.0.24"
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-slug": "^5.1.0",
+    "rehype-toc": "^3.0.2",
+    "remark-slug": "^7.0.1",
+    "remark-toc": "^8.0.1",
+    "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
-    "@playwright/test": "^1.31.2",
+    "@playwright/test": "^1.36.2",
     "@typescript-eslint/parser": "^5.54.1",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-astro": "^0.23.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
-    "prettier": "^2.8.4",
-    "prettier-plugin-astro": "^0.8.0",
-    "prettier-plugin-tailwindcss": "^0.2.4"
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0",
+    "prettier-plugin-tailwindcss": "^0.5.5"
   }
 }

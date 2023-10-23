@@ -4,34 +4,36 @@ import type { IMemberFrontmatter } from './member'
 
 import { getCollection, getEntryBySlug } from 'astro:content'
 const members = await getCollection('member')
+const student = members.filter((member) => member.data.major !== '')
+const staff = members.filter((member) => member.data.major === '')
 ---
 
 <Layout title="メンバー">
   <h1 class="my-10 text-3xl font-extrabold">メンバー紹介</h1>
+  <!-- スタッフ -->
   <div class="container mx-auto">
     <div
       class="mx-auto grid max-w-7xl grid-cols-1 place-items-center gap-y-10 md:grid-cols-2 xl:grid-cols-3"
     >
       {
-        members.map((member) => (
-          <a href={`member/${member.slug}`}>
-            <div class="card bg-base-300 w-80 shadow-xl duration-200 hover:scale-105">
+        staff.map((staff) => (
+          <a href={`member/${staff.slug}`}>
+            <div class="card w-80 bg-base-300 shadow-xl duration-200 hover:scale-105">
               <figure>
                 <img
-                  src="/pic_aircraft_sample.jpg"
+                  src={staff.data.imagePath ?? '/Logo2020_black.png'}
                   alt="Shoes"
-                  class="h-64 brightness-90"
+                  class="h-52 w-full object-cover object-center brightness-90"
                 />
               </figure>
               <div class="card-body">
                 <h2 class="card-title flex align-bottom">
-                  {member.data.name.main}
-                  <p class="text-sm font-thin text-gray-600">
-                    {member.data.name.sub}
+                  {staff.data.name.main}
+                  <p class="text-sm font-thin text-gray-800">
+                    {staff.data.name.sub}
                   </p>
                 </h2>
-                <div class="badge-outline badge">{member.data.major}</div>
-                <div class="badge-outline badge">{member.data.grade}</div>
+                <div class="badge badge-outline">{staff.data.grade}</div>
               </div>
             </div>
           </a>
@@ -39,4 +41,39 @@ const members = await getCollection('member')
       }
     </div>
   </div>
+  <!-- スタッフ終わり -->
+  <div class="divider"></div>
+  <!-- 学生 -->
+  <div class="container mx-auto">
+    <div
+      class="mx-auto grid max-w-7xl grid-cols-1 place-items-center gap-y-10 md:grid-cols-2 xl:grid-cols-3"
+    >
+      {
+        student.map((student) => (
+          <a href={`member/${student.slug}`}>
+            <div class="card w-80 bg-base-300 shadow-xl duration-200 hover:scale-105">
+              <figure>
+                <img
+                  src={student.data.imagePath ?? '/Logo2020_black.png'}
+                  alt="Shoes"
+                  class="h-52 w-full object-cover object-center brightness-90"
+                />
+              </figure>
+              <div class="card-body">
+                <h2 class="card-title flex align-bottom">
+                  {student.data.name.main}
+                  <p class="text-sm font-thin text-gray-800">
+                    {student.data.name.sub}
+                  </p>
+                </h2>
+                <div class="badge badge-outline">{student.data.major}</div>
+                <div class="badge badge-outline">{student.data.grade}</div>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+  <!-- 学生終わり -->
 </Layout>

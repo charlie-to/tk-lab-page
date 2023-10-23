@@ -22,7 +22,7 @@ const { Content } = await entry.render()
             class="h-44 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-auto"
           >
             <img
-              src="/pic_aircraft_sample.jpg"
+              src={entry.data.imagePath || '/Logo2020_black.png'}
               loading="lazy"
               alt="Photo by Martin Sanchez"
               class="h-full w-full object-cover object-center"

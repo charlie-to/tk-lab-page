@@ -8,11 +8,11 @@ const footer_links = [
       {
         title: '研究内容',
         url: '/research'
-      },
-      {
-        title: '研究実績',
-        url: '/research/achievements'
       }
+      // {
+      //   title: '研究実績',
+      //   url: '/research/achievements'
+      // }
     ]
   },
   { title: 'メンバー', links: [{ title: 'メンバー', url: '/member' }] },
@@ -26,11 +26,23 @@ const footer_links = [
     ]
   },
   {
-    title: 'ニュース',
+    title: 'お知らせ',
     links: [
       {
-        title: '一覧',
-        url: '/blog/news'
+        title: '記事一覧',
+        url: '/blogs/'
+      },
+      {
+        title: 'ニュース一覧',
+        url: '/blogs/news'
+      },
+      {
+        title: 'ブログ一覧',
+        url: '/blogs/blog/'
+      },
+      {
+        title: '開発履歴',
+        url: '/blogs/dev'
       }
     ]
   },
@@ -40,6 +52,19 @@ const footer_links = [
       {
         title: '新着情報',
         url: '/blog'
+      }
+    ]
+  },
+  {
+    title: 'コンタクト',
+    links: [
+      {
+        title: 'アクセス',
+        url: '/contact#access'
+      },
+      {
+        title: 'お問い合わせ',
+        url: '/contact#form'
       }
     ]
   }
@@ -69,11 +94,17 @@ const footer_links = [
   </div>
   <div class="footer footer-center bg-base-200 p-10 text-base-content">
     <div>
-      <Icon size={60} name="ic:baseline-airplanemode-active" />
+      <img src="/favicon.ico" alt="研究室ロゴ" />
       <p class="font-bold">
-        高橋・狩川研究室 <br />東北大学工学研究科
+        高橋・狩川研究室 <br />東北大学工学研究科<br />
+         量子エネルギー工学専攻 原子核システム安全工学講座 <br
+          class="md:hidden"
+        /> 核エネルギーシステム安全工学分野 <br />
+         技術社会システム専攻 ソーシャルシステムデザイン講座 <br
+          class="md:hidden"
+        /> 社会システムデザイン分野
       </p>
-      <p>Copyright © 2023 - All right reserved</p>
+      <p>Copyright © 高橋・狩川研究室 2023 - All right reserved</p>
     </div>
   </div>
 </footer>

@@ -3,12 +3,12 @@ import Layout from '@layouts/Layout.astro'
 import { getCollection } from 'astro:content'
 
 const news_posts = await getCollection('blog', ({ data }) => {
-  return data.tag.includes('news')
+  return data.tag.includes('dev')
 })
 ---
 
 <Layout title="ニュース一覧">
-  <h1 class="text-lg font-bold">高橋・狩川研究室のニュース</h1>
+  <h1 class="text-3xl font-bold">高橋・狩川研究室のニュース</h1>
   <!-- ニュース一覧 -->
   <section>
     <div>
@@ -34,11 +34,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
                     <h2 class="title-font mb-2 text-2xl font-medium text-gray-900">
                       {news_post.data.title}
                     </h2>
-                    <p class="leading-relaxed">
-                      親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。
-                      新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。
-                      弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）
-                    </p>
+                    <p class="leading-relaxed">{news_post.data.lead ?? ''}</p>
                     <a
                       href={news_post.slug}
                       class="mt-4 inline-flex items-center text-indigo-500"
