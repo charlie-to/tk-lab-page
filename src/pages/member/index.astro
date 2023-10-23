@@ -17,7 +17,7 @@ const staff = members.filter((member) => member.data.major === '')
     >
       {
         staff.map((staff) => (
-          <a href={`member/${staff.slug}`}>
+          <a href={`${staff.slug}/index.html`}>
             <div class="card w-80 bg-base-300 shadow-xl duration-200 hover:scale-105">
               <figure>
                 <img
@@ -50,7 +50,7 @@ const staff = members.filter((member) => member.data.major === '')
     >
       {
         student.map((student) => (
-          <a href={`member/${student.slug}`}>
+          <a href={`${student.slug}/index.html`}>
             <div class="card w-80 bg-base-300 shadow-xl duration-200 hover:scale-105">
               <figure>
                 <img

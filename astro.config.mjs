@@ -13,7 +13,11 @@ import { h } from 'hastscript'
 // https://astro.build/config
 /** @type {import('astro').AstroUserConfig;} */
 export default defineConfig({
-  site: 'http://example.tohoku.ac.jp',
+  site: 'https://www.takahashi.qse.tohoku.ac.jp',
+  output: 'static',
+  build: {
+    format: 'directory'
+  },
   integrations: [
     tailwind({ configFile: './tailwind.config.cjs' }),
     image(),

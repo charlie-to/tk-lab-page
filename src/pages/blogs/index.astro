@@ -41,7 +41,7 @@ const news_posts = blog_posts
         <div class="grid grid-cols-1 place-items-center gap-6 lg:grid-cols-3">
           {
             recent_posts.map((recent_post) => (
-              <a href={'/blogs/' + recent_post.slug}>
+              <a href={`/blogs/${recent_post.slug}/index.html`}>
                 <div class="card h-96 w-80 bg-base-100 shadow-xl">
                   <figure class="max-h-72">
                     <img
@@ -77,7 +77,7 @@ const news_posts = blog_posts
     <!-- 詳細へ -->
     <div class="mt-10">
       <div class="justify-center">
-        <a href="/blogs/all" class="">
+        <a href="/blogs/all/index.html" class="">
           <div class="btn btn-primary btn-lg btn-block m-4 mx-auto">
             <div class="">
               <p class="text-lg font-bold">もっと見る</p>
@@ -104,7 +104,10 @@ const news_posts = blog_posts
         {
           news_posts.map((post) => (
             <div class="m-4">
-              <a href={'/blogs/' + post.slug} class="link link-primary  py-2">
+              <a
+                href={`/blogs/${post.slug}/index.html`}
+                class="link link-primary  py-2"
+              >
                 {post.data.title}
               </a>
             </div>
@@ -116,7 +119,10 @@ const news_posts = blog_posts
         {
           blog_posts.map((post) => (
             <div class="m-4">
-              <a href={'/blogs/' + post.slug} class="link link-primary py-2">
+              <a
+                href={`/blogs/${post.slug}/index.html`}
+                class="link link-primary py-2"
+              >
                 {post.data.title}
               </a>
             </div>
