@@ -36,7 +36,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
                     </h2>
                     <p class="leading-relaxed">{news_post.data.lead ?? ''}</p>
                     <a
-                      href={news_post.slug}
+                      href={`${news_post.slug}/index.html`}
                       class="mt-4 inline-flex items-center text-indigo-500"
                     >
                       詳細を見る
