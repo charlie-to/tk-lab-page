@@ -4,15 +4,27 @@ import LinkToForm from '../components/LinkToForm.astro'
 import { getCollection } from 'astro:content'
 import { Icon } from 'astro-icon'
 
-const news_posts = await getCollection('blog', ({ data }) => {
-  return data.tag.includes('news')
+const news_posts = (
+  await getCollection('blog', ({ data }) => {
+    return data.tag.includes('news')
+  })
+).sort((a, b) => {
+  return Date.parse(b.data.date) - Date.parse(a.data.date)
+})
+
+const blog_posts = (
+  await getCollection('blog', ({ data }) => {
+    return data.tag.includes('blog')
+  })
+).sort((a, b) => {
+  return Date.parse(b.data.date) - Date.parse(a.data.date)
 })
 ---
 
-<Layout title="高橋・狩川研究室HP">
+<Layout title="高橋・狩川研究室">
   <div class="container mx-auto">
     <!-- ランディング -->
-    <section class="">
+    <section class="" ,id="hero">
       <div class="">
         <div class="">
           <div
@@ -23,18 +35,25 @@ const news_posts = await getCollection('blog', ({ data }) => {
               src="city2-unsplash.jpg"
             />
             <p
-              class="relative mx-auto p-4 text-center text-3xl font-extrabold text-white backdrop-blur-lg backdrop-brightness-75"
+              class="relative mx-auto p-4 text-center text-white backdrop-blur-lg backdrop-brightness-75"
             >
-              安全な社会技術システムのために
+              <span class="text-3xl font-extrabold">
+                人間と機会の望ましい関係を目指して</span
+              >
+              <br />
+              <span class="text-base font-thin">
+                高橋・狩川研究室では、人間が安全性確保において主要な役割を果たす大規模・複雑システムの<br
+                />安全性向上に向けた実践的な研究を行っています。
+              </span>
             </p>
           </div>
         </div>
         <!-- アイコン列 -->
         <section class="body-font text-gray-600">
-          <div class="container mx-auto px-5 pt-12 pb-24">
+          <div class="container mx-auto px-5 pb-24 pt-12">
             <div class="-m-4 flex flex-wrap">
               <!-- items start -->
-              <div class="p-4 md:w-1/3">
+              <div class="w-full p-4 md:w-1/3">
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
                     <div
@@ -58,7 +77,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
               </div>
               <!-- items end -->
               <!-- items start -->
-              <div class="p-4 md:w-1/3">
+              <div class="w-full p-4 md:w-1/3">
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
                     <div
@@ -82,7 +101,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
               </div>
               <!-- items end -->
               <!-- items start -->
-              <div class="p-4 md:w-1/3">
+              <div class="w-full p-4 md:w-1/3">
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
                     <div
@@ -126,7 +145,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
           幅広い分野で研究を行っています
         </h1>
       </div>
-      <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+      <div class="mx-auto max-w-screen-lg px-4 md:px-8">
         <div class="grid sm:grid-cols-2">
           <!-- product - start -->
           <a
@@ -237,75 +256,94 @@ const news_posts = await getCollection('blog', ({ data }) => {
 
   <!-- ニュース -->
   <section class="bg-base mt-4 bg-base-200 py-10" id="news">
-    <div class="mx-auto py-24 text-center">
-      <h1 class="text-3xl font-bold">新着ニュース</h1>
+    <div class="mx-auto py-12 text-center">
+      <h1 class="text-3xl font-bold">新規投稿</h1>
     </div>
-    <div class="mx-auto w-5/6">
-      <div class="w-full overflow-x-auto">
-        <table class="table w-full">
-          <!-- head -->
-          <thead>
-            <tr>
-              <th>
-                <label> index</label>
-              </th>
-              <th>title</th>
-              <th> </th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- row -->
-            {
-              news_posts.map((news_post) => (
-                <tr>
-                  <th> {news_posts.indexOf(news_post) + 1} </th>
-                  <td>
-                    <div class="flex items-center space-x-3">
-                      <div class="avatar">
-                        <div class="mask mask-squircle h-12 w-12">
-                          <img
-                            src={
-                              news_post.data.coverImagePath ??
-                              '/lego-unsplash.jpg'
-                            }
-                            alt="Avatar News Component"
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <div class="font-bold">{news_post.data.title}</div>
-                        <div class="text-sm opacity-90">
-                          {news_post.data.tag.map((tag) => (
-                            <div class="badge-secondary badge-outline badge mr-3">
-                              {tag}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+    <div class="mx-auto px-12 md:flex">
+      <div class="mx-2 w-full overflow-x-auto md:w-1/2">
+        <h3 class="m-4 text-xl">ニュース</h3>
+        {
+          news_posts.slice(0, 3).map((post) => (
+            <a
+              href={'/blogs/' + post.slug}
+              class="block  border-b-2 bg-white p-4 shadow-inner hover:shadow-none"
+            >
+              <div class="flex w-full">
+                <div class="grow space-y-4">
+                  <div class="flex ">
+                    <div class="">
+                      {new Date(
+                        Date.parse(post.data.date)
+                      ).toLocaleDateString()}
                     </div>
-                  </td>
-                  <th>
-                    <a href={'/blog/' + news_post.slug}>
-                      <button class="btn-md btn btn-primary">詳細</button>
-                    </a>
-                  </th>
-                </tr>
-              ))
-            }
-          </tbody>
-          <tfoot>
-            <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-          </tfoot>
-        </table>
+                    <div>
+                      {post.data.tag.map((tag) => (
+                        <div class="badge badge-outline mx-2">{tag}</div>
+                      ))}
+                    </div>
+                  </div>
+                  <div class="">
+                    <span class="text-xl hover:underline">
+                      {post.data.title}
+                    </span>
+                  </div>
+                </div>
+                <div class="flex-none place-content-center items-center">
+                  <Icon
+                    name="ic:baseline-keyboard-arrow-right"
+                    size="40"
+                    class="h-full"
+                  />
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+      <div class="mx-2 w-full overflow-x-auto md:w-1/2">
+        <h3 class="m-4 text-xl">ブログ</h3>
+        {
+          blog_posts.slice(0, 3).map((post) => (
+            <a
+              href={'/blogs/' + post.slug}
+              class="block  border-b-2 bg-white p-4 shadow-inner hover:shadow-none"
+            >
+              <div class="flex w-full">
+                <div class="grow space-y-4">
+                  <div class="flex ">
+                    <div class="">
+                      {new Date(
+                        Date.parse(post.data.date)
+                      ).toLocaleDateString()}
+                    </div>
+                    <div>
+                      {post.data.tag.map((tag) => (
+                        <div class="badge badge-outline mx-2">{tag}</div>
+                      ))}
+                    </div>
+                  </div>
+                  <div class="">
+                    <span class="text-xl hover:underline">
+                      {post.data.title}
+                    </span>
+                  </div>
+                </div>
+                <div class="flex-none place-content-center items-center">
+                  <Icon
+                    name="ic:baseline-keyboard-arrow-right"
+                    size="40"
+                    class="h-full"
+                  />
+                </div>
+              </div>
+            </a>
+          ))
+        }
       </div>
     </div>
-    <div class="container mx-auto w-screen py-4">
-      <a href="/blog/news" class="flex justify-center"
-        ><div class="btn-secondary btn">ニュース一覧</div></a
+    <div class="container mx-auto my-4 w-screen py-4">
+      <a href="/blogs" class="flex justify-center"
+        ><div class="btn btn-secondary">ブログへ</div></a
       >
     </div>
   </section>
@@ -314,36 +352,21 @@ const news_posts = await getCollection('blog', ({ data }) => {
     <div class="mx-auto w-full p-10 text-center">
       <h1 class="text-3xl font-bold">研究室の特徴</h1>
     </div>
-    <div
-      class="mx-auto mb-3 grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-y-96"
-    >
-      <div class="card card-compact w-96 rounded-xl bg-base-100 shadow-xl">
-        <figure>
-          <img src="/pic_aircraft_sample.jpg" alt="Shoes" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title">研究紹介</h2>
-          <p>研究内容について</p>
-        </div>
-      </div>
-      <div class="card card-compact w-96 rounded-xl bg-base-100 shadow-xl">
-        <figure>
-          <img src="/pic_aircraft_sample.jpg" alt="Shoes" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title">研究紹介</h2>
-          <p>研究内容について</p>
-        </div>
-      </div>
-      <div class="card card-compact w-96 rounded-xl bg-base-100 shadow-xl">
-        <figure>
-          <img src="/pic_aircraft_sample.jpg" alt="Shoes" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title">研究紹介</h2>
-          <p>研究内容について</p>
-        </div>
-      </div>
+    <div class="mx-auto mb-3">
+      <ul class="list-disc">
+        <li>
+          航空システム、原子力プラント等の大規模複雑システムを対象にした実践的な研究
+        </li>
+        <li>
+          人間の認知モデルや行動経済学的視点に基づく安全性向上に関する研究
+        </li>
+        <li>
+          視覚系情報・心拍変動・脳活動等の生体情報に基づく人間状態推定技術の開発
+        </li>
+        <li>
+          主観的リスク認知の考え方に基づく先端技術（AI,原子力、次世代航空機）の社会受容に関する研究
+        </li>
+      </ul>
     </div>
   </section>
 

@@ -7,6 +7,16 @@ const blog_posts = await getCollection('blog')
 const recent_posts = blog_posts
   .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
   .slice(0, 3)
+const limit = 5
+const event_posts = blog_posts
+  .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
+  .filter((post) => post.data.tag.includes('event'))
+  .slice(0, limit + 1)
+
+const news_posts = blog_posts
+  .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
+  .filter((post) => post.data.tag.includes('news'))
+  .slice(0, limit + 1)
 ---
 
 <Layout title="研究室のようす">
@@ -31,8 +41,8 @@ const recent_posts = blog_posts
         <div class="grid grid-cols-1 place-items-center gap-6 lg:grid-cols-3">
           {
             recent_posts.map((recent_post) => (
-              <a href={'/blog/' + recent_post.slug}>
-                <div class="card bg-base-100 h-96 w-80 shadow-xl">
+              <a href={'/blogs/' + recent_post.slug}>
+                <div class="card h-96 w-80 bg-base-100 shadow-xl">
                   <figure class="max-h-72">
                     <img
                       src={
@@ -50,7 +60,7 @@ const recent_posts = blog_posts
                     <h2 class="card-title">{recent_post.data.title}</h2>
                     <div class="card-actions justify-end">
                       {recent_post.data.tag.map((tag) => (
-                        <div class="badge-outline badge">{tag}</div>
+                        <div class="badge badge-outline">{tag}</div>
                       ))}
                     </div>
                   </div>
@@ -67,8 +77,8 @@ const recent_posts = blog_posts
     <!-- 詳細へ -->
     <div class="mt-10">
       <div class="justify-center">
-        <a href="/blog/all" class="">
-          <div class="btn-primary btn-block btn-lg btn m-4 mx-auto">
+        <a href="/blogs/all" class="">
+          <div class="btn btn-primary btn-lg btn-block m-4 mx-auto">
             <div class="">
               <p class="text-lg font-bold">もっと見る</p>
               <p class="text-sm font-light text-gray-200">
@@ -80,5 +90,39 @@ const recent_posts = blog_posts
       </div>
     </div>
     <!-- 詳細へここまで -->
+  </section>
+
+  <!-- 各コンテンツごとに最近の記事を表示 -->
+  <section class="my-24 rounded-sm bg-base-200 py-8">
+    <h1 class="py-12 text-center text-3xl font-bold text-gray-800">
+      こちらもご覧ください
+    </h1>
+
+    <div class="container mx-auto w-full px-8 md:flex">
+      <div class="mx-8 py-8 md:w-1/2">
+        <div><h3 class="text-lg font-bold">ニュース</h3></div>
+        {
+          news_posts.map((post) => (
+            <div class="m-4">
+              <a href={'/blogs/' + post.slug} class="link link-primary  py-2">
+                {post.data.title}
+              </a>
+            </div>
+          ))
+        }
+      </div>
+      <div class="mx-8 py-8 md:w-1/2">
+        <div><h3 class="text-lg font-bold">ブログ</h3></div>
+        {
+          blog_posts.map((post) => (
+            <div class="m-4">
+              <a href={'/blogs/' + post.slug} class="link link-primary py-2">
+                {post.data.title}
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </section>
 </Layout>

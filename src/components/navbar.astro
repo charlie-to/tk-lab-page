@@ -3,34 +3,40 @@ import { Icon } from 'astro-icon'
 ---
 
 <nav class="bg-blue-200">
-  <div class="navbar h-4">
-    <div class="container navbar-start">
-      <h1>
-        <a href="/" class="flex">
-          <img src="/favicon.ico" alt="研究室ロゴ" class="h-10 object-fill" />
-          <div class="my-auto ml-3">
-            <h1 class="text-xl font-extrabold">高橋・狩川研究室</h1>
-          </div>
-        </a>
-      </h1>
-    </div>
-    <div class="navbar-end">
-      <div class="dropdown-end dropdown">
-        <label tabindex={0} class="btn-ghost btn-circle btn">
-          <Icon size={20} name="ic:baseline-more-horiz" />
-        </label>
-        <ul
-          tabindex={0}
-          class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow md:w-64"
+  <div class="navbar">
+    <div class="">
+      <header class="body-font text-gray-600">
+        <div
+          class="mx-auto flex flex-col flex-wrap items-center p-5 md:flex-row"
         >
-          <li><a href="/" class="md:text-xl">ホーム</a></li>
-          <li><a href="/research" class="md:text-xl">研究</a></li>
-          <li><a href="/member" class="md:text-xl">メンバー</a></li>
-          <li><a href="/alumni" class="md:text-xl">進路</a></li>
-          <li><a href="/blog/news" class="md:text-xl">ニュース</a></li>
-          <li><a href="/blog" class="md:text-xl">ブログ</a></li>
-        </ul>
-      </div>
+          <a
+            class="title-font mb-4 flex items-center font-medium text-gray-900 md:mb-0"
+            href="/"
+          >
+            <img src="/Logo2020_black.png" class="h-10" />
+            <span class="ml-3 text-xl">高橋・狩川研究室</span>
+          </a>
+        </div>
+      </header>
     </div>
+
+    <nav
+      class="navbar-center hidden flex-wrap items-center justify-center text-base md:ml-4 md:mr-auto md:flex md:border-l md:border-gray-400 md:py-1 md:pl-4"
+    >
+      <a class="mr-5 hover:text-gray-900 hover:underline" href="/research"
+        >研究内容</a
+      >
+      <a class="mr-5 hover:text-gray-900 hover:underline" href="/member"
+        >メンバー</a
+      >
+      <a class="mr-5 hover:text-gray-900 hover:underline" href="/alumni">進路</a
+      >
+      <a class="mr-5 hover:text-gray-900 hover:underline" href="/blogs"
+        >ブログ</a
+      >
+      <a class="mr-5 hover:text-gray-900 hover:underline" href="/contact"
+        >アクセス</a
+      >
+    </nav>
   </div>
 </nav>

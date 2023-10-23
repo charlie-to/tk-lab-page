@@ -14,18 +14,19 @@ const memberCollection = defineCollection({
 });
 
 // blog&news
-const blogCollection = defineCollection({
+const blogsCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.string(),
     tag: z.array(z.string()),
     lead: z.string().optional(),
     coverImagePath: z.string().optional(),
+    author_name_main: z.string().optional(),
   }),
 });
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
   "member": memberCollection,
-  "blog": blogCollection,
+  "blog": blogsCollection,
 };
