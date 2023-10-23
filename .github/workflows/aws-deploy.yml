@@ -2,10 +2,8 @@ name: Deploy Website to AWS
 
 on:
   push:
-    branches-ignore:
-      - '**'
-    tags:
-      - 'v*'
+    branches:
+      - production
 
 jobs:
   deploy:
