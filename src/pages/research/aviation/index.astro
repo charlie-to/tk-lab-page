@@ -1,8 +1,180 @@
 ---
-import Layout from '@layouts/Layout.astro'
-import UnderConstruction from '@components/underConstruction.astro'
+import Footer from '@components/footer.astro'
 ---
 
-<Layout title="航空グループ">
-  <UnderConstruction />
-</Layout>
+<!doctype html>
+<html>
+  <head>
+    <title>AviationGroup - Home</title>
+    <meta http-equiv="content-type" charset="UTF-8" />
+    <link rel="stylesheet" href="/aviation/aviation_style.css" />
+  </head>
+
+  <body>
+    <header id="header">
+      <div class="header-Logo">
+        <img src="/aviation/TKLab-Logo.png" class="header-Logo-image" />
+        <a href="/">
+          <h1 class="TKLab-Title">高橋・狩川研究室</h1>
+        </a>
+      </div>
+
+      <div class="header-menu">
+        <p class="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </p>
+        <nav>
+          <ul>
+            <li><a href="/">ホーム</a></li>
+            <li><a href="#">研究グループ</a></li>
+            <li><a href="#">メンバー</a></li>
+            <li><a href="#">卒業後の進路</a></li>
+            <li><a href="#">アクセス</a></li>
+            <li><a href="#">ブログ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div id="video-container" class="video-container">
+        <img src="/aviation/Aviation-head.gif" class="head-gif" />
+        <h1>航空グループ</h1>
+      </div>
+
+      <section id="introduction">
+        <h1>
+          高橋研究室は航空管制のヒューマンファクタに関して<br
+          />実践的・学術的研究を行っている日本で（ほぼ）唯一の研究室です
+        </h1>
+        <p>
+          高橋研では10年以上前から航空関係のヒューマンファクタの研究を行ってきました。初期の研究では航空機のコックピットのインタフェースに関する研究をANA現役機長と共に行いました。その後、研究の軸足を航空管制分野に移し、現役の航空管制官との協力体制をつくり研究を行っています。航空管制に関しては研究を行う我々の方も高いレベルでの知識が要求されますが、行っている研究の内容は現場での教育に使えると評価されるほどのシステムを提案するなど、単なるアカデミック研究のレベルを超えた実践的な研究を行っています。航空管制におけるヒューマンファクタに関する研究は空の安全を守るために非常に重要な問題ですが人材的に不足しています。あなたも是非、高橋研で航空管制の研究をしてみませんか？
+        </p>
+        <p>
+          本研究グループでは、航空分野をはじめとした大規模複雑システムにおけるさらなる安全性向上を目指し、Safety-Ⅱ実現に向けての鍵となる「レジリエンス」に関して、航空会社等との密接な連携を通じて、学術知にとどまらない実践的な研究を実施しています。以下に、本グループにおいて実際に行われている研究の一部を示します。
+        </p>
+      </section>
+
+      <section id="services">
+        <div class="content-wrap">
+          <ul class="content-list">
+            <li class="content-item is-right fadein">
+              <div class="content-itemInner">
+                <div class="image-container">
+                  <div class="image-containerInner">
+                    <img src="/aviation/ana_image.jpg" alt="ANA Image" />
+                    <!-- 背景画像 -->
+                    <img src="/aviation/jal_image.jpg" alt="JAL Image" />
+                    <!-- 表示画像 -->
+                  </div>
+                </div>
+                <div class="content-nameArea">
+                  <div class="content-nameInner">
+                    <h3 class="content-name">航空会社との共同研究「ROM」</h3>
+                  </div>
+                  <p class="content-label">
+                    Joint research with airline companies “ROM”
+                  </p>
+                  <p class="content-detailTxt">
+                    日本航空株式会社との共同研究により、Safety-IIという新たな安全の考えに基づいた「ROM(Resilience
+                    Operation
+                    Monitoring)」という新しい安全モニタリングプログラムの開発に取り組んでいます。従来は“うまくいかなかった事象“、つまり数少ない失敗事例に着目してきましたが、日常の運航の大多数である“うまくいった事象“の要因となった行動にも着目し分析をすることで、「成功を増やす事によって、より高い安全性の実現を目指す」新たな安全へのアプローチを研究しています。
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="content-item is-left fadein">
+              <div class="content-itemInner">
+                <div class="image-container">
+                  <div class="image-containerInner">
+                    <img src="/aviation/professor2.jpg" alt="ANA Image" />
+                    <!-- 背景画像 -->
+                    <img src="/aviation/professor1.jpg" alt="JAL Image" />
+                    <!-- 表示画像 -->
+                  </div>
+                </div>
+                <div class="content-nameArea">
+                  <div class="content-nameInner">
+                    <h3 class="content-name">
+                      運航乗務員のコンピテンシーに関する研究
+                    </h3>
+                  </div>
+                  <p class="content-label">
+                    Research on flight crew competencies
+                  </p>
+                  <p class="content-detailTxt">
+                    Safety-IIでは、安全への人間のポジティブな寄与やそれに繋がる能力であるレジリエンスが重要視されています。インタビューや質的研究法を用いながら、運航乗務員(パイロット)がもつレジリエンスのためのコンピテンシーを体系化・可視化し、そこから得られる知見を今後の教育・訓練、ひいては、さらなる安全運航に活かすことを目指した実践的な研究を行なっています。
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="content-item is-right fadein">
+              <div class="content-itemInner">
+                <div class="image-container">
+                  <div class="image-containerInner">
+                    <img src="/aviation/ATC_radar.jpg" alt="ANA Image" />
+                    <!-- 背景画像 -->
+                    <img src="/aviation/ATC-Tower.jpg" alt="JAL Image" />
+                    <!-- 表示画像 -->
+                  </div>
+                </div>
+                <div class="content-nameArea">
+                  <div class="content-nameInner">
+                    <h3 class="content-name">
+                      チームレジリエンスとコミュニケーションに関する実験研究
+                    </h3>
+                  </div>
+                  <p class="content-label">
+                    Experimental research on team resilience and communication
+                  </p>
+                  <p class="content-detailTxt">
+                    航空路管制業務をモデルとしたチームタスクシュミレータ(ASSIST)を用いて、様々なタイプの変動に対してレジリエントに対応できるチームの特徴を実験的に明らかにする研究を行なっています。特にチームのコミュニケーションに着目し、チームメンバー間での情報共有の量や質とチームパフォーマンスの関係を明らかにすることで、チームでオペレーションが行われる複雑システムにおける教育・訓練プログラムの一層の改善に資する知見の獲得を目指しています。
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="content-item is-left fadein">
+              <div class="content-itemInner">
+                <div class="image-container">
+                  <div class="image-containerInner">
+                    <img src="/aviation/jal_image.jpg" alt="ANA Image" />
+                    <!-- 背景画像 -->
+                    <img src="/aviation/ana_image.jpg" alt="JAL Image" />
+                    <!-- 表示画像 -->
+                  </div>
+                </div>
+                <div class="content-nameArea">
+                  <div class="content-nameInner">
+                    <h3 class="content-name">
+                      失敗許容度とスキルの柔軟性に関する基礎研究
+                    </h3>
+                  </div>
+                  <p class="content-label">
+                    Basic research on failure tolerance and skill flexibility
+                  </p>
+                  <p class="content-detailTxt">
+                    様々な複雑システムにおける安全対策として、「失敗の再発防止」が重視されてきました。
+                    安全に関わる失敗を防止することはもちろん重要ですが、より高い安全性の追求がより些細な失敗も許されない組織文化の形成につながれば、小さな失敗から学びを得てスキルを高める機会を得ることが困難となってしまいます。それは、システムのさらなる安全性向上に本当につながるのでしょうか？想定外の事態を含む様々な条件下でシステムの安全性を維持することに本当に貢献するのでしょうか？本研究では、それらの疑問に答えるための第一歩として、失敗に対する許容度の違いが、教育・訓練や経験を通じて獲得されるスキルの柔軟性に与える影響を独自のタスクシミュレーターを用いて研究しています。
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+    <footer>
+      <p>&copy; 2023 AviationGroup</p>
+    </footer>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+    <script
+      is:inline
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    ></script>
+    <script is:inline src="/aviation/aviation_script.js"></script>
+  </body>
+</html>
