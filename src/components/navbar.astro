@@ -1,48 +1,85 @@
 ---
 import { Icon } from 'astro-icon'
+
+const nav_links = [
+  {
+    name: '研究内容',
+    url: '/research/index.html'
+  },
+  {
+    name: 'メンバー',
+    url: '/member/index.html'
+  },
+  {
+    name: '進路',
+    url: '/alumni/index.html'
+  },
+  {
+    name: 'ブログ',
+    url: '/blogs/index.html'
+  },
+  {
+    name: 'アクセス',
+    url: '/contact/index.html'
+  }
+]
 ---
 
 <nav class="bg-blue-200">
   <div class="navbar">
-    <div class="">
-      <header class="body-font text-gray-600">
-        <div
-          class="mx-auto flex flex-col flex-wrap items-center p-5 md:flex-row"
-        >
-          <a
-            class="title-font mb-4 flex items-center font-medium text-gray-900 md:mb-0"
-            href="/"
+    <div class="navbar-start">
+      <div class="dropdown">
+        <label tabindex={0} class="btn btn-ghost lg:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h8m-8 6h16"></path></svg
           >
-            <img src="/Logo2020_black.png" class="h-10" />
-            <span class="ml-3 text-xl">高橋・狩川研究室</span>
-          </a>
-        </div>
-      </header>
+        </label>
+        <ul
+          tabindex={0}
+          class="menu-sm dropdown-content menu rounded-box z-[1] mt-3 w-60 bg-slate-100 p-2 shadow"
+        >
+          {
+            nav_links.map((link) => (
+              <li class="">
+                <a href={link.url} class="text-lg">
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="mx-auto flex flex-col flex-wrap p-5 align-middle">
+        <a
+          class="title-font mb-0 flex items-center font-medium text-gray-900"
+          href="/"
+        >
+          <img src="/Logo2020_black.png" class="h-10" />
+          <span class="ml-3 text-lg lg:text-2xl">高橋・狩川研究室</span>
+        </a>
+      </div>
     </div>
-
-    <nav
-      class="navbar-center hidden flex-wrap items-center justify-center text-base md:ml-4 md:mr-auto md:flex md:border-l md:border-gray-400 md:py-1 md:pl-4"
-    >
-      <a
-        class="mr-5 hover:text-gray-900 hover:underline"
-        href="/research/index.html">研究内容</a
-      >
-      <a
-        class="mr-5 hover:text-gray-900 hover:underline"
-        href="/member/index.html">メンバー</a
-      >
-      <a
-        class="mr-5 hover:text-gray-900 hover:underline"
-        href="/alumni/index.html">進路</a
-      >
-      <a
-        class="mr-5 hover:text-gray-900 hover:underline"
-        href="/blogs/index.html">ブログ</a
-      >
-      <a
-        class="mr-5 hover:text-gray-900 hover:underline"
-        href="/contact/index.html">アクセス</a
-      >
-    </nav>
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        {
+          nav_links.map((link) => (
+            <li class="mr-5 text-lg">
+              <a href={link.url} class="hover:text-gray-900 hover:underline">
+                {link.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </div>
 </nav>
