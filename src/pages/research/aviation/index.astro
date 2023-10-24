@@ -1,5 +1,6 @@
 ---
 import Footer from '@components/footer.astro'
+import './aviation_style.css'
 ---
 
 <!doctype html>
@@ -7,7 +8,6 @@ import Footer from '@components/footer.astro'
   <head>
     <title>AviationGroup - Home</title>
     <meta http-equiv="content-type" charset="UTF-8" />
-    <link rel="stylesheet" href="/aviation/aviation_style.css" />
   </head>
 
   <body>
@@ -175,6 +175,137 @@ import Footer from '@components/footer.astro'
       is:inline
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     ></script>
-    <script is:inline src="/aviation/aviation_script.js"></script>
+    <script is:inline>
+      $(function () {
+        $('.hamburger-menu').on('click', function () {
+          $('nav').toggleClass('open') // メニューにopenクラスをつけ外しする
+          $('.hamburger-menu').toggleClass('open')
+        })
+      })
+
+      $(function () {
+        $('.header-Logo-image').on('click', function () {
+          $('body').toggleClass('cursorEffect') // body全体にcursorEffectクラスをつけ外しする
+        })
+      })
+
+      let konamiCode = []
+      const konamiPattern = [
+        'ArrowUp',
+        'ArrowUp',
+        'ArrowDown',
+        'ArrowDown',
+        'ArrowLeft',
+        'ArrowRight',
+        'ArrowLeft',
+        'ArrowRight',
+        'KeyB',
+        'KeyA'
+      ]
+      const headerLogoImage = document.querySelector('.header-Logo-image')
+
+      document.addEventListener('keydown', (e) => {
+        konamiCode.push(e.code)
+        konamiCode = konamiCode.slice(-10) // Keep the last 10 key presses
+
+        if (konamiCode.join('') === konamiPattern.join('')) {
+          // Konami code matched, start rotation animation
+          headerLogoImage.classList.add('rotate')
+          konamiCode = [] // Reset the input code
+        }
+      })
+
+      //画面に表示されたコンテンツをフェードインさせる関数
+      $(function () {
+        $(window).scroll(function () {
+          $('.fadein').each(function () {
+            var position = $(this).offset().top
+            var scroll = $(window).scrollTop()
+            var windowHeight = $(window).height()
+            if (scroll > position - windowHeight + 400) {
+              $(this).addClass('active')
+            }
+          })
+        })
+      })
+
+      const keywords_J = [
+        '航空安全',
+        '航空管制',
+        '産学官',
+        'パイロット',
+        'ヒューマンファクター',
+        'レジリエンス',
+        'コンピテンシー',
+        'ノンテクニカルスキル',
+        '安全文化',
+        '質的研究'
+      ]
+
+      const keywords_E = [
+        'Aviation Safety',
+        'Air Traffic Control',
+        'Industry-Academia-Government Collaboration',
+        'Pilot',
+        'Human Factors',
+        'Resilience',
+        'Safety II',
+        'Competency',
+        'Non-technical Skills',
+        'Safety Culture',
+        'Qualitative Research'
+      ]
+
+      const container = document.getElementById('video-container')
+
+      let count = 0
+
+      // Interval to add words
+      setInterval(() => {
+        // Random coordinates
+        const x = Math.floor(Math.random() * (window.innerWidth * 0.9))
+        const y = Math.floor(Math.random() * (window.innerWidth * 0.4)) + 50
+
+        // Random word
+        const word = keywords_E[count]
+
+        count++
+        if (count == keywords_E.length) {
+          count = 0
+        }
+
+        const font_size = Math.floor(
+          Math.random() * (window.innerWidth * 0.1) + 20
+        )
+
+        // Create element
+        const el = document.createElement('div')
+        el.classList.add('keywords')
+        el.innerText = word
+        el.style.position = 'absolute'
+        el.style.left = x + 'px'
+        el.style.top = y + 'px'
+        el.style.fontSize = font_size + 'px'
+
+        // Fade in
+        el.style.opacity = 0
+        container.appendChild(el)
+
+        setTimeout(() => {
+          el.style.transition = '2s ease-in-out'
+          el.style.opacity = 1
+        }, 1000)
+
+        // Fade out after fade in
+        setTimeout(() => {
+          el.style.transition = '2s ease-in-out'
+          el.style.opacity = 0
+
+          setTimeout(() => {
+            el.remove()
+          }, 4000)
+        }, 3000)
+      }, 1500)
+    </script>
   </body>
 </html>
