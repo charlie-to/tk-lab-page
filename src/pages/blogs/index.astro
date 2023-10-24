@@ -36,7 +36,7 @@ const news_posts = blog_posts
         <!-- 題名とリードここまで -->
         <!-- ここからブログ投稿のカード -->
         <div class="mx-auto text-center">
-          <h2 class="py-12 text-2xl font-bold">最近の投稿</h2>
+          <h2 class="py-12 text-3xl font-bold">最近の投稿</h2>
         </div>
         <div class="grid grid-cols-1 place-items-center gap-6 lg:grid-cols-3">
           {
@@ -52,7 +52,7 @@ const news_posts = blog_posts
                     />
                   </figure>
                   <div class="card-body">
-                    <p class="text-sm font-light text-gray-500">
+                    <p class="text-base font-light text-gray-500">
                       {new Date(
                         Date.parse(recent_post.data.date)
                       ).toLocaleDateString()}
@@ -60,7 +60,7 @@ const news_posts = blog_posts
                     <h2 class="card-title">{recent_post.data.title}</h2>
                     <div class="card-actions justify-end">
                       {recent_post.data.tag.map((tag) => (
-                        <div class="badge badge-outline">{tag}</div>
+                        <div class="badge badge-outline text-base">{tag}</div>
                       ))}
                     </div>
                   </div>
@@ -95,18 +95,18 @@ const news_posts = blog_posts
   <!-- 各コンテンツごとに最近の記事を表示 -->
   <section class="my-24 rounded-sm bg-base-200 py-8">
     <h1 class="py-12 text-center text-3xl font-bold text-gray-800">
-      こちらもご覧ください
+      ジャンル別投稿
     </h1>
 
     <div class="container mx-auto w-full px-8 md:flex">
       <div class="mx-8 py-8 md:w-1/2">
-        <div><h3 class="text-lg font-bold">ニュース</h3></div>
+        <div><h3 class="text-xl font-bold">ニュース</h3></div>
         {
           news_posts.map((post) => (
             <div class="m-4">
               <a
                 href={`/blogs/${post.slug}/index.html`}
-                class="link link-primary  py-2"
+                class="link link-primary  py-2 text-lg"
               >
                 {post.data.title}
               </a>
@@ -115,13 +115,13 @@ const news_posts = blog_posts
         }
       </div>
       <div class="mx-8 py-8 md:w-1/2">
-        <div><h3 class="text-lg font-bold">ブログ</h3></div>
+        <div><h3 class="text-xl font-bold">ブログ</h3></div>
         {
           blog_posts.map((post) => (
             <div class="m-4">
               <a
                 href={`/blogs/${post.slug}/index.html`}
-                class="link link-primary py-2"
+                class="link link-primary py-2 text-lg"
               >
                 {post.data.title}
               </a>
