@@ -5,7 +5,11 @@ import { Icon } from 'astro-icon'
 
 import { getCollection, getEntryBySlug } from 'astro:content'
 const members = await getCollection('member')
-const student = members.filter((member) => member.data.major !== '')
+const student = members
+  .filter((member) => member.data.major !== '')
+  .sort((a, b) => {
+    return a.data.order - b.data.order
+  })
 const staff = members
   .filter((member) => member.data.major === '')
   .sort((a, b) => {
@@ -66,7 +70,7 @@ const staff = members
                   <img
                     src={student.data.imagePath}
                     alt="Shoes"
-                    class="h-52 w-full object-cover object-center brightness-90"
+                    class="h-36 w-full object-cover object-center brightness-90"
                   />
                 ) : (
                   <Icon name="mdi:account" class="w-full" />

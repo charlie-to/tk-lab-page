@@ -4,6 +4,6 @@ name:
   sub: 'Kujirai Eri'
 grade: '秘書'
 major: ''
-order: 3
+order: 4
 ---
 

@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon'
+
 import { getCollection } from 'astro:content'
 export async function getStaticPaths() {
   const blogEntries = await getCollection('member')
@@ -21,12 +23,17 @@ const { Content } = await entry.render()
           <div
             class="h-44 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-auto"
           >
-            <img
-              src={entry.data.imagePath || '/Logo2020_black.png'}
-              loading="lazy"
-              alt="Photo by Martin Sanchez"
-              class="h-full w-full object-cover object-center"
-            />
+            {
+              entry.data.imagePath ? (
+                <img
+                  src={entry.data.imagePath}
+                  alt="Shoes"
+                  class="h-52 w-full object-cover object-center brightness-90"
+                />
+              ) : (
+                <Icon name="mdi:account" class="w-full" />
+              )
+            }
           </div>
         </div>
 
@@ -41,7 +48,7 @@ const { Content } = await entry.render()
             {entry.data.name.main}
           </h1>
           <div id="content-container">
-            <Content class="prose-stone prose prose-h1:text-lg" />
+            <Content class="prose prose-stone prose-h1:text-lg" />
           </div>
         </div>
       </div>
