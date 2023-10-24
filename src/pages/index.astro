@@ -28,7 +28,7 @@ const blog_posts = (
       <div class="">
         <div class="">
           <div
-            class="group relative mx-auto flex h-60 w-full items-center md:h-96"
+            class="group relative mx-auto flex h-60 w-full items-center lg:h-96"
           >
             <img
               class="absolute h-full w-full object-cover object-center"
@@ -53,7 +53,7 @@ const blog_posts = (
           <div class="container mx-auto px-5 pb-24 pt-12">
             <div class="-m-4 flex flex-wrap">
               <!-- items start -->
-              <div class="w-full p-4 md:w-1/3">
+              <div class="w-full p-4 lg:w-1/3">
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
                     <div
@@ -77,7 +77,7 @@ const blog_posts = (
               </div>
               <!-- items end -->
               <!-- items start -->
-              <div class="w-full p-4 md:w-1/3">
+              <div class="w-full p-4 lg:w-1/3">
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
                     <div
@@ -101,7 +101,7 @@ const blog_posts = (
               </div>
               <!-- items end -->
               <!-- items start -->
-              <div class="w-full p-4 md:w-1/3">
+              <div class="w-full p-4 lg:w-1/3">
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
                     <div
@@ -145,8 +145,8 @@ const blog_posts = (
           幅広い分野で研究を行っています
         </h1>
       </div>
-      <div class="mx-auto max-w-screen-lg px-4 md:px-8">
-        <div class="grid sm:grid-cols-2">
+      <div class="mx-auto max-w-screen-lg px-4 lg:px-8">
+        <div class="grid lg:grid-cols-2">
           <!-- product - start -->
           <a
             href="/research/aviation/index.html"
@@ -166,7 +166,7 @@ const blog_posts = (
 
             <div class="relative flex flex-col">
               <span class="text-gray-300">Group 01</span>
-              <span class="text-lg font-semibold text-white lg:text-xl"
+              <span class="text-2xl font-semibold text-white lg:text-xl"
                 >航空</span
               >
             </div>
@@ -192,7 +192,8 @@ const blog_posts = (
 
             <div class="relative flex flex-col">
               <span class="text-gray-300">Group 02</span>
-              <span class="text-lg font-semibold text-white lg:text-xl">AI</span
+              <span class="text-2xl font-semibold text-white lg:text-xl"
+                >AI</span
               >
             </div>
           </a>
@@ -217,7 +218,7 @@ const blog_posts = (
 
             <div class="relative flex flex-col">
               <span class="text-gray-300">Group 03</span>
-              <span class="text-lg font-semibold text-white lg:text-xl"
+              <span class="text-2xl font-semibold text-white lg:text-xl"
                 >リスク認知</span
               >
             </div>
@@ -243,7 +244,7 @@ const blog_posts = (
 
             <div class="relative flex flex-col">
               <span class="text-gray-300">Group 04</span>
-              <span class="text-lg font-semibold text-white lg:text-xl"
+              <span class="text-2xl font-semibold text-white lg:text-xl"
                 >認知</span
               >
             </div>
@@ -259,8 +260,8 @@ const blog_posts = (
     <div class="mx-auto py-12 text-center">
       <h1 class="text-3xl font-bold">新規投稿</h1>
     </div>
-    <div class="mx-auto px-12 md:flex">
-      <div class="mx-2 w-full overflow-x-auto md:w-1/2">
+    <div class="mx-auto px-12 lg:flex">
+      <div class="mx-2 w-full overflow-x-auto lg:w-1/2">
         <h3 class="m-4 text-xl">ニュース</h3>
         {
           news_posts.slice(0, 3).map((post) => (
@@ -270,20 +271,22 @@ const blog_posts = (
             >
               <div class="flex w-full">
                 <div class="grow space-y-4">
-                  <div class="flex ">
-                    <div class="">
+                  <div class="flex align-middle">
+                    <div class="text-base">
                       {new Date(
                         Date.parse(post.data.date)
                       ).toLocaleDateString()}
                     </div>
                     <div>
                       {post.data.tag.map((tag) => (
-                        <div class="badge badge-outline mx-2">{tag}</div>
+                        <div class="badge badge-outline mx-2 p-3 text-base">
+                          {tag}
+                        </div>
                       ))}
                     </div>
                   </div>
                   <div class="">
-                    <span class="text-xl hover:underline">
+                    <span class="text-2xl hover:underline">
                       {post.data.title}
                     </span>
                   </div>
@@ -300,7 +303,7 @@ const blog_posts = (
           ))
         }
       </div>
-      <div class="mx-2 w-full overflow-x-auto md:w-1/2">
+      <div class="mx-2 w-full overflow-x-auto lg:w-1/2">
         <h3 class="m-4 text-xl">ブログ</h3>
         {
           blog_posts.slice(0, 3).map((post) => (
@@ -310,20 +313,22 @@ const blog_posts = (
             >
               <div class="flex w-full">
                 <div class="grow space-y-4">
-                  <div class="flex ">
-                    <div class="">
+                  <div class="flex align-middle">
+                    <div class="text-base">
                       {new Date(
                         Date.parse(post.data.date)
                       ).toLocaleDateString()}
                     </div>
                     <div>
                       {post.data.tag.map((tag) => (
-                        <div class="badge badge-outline mx-2">{tag}</div>
+                        <div class="badge badge-outline mx-2 p-3 text-base">
+                          {tag}
+                        </div>
                       ))}
                     </div>
                   </div>
                   <div class="">
-                    <span class="text-xl hover:underline">
+                    <span class="text-2xl hover:underline">
                       {post.data.title}
                     </span>
                   </div>
@@ -343,7 +348,7 @@ const blog_posts = (
     </div>
     <div class="container mx-auto my-4 w-screen py-4">
       <a href="/blogs/index.html" class="flex justify-center"
-        ><div class="btn btn-secondary">ブログへ</div></a
+        ><div class="btn btn-secondary text-lg">ブログへ</div></a
       >
     </div>
   </section>
@@ -352,7 +357,7 @@ const blog_posts = (
     <div class="mx-auto w-full p-10 text-center">
       <h1 class="text-3xl font-bold">研究室の特徴</h1>
     </div>
-    <div class="mx-auto mb-3">
+    <div class="mb- mx-auto text-base">
       <ul class="list-disc">
         <li>
           航空システム、原子力プラント等の大規模複雑システムを対象にした実践的な研究
