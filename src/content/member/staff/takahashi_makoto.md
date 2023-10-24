@@ -4,6 +4,6 @@ name:
   sub: 'Takahashi Makoto'
 grade: '教授'
 major: ''
-imagePath: '/lego-unsplash.jpg'
+order: 1
 ---
 
