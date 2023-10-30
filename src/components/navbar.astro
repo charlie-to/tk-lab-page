@@ -28,43 +28,13 @@ const nav_links = [
 <nav class="bg-blue-200">
   <div class="navbar">
     <div class="navbar-start">
-      <div class="dropdown">
-        <label tabindex={0} class="btn btn-ghost lg:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-8 w-8"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h8m-8 6h16"></path></svg
-          >
-        </label>
-        <ul
-          tabindex={0}
-          class="menu-sm dropdown-content menu rounded-box z-[1] mt-3 w-60 bg-slate-100 p-2 shadow"
-        >
-          {
-            nav_links.map((link) => (
-              <li class="">
-                <a href={link.url} class="text-lg">
-                  {link.name}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
       <div class="mx-auto flex flex-col flex-wrap p-5 align-middle">
         <a
           class="title-font mb-0 flex items-center font-medium text-gray-900"
           href="/"
         >
           <img src="/Logo2020_black.png" class="h-10" />
-          <span class="ml-3 text-lg lg:text-2xl">高橋・狩川研究室</span>
+          <span class="ml-3 text-xl lg:text-3xl">高橋・狩川研究室</span>
         </a>
       </div>
     </div>
@@ -80,6 +50,38 @@ const nav_links = [
           ))
         }
       </ul>
+    </div>
+    <div class="navbar-end lg:hidden">
+      <div class="dropdown-end dropdown">
+        <label tabindex={0} class="btn btn-ghost">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h8m-8 6h16"></path></svg
+          >
+        </label>
+        <ul
+          tabindex={0}
+          class="menu-lg dropdown-content menu rounded-box z-[1] mt-3 w-80 bg-slate-100 p-2 shadow"
+        >
+          {
+            nav_links.map((link) => (
+              <li class="">
+                <a href={link.url} class="text-xl">
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
