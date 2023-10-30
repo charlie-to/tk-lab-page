@@ -1,11 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import type { IMemberFrontmatter } from './member'
+import { Icon } from 'astro-icon'
 
 import { getCollection, getEntryBySlug } from 'astro:content'
 const members = await getCollection('member')
-const student = members.filter((member) => member.data.major !== '')
-const staff = members.filter((member) => member.data.major === '')
+const student = members
+  .filter((member) => member.data.major !== '')
+  .sort((a, b) => {
+    return a.data.order - b.data.order
+  })
+const staff = members
+  .filter((member) => member.data.major === '')
+  .sort((a, b) => {
+    return a.data.order - b.data.order
+  })
 ---
 
 <Layout title="メンバー">
@@ -20,11 +29,15 @@ const staff = members.filter((member) => member.data.major === '')
           <a href={`${staff.slug}/index.html`}>
             <div class="card w-80 bg-base-300 shadow-xl duration-200 hover:scale-105">
               <figure>
-                <img
-                  src={staff.data.imagePath ?? '/Logo2020_black.png'}
-                  alt="Shoes"
-                  class="h-52 w-full object-cover object-center brightness-90"
-                />
+                {staff.data.imagePath ? (
+                  <img
+                    src={staff.data.imagePath}
+                    alt="Shoes"
+                    class="h-52 w-full object-cover object-center brightness-90"
+                  />
+                ) : (
+                  <Icon name="mdi:account" class="w-full" />
+                )}
               </figure>
               <div class="card-body">
                 <h2 class="card-title flex align-bottom">
@@ -53,11 +66,15 @@ const staff = members.filter((member) => member.data.major === '')
           <a href={`${student.slug}/index.html`}>
             <div class="card w-80 bg-base-300 shadow-xl duration-200 hover:scale-105">
               <figure>
-                <img
-                  src={student.data.imagePath ?? '/Logo2020_black.png'}
-                  alt="Shoes"
-                  class="h-52 w-full object-cover object-center brightness-90"
-                />
+                {student.data.imagePath ? (
+                  <img
+                    src={student.data.imagePath}
+                    alt="Shoes"
+                    class="h-36 w-full object-cover object-center brightness-90"
+                  />
+                ) : (
+                  <Icon name="mdi:account" class="w-full" />
+                )}
               </figure>
               <div class="card-body">
                 <h2 class="card-title flex align-bottom">
