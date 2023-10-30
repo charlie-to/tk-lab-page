@@ -3,6 +3,7 @@ title: '9月の研究室ブログ'
 date: '2022-11-24'
 tag: ['blog']
 lead: '定期更新（を目指して作成した）第6弾！'
+coverImagePath: '/blog/monthly-202209/image-1.png'
 author_name_main: '嶋貫　太一'
 ---
 

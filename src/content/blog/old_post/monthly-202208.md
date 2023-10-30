@@ -3,6 +3,7 @@ title: '8月の研究室ブログ'
 date: '2022-10-18'
 tag: ['blog']
 lead: '定期更新（を目指して作成した）第5弾！'
+coverImagePath: '/blog/monthly-202208/おみやげ1.png'
 author_name_main: '椎野　直'
 ---
 

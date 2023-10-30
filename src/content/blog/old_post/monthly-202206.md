@@ -3,6 +3,7 @@ title: '高橋研の６月'
 date: '2022-08-04'
 tag: ['blog']
 lead: '定期更新（を目指して作成した）第3弾！'
+coverImagePath: '/blog/monthly-202207/image-1.png'
 author_name_main: ''
 ---
 

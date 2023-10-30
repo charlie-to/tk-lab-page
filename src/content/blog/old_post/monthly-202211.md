@@ -3,6 +3,7 @@ title: '11月の研究室ブログ'
 date: '2023-01-27'
 tag: ['blog']
 lead: '定期更新（を目指して作成した）第8弾！'
+coverImagePath: '/blog/monthly-202211/image-1.png'
 author_name_main: ''
 ---
 

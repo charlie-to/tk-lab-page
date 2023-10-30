@@ -3,6 +3,7 @@ title: '１月の研究室ブログ'
 date: '2023-03-01'
 tag: ['blog']
 lead: '定期更新（を目指して作成した）第10弾！'
+coverImagePath: '/blog/monthly-202301/image-1.jpeg'
 author_name_main: ''
 ---
 

@@ -3,6 +3,7 @@ title: '10月（11月）の研究室ブログ'
 date: '2023-01-26'
 tag: ['blog']
 lead: '定期更新（を目指して作成した）第7弾！'
+coverImagePath: '/blog/monthly-202210/image-1.jpg'
 author_name_main: '原武　佑次'
 ---
 

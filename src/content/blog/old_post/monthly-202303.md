@@ -3,6 +3,7 @@ title: '3月の研究室ブログ'
 date: '2023-04-13'
 tag: ['blog']
 lead: '定期更新（を目指して作成した）第12弾！'
+coverImagePath: '/blog/monthly-202303/image-1.jpg'
 author_name_main: '木村　龍一'
 ---
 

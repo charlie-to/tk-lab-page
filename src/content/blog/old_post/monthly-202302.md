@@ -3,6 +3,7 @@ title: '2月の研究ブログ'
 date: '2023-04-12'
 tag: ['blog']
 lead: '定期更新（を目指して作成した）第11弾！'
+coverImagePath: '/blog/monthly-202302/image-1.jpg'
 author_name_main: '本田　温'
 ---
 
