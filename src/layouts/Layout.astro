@@ -4,17 +4,34 @@ import Navbar from '../components/navbar.astro'
 import Footer from '../components/footer.astro'
 export interface Props {
   title: string
+  description?: string
 }
 
-const { title } = Astro.props
+const { title, description } = Astro.props
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="jp" class="scroll-smooth">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-ZG7PN8PVWQ"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'G-ZG7PN8PVWQ')
+    </script>
+    <!-- End Google tag (gtag.js) -->
+
     <meta charset="UTF-8" />
     <SEO
-      title={title}
+      title={title ?? '高橋・狩川研究室'}
+      description={description ?? '高橋・狩川研究室のホームページです。'}
       extend={{ link: [{ rel: 'icon', href: '/favicon.ico' }] }}
     />
   </head>

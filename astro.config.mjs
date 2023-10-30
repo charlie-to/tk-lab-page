@@ -9,6 +9,7 @@ import remarkSlug from 'remark-slug'
 import remarkToc from 'remark-toc'
 import sitemap from '@astrojs/sitemap'
 import { h } from 'hastscript'
+import partytown from "@astrojs/partytown"
 
 // https://astro.build/config
 /** @type {import('astro').AstroUserConfig;} */
@@ -21,7 +22,11 @@ export default defineConfig({
   integrations: [
     tailwind({ configFile: './tailwind.config.cjs' }),
     image(),
-    sitemap()
+    sitemap(),
+    partytown({
+      // Adds dataLayer.push as a forwarding-event.
+      config: {forward: ["dataLayer.push"]}
+    })
   ],
   markdown: {
     remarkPlugins: [remarkSlug, remarkToc],
