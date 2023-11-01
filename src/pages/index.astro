@@ -277,7 +277,7 @@ const blog_posts = (
                         Date.parse(post.data.date)
                       ).toLocaleDateString()}
                     </div>
-                    <div>
+                    <div class="hidden md:flex">
                       {post.data.tag.map((tag) => (
                         <div class="badge badge-outline mx-2 p-3 text-base">
                           {tag}
@@ -319,7 +319,7 @@ const blog_posts = (
                         Date.parse(post.data.date)
                       ).toLocaleDateString()}
                     </div>
-                    <div>
+                    <div class="hidden md:flex">
                       {post.data.tag.map((tag) => (
                         <div class="badge badge-outline mx-2 p-3 text-base">
                           {tag}
