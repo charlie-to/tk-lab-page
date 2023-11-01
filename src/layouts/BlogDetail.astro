@@ -49,11 +49,13 @@ const author = await getCollection('member')
       @apply hidden;
     }
     /* リストのアイテムのスタイル */
+
     .markdown-body li.task-list-item {
       @apply list-none;
     }
-    .markdown-body input[type='checkbox'] {
-      @apply checkbox checkbox-primary checkbox-md;
+
+    .markdown-body ol {
+      @apply mb-4 list-inside list-decimal pl-4;
     }
   </style>
 
@@ -94,7 +96,9 @@ const author = await getCollection('member')
             }
           </div>
         </div>
-        <div class="markdown-body border-t border-dashed border-neutral py-6">
+        <div
+          class="markdown-body prose border-t border-dashed border-neutral py-6"
+        >
           <slot />
         </div>
       </article>

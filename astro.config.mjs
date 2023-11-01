@@ -29,6 +29,8 @@ export default defineConfig({
     })
   ],
   markdown: {
+    gfm: true,
+    smartypants: true,
     remarkPlugins: [remarkSlug, remarkToc],
     rehypePlugins: [
       [
@@ -67,7 +69,6 @@ export default defineConfig({
       ]
     ],
 
-    gfm: true,
-    smartypants: true
+    
   }
 })
