@@ -1,14 +1,17 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
-import image from '@astrojs/image'
 import remarkSmartypants from 'remark-smartypants'
+import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeToc from 'rehype-toc'
+import remarkBreaks from "remark-breaks";
 import remarkSlug from 'remark-slug'
 import remarkToc from 'remark-toc'
 import sitemap from '@astrojs/sitemap'
 import { h } from 'hastscript'
+import remarkDirective from 'remark-directive'
+import remarkDirectiveRehype from 'remark-directive-rehype'
 import partytown from "@astrojs/partytown"
 
 // https://astro.build/config
@@ -21,7 +24,6 @@ export default defineConfig({
   },
   integrations: [
     tailwind({ configFile: './tailwind.config.cjs' }),
-    image(),
     sitemap(),
     partytown({
       // Adds dataLayer.push as a forwarding-event.
@@ -31,7 +33,7 @@ export default defineConfig({
   markdown: {
     gfm: true,
     smartypants: true,
-    remarkPlugins: [remarkSlug, remarkToc],
+    remarkPlugins: [remarkSlug, remarkToc,remarkBreaks,remarkDirective,remarkDirectiveRehype],
     rehypePlugins: [
       [
         rehypeAutolinkHeadings,
@@ -68,7 +70,7 @@ export default defineConfig({
         }
       ]
     ],
-
+    extendDefaultPlugins:true
     
   }
 })
