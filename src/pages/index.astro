@@ -37,8 +37,8 @@ const blog_posts = (
             <p
               class="relative mx-auto p-4 text-center text-white backdrop-blur-lg backdrop-brightness-75"
             >
-              <span class="text-3xl font-extrabold">
-                人間と機会の望ましい関係を目指して</span
+              <span class="text-4xl font-extrabold">
+                人間と機械の望ましい関係を目指して</span
               >
               <br />
               <span class="text-base font-thin">
@@ -68,7 +68,7 @@ const blog_posts = (
                       高橋・狩川研の研究内容を知る
                     </p>
                     <a href="#research">
-                      <div class="mx-auto mt-3 h-10 w-10 text-indigo-500">
+                      <div class="mx-auto mt-3 h-24 w-24 text-indigo-500">
                         <Icon name="mdi:chevron-down" />
                       </div>
                     </a>
@@ -92,7 +92,7 @@ const blog_posts = (
                       高橋・狩川研の最近の様子を知る
                     </p>
                     <a href="#news">
-                      <div class="mx-auto mt-3 h-10 w-10 text-indigo-500">
+                      <div class="mx-auto mt-3 h-24 w-24 text-indigo-500">
                         <Icon name="mdi:chevron-down" />
                       </div>
                     </a>
@@ -116,7 +116,7 @@ const blog_posts = (
                       高橋・狩川研はこんな研究室です
                     </p>
                     <a href="#aboutUs">
-                      <div class="mx-auto mt-3 h-10 w-10 text-indigo-500">
+                      <div class="mx-auto mt-3 h-24 w-24 text-indigo-500">
                         <Icon name="mdi:chevron-down" />
                       </div>
                     </a>
@@ -137,7 +137,7 @@ const blog_posts = (
     <div class="bg-white py-6 sm:py-8 lg:py-12">
       <div class="mb-20 flex w-full flex-col text-center">
         <h2
-          class="title-font text-md mb-1 font-medium tracking-widest text-indigo-500"
+          class="title-font mb-1 text-xl font-medium tracking-widest text-indigo-500"
         >
           研究内容
         </h2>
@@ -277,7 +277,7 @@ const blog_posts = (
                         Date.parse(post.data.date)
                       ).toLocaleDateString()}
                     </div>
-                    <div>
+                    <div class="hidden md:flex">
                       {post.data.tag.map((tag) => (
                         <div class="badge badge-outline mx-2 p-3 text-base">
                           {tag}
@@ -319,7 +319,7 @@ const blog_posts = (
                         Date.parse(post.data.date)
                       ).toLocaleDateString()}
                     </div>
-                    <div>
+                    <div class="hidden md:flex">
                       {post.data.tag.map((tag) => (
                         <div class="badge badge-outline mx-2 p-3 text-base">
                           {tag}
@@ -346,10 +346,12 @@ const blog_posts = (
         }
       </div>
     </div>
-    <div class="container mx-auto my-4 w-screen py-4">
-      <a href="/blogs/index.html" class="flex justify-center"
-        ><div class="btn btn-secondary text-lg">ブログへ</div></a
-      >
+    <div class="container mx-auto my-4 flex justify-center py-4">
+      <a href="/blogs/index.html" class=""
+        ><div class="btn btn-secondary mx-auto">
+          <p class="text-2xl">ブログを見る</p>
+        </div>
+      </a>
     </div>
   </section>
   <!-- 研究室のようす -->

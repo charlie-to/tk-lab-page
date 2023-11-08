@@ -52,7 +52,7 @@ const nav_links = [
       </ul>
     </div>
     <div class="navbar-end lg:hidden">
-      <div class="dropdown-end dropdown">
+      <div class="dropdown dropdown-end">
         <label tabindex={0} class="btn btn-ghost">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -69,12 +69,12 @@ const nav_links = [
         </label>
         <ul
           tabindex={0}
-          class="menu-lg dropdown-content menu rounded-box z-[1] mt-3 w-80 bg-slate-100 p-2 shadow"
+          class="menu-lg dropdown-content menu rounded-box z-[1] mt-6 w-80 bg-slate-100 p-4 shadow"
         >
           {
             nav_links.map((link) => (
               <li class="">
-                <a href={link.url} class="text-xl">
+                <a href={link.url} class="p-4 text-xl">
                   {link.name}
                 </a>
               </li>
