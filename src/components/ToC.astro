@@ -13,7 +13,7 @@ const { links: links } = Astro.props
 <ul class="steps steps-vertical">
   {
     links == undefined || links.length == 0
-      ? 'No links provided'
+      ? ''
       : links.map((link: link) => (
           <li class="step step-primary">
             <a href={'#' + link.slug}>{link.text.split('見出し')[0]}</a>

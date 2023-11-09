@@ -2,6 +2,7 @@
 import Layout from '@layouts/Layout.astro'
 import ToC from '@components/ToC.astro'
 import { getCollection } from 'astro:content'
+import { array } from 'astro/zod'
 const { data, headings } = Astro.props
 const author_name = data.author_name_main
 
@@ -141,10 +142,15 @@ const author = await getCollection('member')
           </div>
         )
       }
-
-      <div class="border-base rounded-lg border-4 p-3">
-        <ToC links={headings} />
-      </div>
+      {
+        Object.keys(headings).length === 0 ? (
+          ''
+        ) : (
+          <div class="border-base rounded-lg border-4 p-3">
+            <ToC links={headings} />
+          </div>
+        )
+      }
     </div>
   </div>
 </Layout>
