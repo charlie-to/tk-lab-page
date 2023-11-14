@@ -3,6 +3,10 @@ import { date, map } from 'astro/zod'
 import Layout from '../../layouts/Layout.astro'
 import { getCollection } from 'astro:content'
 
+// images
+import { Image } from 'astro:assets'
+import legoUnsplash from './lego-unsplash.jpg'
+
 const blog_posts = await getCollection('blog')
 const recent_posts = blog_posts
   .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
@@ -44,10 +48,8 @@ const news_posts = blog_posts
               <a href={`/blogs/${recent_post.slug}/index.html`}>
                 <div class="card h-96 w-80 bg-base-100 shadow-xl">
                   <figure class="max-h-72">
-                    <img
-                      src={
-                        recent_post.data.coverImagePath ?? '/lego-unsplash.jpg'
-                      }
+                    <Image
+                      src={recent_post.data.cover ?? legoUnsplash}
                       alt="blog cover image"
                     />
                   </figure>
