@@ -20,14 +20,18 @@ const memberCollection = defineCollection({
 
 // blog&news
 const blogsCollection = defineCollection({
-  schema: z.object({
-    title: z.string(),
-    date: z.string(),
-    tag: z.array(z.string()),
-    lead: z.string().optional(),
-    coverImagePath: z.string().optional(),
-    author_name_main: z.string().optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      date: z.string(),
+      tag: z.array(z.string()),
+      lead: z.string().optional(),
+      cover: image().refine((img) => img.width >= 300, {
+        message: "Image must be at least 300px wide",
+      }).optional(),
+      coverAlt: z.string().optional(),
+      author_name_main: z.string().optional(),
+    }),
 });
 
 // 3. Export a single `collections` object to register your collection(s)
