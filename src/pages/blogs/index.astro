@@ -10,7 +10,7 @@ const recent_posts = blog_posts
 const limit = 5
 const event_posts = blog_posts
   .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
-  .filter((post) => post.data.tag.includes('event'))
+  .filter((post) => post.data.tag.includes('blog'))
   .slice(0, limit + 1)
 
 const news_posts = blog_posts
