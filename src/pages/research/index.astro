@@ -1,5 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro'
+
+// Images
+import { Image } from 'astro:assets'
+import cockpitUnsplash from '../cockpit-unsplash.jpg'
+import carUnsplash from '../car-unsplash.jpg'
+import riskUnsplash from '../risk-unsplash.jpg'
+import balloonUnsplash from '../balloon-unsplash.jpg'
 ---
 
 <Layout title="研究">
@@ -29,9 +36,8 @@ import Layout from '../../layouts/Layout.astro'
             href="/research/aviation/index.html"
             class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
           >
-            <img
-              src="/cockpit-unsplash.jpg"
-              loading="lazy"
+            <Image
+              src={cockpitUnsplash}
               alt="コックピットの写真 Photo from unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -53,9 +59,8 @@ import Layout from '../../layouts/Layout.astro'
             href="/research/team-ai/index.html"
             class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
           >
-            <img
-              src="/car-unsplash.jpg"
-              loading="lazy"
+            <Image
+              src={carUnsplash}
               alt="自動車の運転席 Photo from unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -77,9 +82,8 @@ import Layout from '../../layouts/Layout.astro'
             href="/research/team-risk/index.html"
             class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
           >
-            <img
-              src="/risk-unsplash.jpg"
-              loading="lazy"
+            <Image
+              src={riskUnsplash}
               alt="原子力発電所の写真 Photo from unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -100,9 +104,8 @@ import Layout from '../../layouts/Layout.astro'
             href="/research/team-cognitive/index.html"
             class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
           >
-            <img
-              src="/balloon-unsplash.jpg"
-              loading="lazy"
+            <Image
+              src={balloonUnsplash}
               alt="風船の写真 Photo from unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
