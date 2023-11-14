@@ -7,6 +7,10 @@ import { Icon } from 'astro-icon'
 // Images
 import { Image } from 'astro:assets'
 import city2Unsplash from './city2-unsplash.jpg'
+import cockpitUnsplash from './cockpit-unsplash.jpg'
+import carUnsplash from './car-unsplash.jpg'
+import riskUnsplash from './risk-unsplash.jpg'
+import balloonUnsplash from './balloon-unsplash.jpg'
 
 const news_posts = (
   await getCollection('blog', ({ data }) => {
@@ -157,9 +161,8 @@ const blog_posts = (
             href="/research/aviation/index.html"
             class="group relative flex h-80 items-end overflow-hidden bg-gray-100 p-4"
           >
-            <img
-              src="cockpit-unsplash.jpg"
-              loading="lazy"
+            <Image
+              src={cockpitUnsplash}
               alt="Cockpit Photo From Unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -183,9 +186,8 @@ const blog_posts = (
             href="/research/team-ai/index.html"
             class="group relative flex h-80 items-end overflow-hidden bg-gray-100 p-4"
           >
-            <img
-              src="car-unsplash.jpg"
-              loading="lazy"
+            <Image
+              src={carUnsplash}
               alt="Photo by Unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -209,9 +211,8 @@ const blog_posts = (
             href="/research/team-risk/index.html"
             class="group relative flex h-80 items-end overflow-hidden bg-gray-100 p-4"
           >
-            <img
-              src="risk-unsplash.jpg"
-              loading="lazy"
+            <Image
+              src={riskUnsplash}
               alt="Photo by Unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -235,9 +236,8 @@ const blog_posts = (
             href="/research/team-cognitive/index.html"
             class="group relative flex h-80 items-end overflow-hidden bg-gray-100 p-4"
           >
-            <img
-              src="balloon-unsplash.jpg"
-              loading="lazy"
+            <Image
+              src={balloonUnsplash}
               alt="Photo by Unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
