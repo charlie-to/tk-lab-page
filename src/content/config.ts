@@ -12,8 +12,8 @@ const memberCollection = defineCollection({
       grade: z.string(),
       cover: image().refine((img) => img.width >= 300, {
         message: "Image must be at least 300px wide",
-      }),
-      coverAlt: z.string(),
+      }).optional(),
+      coverAlt: z.string().optional(),
       order: z.number(),
     }),
 });
