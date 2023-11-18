@@ -1,5 +1,17 @@
 ---
 import Footer from '@components/footer.astro'
+// images
+import { Image } from 'astro:assets'
+import cockpit_color from './cockpit_color.jpg'
+import cockpit_monotone from './cockpit_monotone.jpg'
+import professor1 from './professor1.jpg'
+import professor2 from './professor2.jpg'
+import ATC_radar from './ATC_radar.jpg'
+import ATC_Tower from './ATC-Tower.jpg'
+import pilot from './pilot.jpg'
+import cabin_Attendant from './cabin_Attendant.jpg'
+import tklab_logo from './TKLab-Logo.png'
+import aviation from './Aviation-head.gif'
 ---
 
 <!doctype html>
@@ -315,7 +327,7 @@ import Footer from '@components/footer.astro'
         top: 30px;
       }
 
-      .content-wrap .content-item:focus .image-containerInner img,
+      .content-wrap .content-item:focus .image-containerInner .,
       .content-wrap .content-item:hover .image-containerInner img {
         transform: scale(1.05);
       }
@@ -511,7 +523,7 @@ import Footer from '@components/footer.astro'
   <body>
     <header id="header">
       <div class="header-Logo">
-        <img src="/TKLab-Logo.png" class="header-Logo-image" />
+        <Image src={tklab_logo} alt="logo" class="header-Logo-image" />
         <a href="/">
           <h1 class="TKLab-Title">高橋・狩川研究室</h1>
         </a>
@@ -538,7 +550,7 @@ import Footer from '@components/footer.astro'
 
     <main>
       <div id="video-container" class="video-container">
-        <img src="/Aviation-head.gif" class="head-gif" />
+        <Image src={aviation} alt="飛行機の写真" class="head-gif" />
         <h1>航空グループ</h1>
       </div>
 
@@ -562,9 +574,12 @@ import Footer from '@components/footer.astro'
               <div class="content-itemInner">
                 <div class="image-container">
                   <div class="image-containerInner">
-                    <img src="/cockpit_color.jpg" alt="Cockpit Color Image" />
+                    <Image src={cockpit_color} alt="Cockpit Color Image" />
                     <!-- 背景画像 -->
-                    <img src="/cockpit_monotone.jpg" alt="Cockpit Monotone Image" />
+                    <Image
+                      src={cockpit_monotone}
+                      alt="Cockpit Monotone Image"
+                    />
                     <!-- 表示画像 -->
                   </div>
                 </div>
@@ -587,9 +602,9 @@ import Footer from '@components/footer.astro'
               <div class="content-itemInner">
                 <div class="image-container">
                   <div class="image-containerInner">
-                    <img src="/professor2.jpg" alt="Professor2 Image" />
+                    <Image src={professor2} alt="Professor2 Image" />
                     <!-- 背景画像 -->
-                    <img src="/professor1.jpg" alt="Professor1 Image" />
+                    <Image src={professor1} alt="Professor1 Image" />
                     <!-- 表示画像 -->
                   </div>
                 </div>
@@ -612,9 +627,9 @@ import Footer from '@components/footer.astro'
               <div class="content-itemInner">
                 <div class="image-container">
                   <div class="image-containerInner">
-                    <img src="/ATC_radar.jpg" alt="ATC Radar Image" />
+                    <Image src={ATC_radar} alt="ATC Radar Image" />
                     <!-- 背景画像 -->
-                    <img src="/ATC-Tower.jpg" alt="ATC Tower Image" />
+                    <Image src={ATC_Tower} alt="ATC Tower Image" />
                     <!-- 表示画像 -->
                   </div>
                 </div>
@@ -637,9 +652,9 @@ import Footer from '@components/footer.astro'
               <div class="content-itemInner">
                 <div class="image-container">
                   <div class="image-containerInner">
-                    <img src="/pilot.jpg" alt="Pilot Image" />
+                    <Image src={pilot} alt="Pilot Image" />
                     <!-- 背景画像 -->
-                    <img src="/cabin_Attendant.jpg" alt="Cabin Attendant Image" />
+                    <Image src={cabin_Attendant} alt="Cabin Attendant Image" />
                     <!-- 表示画像 -->
                   </div>
                 </div>
@@ -737,7 +752,7 @@ import Footer from '@components/footer.astro'
         'コンピテンシー',
         'ノンテクニカルスキル',
         '安全文化',
-        '質的研究',
+        '質的研究'
       ]
 
       const keywords_E = [
@@ -751,7 +766,7 @@ import Footer from '@components/footer.astro'
         'Competency',
         'Non-technical Skills',
         'Safety Culture',
-        'Qualitative Research',
+        'Qualitative Research'
       ]
 
       const container = document.getElementById('video-container')
