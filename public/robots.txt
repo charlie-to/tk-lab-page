@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.takahashi.qse.tohoku.ac.jp
+Sitemap: http://www.takahashi.qse.tohoku.ac.jp/sitemap-index.xml
