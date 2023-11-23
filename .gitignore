@@ -23,8 +23,8 @@ pnpm-debug.log*
 /playwright-report/
 /playwright/.cache/
 
-# public folder
-public/
+
+# test
 /test-results/
 /playwright-report/
 /playwright/.cache/
