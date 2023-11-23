@@ -5,6 +5,7 @@ import LinkToForm from '../../components/LinkToForm.astro'
 // Images
 import { Image } from 'astro:assets'
 import BuildingMap from './building-map.jpg'
+import CampusMap from './campus-map.png'
 ---
 
 <Layout title="お問い合わせ">
@@ -16,7 +17,12 @@ import BuildingMap from './building-map.jpg'
           <div
             class="relative flex min-h-[500px] items-end justify-start overflow-hidden rounded-lg bg-gray-300 p-10"
           >
-            <iframe
+            <Image
+              src={CampusMap}
+              alt="キャンパスマップ"
+              class="absolute inset-0 h-full w-full object-none object-center"
+            />
+            <!-- <iframe
               class="absolute inset-0"
               frameborder="0"
               title="map"
@@ -29,7 +35,8 @@ import BuildingMap from './building-map.jpg'
               style="filter: grayscale(1) contrast(1.2) opacity(0.6);"
               allowfullscreen=""
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
+              referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+
             <div class="relative rounded bg-white py-6 shadow-md">
               <div class="px-12">
                 <h2
