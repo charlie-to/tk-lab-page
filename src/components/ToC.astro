@@ -16,7 +16,9 @@ const { links: links } = Astro.props
       ? ''
       : links.map((link: link) => (
           <li class="step step-primary">
-            <a href={'#' + link.slug}>{link.text.split('見出し')[0]}</a>
+            <a href={'#' + link.slug} class="hover:text-primary">
+              {link.text.split('見出し')[0]}
+            </a>
           </li>
         ))
   }
