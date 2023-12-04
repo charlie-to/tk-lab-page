@@ -243,6 +243,7 @@ import aviation from './Aviation-head.gif'
         height: 56.4vw;
         color: rgba(255, 255, 255, 0.6);
         white-space: nowrap;
+        overflow: hidden;
         font-family: 'Times New Roman', Times, serif;
         /* height: 1000px; */
       }
@@ -298,10 +299,7 @@ import aviation from './Aviation-head.gif'
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        padding: 20px; /* 任意のパディング設定 */
-
-        /* 以下、任意のスタイリング設定 */
-        /* background-color: #05a; */
+        padding: 20px;
       }
 
       .content-wrap .content-nameArea:after {
@@ -557,7 +555,9 @@ import aviation from './Aviation-head.gif'
       <section id="introduction">
         <h1>
           高橋研究室は航空管制のヒューマンファクタに関して<br
-          />実践的・学術的研究を行っている日本で（ほぼ）唯一の研究室です
+          />実践的・学術的研究を行っている日本で<span class="text-sm font-light"
+            >(ほぼ)</span
+          >唯一の研究室です
         </h1>
         <p>
           高橋研では10年以上前から航空関係のヒューマンファクタの研究を行ってきました。初期の研究では航空機のコックピットのインタフェースに関する研究をANA現役機長と共に行いました。その後、研究の軸足を航空管制分野に移し、現役の航空管制官との協力体制をつくり研究を行っています。航空管制に関しては研究を行う我々の方も高いレベルでの知識が要求されますが、行っている研究の内容は現場での教育に使えると評価されるほどのシステムを提案するなど、単なるアカデミック研究のレベルを超えた実践的な研究を行っています。航空管制におけるヒューマンファクタに関する研究は空の安全を守るために非常に重要な問題ですが人材的に不足しています。あなたも是非、高橋研で航空管制の研究をしてみませんか？
