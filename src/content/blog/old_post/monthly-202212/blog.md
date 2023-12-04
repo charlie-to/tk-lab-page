@@ -3,7 +3,7 @@ title: '12月の研究室ブログ'
 date: '2023-02-28'
 tag: ['blog']
 lead: '定期更新（を目指して作成した）第9弾！'
-cover: './image-1.JPG'
+cover: './image-1.jpg'
 author_name_main: ''
 ---
 
