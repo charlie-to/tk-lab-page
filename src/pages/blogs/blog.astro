@@ -2,6 +2,10 @@
 import Layout from '@layouts/Layout.astro'
 import { getCollection } from 'astro:content'
 
+// images
+import { Image } from 'astro:assets'
+import legoUnsplash from './lego-unsplash.jpg'
+
 // 時系列に並べる
 const blog_posts = (
   await getCollection('blog', (post) => post.data.tag.includes('blog'))
@@ -18,10 +22,10 @@ const blog_posts = (
         // card
         <div class="mb-6 p-4 sm:mb-0 lg:w-1/3">
           <div class="h-64 overflow-hidden rounded-lg">
-            <img
+            <Image
               alt="カバー画像"
               class="h-full w-full object-cover object-center"
-              src={posts.data.coverImagePath ?? '/blog/default.jpg'}
+              src={posts.data.cover ?? legoUnsplash}
             />
           </div>
           <h2 class="title-font mt-5 text-2xl font-medium text-gray-900">

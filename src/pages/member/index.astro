@@ -3,6 +3,9 @@ import Layout from '../../layouts/Layout.astro'
 import type { IMemberFrontmatter } from './member'
 import { Icon } from 'astro-icon'
 
+// Images
+import { Image } from 'astro:assets'
+
 import { getCollection, getEntryBySlug } from 'astro:content'
 const members = await getCollection('member')
 const student = members
@@ -29,14 +32,14 @@ const staff = members
           <a href={`${staff.slug}/index.html`}>
             <div class="card w-80 bg-base-300 shadow-xl duration-200 hover:scale-105">
               <figure>
-                {staff.data.imagePath ? (
-                  <img
-                    src={staff.data.imagePath}
-                    alt="Shoes"
-                    class="h-52 w-full object-cover object-center brightness-90"
+                {staff.data.cover ? (
+                  <Image
+                    src={staff.data.cover}
+                    alt={staff.data.coverAlt || staff.data.name.main}
+                    class="h-48 w-full object-cover object-center brightness-90"
                   />
                 ) : (
-                  <Icon name="mdi:account" class="w-full" />
+                  <Icon name="mdi:account" class="h-48 w-full" />
                 )}
               </figure>
               <div class="card-body">
@@ -66,14 +69,14 @@ const staff = members
           <a href={`${student.slug}/index.html`}>
             <div class="card w-80 bg-base-300 shadow-xl duration-200 hover:scale-105">
               <figure>
-                {student.data.imagePath ? (
-                  <img
-                    src={student.data.imagePath}
-                    alt="Shoes"
-                    class="h-36 w-full object-cover object-center brightness-90"
+                {student.data.cover ? (
+                  <Image
+                    src={student.data.cover}
+                    alt={student.data.coverAlt || student.data.name.main}
+                    class="h-48 w-full object-contain object-center brightness-90"
                   />
                 ) : (
-                  <Icon name="mdi:account" class="w-full" />
+                  <Icon name="mdi:account" class="h-48 w-full" />
                 )}
               </figure>
               <div class="card-body">
