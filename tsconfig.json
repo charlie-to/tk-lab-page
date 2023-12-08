@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "moduleResolution": "NodeNext",
     "baseUrl": ".",
     "paths": {
       "@layouts/*": ["src/layouts/*"],
