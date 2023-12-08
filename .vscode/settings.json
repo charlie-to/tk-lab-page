@@ -31,8 +31,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
 
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true,
-      "source.fixAll.prettier": true
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.prettier": "explicit"
     }
   },
   "[json][jsonc]": {
@@ -40,6 +40,12 @@
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true,
       "source.fixAll.prettier": true
+    }
+  },
+  "[astro][json][jsonc]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.prettier": "explicit"
     }
   }
 }
