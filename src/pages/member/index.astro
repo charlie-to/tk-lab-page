@@ -1,6 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro'
-import type { IMemberFrontmatter } from './member'
 import { Icon } from 'astro-icon'
 
 // Images
@@ -18,6 +17,9 @@ const staff = members
   .sort((a, b) => {
     return a.data.order - b.data.order
   })
+
+// member card
+import MemberCard from '@components/MemberCard.astro'
 ---
 
 <Layout title="メンバー">
@@ -27,34 +29,7 @@ const staff = members
     <div
       class="mx-auto grid max-w-7xl grid-cols-1 place-items-center gap-y-10 md:grid-cols-2 xl:grid-cols-3"
     >
-      {
-        staff.map((staff) => (
-          <a href={`${staff.slug}/index.html`}>
-            <div class="card w-80 bg-base-300 shadow-xl duration-200 hover:scale-105">
-              <figure>
-                {staff.data.cover ? (
-                  <Image
-                    src={staff.data.cover}
-                    alt={staff.data.coverAlt || staff.data.name.main}
-                    class="h-48 w-full object-cover object-center brightness-90"
-                  />
-                ) : (
-                  <Icon name="mdi:account" class="h-48 w-full" />
-                )}
-              </figure>
-              <div class="card-body">
-                <h2 class="card-title flex align-bottom">
-                  {staff.data.name.main}
-                  <p class="text-sm font-thin text-gray-800">
-                    {staff.data.name.sub}
-                  </p>
-                </h2>
-                <div class="badge badge-outline">{staff.data.grade}</div>
-              </div>
-            </div>
-          </a>
-        ))
-      }
+      {staff.map((staff) => <MemberCard member={staff} />)}
     </div>
   </div>
   <!-- スタッフ終わり -->
@@ -64,35 +39,7 @@ const staff = members
     <div
       class="mx-auto grid max-w-7xl grid-cols-1 place-items-center gap-y-10 md:grid-cols-2 xl:grid-cols-3"
     >
-      {
-        student.map((student) => (
-          <a href={`${student.slug}/index.html`}>
-            <div class="card w-80 bg-base-300 shadow-xl duration-200 hover:scale-105">
-              <figure>
-                {student.data.cover ? (
-                  <Image
-                    src={student.data.cover}
-                    alt={student.data.coverAlt || student.data.name.main}
-                    class="h-48 w-full object-contain object-center brightness-90"
-                  />
-                ) : (
-                  <Icon name="mdi:account" class="h-48 w-full" />
-                )}
-              </figure>
-              <div class="card-body">
-                <h2 class="card-title flex align-bottom">
-                  {student.data.name.main}
-                  <p class="text-sm font-thin text-gray-800">
-                    {student.data.name.sub}
-                  </p>
-                </h2>
-                <div class="badge badge-outline">{student.data.major}</div>
-                <div class="badge badge-outline">{student.data.grade}</div>
-              </div>
-            </div>
-          </a>
-        ))
-      }
+      {student.map((student) => <MemberCard member={student} />)}
     </div>
   </div>
   <!-- 学生終わり -->

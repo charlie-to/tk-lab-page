@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets'
+import Icon from 'astro-icon'
+import { type CollectionEntry } from 'astro:content'
+export interface Props {
+  member: CollectionEntry<'member'>
+}
+const { member } = Astro.props
+---
+
+<a href={`${member.slug}/index.html`}>
+  <div class="card w-80 bg-base-300 shadow-xl duration-200 hover:scale-105">
+    <figure>
+      {
+        member.data.cover ? (
+          <Image
+            src={member.data.cover}
+            alt={member.data.coverAlt || member.data.name.main}
+            class="h-48 w-full object-cover object-center brightness-90"
+          />
+        ) : (
+          <Icon name="mdi:account" class="h-48 w-full" />
+        )
+      }
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title flex align-bottom">
+        {member.data.name.main}
+        <p class="text-sm font-thin text-gray-800">
+          {member.data.name.sub}
+        </p>
+      </h2>
+      {
+        () => {
+          if (member.data.major !== '') {
+            return <div class="badge badge-outline">{member.data.major}</div>
+          }
+        }
+      }
+
+      <div class="badge badge-outline">{member.data.grade}</div>
+      <div>
+        {
+          () => {
+            if (member.data.tag) {
+              return (
+                <div class="font-mono text-sm">
+                  {member.data.tag.map((tag: string) => (
+                    <span>#{tag}</span>
+                  ))}
+                </div>
+              )
+            }
+          }
+        }
+      </div>
+    </div>
+  </div>
+</a>
