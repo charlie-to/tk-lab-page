@@ -16,7 +16,7 @@ const { member } = Astro.props
           <Image
             src={member.data.cover}
             alt={member.data.coverAlt || member.data.name.main}
-            class="h-48 w-full object-cover object-center brightness-90"
+            class="h-48 object-contain brightness-90"
           />
         ) : (
           <Icon name="mdi:account" class="h-48 w-full" />
