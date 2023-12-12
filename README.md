@@ -1,5 +1,5 @@
 # Lab Public Homepage
-
+this repository is for the web page of takahashi-karikawa laboratory.
 ##    Install
 1. install nodejs
    - require: node ^18.14.1
