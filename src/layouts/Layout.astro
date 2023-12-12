@@ -34,7 +34,8 @@ const { title, description } = Astro.props
     <meta name="viewport" content="width=device-width, intial-scale=1" />
     <SEO
       title={title ?? '高橋・狩川研究室'}
-      description={description ?? '高橋・狩川研究室のホームページです。'}
+      description={description ??
+        '東北大学工学研究科　高橋・狩川研究室のホームページです。'}
       extend={{
         link: [
           { rel: 'icon', href: '/favicon.ico' },
