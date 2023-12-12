@@ -5,6 +5,7 @@ name:
 grade: '准教授'
 major: ''
 order: 2
+tag: ["セクシーでダンディ"]
 ---
 
 # 今年の目標

@@ -15,6 +15,7 @@ const memberCollection = defineCollection({
       }).optional(),
       coverAlt: z.string().optional(),
       order: z.number(),
+      tag: z.array(z.string()).optional(),
     }),
 });
 
