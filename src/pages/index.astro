@@ -12,6 +12,10 @@ import carUnsplash from './car-unsplash.jpg'
 import riskUnsplash from './risk-unsplash.jpg'
 import balloonUnsplash from './balloon-unsplash.jpg'
 
+// Youtube
+import YoutubeEmbed from '@components/YouTubeEmbed.astro'
+const youtubeId = 'nue-bLFGKK8'
+
 const news_posts = (
   await getCollection('blog', ({ data }) => {
     return data.tag.includes('news')
@@ -380,18 +384,14 @@ const blog_posts = (
         </li>
       </ul>
     </div>
+    <!-- youtube 埋め込み -->
+    <div class="relative m-24 h-fit max-w-4xl lg:mx-auto">
+      <YoutubeEmbed id={youtubeId} />
+    </div>
   </section>
 
-  <!-- youtube 埋め込み -->
-  <div style="position: relative; width: 80vw; height: 45vw; margin: 0 auto;">
-    <iframe
-      style="position: absolute; width: 100%; height: 100%;"
-      src="https://www.youtube.com/embed/nue-bLFGKK8"
-      allowfullscreen></iframe>
-  </div>
-
   <!-- お問い合わせ -->
-  <section class="mt-8">
+  <section class="mt-6">
     <LinkToForm />
   </section>
 </Layout>
