@@ -23,5 +23,7 @@ jobs:
         run: yarn build
       - name: Deploy to S3
         run: aws s3 sync --delete ./dist/ s3://${{ secrets.BUCKET_ID }}
+      - name: Set Cache-Control
+        run: aws s3 cp s3://${{ secrets.BUCKET_ID }} s3://${{ secrets.BUCKET_ID }} --recursive --metadata-directive REPLACE --cache-control max-age=86400 --exclude "*" --include "*.jpg" --include "*.png" --include "_astro/*"
       - name: Create CloudFront invalidation
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
