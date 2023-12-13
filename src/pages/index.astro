@@ -12,6 +12,10 @@ import carUnsplash from './car-unsplash.jpg'
 import riskUnsplash from './risk-unsplash.jpg'
 import balloonUnsplash from './balloon-unsplash.jpg'
 
+// Youtube
+import YoutubeEmbed from '@components/YouTubeEmbed.astro'
+const youtubeId = 'nue-bLFGKK8'
+
 const news_posts = (
   await getCollection('blog', ({ data }) => {
     return data.tag.includes('news')
@@ -40,7 +44,7 @@ const blog_posts = (
           >
             <Image
               src={city2Unsplash}
-              alt=""
+              alt="都市の画像"
               class="absolute h-full w-full object-cover object-center"
             />
             <p
@@ -76,7 +80,7 @@ const blog_posts = (
                     <p class="text-base text-gray-600">
                       高橋・狩川研の研究内容を知る
                     </p>
-                    <a href="#research">
+                    <a href="#research" aria-label="研究内容について">
                       <div class="mx-auto mt-3 h-16 w-16 text-indigo-500">
                         <Icon name="mdi:chevron-down" />
                       </div>
@@ -100,7 +104,7 @@ const blog_posts = (
                     <p class="text-base text-gray-600">
                       高橋・狩川研の最近の様子を知る
                     </p>
-                    <a href="#news">
+                    <a href="#news" aria-label="新着情報">
                       <div class="mx-auto mt-3 h-16 w-16 text-indigo-500">
                         <Icon name="mdi:chevron-down" />
                       </div>
@@ -124,7 +128,7 @@ const blog_posts = (
                     <p class="text-base text-gray-600">
                       高橋・狩川研はこんな研究室です
                     </p>
-                    <a href="#aboutUs">
+                    <a href="#aboutUs" aria-label="研究室の特徴">
                       <div class="mx-auto mt-3 h-16 w-16 text-indigo-500">
                         <Icon name="mdi:chevron-down" />
                       </div>
@@ -143,10 +147,10 @@ const blog_posts = (
   <!-- ランディング終わり -->
   <!-- 研究概要 -->
   <section class="mb-4" id="research">
-    <div class="bg-white py-6 sm:py-8 lg:py-10">
+    <div class="py-6 sm:py-8 lg:py-10">
       <div class="mb-20 flex w-full flex-col text-center">
         <h2
-          class="title-font mb-1 text-xl font-medium tracking-widest text-indigo-500"
+          class="title-font mb-1 text-xl font-medium tracking-widest text-indigo-800"
         >
           研究内容
         </h2>
@@ -267,7 +271,7 @@ const blog_posts = (
     </div>
     <div class="mx-auto px-12 lg:flex">
       <div class="mx-2 w-full overflow-x-auto lg:w-1/2">
-        <h3 class="m-4 text-xl">ニュース</h3>
+        <h2 class="m-4 text-xl">ニュース</h2>
         {
           news_posts.slice(0, 3).map((post) => (
             <a
@@ -283,7 +287,7 @@ const blog_posts = (
                       ).toLocaleDateString()}
                     </div>
                     <div class="hidden md:flex">
-                      {post.data.tag.map((tag) => (
+                      {post.data.tag.map((tag: string) => (
                         <div class="badge badge-outline mx-2 p-3 text-base">
                           {tag}
                         </div>
@@ -309,7 +313,7 @@ const blog_posts = (
         }
       </div>
       <div class="mx-2 w-full overflow-x-auto lg:w-1/2">
-        <h3 class="m-4 text-xl">ブログ</h3>
+        <h2 class="m-4 text-xl">ブログ</h2>
         {
           blog_posts.slice(0, 3).map((post) => (
             <a
@@ -325,7 +329,7 @@ const blog_posts = (
                       ).toLocaleDateString()}
                     </div>
                     <div class="hidden md:flex">
-                      {post.data.tag.map((tag) => (
+                      {post.data.tag.map((tag: string) => (
                         <div class="badge badge-outline mx-2 p-3 text-base">
                           {tag}
                         </div>
@@ -380,18 +384,14 @@ const blog_posts = (
         </li>
       </ul>
     </div>
+    <!-- youtube 埋め込み -->
+    <div class="relative m-24 h-fit max-w-4xl lg:mx-auto">
+      <YoutubeEmbed id={youtubeId} />
+    </div>
   </section>
 
-  <!-- youtube 埋め込み -->
-  <div style="position: relative; width: 80vw; height: 45vw; margin: 0 auto;">
-    <iframe
-      style="position: absolute; width: 100%; height: 100%;"
-      src="https://www.youtube.com/embed/nue-bLFGKK8"
-      allowfullscreen></iframe>
-  </div>
-
   <!-- お問い合わせ -->
-  <section class="mt-8">
+  <section class="mt-6">
     <LinkToForm />
   </section>
 </Layout>

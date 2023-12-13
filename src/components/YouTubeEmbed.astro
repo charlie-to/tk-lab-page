@@ -1,0 +1,47 @@
+---
+// From https://ergofriend.hatenablog.com/entry/2023/01/22/172910
+export interface Props {
+  id: string
+}
+const { id } = Astro.props
+---
+
+<div class="youtube-embed aspect-video">
+  <iframe
+    title="YouTube Embed"
+    class="absolute h-full w-full"
+    style=""
+    data-src={`https://www.youtube.com/embed/${id}`}
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen={true}></iframe>
+  <div class="h-full w-full bg-base-300"></div>
+</div>
+
+<script>
+  const callback: IntersectionObserverCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return
+
+      const embed = entry.target
+
+      const iframe = embed.children[0] as HTMLIFrameElement | null
+      const iframeOverlay = embed.children[1] as HTMLDivElement | null
+      if (!iframe || !iframeOverlay) return
+
+      const src = iframe.getAttribute('data-src')
+      if (!src) return
+
+      iframe.setAttribute('src', src)
+      iframe.onload = () => iframeOverlay.remove()
+
+      observer.unobserve(embed)
+    })
+  }
+
+  const observer = new IntersectionObserver(callback, {
+    rootMargin: '1000px'
+  })
+
+  const targets = document.querySelectorAll('.youtube-embed')
+  targets.forEach((target) => observer.observe(target))
+</script>
