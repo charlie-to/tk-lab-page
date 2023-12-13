@@ -44,7 +44,7 @@ const blog_posts = (
           >
             <Image
               src={city2Unsplash}
-              alt=""
+              alt="都市の画像"
               class="absolute h-full w-full object-cover object-center"
             />
             <p
@@ -147,10 +147,10 @@ const blog_posts = (
   <!-- ランディング終わり -->
   <!-- 研究概要 -->
   <section class="mb-4" id="research">
-    <div class="bg-white py-6 sm:py-8 lg:py-10">
+    <div class="py-6 sm:py-8 lg:py-10">
       <div class="mb-20 flex w-full flex-col text-center">
         <h2
-          class="title-font mb-1 text-xl font-medium tracking-widest text-indigo-500"
+          class="title-font mb-1 text-xl font-medium tracking-widest text-indigo-800"
         >
           研究内容
         </h2>
@@ -271,7 +271,7 @@ const blog_posts = (
     </div>
     <div class="mx-auto px-12 lg:flex">
       <div class="mx-2 w-full overflow-x-auto lg:w-1/2">
-        <h3 class="m-4 text-xl">ニュース</h3>
+        <h2 class="m-4 text-xl">ニュース</h2>
         {
           news_posts.slice(0, 3).map((post) => (
             <a
@@ -313,7 +313,7 @@ const blog_posts = (
         }
       </div>
       <div class="mx-2 w-full overflow-x-auto lg:w-1/2">
-        <h3 class="m-4 text-xl">ブログ</h3>
+        <h2 class="m-4 text-xl">ブログ</h2>
         {
           blog_posts.slice(0, 3).map((post) => (
             <a
