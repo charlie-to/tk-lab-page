@@ -12,6 +12,8 @@ import pilot from './pilot.jpg'
 import cabin_Attendant from './cabin_Attendant.jpg'
 import tklab_logo from './TKLab-Logo.png'
 import aviation from './Aviation-head.gif'
+// css
+import './style.css';
 ---
 
 <!doctype html>
@@ -21,504 +23,6 @@ import aviation from './Aviation-head.gif'
     <meta http-equiv="content-type" charset="UTF-8" />
     <!-- スマホ対応のための呪文 -->
     <meta name="viewport" content="width=device-width, intial-scale=1" />
-
-    <style>
-      @charset "utf-8";
-
-      :root {
-        --nav-bar-color: #adadad;
-      }
-
-      .fadein {
-        opacity: 0;
-        transform: translate(0, 100px);
-        transition: all 1s;
-      }
-
-      .fadein.active {
-        opacity: 1;
-        transform: translate(0, 0);
-      }
-
-      /* カーソルをpngに変更する↓↓↓↓ */
-      body.cursorEffect {
-        cursor: url('/TKLab-Logo-cursor.png'), auto;
-      }
-
-      /* ヘッダーセクション */
-      header {
-        z-index: 999;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: min(5vw, 60px);
-        background: #000;
-        padding: min(0.8vw, 10px);
-      }
-
-      header .TKLab-Title {
-        color: white;
-        font-size: min(2.4vw, 26px);
-        font-weight: bold;
-        margin-left: min(0.8vw, 10px);
-      }
-
-      .header-Logo {
-        display: flex;
-        position: absolute;
-      }
-
-      .header-Logo-image {
-        float: left;
-        width: min(3.6vw, 40px);
-        height: min(3.6vw, 40px);
-        transform-origin: center;
-      }
-
-      header li {
-        list-style-type: none;
-      }
-
-      header li a {
-        font-size: min(2.4vw, 26px);
-        top: 20px;
-      }
-
-      @keyframes rotateAnimation {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
-      .header-Logo-image.rotate {
-        animation: rotateAnimation 2s linear infinite; /* 無限に繰り返す */
-      }
-
-      .header-menu .hamburger-menu {
-        position: fixed;
-        top: 1.4vw;
-        right: 20px;
-        width: 3vw;
-        height: 24px;
-        z-index: 12;
-        box-sizing: border-box;
-        cursor: pointer;
-        -webkit-transition: all 400ms;
-        transition: all 400ms;
-      }
-
-      .header-menu .hamburger-menu span {
-        position: absolute;
-        width: 100%;
-        height: 0.35vw;
-        background: var(--nav-bar-color);
-        border-radius: 0.8vw;
-        -webkit-transition: all 400ms;
-        transition: all 400ms;
-      }
-
-      .header-menu .hamburger-menu span:nth-child(1) {
-        top: 0;
-      }
-
-      .header-menu .hamburger-menu span:nth-child(2) {
-        top: 0.8vw;
-      }
-
-      .header-menu .hamburger-menu span:nth-child(3) {
-        top: 1.6vw;
-      }
-
-      .header-menu .hamburger-menu.open span:nth-child(1) {
-        background: var(--nav-bar-color);
-        top: 1vw;
-        -webkit-transform: rotate(-45deg);
-        -moz-transform: rotate(-45deg);
-        transform: rotate(-45deg);
-      }
-
-      .header-menu .hamburger-menu.open span:nth-child(2) {
-        display: none;
-      }
-      .header-menu .hamburger-menu.open span:nth-child(3) {
-        top: 1vw;
-        background: var(--nav-bar-color);
-        -webkit-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        transform: rotate(45deg);
-      }
-
-      .hamburger-menu {
-        display: none;
-      }
-
-      nav ul {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      nav ul li {
-        margin: 0 auto;
-        padding: 0 5px;
-      }
-
-      @media screen and (max-width: 1500px) {
-        .hamburger-menu {
-          display: block;
-        }
-
-        nav {
-          position: fixed;
-          top: 0;
-          right: -100%;
-          width: 100%;
-          height: 100%;
-          /* max-height: 600px; */
-          background-color: rgba(0, 0, 0, 0.8);
-          font-size: 16px;
-          box-sizing: border-box;
-          z-index: 1;
-          padding-top: 50px;
-          transition: 0.3s;
-        }
-
-        nav.open {
-          right: 0;
-        }
-
-        nav ul {
-          padding: 0;
-          width: 100%;
-          display: block;
-          flex-direction: column;
-          text-align: center;
-          /*justify-content: center;*/
-          margin-bottom: auto;
-        }
-
-        nav ul li {
-          width: 86%;
-          padding: 15px;
-          border-bottom: #525252 1px solid;
-        }
-      }
-
-      nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        float: right;
-      }
-
-      nav ol,
-      nav ul {
-        list-style: none;
-        list-style-type: none;
-        display: flex;
-      }
-
-      nav ul li {
-        margin: 0 40px;
-      }
-
-      nav ul li a {
-        font-weight: 300;
-        color: var(--nav-bar-color);
-        transition: 600ms;
-        text-decoration: none;
-      }
-
-      nav ul li a:hover {
-        color: #f5f5f7;
-        text-decoration: underline;
-      }
-
-      /* ページトップ */
-
-      .video-container {
-        position: relative;
-        width: 100vw;
-        background-color: #000;
-        height: 56.4vw;
-        color: rgba(255, 255, 255, 0.6);
-        white-space: nowrap;
-        overflow: hidden;
-        font-family: 'Times New Roman', Times, serif;
-        /* height: 1000px; */
-      }
-
-      .video-container h1 {
-        font-family: serif;
-        color: #fff;
-        font-size: 400%;
-        position: absolute;
-        right: 1%;
-        bottom: 0;
-        z-index: 2;
-        padding-right: 5px;
-      }
-
-      .head-gif {
-        width: 100%;
-        z-index: 1;
-        opacity: 0.6;
-      }
-
-      /* ページ要素 */
-      #introduction {
-        margin: auto;
-        text-align: center;
-        width: 95%;
-      }
-
-      #introduction h1 {
-        margin-top: 5vw;
-        margin-bottom: 5vw;
-        font-family: 'Meirio', sans-serif;
-        font-size: 3vw;
-        font-weight: bold;
-      }
-
-      #introduction p {
-        font-family: 'Meirio', sans-serif;
-        font-size: clamp(15px, 1.2vw, 24px);
-        padding-bottom: 50px;
-      }
-
-      .content-wrap {
-        margin: 0 auto;
-        margin-bottom: 100px;
-        max-width: 2048px;
-        /* background-color: aqua; */
-      }
-
-      .content-item {
-        margin: 5% auto 10px auto;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-      }
-
-      .content-wrap .content-nameArea:after {
-        content: '';
-        width: 100%;
-        height: 100%;
-        display: block;
-        background: #eee;
-        z-index: -1;
-        position: absolute;
-        left: 0;
-        top: 0;
-      }
-
-      .content-wrap .content-item:focus,
-      .content-wrap .content-item:hover {
-        transform: translateY(-30px);
-      }
-
-      .content-wrap .content-item:focus:after,
-      .content-wrap .content-item:hover:after {
-        width: 100%;
-        top: 30px;
-      }
-
-      .content-wrap .content-item:focus .image-containerInner .,
-      .content-wrap .content-item:hover .image-containerInner img {
-        transform: scale(1.05);
-      }
-
-      .content-itemInner {
-        display: flex;
-        align-items: center;
-        /* background-color: azure; */
-      }
-
-      .image-container {
-        position: relative;
-        width: 30vw;
-        height: 30vw;
-        min-width: 250px;
-        min-height: 250px;
-        max-width: 614px;
-        max-height: 614px;
-        margin: 0 auto;
-        display: block;
-        overflow: hidden;
-        cursor: pointer;
-        /* background-color: red; */
-        text-align: center;
-      }
-
-      .image-containerInner img {
-        position: absolute;
-        /* border-radius: 30px; */
-        width: 100%;
-        height: 100%;
-        display: block;
-        transition: 0.4s ease-in-out;
-      }
-
-      .image-containerInner {
-        flex-direction: column;
-        align-items: center; /* 画像を縦方向の中央に配置 */
-      }
-
-      .content-item:hover img:nth-of-type(2) {
-        opacity: 0;
-      }
-
-      /* スタイル for is-right */
-      .content-item.is-right .content-itemInner {
-        justify-content: space-between; /* 右寄せ */
-      }
-
-      /* スタイル for is-left */
-      .content-item.is-left .content-itemInner {
-        flex-direction: row-reverse; /* 左寄せ */
-        justify-content: space-between; /* 左寄せ */
-      }
-
-      .content-nameArea {
-        margin: 0 30px;
-        width: 60vw;
-        min-width: 250px;
-        max-width: 1000px;
-        display: block;
-      }
-
-      /* .content-nameInner{
-    background-color: rebeccapurple;
-} */
-
-      .content-name {
-        font-family: 'Times New Roman', Times, serif;
-        font-size: clamp(
-          15px,
-          2vw,
-          40px
-        ); /* デフォルトのフォントサイズ（画面幅2048px以下） */
-        text-align: center; /* テキストを中央揃え */
-        font-weight: bold;
-        text-decoration: none;
-      }
-      .content-name:after {
-        content: ''; /* 仮の要素を追加 */
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px; /* 下線の高さを設定 */
-        background-color: #aaa; /* 下線の色を設定 */
-        transform: scaleX(0); /* 初期状態で幅0に設定 */
-        transform-origin: right;
-        transition: transform 0.3s ease; /* 下線が動くアニメーション */
-      }
-
-      .content-item:hover .content-name::after {
-        transform: scaleX(1); /* hover時に下線を伸ばす */
-        transform-origin: left;
-      }
-
-      .content-label {
-        font-family: 'Times New Roman', Times, serif;
-        font-size: clamp(
-          15px,
-          2vw,
-          40px
-        ); /* デフォルトのフォントサイズ（画面幅2048px以下） */
-        text-align: center; /* テキストを中央揃え */
-        color: #777;
-      }
-
-      .content-detailTxt {
-        font-family: 'Meirio', sans-serif;
-        font-size: clamp(
-          10px,
-          1.2vw,
-          24px
-        ); /* デフォルトのフォントサイズ（画面幅2048px以下） */
-        text-align: center; /* テキストを中央揃え */
-      }
-
-      @media screen and (min-width: 2048px) {
-        .content-name {
-          font-size: 40px; /* 2048px以上の場合のフォントサイズ */
-        }
-        .content-label {
-          font-size: 40px; /* 2048px以上の場合のフォントサイズ */
-        }
-        .content-detailTxt {
-          font-size: 24px; /* 2048px以上の場合のフォントサイズ */
-        }
-      }
-
-      @media (max-width: 1024px) {
-        .video-container {
-          color: #777;
-        }
-
-        .content-wrap {
-          width: 95vw;
-        }
-
-        .content-item.is-left .content-itemInner {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          /* flex-direction: row; 左寄せ */
-          /* justify-content: space-between; 左寄せ */
-        }
-        .content-itemInner {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-        }
-
-        .image-container {
-          width: 80vw;
-          height: 80vw;
-        }
-
-        .image-containerInner img {
-          border-radius: 0;
-        }
-
-        img:nth-of-type(2) {
-          display: none;
-        }
-
-        .content-nameArea {
-          width: 80vw;
-          min-width: 250px;
-        }
-
-        .content-name {
-          font-family: 'Times New Roman', Times, serif;
-          font-size: 20px;
-          text-align: center; /* テキストを中央揃え */
-        }
-        .content-label {
-          font-family: 'Times New Roman', Times, serif;
-          font-size: 20px;
-          text-align: center; /* テキストを中央揃え */
-          color: #777;
-        }
-
-        .content-detailTxt {
-          font-family: 'Meirio', sans-serif;
-          font-size: 15px;
-          text-align: center; /* テキストを中央揃え */
-        }
-      }
-    </style>
   </head>
 
   <body>
@@ -555,130 +59,135 @@ import aviation from './Aviation-head.gif'
         <h1>航空グループ</h1>
       </div>
 
-      <section id="introduction">
-        <h1>
-          高橋研究室は航空管制のヒューマンファクタに関して<br
-          />実践的・学術的研究を行っている日本で<span class="text-sm font-light"
-            >(ほぼ)</span
-          >唯一の研究室です
-        </h1>
-        <p>
-          高橋研では10年以上前から航空関係のヒューマンファクタの研究を行ってきました。初期の研究では航空機のコックピットのインタフェースに関する研究をANA現役機長と共に行いました。その後、研究の軸足を航空管制分野に移し、現役の航空管制官との協力体制をつくり研究を行っています。航空管制に関しては研究を行う我々の方も高いレベルでの知識が要求されますが、行っている研究の内容は現場での教育に使えると評価されるほどのシステムを提案するなど、単なるアカデミック研究のレベルを超えた実践的な研究を行っています。航空管制におけるヒューマンファクタに関する研究は空の安全を守るために非常に重要な問題ですが人材的に不足しています。あなたも是非、高橋研で航空管制の研究をしてみませんか？
-        </p>
-        <p>
-          本研究グループでは、航空分野をはじめとした大規模複雑システムにおけるさらなる安全性向上を目指し、Safety-Ⅱ実現に向けての鍵となる「レジリエンス」に関して、航空会社等との密接な連携を通じて、学術知にとどまらない実践的な研究を実施しています。以下に、本グループにおいて実際に行われている研究の一部を示します。
-        </p>
-      </section>
-
-      <section id="services">
-        <div class="content-wrap">
-          <ul class="content-list">
-            <li class="content-item is-right fadein">
-              <div class="content-itemInner">
-                <div class="image-container">
-                  <div class="image-containerInner">
-                    <Image src={cockpit_color} alt="Cockpit Color Image" />
-                    <!-- 背景画像 -->
-                    <Image
-                      src={cockpit_monotone}
-                      alt="Cockpit Monotone Image"
-                    />
-                    <!-- 表示画像 -->
+      <section id="contents">
+        <section id="introduction">
+          <h1 id="top-message">
+            <!-- 文章はjavascriptに書いてあります -->
+          </h1>
+          <div id="explanation">
+            <p>
+              高橋研では10年以上前から航空関係のヒューマンファクタの研究を行ってきました。<br>
+              初期の研究では航空機のコックピットのインタフェースに関する研究をANA現役機長と共に行いました。その後、研究の軸足を航空管制分野に移し、現役の航空管制官との協力体制をつくり研究を行っています。<br>
+              航空管制に関しては研究を行う我々の方も高いレベルでの知識が要求されますが、行っている研究の内容は現場での教育に使えると評価されるほどのシステムを提案するなど、単なるアカデミック研究のレベルを超えた実践的な研究を行っています。<br>
+              航空管制におけるヒューマンファクタに関する研究は空の安全を守るために非常に重要な問題ですが人材的に不足しています。<br>
+              あなたも是非、高橋研で航空管制の研究をしてみませんか？
+            </p>
+            <p>
+              本研究グループでは、航空分野をはじめとした大規模複雑システムにおけるさらなる安全性向上を目指し、Safety-Ⅱ実現に向けての鍵となる「レジリエンス」に関して、航空会社等との密接な連携を通じて、学術知にとどまらない実践的な研究を実施しています。以下に、本グループにおいて実際に行われている研究の一部を示します。
+            </p>
+          </div>
+        </section>
+  
+        <section id="research">
+          <div class="content-wrap">
+            <ul class="content-list">
+              <li class="content-item is-right fadein">
+                <div class="content-itemInner">
+                  <div class="image-container">
+                    <div class="image-containerInner">
+                      <Image src={cockpit_color} alt="Cockpit Color Image" />
+                      <!-- 背景画像 -->
+                      <Image
+                        src={cockpit_monotone}
+                        alt="Cockpit Monotone Image"
+                      />
+                      <!-- 表示画像 -->
+                    </div>
                   </div>
-                </div>
-                <div class="content-nameArea">
-                  <div class="content-nameInner">
-                    <h3 class="content-name">航空会社との共同研究「ROM」</h3>
-                  </div>
-                  <p class="content-label">
-                    Joint research with airline companies “ROM”
-                  </p>
-                  <p class="content-detailTxt">
-                    日本航空株式会社との共同研究により、Safety-IIという新たな安全の考えに基づいた「ROM(Resilience
-                    Operation
-                    Monitoring)」という新しい安全モニタリングプログラムの開発に取り組んでいます。従来は“うまくいかなかった事象“、つまり数少ない失敗事例に着目してきましたが、日常の運航の大多数である“うまくいった事象“の要因となった行動にも着目し分析をすることで、「成功を増やす事によって、より高い安全性の実現を目指す」新たな安全へのアプローチを研究しています。
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="content-item is-left fadein">
-              <div class="content-itemInner">
-                <div class="image-container">
-                  <div class="image-containerInner">
-                    <Image src={professor2} alt="Professor2 Image" />
-                    <!-- 背景画像 -->
-                    <Image src={professor1} alt="Professor1 Image" />
-                    <!-- 表示画像 -->
-                  </div>
-                </div>
-                <div class="content-nameArea">
-                  <div class="content-nameInner">
-                    <h3 class="content-name">
-                      運航乗務員のコンピテンシーに関する研究
+                  <div class="content-nameArea">
+                    <div class="content-nameInner">
+                      <h2 class="content-name">航空会社との共同研究「ROM」</h2>
+                    </div>
+                    <h3 class="content-label">
+                      Joint research with airline companies “ROM”
                     </h3>
-                  </div>
-                  <p class="content-label">
-                    Research on flight crew competencies
-                  </p>
-                  <p class="content-detailTxt">
-                    Safety-IIでは、安全への人間のポジティブな寄与やそれに繋がる能力であるレジリエンスが重要視されています。インタビューや質的研究法を用いながら、運航乗務員(パイロット)がもつレジリエンスのためのコンピテンシーを体系化・可視化し、そこから得られる知見を今後の教育・訓練、ひいては、さらなる安全運航に活かすことを目指した実践的な研究を行なっています。
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="content-item is-right fadein">
-              <div class="content-itemInner">
-                <div class="image-container">
-                  <div class="image-containerInner">
-                    <Image src={ATC_radar} alt="ATC Radar Image" />
-                    <!-- 背景画像 -->
-                    <Image src={ATC_Tower} alt="ATC Tower Image" />
-                    <!-- 表示画像 -->
+                    <p class="content-detailTxt">
+                      日本航空株式会社との共同研究により、Safety-IIという新たな安全の考えに基づいた「ROM(Resilience
+                      Operation
+                      Monitoring)」という新しい安全モニタリングプログラムの開発に取り組んでいます。従来は“うまくいかなかった事象“、つまり数少ない失敗事例に着目してきましたが、日常の運航の大多数である“うまくいった事象“の要因となった行動にも着目し分析をすることで、「成功を増やす事によって、より高い安全性の実現を目指す」新たな安全へのアプローチを研究しています。
+                    </p>
                   </div>
                 </div>
-                <div class="content-nameArea">
-                  <div class="content-nameInner">
-                    <h3 class="content-name">
-                      チームレジリエンスとコミュニケーションに関する実験研究
+              </li>
+              <li class="content-item is-left fadein">
+                <div class="content-itemInner">
+                  <div class="image-container">
+                    <div class="image-containerInner">
+                      <Image src={professor2} alt="Professor2 Image" />
+                      <!-- 背景画像 -->
+                      <Image src={professor1} alt="Professor1 Image" />
+                      <!-- 表示画像 -->
+                    </div>
+                  </div>
+                  <div class="content-nameArea">
+                    <div class="content-nameInner">
+                      <h2 class="content-name">
+                        運航乗務員のコンピテンシーに関する研究
+                      </h2>
+                    </div>
+                    <h3 class="content-label">
+                      Research on flight crew competencies
                     </h3>
-                  </div>
-                  <p class="content-label">
-                    Experimental research on team resilience and communication
-                  </p>
-                  <p class="content-detailTxt">
-                    航空路管制業務をモデルとしたチームタスクシュミレータ(ASSIST)を用いて、様々なタイプの変動に対してレジリエントに対応できるチームの特徴を実験的に明らかにする研究を行なっています。特にチームのコミュニケーションに着目し、チームメンバー間での情報共有の量や質とチームパフォーマンスの関係を明らかにすることで、チームでオペレーションが行われる複雑システムにおける教育・訓練プログラムの一層の改善に資する知見の獲得を目指しています。
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="content-item is-left fadein">
-              <div class="content-itemInner">
-                <div class="image-container">
-                  <div class="image-containerInner">
-                    <Image src={pilot} alt="Pilot Image" />
-                    <!-- 背景画像 -->
-                    <Image src={cabin_Attendant} alt="Cabin Attendant Image" />
-                    <!-- 表示画像 -->
+                    <p class="content-detailTxt">
+                      Safety-IIでは、安全への人間のポジティブな寄与やそれに繋がる能力であるレジリエンスが重要視されています。インタビューや質的研究法を用いながら、運航乗務員(パイロット)がもつレジリエンスのためのコンピテンシーを体系化・可視化し、そこから得られる知見を今後の教育・訓練、ひいては、さらなる安全運航に活かすことを目指した実践的な研究を行なっています。
+                    </p>
                   </div>
                 </div>
-                <div class="content-nameArea">
-                  <div class="content-nameInner">
-                    <h3 class="content-name">
-                      失敗許容度とスキルの柔軟性に関する基礎研究
+              </li>
+              <li class="content-item is-right fadein">
+                <div class="content-itemInner">
+                  <div class="image-container">
+                    <div class="image-containerInner">
+                      <Image src={ATC_radar} alt="ATC Radar Image" />
+                      <!-- 背景画像 -->
+                      <Image src={ATC_Tower} alt="ATC Tower Image" />
+                      <!-- 表示画像 -->
+                    </div>
+                  </div>
+                  <div class="content-nameArea">
+                    <div class="content-nameInner">
+                      <h2 class="content-name">
+                        チームレジリエンスとコミュニケーションに関する実験研究
+                      </h2>
+                    </div>
+                    <h3 class="content-label">
+                      Experimental research on team resilience and communication
                     </h3>
+                    <p class="content-detailTxt">
+                      航空路管制業務をモデルとしたチームタスクシュミレータ(ASSIST)を用いて、様々なタイプの変動に対してレジリエントに対応できるチームの特徴を実験的に明らかにする研究を行なっています。特にチームのコミュニケーションに着目し、チームメンバー間での情報共有の量や質とチームパフォーマンスの関係を明らかにすることで、チームでオペレーションが行われる複雑システムにおける教育・訓練プログラムの一層の改善に資する知見の獲得を目指しています。
+                    </p>
                   </div>
-                  <p class="content-label">
-                    Basic research on failure tolerance and skill flexibility
-                  </p>
-                  <p class="content-detailTxt">
-                    様々な複雑システムにおける安全対策として、「失敗の再発防止」が重視されてきました。
-                    安全に関わる失敗を防止することはもちろん重要ですが、より高い安全性の追求がより些細な失敗も許されない組織文化の形成につながれば、小さな失敗から学びを得てスキルを高める機会を得ることが困難となってしまいます。それは、システムのさらなる安全性向上に本当につながるのでしょうか？想定外の事態を含む様々な条件下でシステムの安全性を維持することに本当に貢献するのでしょうか？本研究では、それらの疑問に答えるための第一歩として、失敗に対する許容度の違いが、教育・訓練や経験を通じて獲得されるスキルの柔軟性に与える影響を独自のタスクシミュレーターを用いて研究しています。
-                  </p>
                 </div>
-              </div>
-            </li>
-          </ul>
-        </div>
+              </li>
+              <li class="content-item is-left fadein">
+                <div class="content-itemInner">
+                  <div class="image-container">
+                    <div class="image-containerInner">
+                      <Image src={pilot} alt="Pilot Image" />
+                      <!-- 背景画像 -->
+                      <Image src={cabin_Attendant} alt="Cabin Attendant Image" />
+                      <!-- 表示画像 -->
+                    </div>
+                  </div>
+                  <div class="content-nameArea">
+                    <div class="content-nameInner">
+                      <h2 class="content-name">
+                        失敗許容度とスキルの柔軟性に関する基礎研究
+                      </h2>
+                    </div>
+                    <h3 class="content-label">
+                      Basic research on failure tolerance and skill flexibility
+                    </h3>
+                    <p class="content-detailTxt">
+                      様々な複雑システムにおける安全対策として、「失敗の再発防止」が重視されてきました。
+                      安全に関わる失敗を防止することはもちろん重要ですが、より高い安全性の追求がより些細な失敗も許されない組織文化の形成につながれば、小さな失敗から学びを得てスキルを高める機会を得ることが困難となってしまいます。それは、システムのさらなる安全性向上に本当につながるのでしょうか？想定外の事態を含む様々な条件下でシステムの安全性を維持することに本当に貢献するのでしょうか？本研究では、それらの疑問に答えるための第一歩として、失敗に対する許容度の違いが、教育・訓練や経験を通じて獲得されるスキルの柔軟性に与える影響を独自のタスクシミュレーターを用いて研究しています。
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
       </section>
     </main>
 
@@ -691,6 +200,9 @@ import aviation from './Aviation-head.gif'
       is:inline
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     ></script>
+    <script context="module">
+      import script from './script.js';
+    </script>
     <script is:inline>
       $(function () {
         $('.hamburger-menu').on('click', function () {
@@ -822,6 +334,28 @@ import aviation from './Aviation-head.gif'
           }, 4000)
         }, 3000)
       }, 1500)
+
+
+      window.addEventListener('resize', function() {
+        var heading = document.getElementById("top-message");
+        var screenWidth = window.innerWidth;
+
+        if (screenWidth <= 640) {
+          heading.innerHTML = `
+            高橋研究室は航空管制の<br>ヒューマンファクタに関して<br/>
+            実践的・学術的研究を行っている<br>日本で<span class="text-sm font-light">(ほぼ)</span>唯一の研究室です
+          `;
+        } else {
+          heading.innerHTML = `
+            高橋研究室は航空管制のヒューマンファクタに関して<br/>
+            実践的・学術的研究を行っている日本で<span class="text-sm font-light">(ほぼ)</span>唯一の研究室です
+          `;
+        }
+      });
+
+      // 初回読み込み時にも実行するために、リサイズイベントを手動で発火させることもできます
+      window.dispatchEvent(new Event('resize'));
+
     </script>
   </body>
 </html>
