@@ -283,7 +283,7 @@ const blog_posts = (
                       ).toLocaleDateString()}
                     </div>
                     <div class="hidden md:flex">
-                      {post.data.tag.map((tag) => (
+                      {post.data.tag.map((tag: string) => (
                         <div class="badge badge-outline mx-2 p-3 text-base">
                           {tag}
                         </div>
@@ -325,7 +325,7 @@ const blog_posts = (
                       ).toLocaleDateString()}
                     </div>
                     <div class="hidden md:flex">
-                      {post.data.tag.map((tag) => (
+                      {post.data.tag.map((tag: string) => (
                         <div class="badge badge-outline mx-2 p-3 text-base">
                           {tag}
                         </div>
