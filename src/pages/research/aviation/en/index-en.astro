@@ -1,0 +1,370 @@
+---
+import Footer from '@components/footer.astro'
+// images
+import { Image } from 'astro:assets'
+import cockpit_color from '../cockpit_color.jpg'
+import cockpit_monotone from '../cockpit_monotone.jpg'
+import professor1 from '../professor1.jpg'
+import professor2 from '../professor2.jpg'
+import ATC_radar from '../ATC_radar.jpg'
+import ATC_Tower from '../ATC-Tower.jpg'
+import pilot from '../pilot.jpg'
+import cabin_Attendant from '../cabin_Attendant.jpg'
+import tklab_logo from '../TKLab-Logo.png'
+import aviation from '../Aviation-head.gif'
+// css
+import '../style.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>AviationGroup</title>
+    <meta name="description" content="Introduction to the aviation group's research. We conduct joint research with airline companies and in cooperation with active air traffic controllers and pilots. Using our laboratory's unique simulation system, we are aiming for safer and more efficient air traffic from the perspective of Safety-II.">
+    <meta http-equiv="content-type" charset="UTF-8" />
+    <!-- スマホ対応のための呪文 -->
+    <meta name="viewport" content="width=device-width, intial-scale=1" />
+    <link rel="canonical" href="https://www.takahashi.qse.tohoku.ac.jp/research/aviation/index.html">
+    <link rel="alternate" hreflang="ja" href="https://www.takahashi.qse.tohoku.ac.jp/research/aviation/index.html">
+    <link rel="alternate" hreflang="en" href="https://www.takahashi.qse.tohoku.ac.jp/research/aviation/en/index-en.html">
+  </head>
+
+  <body>
+    <header id="header">
+      <div class="header-Logo">
+        <Image src={tklab_logo} alt="logo" class="header-Logo-image" />
+        <a href="/">
+          <h1 class="TKLab-Title">高橋・狩川研究室</h1>
+        </a>
+      </div>
+
+      <div class="header-menu">
+        <p class="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </p>
+        <nav>
+          <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/research/index.html">RESEARCH GROUP</a></li>
+            <li><a href="/member/index.html">MEMBER</a></li>
+            <li><a href="/alumni/index.html">CAREER PATH</a></li>
+            <li><a href="/contact/index.html">ACCESS</a></li>
+            <li><a href="/blogs/index.html">BLOG</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- 言語選択メニュー -->
+      <div id="language-selector" hidden>
+        <div id="selected-language">Englis ▼</div>
+        <ul id="language-select">
+          <li><a href="../index.html">日本語</a></li>
+          <li>English</li>
+          <!-- 他の言語のオプションを追加できます -->
+        </ul>
+      </div>
+
+      <div id="video-container" class="video-container">
+        <Image src={aviation} alt="研究グループイメージgif" class="head-gif" />
+        <h1>Aviation Group</h1>
+      </div>
+
+      <section id="introduction">
+        <h1>
+            Takahashi Laboratory is<span class="text-sm font-light">(almost)</span>the only laboratory in Japan<br>
+            that conducts practical and academic research on human factors in Air Traffic Control.
+        </h1>
+        <div id="explanation"></div>
+            <p>
+                Takahashi Lab has been conducting research on aviation-related human factors for over 10 years. In our early research, we worked with current ANA pilots on aircraft cockpit interfaces. After that, I shifted the focus of my research to the field of air traffic control, and am conducting research in collaboration with active air traffic controllers. Although those of us who conduct research are required to have a high level of knowledge regarding air traffic control, the content of our research is not merely academic research, such as proposing a system that is highly evaluated as being usable for on-site education. We conduct practical research that goes beyond the level of Research on human factors in air traffic control is a very important issue to protect air safety, but there is a shortage of human resources. Would you also like to study air traffic control at Takahashi Lab?
+            </p>
+            <p>
+                This research group aims to further improve the safety of large-scale complex systems, including those in the aviation field, and works closely with airlines and other organizations to conduct academic research on "resilience," which is the key to realizing Safety-II. We conduct practical research that goes beyond knowledge. Below are some of the research actually being conducted in this group.
+            </p>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="content-wrap">
+          <ul class="content-list">
+            <li class="content-item is-right fadein">
+              <div class="content-itemInner">
+                <div class="image-container">
+                  <div class="image-containerInner">
+                    <Image src={cockpit_color} alt="Cockpit Color Image" />
+                    <!-- 背景画像 -->
+                    <Image
+                      src={cockpit_monotone}
+                      alt="Cockpit Monotone Image"
+                    />
+                    <!-- 表示画像 -->
+                  </div>
+                </div>
+                <div class="content-nameArea">
+                  <div class="content-nameInner">
+                    <h2 class="content-name">
+                        Joint research with airline companies “ROM”
+                    </h2>
+                  </div>
+                  <h3 class="content-label">
+                    航空会社との共同研究「ROM」
+                  </h3>
+                  <p class="content-detailTxt">
+                    Through joint research with Japan Airlines Co., Ltd., we are developing a new safety monitoring program called "ROM (Resilience Operation Monitoring)" based on a new safety concept called Safety-II. Traditionally, we have focused on "events that did not go well", that is, the few failure cases, but by focusing on and analyzing the actions that were the cause of "successful events", which are the majority of daily operations. , is researching new approaches to safety that aim to achieve higher levels of safety by increasing success.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="content-item is-left fadein">
+              <div class="content-itemInner">
+                <div class="image-container">
+                  <div class="image-containerInner">
+                    <Image src={professor2} alt="Professor2 Image" />
+                    <!-- 背景画像 -->
+                    <Image src={professor1} alt="Professor1 Image" />
+                    <!-- 表示画像 -->
+                  </div>
+                </div>
+                <div class="content-nameArea">
+                  <div class="content-nameInner">
+                    <h2 class="content-name">
+                      Research on flight crew competencies
+                    </h2>
+                  </div>
+                  <h3 class="content-label">
+                    運航乗務員のコンピテンシーに関する研究
+                  </h3>
+                  <p class="content-detailTxt">
+                    Safety-II emphasizes resilience, which is the positive human contribution to safety and the ability to do so. Using interviews and qualitative research methods, we will systematize and visualize the competencies for resilience possessed by flight crew members (pilots), and utilize the knowledge gained from this for future education and training, and ultimately for even safer flight operations. We are conducting practical research aimed at achieving this goal.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="content-item is-right fadein">
+              <div class="content-itemInner">
+                <div class="image-container">
+                  <div class="image-containerInner">
+                    <Image src={ATC_radar} alt="ATC Radar Image" />
+                    <!-- 背景画像 -->
+                    <Image src={ATC_Tower} alt="ATC Tower Image" />
+                    <!-- 表示画像 -->
+                  </div>
+                </div>
+                <div class="content-nameArea">
+                  <div class="content-nameInner">
+                    <h2 class="content-name">
+                      Experimental research on team resilience and communication
+                    </h2>
+                  </div>
+                  <h3 class="content-label">
+                    チームレジリエンスとコミュニケーションに関する実験研究
+                  </h3>
+                  <p class="content-detailTxt">
+                    Using a team task simulator (ASSIST) modeled after air route control operations, we are conducting research to experimentally clarify the characteristics of teams that can respond resiliently to various types of fluctuations. By focusing in particular on team communication and clarifying the relationship between the quantity and quality of information sharing between team members and team performance, we will contribute to further improvements in education and training programs for complex systems operated by teams. We aim to acquire knowledge.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="content-item is-left fadein">
+              <div class="content-itemInner">
+                <div class="image-container">
+                  <div class="image-containerInner">
+                    <Image src={pilot} alt="Pilot Image" />
+                    <!-- 背景画像 -->
+                    <Image src={cabin_Attendant} alt="Cabin Attendant Image" />
+                    <!-- 表示画像 -->
+                  </div>
+                </div>
+                <div class="content-nameArea">
+                  <div class="content-nameInner">
+                    <h2 class="content-name">
+                      Basic research on failure tolerance and skill flexibility
+                    </h2>
+                  </div>
+                  <h3 class="content-label">
+                    失敗許容度とスキルの柔軟性に関する基礎研究
+                  </h3>
+                  <p class="content-detailTxt">
+                    As a safety measure for various complex systems, "prevention of failures from recurring" has been emphasized. It is of course important to prevent safety-related failures, but if the pursuit of higher safety leads to the creation of an organizational culture where even the smallest failures are not tolerated, employees will have the opportunity to learn from small failures and improve their skills. becomes difficult. Will it really lead to further improvements in system security? Does it really contribute to maintaining system safety under various conditions, including unexpected events? In this study, as a first step toward answering these questions, we used a unique task simulator to study the impact that differences in tolerance for failure have on the flexibility of skills acquired through education, training, and experience. I am.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 AviationGroup</p>
+    </footer>
+    <Footer />
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+    <script
+      is:inline
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    ></script>
+    <script is:inline>
+      $(function () {
+        $('.hamburger-menu').on('click', function () {
+          $('nav').toggleClass('open') // メニューにopenクラスをつけ外しする
+          $('.hamburger-menu').toggleClass('open')
+        })
+      })
+
+      $(function () {
+        $('.header-Logo-image').on('click', function () {
+          $('body').toggleClass('cursorEffect') // body全体にcursorEffectクラスをつけ外しする
+        })
+      })
+
+      let konamiCode = []
+      const konamiPattern = [
+        'ArrowUp',
+        'ArrowUp',
+        'ArrowDown',
+        'ArrowDown',
+        'ArrowLeft',
+        'ArrowRight',
+        'ArrowLeft',
+        'ArrowRight',
+        'KeyB',
+        'KeyA'
+      ]
+      const headerLogoImage = document.querySelector('.header-Logo-image')
+
+      document.addEventListener('keydown', (e) => {
+        konamiCode.push(e.code)
+        konamiCode = konamiCode.slice(-10) // Keep the last 10 key presses
+
+        if (konamiCode.join('') === konamiPattern.join('')) {
+          // Konami code matched, start rotation animation
+          headerLogoImage.classList.add('rotate')
+          konamiCode = [] // Reset the input code
+        }
+      })
+
+      //画面に表示されたコンテンツをフェードインさせる関数
+      $(function () {
+        $(window).scroll(function () {
+          $('.fadein').each(function () {
+            var position = $(this).offset().top
+            var scroll = $(window).scrollTop()
+            var windowHeight = $(window).height()
+            if (scroll > position - windowHeight + 400) {
+              $(this).addClass('active')
+            }
+          })
+        })
+      })
+
+      const keywords_J = [
+        '航空安全',
+        '航空管制',
+        '産学官',
+        'パイロット',
+        'ヒューマンファクター',
+        'レジリエンス',
+        'コンピテンシー',
+        'ノンテクニカルスキル',
+        '安全文化',
+        '質的研究'
+      ]
+
+      const keywords_E = [
+        'Aviation Safety',
+        'Air Traffic Control',
+        'Industry-Academia-Government Collaboration',
+        'Pilot',
+        'Human Factors',
+        'Resilience',
+        'Safety II',
+        'Competency',
+        'Non-technical Skills',
+        'Safety Culture',
+        'Qualitative Research'
+      ]
+
+      const container = document.getElementById('video-container')
+
+      let count = 0
+
+      // Interval to add words
+      setInterval(() => {
+        // Random coordinates
+        const x = Math.floor(Math.random() * (window.innerWidth * 0.9))
+        const y = Math.floor(Math.random() * (window.innerWidth * 0.4)) + 50
+
+        // Random word
+        const word = keywords_E[count]
+
+        count++
+        if (count == keywords_E.length) {
+          count = 0
+        }
+
+        const font_size = Math.floor(
+          Math.random() * (window.innerWidth * 0.1) + 20
+        )
+
+        // Create element
+        const el = document.createElement('div')
+        el.classList.add('keywords')
+        el.innerText = word
+        el.style.position = 'absolute'
+        el.style.left = x + 'px'
+        el.style.top = y + 'px'
+        el.style.fontSize = font_size + 'px'
+
+        // Fade in
+        el.style.opacity = 0
+        container.appendChild(el)
+
+        setTimeout(() => {
+          el.style.transition = '2s ease-in-out'
+          el.style.opacity = 1
+        }, 1000)
+
+        // Fade out after fade in
+        setTimeout(() => {
+          el.style.transition = '2s ease-in-out'
+          el.style.opacity = 0
+
+          setTimeout(() => {
+            el.remove()
+          }, 4000)
+        }, 3000)
+      }, 1500)
+
+
+
+      // 初回読み込み時にも実行するために、リサイズイベントを手動で発火させることもできます
+      window.dispatchEvent(new Event('resize'));
+
+      // 言語選択メニューを開閉する関数
+      function toggleMenu() {
+        var languageList = document.getElementById('language-select');
+        languageList.classList.toggle('show');
+      }
+
+      // selected-languageをクリックした時のイベントを追加
+      var selectedLanguage = document.getElementById('selected-language');
+      selectedLanguage.addEventListener('click', toggleMenu);
+
+      // メニューの外側をクリックした時に閉じる処理
+      window.addEventListener('click', function(event) {
+        if (!event.target.matches('#selected-language')) {
+          var languageList = document.getElementById('language-select');
+          if (languageList.classList.contains('show')) {
+            languageList.classList.remove('show');
+          }
+        }
+      });
+
+    </script>
+  </body>
+</html>
