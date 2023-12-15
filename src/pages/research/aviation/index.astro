@@ -55,8 +55,8 @@ import './style.css';
 
     <main>
       <!-- 言語選択メニュー -->
-      <div id="language-selector" hidden>
-        <div id="selected-language">日本語 ▼</div>
+      <div id="language-selector">
+        <div id="selected-language">Language ▼</div>
         <ul id="language-select">
           <li>日本語</li>
           <li><a href="en/index-en.html">English</a></li>
@@ -210,9 +210,6 @@ import './style.css';
       is:inline
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     ></script>
-    <script context="module">
-      import script from './script.js';
-    </script>
     <script is:inline>
       $(function () {
         $('.hamburger-menu').on('click', function () {
