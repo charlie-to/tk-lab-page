@@ -13,7 +13,7 @@ const author = await getCollection('member')
   .catch((e) => console.error(e))
 ---
 
-<Layout title={data.title}>
+<Layout title={data.title} description={data.lead}>
   <style is:global>
     .markdown-body ul {
       @apply mb-4 list-inside list-disc pl-4;
