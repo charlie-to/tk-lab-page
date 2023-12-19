@@ -358,7 +358,6 @@ nav ul li a:hover {
 .content-itemInner {
     display: flex;
     align-items: center;
-    /* background-color: azure; */
 }
 
 .image-container {
@@ -368,14 +367,11 @@ nav ul li a:hover {
     margin: 0 auto;
     display: block;
     overflow: hidden;
-    cursor: pointer;
-    /* background-color: red; */
     text-align: center;
 }
 
 .image-containerInner img {
     position: absolute;
-    /* border-radius: 30px; */
     width: 100%;
     height: 100%;
     display: block;
@@ -385,7 +381,6 @@ nav ul li a:hover {
 .image-containerInner {
     flex-direction: column;
     align-items: center;
-    /* 画像を縦方向の中央に配置 */
 }
 
 .content-item:hover img:nth-of-type(2) {
