@@ -1,7 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro'
 import { getCollection } from 'astro:content'
-
+import BlogPostCard from '@components/BlogPostCard.astro.tsx'
 // images
 import { Image } from 'astro:assets'
 import defaultImage from './blog_default.jpg'
@@ -17,36 +17,7 @@ const blog_posts = (await getCollection('blog')).sort((a, b) => {
     {
       blog_posts.map((posts) => (
         // card
-        <div class="mb-6 p-4 sm:mb-0 md:w-1/3">
-          <div class="h-64 overflow-hidden rounded-lg">
-            <Image
-              alt="カバー画像"
-              class="h-full w-full object-cover object-center"
-              src={posts.data.cover ?? defaultImage}
-            />
-          </div>
-          <h2 class="title-font mt-5 text-xl font-medium text-gray-900">
-            {posts.data.title}
-          </h2>
-          <p class="mt-2 text-base leading-relaxed">{posts.data.lead}</p>
-          <a
-            class="mt-3 inline-flex items-center text-indigo-500"
-            href={`/blogs/${posts.slug}/index.html`}
-          >
-            詳しく見る
-            <svg
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              class="ml-2 h-4 w-4"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
+        <BlogPostCard post={posts} />
         // card end
       ))
     }

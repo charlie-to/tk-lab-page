@@ -2,6 +2,7 @@
 import { date, map } from 'astro/zod'
 import Layout from '../../layouts/Layout.astro'
 import { getCollection } from 'astro:content'
+import BlogPostCard from '@components/BlogPostCard.astro'
 
 // images
 import { Image } from 'astro:assets'
@@ -42,32 +43,10 @@ const news_posts = blog_posts
         <div class="mx-auto text-center">
           <h2 class="py-12 text-3xl font-bold">最近の投稿</h2>
         </div>
-        <div class="grid grid-cols-1 place-items-center gap-6 lg:grid-cols-3">
+        <div class="flex flex-wrap">
           {
             recent_posts.map((recent_post) => (
-              <a href={`/blogs/${recent_post.slug}/index.html`}>
-                <div class="card h-96 w-80 bg-base-100 shadow-xl">
-                  <figure class="max-h-72">
-                    <Image
-                      src={recent_post.data.cover ?? defaultImage}
-                      alt="blog cover image"
-                    />
-                  </figure>
-                  <div class="card-body">
-                    <p class="text-base font-light text-gray-500">
-                      {new Date(
-                        Date.parse(recent_post.data.date)
-                      ).toLocaleDateString()}
-                    </p>
-                    <h2 class="card-title">{recent_post.data.title}</h2>
-                    <div class="card-actions justify-end">
-                      {recent_post.data.tag.map((tag: string) => (
-                        <div class="badge badge-outline text-base">{tag}</div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </a>
+              <BlogPostCard post={recent_post} />
             ))
           }
         </div>
