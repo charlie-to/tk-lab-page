@@ -13,7 +13,7 @@ import cabin_Attendant from './cabin_Attendant.jpg'
 import tklab_logo from './TKLab-Logo.png'
 import aviation from './Aviation-head.gif'
 // css
-import './style.css';
+import './style.css'
 ---
 
 <!doctype html>
@@ -59,7 +59,7 @@ import './style.css';
         <div id="selected-language">Language ▼</div>
         <ul id="language-select">
           <li>日本語</li>
-          <li><a href="en/index-en.html">English</a></li>
+          <li><a href="en/index-en/index.html">English</a></li>
           <!-- 他の言語のオプションを追加できます -->
         </ul>
       </div>
@@ -76,18 +76,22 @@ import './style.css';
           </h1>
           <div id="explanation">
             <p>
-              高橋研では10年以上前から航空関係のヒューマンファクタの研究を行ってきました。<br>
-              初期の研究では航空機のコックピットのインタフェースに関する研究をANA現役機長と共に行いました。その後、研究の軸足を航空管制分野に移し、現役の航空管制官との協力体制をつくり研究を行っています。<br>
-              航空管制に関しては研究を行う我々の方も高いレベルでの知識が要求されますが、行っている研究の内容は現場での教育に使えると評価されるほどのシステムを提案するなど、単なるアカデミック研究のレベルを超えた実践的な研究を行っています。<br>
-              航空管制におけるヒューマンファクタに関する研究は空の安全を守るために非常に重要な問題ですが人材的に不足しています。<br>
-              あなたも是非、高橋研で航空管制の研究をしてみませんか？
+              高橋研では10年以上前から航空関係のヒューマンファクタの研究を行ってきました。<br
+              />
+               初期の研究では航空機のコックピットのインタフェースに関する研究をANA現役機長と共に行いました。その後、研究の軸足を航空管制分野に移し、現役の航空管制官との協力体制をつくり研究を行っています。<br
+              />
+               航空管制に関しては研究を行う我々の方も高いレベルでの知識が要求されますが、行っている研究の内容は現場での教育に使えると評価されるほどのシステムを提案するなど、単なるアカデミック研究のレベルを超えた実践的な研究を行っています。<br
+              />
+               航空管制におけるヒューマンファクタに関する研究は空の安全を守るために非常に重要な問題ですが人材的に不足しています。<br
+              />
+               あなたも是非、高橋研で航空管制の研究をしてみませんか？
             </p>
             <p>
               本研究グループでは、航空分野をはじめとした大規模複雑システムにおけるさらなる安全性向上を目指し、Safety-Ⅱ実現に向けての鍵となる「レジリエンス」に関して、航空会社等との密接な連携を通じて、学術知にとどまらない実践的な研究を実施しています。以下に、本グループにおいて実際に行われている研究の一部を示します。
             </p>
           </div>
         </section>
-  
+
         <section id="research">
           <div class="content-wrap">
             <ul class="content-list">
@@ -175,7 +179,10 @@ import './style.css';
                     <div class="image-containerInner">
                       <Image src={pilot} alt="Pilot Image" />
                       <!-- 背景画像 -->
-                      <Image src={cabin_Attendant} alt="Cabin Attendant Image" />
+                      <Image
+                        src={cabin_Attendant}
+                        alt="Cabin Attendant Image"
+                      />
                       <!-- 表示画像 -->
                     </div>
                   </div>
@@ -223,7 +230,6 @@ import './style.css';
           $('body').toggleClass('cursorEffect') // body全体にcursorEffectクラスをつけ外しする
         })
       })
-
 
       // コナミコマンドの入力を監視している関数
       let konamiCode = []
@@ -344,47 +350,45 @@ import './style.css';
         }, 3000)
       }, 1500)
 
-
-      window.addEventListener('resize', function() {
-        var heading = document.getElementById("top-message");
-        var screenWidth = window.innerWidth;
+      window.addEventListener('resize', function () {
+        var heading = document.getElementById('top-message')
+        var screenWidth = window.innerWidth
 
         if (screenWidth <= 640) {
           heading.innerHTML = `
             高橋研究室は航空管制の<br>ヒューマンファクタに関して<br/>
             実践的・学術的研究を行っている<br>日本で<span class="text-sm font-light">(ほぼ)</span>唯一の研究室です
-          `;
+          `
         } else {
           heading.innerHTML = `
             高橋研究室は航空管制のヒューマンファクタに関して<br/>
             実践的・学術的研究を行っている日本で<span class="text-sm font-light">(ほぼ)</span>唯一の研究室です
-          `;
+          `
         }
-      });
+      })
 
       // 初回読み込み時にも実行するために、リサイズイベントを手動で発火させることもできます
-      window.dispatchEvent(new Event('resize'));
+      window.dispatchEvent(new Event('resize'))
 
       // 言語選択メニューを開閉する関数
       function toggleMenu() {
-        var languageList = document.getElementById('language-select');
-        languageList.classList.toggle('show');
+        var languageList = document.getElementById('language-select')
+        languageList.classList.toggle('show')
       }
 
       // selected-languageをクリックした時のイベントを追加
-      var selectedLanguage = document.getElementById('selected-language');
-      selectedLanguage.addEventListener('click', toggleMenu);
+      var selectedLanguage = document.getElementById('selected-language')
+      selectedLanguage.addEventListener('click', toggleMenu)
 
       // メニューの外側をクリックした時に閉じる処理
-      window.addEventListener('click', function(event) {
+      window.addEventListener('click', function (event) {
         if (!event.target.matches('#selected-language')) {
-          var languageList = document.getElementById('language-select');
+          var languageList = document.getElementById('language-select')
           if (languageList.classList.contains('show')) {
-            languageList.classList.remove('show');
+            languageList.classList.remove('show')
           }
         }
-      });
-
+      })
     </script>
   </body>
 </html>
