@@ -66,7 +66,7 @@ const author = await getCollection('member')
 
   <div class="flex">
     <!-- article start -->
-    <div class="mx-auto max-w-2xl space-y-12 px-6 py-16 lg:w-3/4">
+    <div class="mx-auto max-w-2xl space-y-12 px-6 py-16 lg:w-7/12">
       <article class="space-y-6">
         <div class="space-y-3">
           <h1 class="text-4xl font-bold md:text-5xl">
@@ -110,7 +110,7 @@ const author = await getCollection('member')
     </div>
     <!-- article end -->
     <!-- sidebar start -->
-    <div class="hidden w-1/4 space-y-12 py-16 lg:block">
+    <div class="hidden w-4/12 space-y-12 py-16 lg:block">
       {
         author && (
           <div class="border border-gray-600 py-8 text-center">
@@ -146,7 +146,7 @@ const author = await getCollection('member')
         Object.keys(headings).length === 0 ? (
           ''
         ) : (
-          <div class="border-base rounded-lg border-4 p-3">
+          <div class="p-3">
             <ToC links={headings} />
           </div>
         )
