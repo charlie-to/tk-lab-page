@@ -16,6 +16,8 @@ import balloonUnsplash from './balloon-unsplash.jpg'
 import YoutubeEmbed from '@components/YouTubeEmbed.astro'
 const youtubeId = 'nue-bLFGKK8'
 
+import UnusableInterface from '@components/unusableInterface.astro'
+
 const news_posts = (
   await getCollection('blog', ({ data }) => {
     return data.tag.includes('news')
@@ -387,6 +389,10 @@ const blog_posts = (
     <!-- youtube 埋め込み -->
     <div class="relative m-24 h-fit max-w-4xl lg:mx-auto">
       <YoutubeEmbed id={youtubeId} />
+    </div>
+    <!-- 使いにくいユーザーインターフェースの館 -->
+    <div class="relative w-1/2 h-fit max-w-4xl lg:mx-auto">
+      <UnusableInterface  />
     </div>
   </section>
 
