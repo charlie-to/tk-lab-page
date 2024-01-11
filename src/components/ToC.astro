@@ -10,16 +10,42 @@ export interface props {
 const { links: links } = Astro.props
 ---
 
-<ul class="steps steps-vertical">
+<div class="block">
   {
-    links == undefined || links.length == 0
-      ? ''
-      : links.map((link: link) => (
-          <li class="step step-primary">
-            <a href={'#' + link.slug} class="hover:text-primary">
-              {link.text.split('見出し')[0]}
-            </a>
-          </li>
-        ))
+    // links を展開する関数
+    (function (links: link[]) {
+      // links が空の場合は No links と表示する
+      if (links.length === 0) {
+        return <li class="text-gray-500">No links</li>
+      }
+      // links が空でない場合は、links を展開する
+      // html には、htmlベタ書きの結果を格納する
+      let html = ''
+      for (let i = 0; i < links.length; i++) {
+        const link = links[i]
+        const { depth, text, slug } = link
+        html += '<div class="text-gray-500 w-full hover:bg-gray-100">'
+        html +=
+          '<a class="" href="#' + slug + '">' + '<p class="py-[4px] text-base '
+        switch (depth) {
+          case 1:
+            html += 'font-semibold'
+            break
+          case 2:
+            html += 'ml-4'
+            break
+          case 3:
+            html += 'ml-8'
+            break
+          default:
+            html += 'ml-12'
+            break
+        }
+        html += '">' + slug + '</p></a>'
+        html += '</div>'
+        console.log(html)
+      }
+      return <div set:html={html} />
+    })(links)
   }
-</ul>
+</div>
