@@ -1,0 +1,39 @@
+---
+import SlideLayout from '@layouts/slide_layout.astro'
+---
+
+<SlideLayout>
+    <div class="slide-content">
+        <div class="textArea" style="margin-top: 220px; display: flex; justify-content: center;">
+            <div class="text first" style="display: inline-block; font-size: 40px; opacity: 0;">
+                あ、それから・・・
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const textFirst = document.querySelector('.first');
+
+            // 画面の要素を時間差で登場させる
+            setTimeout(() => {
+                textFirst.style.transition = "opacity 1s ease-in-out"
+                textFirst.style.opacity = 1;
+            }, 1000);
+
+            setTimeout(() => {
+                textFirst.style.opacity = 0;
+            }, 3000);
+
+            setTimeout(() => {
+                const nextPageUrl = './slide32.html';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                });
+            }, 4000);
+        });
+    </script>
+</SlideLayout>

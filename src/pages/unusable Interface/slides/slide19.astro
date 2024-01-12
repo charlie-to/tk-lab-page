@@ -1,0 +1,64 @@
+---
+import SlideLayout from '@layouts/slide_layout.astro'
+// images
+import { Image } from 'astro:assets'
+import ghost from './Images/ghost.png'
+---
+
+<SlideLayout>
+    <div class="slide-content" style="position: relative;">
+        <div class="textArea">
+            <div class="text first"
+                style="z-index: 2; display: inline-block; font-size: 40px; opacity: 1; position: absolute; top: 240px; left: 460px;">
+                <span class="white">ぐっ、やられた…</span>
+            </div>
+        </div>
+        <Image src={ghost} alt="ghost" class="ghost" style="width: 320px; transform: translate(-50%, -40%); opacity: 1; position: absolute; top: 50%; left: 30%;"/>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const fromPage = params.get('from');
+            const textFirst = document.querySelector('.first');
+            const ghost = document.querySelector('.ghost');
+
+            // 画面の要素を時間差で登場させる
+            setTimeout(() => {
+                textFirst.style.transition = "opacity 2s ease-in-out"
+                ghost.style.transition = "opacity 2s ease-in-out"
+                textFirst.style.opacity = 0;
+                ghost.style.opacity = 0;
+            }, 2000);
+
+            // 自動で画面遷移
+            setTimeout(() => {
+                if (fromPage === 'slide16') {
+                    const nextPageUrl = './slide20.html';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                });
+                } else if (fromPage === 'slide27') {
+                    const nextPageUrl = './slide28.html';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                });
+                } else {
+                    const nextPageUrl = './slide20.html';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                });
+                }
+            }, 4000);
+        });
+    </script>
+</SlideLayout>

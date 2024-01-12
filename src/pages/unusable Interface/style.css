@@ -1,0 +1,122 @@
+body,
+html {
+    background-color: black;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-content {
+    background-color: black;
+    width: 960px;
+    height: 540px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'ヒラギノ明朝 ProN', 'Hiragino Mincho ProN', 'HiraMinProN-W3', 'MS PMincho', sans-serif;
+}
+
+.text {
+    color: red;
+    align-items: center; 
+    font-weight: bold;
+}
+
+.imageText {
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'Roboto', 'Noto Sans', sans-serif;
+}
+
+::selection {
+    color: #000;
+    text-shadow: 0 0 5px white;
+    background: red;
+}
+
+.buttonArea {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #4d0000, #330000);
+    cursor: pointer;
+    color: #a33;
+    font-family: 'Times New Roman', serif;
+    box-shadow: 0 0 10px rgba(230, 0, 0, 0.8);
+}
+
+button:hover {
+    color: #f33;
+    background: linear-gradient(to bottom, #700, #400);
+    box-shadow: 0 0 15px rgba(230, 0, 0, 0.8);
+}
+
+@keyframes blink {
+    0% {
+    opacity: 1;
+    }
+    100% {
+    opacity: 0.7;
+    }
+} 
+
+.ghost {
+    animation: updown 2s infinite alternate;
+}
+
+@keyframes updown {
+    0% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-5%);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+}
+
+.disable {
+    opacity: 1;
+    background: linear-gradient(to bottom, #330000, #220000); /* 背景色を変更 */
+    color: #700;
+    transform: rotate(3deg);
+    transition: transform 0.2s ease-in-out; /* アニメーションを追加 */
+}
+
+.disable:hover {
+    transform: rotate(-3deg);
+}
+
+
+
+.white {
+    color: white;
+}
+.white::selection {
+    color: white;
+    text-shadow: 0 0 5px black;
+}
+
+.textButton {
+    width: 80px; /* ボタンの幅 */
+    height: 80px; /* ボタンの高さ */
+    border: 1px solid white; /* 白い枠 */
+    background-color: black; /* 黒い背景 */
+    color: white; /* 文字色 */
+    font-size: 40px; /* フォントサイズ */
+    font-weight: bold;
+    text-align: center; /* テキストを中央揃え */
+    cursor: pointer;
+    line-height: 80px; /* テキストを垂直方向に中央揃え */
+    outline: none; /* ボタンにフォーカス時の枠を消す */
+}
