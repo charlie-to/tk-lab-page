@@ -44,7 +44,7 @@ import flight_sim from './Images/flight_sim.jpg'
             ">Next →</button>
         </div>
     </div>
-    <script>
+    <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const text = document.querySelector('.textArea');
             const ghost = document.querySelector('.ghost');
@@ -68,7 +68,7 @@ import flight_sim from './Images/flight_sim.jpg'
             // ボタンが押されたら画面遷移
             const nextButton = document.getElementById('next');
             nextButton.addEventListener('click', () => {
-                const nextPageUrl = './slide34.html';
+                const nextPageUrl = '../slide34/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {

@@ -36,11 +36,11 @@ import arrow from './Images/arrow.png'
         <Image src={arrow} alt="arrow" class="arrow-down" style="position: absolute; top: 240px; left: 190px; width: 200px;"/>
         <Image src={arrow} alt="arrow" class="arrow-down" style="position: absolute; top: 240px; left: 620px; width: 200px;"/>
     </div>
-    <script>
+    <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             // 6秒後に自動で画面遷移
             setTimeout(() => {
-                const nextPageUrl = './slide6.html';
+                const nextPageUrl = '../slide6/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {

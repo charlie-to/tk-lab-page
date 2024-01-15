@@ -46,7 +46,7 @@ import ghost from './Images/ghost.png'
             transition: opacity 1s, width 1s, transform 1s;
             ">北</div>
     </div>
-    <script>
+    <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const textFirst = document.querySelector('.first');
             const textSecond = document.querySelector('.second');
@@ -102,7 +102,7 @@ import ghost from './Images/ghost.png'
             }, 15000);
 
             setTimeout(() => {
-                const nextPageUrl = './slide26.html';
+                const nextPageUrl = '../slide26/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {

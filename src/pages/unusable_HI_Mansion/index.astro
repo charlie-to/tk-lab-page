@@ -17,11 +17,11 @@ import SlideLayout from '@layouts/slide_layout.astro'
             height: 50px;
         ">START</button>
     </div>
-    <script>
+    <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const button = document.getElementById('start');
             button.addEventListener('click', () => {
-                const nextPageUrl = './slides/slide1.html';
+                const nextPageUrl = './slides/slide1/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {

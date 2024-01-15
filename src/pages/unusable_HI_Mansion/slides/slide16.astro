@@ -15,7 +15,7 @@ import ghost from './Images/ghost.png'
         <Image src={ghost} alt="ghost" class="ghost" style="width: 200px; opacity: 1; position: absolute; top: 150px; left: 140px;"/>
         <div id="buttonContainer"></div>
     </div>
-    <script>
+    <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             function addElementsToContainer() {
                 let elementsInfo = [
@@ -77,7 +77,7 @@ import ghost from './Images/ghost.png'
 
             // ボタンが押されたら画面遷移
             correct.addEventListener('click', () => {
-                const nextPageUrl = './slide19.html?from=slide16'; // -> ぐっ、やられた…
+                const nextPageUrl = '../slide19/index.html?from=slide16'; // -> ぐっ、やられた…
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {
@@ -88,7 +88,7 @@ import ghost from './Images/ghost.png'
 
             for (let i = 0; i < wrong.length; i++) {
                 wrong[i].addEventListener('click', () => {
-                    const nextPageUrl = './slide17.html';
+                    const nextPageUrl = '../slide17/index.html';
 
                     // 次のページを読み込む
                     window.fetch(nextPageUrl).then((response) => {
@@ -100,7 +100,7 @@ import ghost from './Images/ghost.png'
 
             // ボタンが押されたら画面遷移
             incorrect.addEventListener('click', () => {
-                const nextPageUrl = './slide18.html';
+                const nextPageUrl = '../slide18/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {
@@ -110,7 +110,7 @@ import ghost from './Images/ghost.png'
             });
 
             setTimeout(() => {
-                const nextPageUrl = './slide17.html';
+                const nextPageUrl = '../slide17/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {

@@ -28,7 +28,7 @@ import SlideLayout from '@layouts/slide_layout.astro'
             ">NO</button>
         </div>
     </div>
-    <script>
+    <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
 
             const textFirst = document.querySelector('.first');
@@ -48,7 +48,7 @@ import SlideLayout from '@layouts/slide_layout.astro'
             // ボタンが押されたら画面遷移
             const yesButton = document.getElementById('yes');
             yesButton.addEventListener('click', () => {
-                const nextPageUrl = './slide4.html';
+                const nextPageUrl = '../slide4/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {
@@ -60,7 +60,7 @@ import SlideLayout from '@layouts/slide_layout.astro'
             // ボタンが押されたら画面遷移
             const noButton = document.getElementById('no');
             noButton.addEventListener('click', () => {
-                const nextPageUrl = './slide7.html';
+                const nextPageUrl = '../slide7/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {

@@ -20,7 +20,7 @@ import ghost from './Images/ghost.png'
         <Image src={ghost} alt="ghost" class="ghost" style="width: 800px; opacity: 1; position: absolute; top: 70%; left: 50%;"/>
     </div>
 
-    <script>
+    <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const textFirst = document.querySelector('.first');
             const textSecond = document.querySelector('.second');
@@ -46,7 +46,7 @@ import ghost from './Images/ghost.png'
 
             // 自動で画面遷移
             setTimeout(() => {
-                const nextPageUrl = './slide31.html';
+                const nextPageUrl = '../slide31/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {

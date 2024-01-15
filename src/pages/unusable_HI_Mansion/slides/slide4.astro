@@ -31,7 +31,7 @@ import ghost from './Images/ghost.png'
         </div>
         <Image src={ghost} alt="ghost" class="ghost" style="width: 400px; transform: translate(-50%, -50%); opacity: 0; position: absolute; top: 70%; left: 50%; transition: opacity 1s, width 1s, transform 1s; z-index: -1;"/>
     </div>
-    <script>
+    <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const buttonArea = document.querySelector('.buttonArea');
             const ghost = document.querySelector('.ghost');
@@ -49,7 +49,7 @@ import ghost from './Images/ghost.png'
                 ghost.style.zIndex = 10;
                 ghost.style.transform = "translate(-50%, -50%) scale(1)";
                 setTimeout(() => {
-                    const nextPageUrl = './slide5.html';
+                    const nextPageUrl = '../slide5/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {
@@ -62,7 +62,7 @@ import ghost from './Images/ghost.png'
             // ボタンが押されたら画面遷移
             const yesButton = document.getElementById('yes');
             yesButton.addEventListener('click', () => {
-                const nextPageUrl = './slide6.html';
+                const nextPageUrl = '../slide6/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {
