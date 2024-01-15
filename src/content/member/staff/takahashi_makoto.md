@@ -5,6 +5,7 @@ name:
 grade: '教授'
 major: ''
 order: 1
+cover: './takahashi_makoto.jpg'
 ---
 
 # 自己紹介文依頼中

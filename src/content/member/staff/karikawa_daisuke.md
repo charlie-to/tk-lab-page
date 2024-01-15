@@ -5,6 +5,7 @@ name:
 grade: '准教授'
 major: ''
 order: 2
+cover: './karikawa_daisuke.jpg'
 ---
 
 # 自己紹介文依頼中
