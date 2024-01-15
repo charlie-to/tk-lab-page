@@ -24,7 +24,7 @@ import SlideLayout from '@layouts/slide_layout.astro'
         </div>
     </div>
 
-    <script>
+    <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const textFirst = document.querySelector('.first');
             const textSecond = document.querySelector('.second');
@@ -49,7 +49,7 @@ import SlideLayout from '@layouts/slide_layout.astro'
             // ボタンが押されたら画面遷移
             const backButton = document.getElementById('backToTop');
             backButton.addEventListener('click', () => {
-                const nextPageUrl = '../index.html';
+                const nextPageUrl = '../../index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {

@@ -21,7 +21,7 @@ import SlideLayout from '@layouts/slide_layout.astro'
 
     </div>
 
-    <script>
+    <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const textFirst = document.querySelector('.first');
             const textSecond = document.querySelector('.second');
@@ -51,7 +51,7 @@ import SlideLayout from '@layouts/slide_layout.astro'
 
             // 自動で画面遷移
             setTimeout(() => {
-                const nextPageUrl = './slide22.html';
+                const nextPageUrl = '../slide22/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {
