@@ -26,7 +26,7 @@ import ghost_teacher from './Images/ghost_teacher.png'
         <Image src={ghost_teacher} alt="ghost teacher" class="ghost" style="width: 150px; opacity: 0; position: absolute; top: 80px; left: 80px;"/>
         <div id="buttonContainer"></div>
     </div>
-    <script>
+    <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const elementsInfo = JSON.parse(localStorage.getItem('shuffledArrows'));
             function addElementsToContainer() {
@@ -84,7 +84,7 @@ import ghost_teacher from './Images/ghost_teacher.png'
             }, 12000);
 
             setTimeout(() => {
-                const nextPageUrl = './slide21.html';
+                const nextPageUrl = '../slide21/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {

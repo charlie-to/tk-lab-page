@@ -11,7 +11,7 @@ import SlideLayout from '@layouts/slide_layout.astro'
         </div>
     </div>
 
-    <script>
+    <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const textFirst = document.querySelector('.first');
 
@@ -26,7 +26,7 @@ import SlideLayout from '@layouts/slide_layout.astro'
             }, 3000);
 
             setTimeout(() => {
-                const nextPageUrl = './slide32.html';
+                const nextPageUrl = '../slide32/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {

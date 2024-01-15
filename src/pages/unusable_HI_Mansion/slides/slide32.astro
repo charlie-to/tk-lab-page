@@ -18,7 +18,7 @@ import ghost from './Images/ghost.png'
         <Image src={ghost} alt="ghost" class="ghost" style="width: 300px; transform: translate(-50%, -50%); opacity: 0; position: absolute; top: 55%; left: 50%; transition: opacity 2s ease-in-out;"/>
     </div>
 
-    <script>
+    <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const text = document.querySelector('.textArea');
             const initialGhost = document.querySelector('.ghost');
@@ -68,7 +68,7 @@ import ghost from './Images/ghost.png'
             }, 4000);
 
             setTimeout(() => {
-                const nextPageUrl = './slide33.html';
+                const nextPageUrl = '../slide33/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {

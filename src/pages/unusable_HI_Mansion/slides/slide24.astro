@@ -36,7 +36,7 @@ import ghost from './Images/ghost.png'
         </div>
         <Image src={ghost} alt="ghost" class="ghost" style="width: 300px; transform: translate(-50%, -50%); opacity: 0; position: absolute; top: 55%; left: 50%; transition: opacity 2s ease-in-out;"/>
     </div>
-    <script>
+    <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const textFirst = document.querySelector('.first');
             const buttonArea = document.querySelector('.buttonArea');
@@ -82,7 +82,7 @@ import ghost from './Images/ghost.png'
             // ボタンが押されたら画面遷移
             const fightButton = document.getElementById('fight');
             fightButton.addEventListener('click', () => {
-                const nextPageUrl = './slide25.html';
+                const nextPageUrl = '../slide25/index.html';
 
                 // 次のページを読み込む
                 window.fetch(nextPageUrl).then((response) => {
