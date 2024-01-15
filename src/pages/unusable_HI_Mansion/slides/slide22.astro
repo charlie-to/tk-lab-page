@@ -1,0 +1,105 @@
+---
+import SlideLayout from '@layouts/slide_layout.astro'
+// images
+import { Image } from 'astro:assets'
+import ghost from './Images/ghost.png'
+---
+
+<SlideLayout>
+    <div class="slide-content">
+        <div class="textArea" style="position: relative;">
+            <div class="text first" style="position: absolute; font-size: 40px; opacity: 0; left: 20px;">
+                おっと<br><span class="white"
+                    style="position: absolute; width: 900px; font-size: 48px; left: 20px;">「情報量が多すぎるインターフェース」<br></span>
+                <span style="position: absolute; width: 200px; top: 120px; left: 730px;">が現れた！</span>
+            </div>
+        </div>
+        <div class="buttonArea" style="opacity: 0;">
+            <button id="fight" style="
+            top: 85%;
+            left: 28%;
+            transform: translate(-50%, -50%);
+            width: 375px;
+            height: 50px;
+            
+            ">たたかう</button>
+            <button id="escape" style="
+            top: 85%;
+            left: 73%;
+            transform: translate(-50%, -50%);
+            width: 375px;
+            height: 50px;
+            
+            ">にげる</button>
+        </div>
+        <Image src={ghost} alt="ghost" class="ghost" style="width: 300px; transform: translate(-50%, -50%); opacity: 0; position: absolute; top: 55%; left: 50%; transition: opacity 2s ease-in-out;"/>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const textFirst = document.querySelector('.first');
+            const buttonArea = document.querySelector('.buttonArea');
+
+            const initialGhost = document.querySelector('.ghost');
+
+            // 初期位置
+            const initialTop = 55;
+            const initialLeft = 50;
+            const numOfGhosts = 15; // 作成する画像の数
+
+            for (let i = 1; i < numOfGhosts; i++) {
+                const newGhost = initialGhost.cloneNode(true);
+                const randomTop = Math.random() * 10 + 50;
+                const randomLeft = Math.random() * 80 + 10;
+
+                newGhost.style.top = `${randomTop}%`;
+                newGhost.style.left = `${randomLeft}%`;
+
+                // ランダムな遅延時間を生成 (0秒から2秒の間でランダム)
+                const randomDelay = Math.random() * 2000;
+                newGhost.style.animationDelay = `${randomDelay}ms`;
+
+                // アニメーションが適用されるため、opacityを変更して表示させる
+                setTimeout(() => {
+                    newGhost.style.opacity = 0.9;
+                }, randomDelay);
+
+                initialGhost.parentNode.appendChild(newGhost);
+            }
+
+            // 画面の要素を時間差で登場させる
+            setTimeout(() => {
+                textFirst.style.transition = "opacity 1s ease-in-out"
+                textFirst.style.opacity = 1;
+            }, 1000);
+
+            setTimeout(() => {
+                buttonArea.style.transition = "opacity 1s ease-in-out"
+                buttonArea.style.opacity = 1;
+            }, 3000);
+
+            // ボタンが押されたら画面遷移
+            const fightButton = document.getElementById('fight');
+            fightButton.addEventListener('click', () => {
+                const nextPageUrl = './slide25.html';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                });
+            });
+
+            // ボタンが押されたら画面遷移
+            const escapeButton = document.getElementById('escape');
+            escapeButton.addEventListener('click', () => {
+                const nextPageUrl = './slide23.html';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                });
+            });
+        });        
+    </script>
+</SlideLayout>

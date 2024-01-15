@@ -1,0 +1,125 @@
+---
+import SlideLayout from '@layouts/slide_layout.astro'
+// images
+import { Image } from 'astro:assets'
+import ghost from './Images/ghost.png'
+---
+
+<SlideLayout>
+    <div class="slide-content">
+        <div class="textArea" style="position: relative; top: 10px; left: 20px; transform: translate(0%, 0%);">
+            <div class="text first" style="position: absolute; top: 70px; left: 300px; font-size: 60px; opacity: 1;">
+                <span class="white">「左っ！！」</span>
+            </div>
+        </div>
+        <Image src={ghost} alt="ghost" class="ghost" style="width: 200px; opacity: 1; position: absolute; top: 150px; left: 140px;"/>
+        <div id="buttonContainer"></div>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            function addElementsToContainer() {
+                let elementsInfo = [
+                    { class: 'correct', rotation: '270', text: '下' },
+                    { class: 'incorrect', rotation: '90', text: '左' },
+                    { class: 'wrong', rotation: '180', text: '上' },
+                    { class: 'wrong', rotation: '0', text: '右' }
+                ];
+
+                function shuffleArray(array) {
+                    for (let i = array.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [array[i], array[j]] = [array[j], array[i]];
+                    }
+                    return array;
+                }
+
+                elementsInfo = shuffleArray(elementsInfo);
+                localStorage.setItem('shuffledArrows', JSON.stringify(elementsInfo));
+
+                const container = document.getElementById('buttonContainer');
+
+                elementsInfo.forEach((info, index) => {
+                    const div = document.createElement('div');
+                    div.classList.add(info.class);
+                    div.style.cursor = 'pointer';
+                    div.style.transform = 'translate(-50%, -50%)';
+                    div.style.opacity = '1';
+                    div.style.position = 'absolute';
+                    div.style.top = '360px';
+                    div.style.left = `${200 * index + 150}px`;
+
+                    const img = document.createElement('img');
+                    img.src = '/arrowButton.png';
+                    img.style.width = '100px';
+                    img.style.zIndex = '1';
+                    img.style.transform = `rotate(${info.rotation}deg)`;
+
+                    const span = document.createElement('span');
+                    span.classList.add('imageText');
+                    span.style.position = 'absolute';
+                    span.style.fontSize = '40px';
+                    span.style.zIndex = '2';
+                    span.style.top = '20px';
+                    span.style.left = '30px';
+                    span.textContent = info.text;
+
+                    div.appendChild(img);
+                    div.appendChild(span);
+                    container.appendChild(div);
+                });
+            }
+
+            addElementsToContainer();
+
+            const correct = document.getElementsByClassName('correct')[0];
+            const wrong = document.getElementsByClassName('wrong');
+            const incorrect = document.getElementsByClassName('incorrect')[0];
+
+            // ボタンが押されたら画面遷移
+            correct.addEventListener('click', () => {
+                const nextPageUrl = './slide19.html?from=slide16'; // -> ぐっ、やられた…
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                });
+            });
+
+            for (let i = 0; i < wrong.length; i++) {
+                wrong[i].addEventListener('click', () => {
+                    const nextPageUrl = './slide17.html';
+
+                    // 次のページを読み込む
+                    window.fetch(nextPageUrl).then((response) => {
+                        // 読み込みが完了したら画面遷移を行う
+                        window.location.href = nextPageUrl;
+                    }); // -> やり直しっ！
+                });
+            }
+
+            // ボタンが押されたら画面遷移
+            incorrect.addEventListener('click', () => {
+                const nextPageUrl = './slide18.html';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                }); // -> よくぞ引っかかってくれました
+            });
+
+            setTimeout(() => {
+                const nextPageUrl = './slide17.html';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                });
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+---
+import SlideLayout from '@layouts/slide_layout.astro'
+// images
+import { Image } from 'astro:assets'
+import ghost from './Images/ghost.png'
+---
+
+<SlideLayout>
+    <div class="slide-content" style="position: relative;">
+        <div class="textArea" style="margin-left: 20px; margin-top: 130px; z-index: 10; position: relative;">
+            <div class="text first"
+                style="display: inline-block; font-size: 80px; opacity: 1; position: relative; transform: rotate(340deg);">
+                い、行かないでっ!!
+            </div>
+        </div>
+        <Image src={ghost} alt="ghost" id="ghost" style="width: 800px; transform: rotate(340deg); opacity: 1; position: absolute; top: 30%; left: 30%;"/>
+    </div>
+
+    <script is:inline>
+        window.addEventListener('DOMContentLoaded', () => {
+            const textFirst = document.querySelector('.first');
+            const ghost = document.querySelector('#ghost');
+
+            ghost.style.transform = "rotate(340deg)"
+            setTimeout(() => {
+                textFirst.style.transition = "opacity 2s ease-in-out"
+                ghost.style.transition = "opacity 2s ease-in-out"
+                textFirst.style.opacity = 0;
+                ghost.style.opacity = 0;
+            }, 3000);
+
+            // 自動で画面遷移
+            setTimeout(() => {
+                const nextPageUrl = './slide11.html';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                });
+            }, 5000);
+        });
+    </script>
+</SlideLayout>
