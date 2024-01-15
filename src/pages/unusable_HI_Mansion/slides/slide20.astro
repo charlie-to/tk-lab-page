@@ -1,0 +1,97 @@
+---
+import SlideLayout from '@layouts/slide_layout.astro'
+// images
+import { Image } from 'astro:assets'
+import ghost_teacher from './Images/ghost_teacher.png'
+---
+
+<SlideLayout>
+    <div class="slide-content">
+        <div class="textArea"
+            style="position: relative; top: 10px; left: 20px; transform: translate(0%, 0%); font-size: 30px;">
+            <div class="text" style="position: absolute; top: 140px; left: 30px; opacity: 0;">
+                直感に合わないインターフェースはとても使いにくくなります。<br>
+                さっきの問題のインターフェースは、<br>
+                <span class="text" style="position: absolute; left: 100px; opacity: 0;"><span class="white"
+                        style="font-size: 36px;">「矢印の向き」</span>と<span class="white"
+                        style="font-size: 36px;">「表示されている漢字」</span></span>
+            </div>
+            <div class="text" style="position: absolute; top: 280px; left: 600px; opacity: 0;">
+                が合ってないですね。
+            </div>
+            <div class="text" style="position: absolute; top: 340px; left: 80px; opacity: 0;">
+                これではユーザーのミスの原因になってしまいます・・・
+            </div>
+        </div>
+        <Image src={ghost_teacher} alt="ghost teacher" class="ghost" style="width: 150px; opacity: 0; position: absolute; top: 80px; left: 80px;"/>
+        <div id="buttonContainer"></div>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const elementsInfo = JSON.parse(localStorage.getItem('shuffledArrows'));
+            function addElementsToContainer() {
+                const container = document.getElementById('buttonContainer');
+
+                elementsInfo.forEach((info, index) => {
+                    const div = document.createElement('div');
+                    div.classList.add('image');
+                    div.style.cursor = 'pointer';
+                    div.style.transform = 'translate(-50%, -50%)';
+                    div.style.opacity = '0';
+                    div.style.position = 'absolute';
+                    div.style.top = '480px';
+                    div.style.left = `${200 * index + 150}px`;
+
+                    const img = document.createElement('img');
+                    img.src = '/arrowButton.png';
+                    img.style.width = '100px';
+                    img.style.zIndex = '1';
+                    img.style.transform = `rotate(${info.rotation}deg)`;
+
+                    const span = document.createElement('span');
+                    span.classList.add('imageText');
+                    span.style.position = 'absolute';
+                    span.style.fontSize = '40px';
+                    span.style.zIndex = '2';
+                    span.style.top = '20px';
+                    span.style.left = '30px';
+                    span.textContent = info.text;
+
+                    div.appendChild(img);
+                    div.appendChild(span);
+                    container.appendChild(div);
+                });
+            }
+
+            addElementsToContainer();
+            const ghost = document.querySelector('.ghost');
+            const elements = document.querySelectorAll('.text, .image'); // textとimageクラスを持つ全ての要素を取得
+
+            setTimeout(() => {
+                elements.forEach(element => {
+                    element.style.transition = "opacity 2s ease-in-out";
+                    element.style.opacity = 1;
+                });
+                ghost.style.transition = "opacity 2s ease-in-out";
+                ghost.style.opacity = 1;
+            }, 500);
+
+            setTimeout(() => {
+                elements.forEach(element => {
+                    element.style.opacity = 0;
+                });
+                ghost.style.opacity = 0;
+            }, 12000);
+
+            setTimeout(() => {
+                const nextPageUrl = './slide21.html';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                }); // -> さらに廊下を進んでいくと
+            }, 14000);
+        });
+    </script>
+</SlideLayout>

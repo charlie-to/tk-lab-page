@@ -1,0 +1,62 @@
+---
+import SlideLayout from '@layouts/slide_layout.astro'
+---
+
+<SlideLayout>
+    <div class="slide-content">
+        <div class="textArea" style="text-align: center; margin-top: 100px;">
+            <div class="text first" style="display: inline-block; font-size: 60px; opacity: 0;">
+                最恐！使いにくい<br>インターフェースの館
+            </div>
+            <div class="text second" style="display: inline-block; font-size: 56px; opacity: 0;">
+                <span class="white" style="font-size: 40px; opacity: 0.8;">ありがとうございました</span>
+            </div>
+        </div>
+        <div class="buttonArea" style="opacity: 0;">
+            <button id="backToTop" style="
+                top: 85%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 450px;
+                height: 50px;
+                
+                ">最初に戻る</button>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const textFirst = document.querySelector('.first');
+            const textSecond = document.querySelector('.second');
+            const buttonArea = document.querySelector('.buttonArea');
+
+            // 画面の要素を時間差で登場させる
+            setTimeout(() => {
+                textFirst.style.transition = "opacity 2s ease-in-out"
+                textFirst.style.opacity = 1;
+            }, 1000);
+
+            setTimeout(() => {
+                textSecond.style.transition = "opacity 2s ease-in-out"
+                textSecond.style.opacity = 1;
+            }, 3000);
+
+            setTimeout(() => {
+                buttonArea.style.transition = "opacity 2s ease-in-out"
+                buttonArea.style.opacity = 1;
+            }, 5000);
+
+            // ボタンが押されたら画面遷移
+            const backButton = document.getElementById('backToTop');
+            backButton.addEventListener('click', () => {
+                const nextPageUrl = '../index.html';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                });
+            });
+        });
+    </script>
+</body></html>

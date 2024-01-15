@@ -1,0 +1,94 @@
+---
+import SlideLayout from '@layouts/slide_layout.astro'
+---
+
+<SlideLayout>
+    <div class="slide-content">
+        <div class="textArea" style="transform: translate(10%, 25%);">
+            <div class="text first" style="display: inline-block; font-size: 20px; opacity: 0;">
+                人間がコンピューターなどから情報を得たり、情報を入力したりする装置や<br>ソフトウェアのことを
+                <span style="font-size: 40px;">「ヒューマンインターフェース」<br>(略して「インターフェース」)</span>
+                と言います
+            </div>
+            <div class="text second" style="display: inline-block; font-size: 20px; opacity: 0;">
+                この館には、
+                <span style="font-size: 40px;">恐ろしいほど使いにくい<br>インターフェースたち</span>
+                がうようよ彷徨っています・・・<br>
+            </div>
+            <div class="text third" style="font-size: 30px; transform: translate(30%, 30%); opacity: 0;">
+                <span>本当に入りますか？</span>
+            </div>
+        </div>
+        <div class="buttonArea" style="opacity: 0;">
+            <button id="yes" style="
+            top: 85%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            width: 450px;
+            height: 50px;
+            
+            ">YES</button>
+            <button id="no" style="
+            top: 85%;
+            left: 75%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 50px;
+            
+            ">NO</button>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const textFirst = document.querySelector('.first');
+            const textSecond = document.querySelector('.second');
+            const textThird = document.querySelector('.third');
+            const buttonArea = document.querySelector('.buttonArea');
+
+            // 画面の要素を時間差で登場させる
+            setTimeout(() => {
+                textFirst.style.transition = "opacity 2s ease-in-out"
+                textFirst.style.opacity = 1;
+            }, 1000);
+
+            setTimeout(() => {
+                textSecond.style.transition = "opacity 2s ease-in-out"
+                textSecond.style.opacity = 1;
+            }, 3000);
+
+            setTimeout(() => {
+                textThird.style.transition = "opacity 2s ease-in-out"
+                textThird.style.opacity = 1;
+            }, 5000);
+
+            setTimeout(() => {
+                buttonArea.style.transition = "opacity 2s ease-in-out"
+                buttonArea.style.opacity = 1;
+            }, 7000);
+
+            // ボタンが押されたら画面遷移
+            const yesButton = document.getElementById('yes');
+            yesButton.addEventListener('click', () => {
+                const nextPageUrl = './slide2.html';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                });
+            });
+
+            // ボタンが押されたら画面遷移
+            const noButton = document.getElementById('no');
+            noButton.addEventListener('click', () => {
+                const nextPageUrl = './slide7.html';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                });
+            });
+        });
+    </script>
+</SlideLayout>

@@ -1,0 +1,85 @@
+---
+import SlideLayout from '@layouts/slide_layout.astro'
+// images
+import { Image } from 'astro:assets'
+import ghost_teacher from './Images/ghost_teacher.png'
+---
+
+<SlideLayout>
+    <style is:inline>
+        .blue {
+            background-color: #47c;
+        }
+    
+        .green {
+            background-color: #7a4;
+        }
+    
+        .orange {
+            background-color: #e73;
+        }
+    
+        .brown {
+            background-color: #831;
+        }
+    </style>
+    <div class="slide-content">
+        <div class="textArea" style="position: relative; top: 50px; left: 280px; transform: translate(0%, 0%);">
+            <div class="text white" style="position: absolute; display: inline-block; font-size: 40px; opacity: 1;">
+                例えば、色分けすると<br>
+                少しわかりやすくなりますね！
+            </div>
+        </div>
+        <Image src={ghost_teacher} alt="ghost teacher" class="ghost" style="width: 180px; transform: translate(-50%, -50%); opacity: 1; position: absolute; top: 20%; left: 15%; transition: opacity 1s, width 1s, transform 1s;"/>
+        <div id="container"></div>
+    </div>
+    <script>
+        function createTextButton(text, index, className, color) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            div.classList.add('textButton', className, color);
+            div.style.position = 'absolute';
+            div.style.top = getTop(index);
+            div.style.left = getLeft(index);
+            return div;
+        }
+
+        function getTop(index) {
+            if (index < 7) {
+                return '40%';
+            }
+            if (index < 14) {
+                return '60%';
+            }
+            if (index < 21) {
+                return '80%';
+            }
+            return 0;
+        }
+
+        function getLeft(index) {
+            return `${(index % 7) * 12 + 10}%`;
+        }
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const shuffledButtons = JSON.parse(localStorage.getItem('shuffledButtons'));
+            const container = document.getElementById('container');
+
+            shuffledButtons.forEach((button, index) => {
+                const { text, class: className, color: color } = button;
+                const element = createTextButton(text, index, className, color);
+                container.appendChild(element);
+            });
+
+            setTimeout(() => {
+                const nextPageUrl = './slide30.html?from=slide27';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                });
+            }, 8000);
+        });
+    </script>
+</SlideLayout>

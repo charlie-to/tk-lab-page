@@ -1,0 +1,34 @@
+---
+import SlideLayout from '@layouts/slide_layout.astro'
+---
+<SlideLayout>
+    <div class="slide-content">
+        <div class="text firstText" style="
+                transform: translate(10%, 30%);
+                display: flex;">
+            <span style="font-size: 40px; width: 560px;">使いにくい<br>ヒューマンインターフェースの</span>
+            <span style="font-size: 200px; margin-left: 10px;">館</span>
+        </div>
+        <button id="start" style="
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 50px;
+        ">START</button>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const button = document.getElementById('start');
+            button.addEventListener('click', () => {
+                const nextPageUrl = './slides/slide1.html';
+
+                // 次のページを読み込む
+                window.fetch(nextPageUrl).then((response) => {
+                    // 読み込みが完了したら画面遷移を行う
+                    window.location.href = nextPageUrl;
+                });
+            });
+        });
+    </script>
+</SlideLayout>
