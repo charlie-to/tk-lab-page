@@ -31,20 +31,21 @@ const { links: links } = Astro.props
         html += '<div class="text-gray-500 w-full hover:bg-gray-100">'
         html +=
           '<a class="flex items-center" href="#' + slug + '">'
-        switch (depth) {
-          case 1:
-            html += `<span class="text-white bg-blue-500 rounded-full px-4 inline-flex items-center justify-center h-8 w-8 mr-4">${counter}</span>`
-            html += '<p class="py-[6px] text-lg font-semibold">'
-            counter++;
-            break
-          case 2:
-            html += `<span class="text-white bg-blue-500 rounded-full px-4 inline-flex items-center justify-center h-8 w-8 mr-4">${counter}</span>`
-            html += '<p class="py-[4px] text-base">'
-            counter++;
-            break
-          default:
-            html += `<p class="py-[4px] text-base ml-${(depth + 1) * 4}">`
-            break
+        if (depth === 1) {
+          html += `<span class="text-white bg-blue-500 rounded-full px-4 inline-flex items-center justify-center h-8 w-8 mr-4">${counter}</span>`
+          html += '<p class="py-[6px] text-lg font-semibold">'
+          counter++;
+          // break
+        }
+            
+          // case 2:
+          //   html += `<span class="text-white bg-blue-500 rounded-full px-4 inline-flex items-center justify-center h-8 w-8 mr-4">${counter}</span>`
+          //   html += '<p class="py-[4px] text-base">'
+          //   counter++;
+          //   break
+        else {
+          html += `<p class="py-[4px] text-base ml-${(depth + 1) * 4}">`
+          // break
         }
         html += text + '</p></a>'
         html += '</div>'
