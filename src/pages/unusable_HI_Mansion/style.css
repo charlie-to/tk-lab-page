@@ -50,7 +50,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3vw;
+    font-size: max(30px, 3.1vw);
     text-align: center;
     border: none;
     border-radius: 0.5vw;
@@ -115,15 +115,15 @@ button:hover {
 }
 
 .textButton {
-    width: 80px; /* ボタンの幅 */
-    height: 80px; /* ボタンの高さ */
+    width: max(80px, 8.3vw); /* ボタンの幅 */
+    height: max(80px, 8.3vw); /* ボタンの高さ */
     border: 0.1px solid white; /* 白い枠 */
     background-color: black; /* 黒い背景 */
     color: white; /* 文字色 */
-    font-size: 4vw; /* フォントサイズ */
+    font-size: max(40px, 4vw); /* フォントサイズ */
     font-weight: bold;
     text-align: center; /* テキストを中央揃え */
     cursor: pointer;
-    line-height: 80px; /* テキストを垂直方向に中央揃え */
+    line-height: max(80px, 8.3vw); /* テキストを垂直方向に中央揃え */
     outline: none; /* ボタンにフォーカス時の枠を消す */
 }
