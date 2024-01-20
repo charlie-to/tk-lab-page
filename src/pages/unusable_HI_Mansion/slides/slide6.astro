@@ -7,17 +7,17 @@ import ghost from './Images/ghost.png'
 
 <SlideLayout>
     <div class="slide-content" style="position: relative;">
-        <div class="textArea" style="margin-left: 20px; margin-top: 180px; z-index: 10; position: relative;">
+        <div class="textArea flex justify-center" style="margin-top: max(180px, 18vw); z-index: 10; position: relative; display: flex; flex-direction: column; align-items: center;">
             <div class="text first"
-                style="display: inline-block; font-size: 30px; opacity: 0; position: relative; background-color: rgba(0, 0, 0, 0.6); margin-left: 150px;">
-                今、思わず「NO」をクリックしそうになった<br><span style="font-size: 40px; margin-left: 180px;">そこのキミ!!</span>
+                style="display: inline-block; font-size: max(30px, 2.6vw); opacity: 1; position: relative; background-color: rgba(0, 0, 0, 0.6);text-align: center;">
+                今、思わず「NO」をクリックしそうになった<br><span style="font-size: max(40px, 3.6vw);">そこのキミ!!</span>
             </div>
             <div class="text second"
-                style="display: inline-block; font-size: 48px; opacity: 0; position: relative; background-color: rgba(0, 0, 0, 0.6); margin-top: 30px; margin-left: 40px;">
+                style="display: inline-block; font-size: max(48px, 4vw); opacity: 1; position: relative; background-color: rgba(0, 0, 0, 0.6); margin-top: max(30px, 3vw); text-align: center;">
                 キミはもう、この館から逃れられない!!
             </div>
-        </div>
-        <Image src={ghost} alt="ghost" class="ghost" style="width: 800px; transform: translate(-50%, -40%); opacity: 1; position: absolute; top: 65%; left: 50%;"/>
+        </div>              
+        <Image src={ghost} alt="ghost" class="ghost" style="width: max(800px, 80vw); transform: translate(-50%, -40%); opacity: 1; position: absolute; top: 65%; left: 50%;"/>
     </div>
 
     <script is:inline>
@@ -37,23 +37,23 @@ import ghost from './Images/ghost.png'
                 textSecond.style.opacity = 1;
             }, 4000);
 
-            setTimeout(() => {
-                ghost.style.transition = "opacity 2s ease-in-out"
-                textFirst.style.opacity = 0;
-                textSecond.style.opacity = 0;
-                ghost.style.opacity = 0;
-            }, 7000);
+            // setTimeout(() => {
+            //     ghost.style.transition = "opacity 2s ease-in-out"
+            //     textFirst.style.opacity = 0;
+            //     textSecond.style.opacity = 0;
+            //     ghost.style.opacity = 0;
+            // }, 7000);
 
             // 自動で画面遷移
-            setTimeout(() => {
-                const nextPageUrl = '../slide8/index.html';
+            // setTimeout(() => {
+            //     const nextPageUrl = '../slide8/index.html';
 
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-            }, 9000);
+            //     // 次のページを読み込む
+            //     window.fetch(nextPageUrl).then((response) => {
+            //         // 読み込みが完了したら画面遷移を行う
+            //         window.location.href = nextPageUrl;
+            //     });
+            // }, 9000);
         });
     </script>
 </body>
