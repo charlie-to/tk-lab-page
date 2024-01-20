@@ -4,8 +4,8 @@ import SlideLayout from '@layouts/slide_layout.astro'
 
 <SlideLayout>
     <div class="slide-content">
-        <div class="textArea" style="transform: translate(38%, 0%); margin-top: 220px;">
-            <div class="text first" style="display: inline-block; font-size: 40px; opacity: 0;">
+        <div class="textArea flex justify-center" style="margin-top: max(220px, 24vw);">
+            <div class="text first" style="display: inline-block; font-size: max(40px, 4vw); opacity: 0;">
                 本気ですか？
             </div>
         </div>
@@ -14,16 +14,16 @@ import SlideLayout from '@layouts/slide_layout.astro'
             top: 85%;
             left: 30%;
             transform: translate(-50%, -50%);
-            width: 450px;
-            height: 50px;
+            width: max(450px, 40vw);
+            height: max(50px, 5vw);
             
             ">YES</button>
             <button id="no" style="
             top: 85%;
             left: 75%;
             transform: translate(-50%, -50%);
-            width: 300px;
-            height: 50px;
+            width: max(300px, 30vw);
+            height: max(50px, 5vw);
             
             ">NO</button>
         </div>
