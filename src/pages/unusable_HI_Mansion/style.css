@@ -1,22 +1,28 @@
-body,
-html {
-    background-color: black;
-    width: 100%;
-    height: 100%;
+body, html {
     margin: 0;
+    height: 100%;
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: pink;
 }
 
 .slide-content {
     background-color: black;
-    width: 960px;
-    height: 540px;
+    width: max(960px, 100vw); /* 画面高さの16/9倍 */
+    height: max(540px, calc(100vw * 9 / 16)); /* 画面高さいっぱいに */
     position: relative;
     overflow: hidden;
     font-family: 'ヒラギノ明朝 ProN', 'Hiragino Mincho ProN', 'HiraMinProN-W3', 'MS PMincho', sans-serif;
 }
+
+.textArea {
+    width: 100%;
+}
+
 
 .text {
     color: red;
@@ -30,7 +36,7 @@ html {
 
 ::selection {
     color: #000;
-    text-shadow: 0 0 5px white;
+    text-shadow: 0 0 0.6vw white;
     background: red;
 }
 
@@ -44,21 +50,21 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 32px;
+    font-size: 3vw;
     text-align: center;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5vw;
     background: linear-gradient(to bottom, #4d0000, #330000);
     cursor: pointer;
     color: #a33;
     font-family: 'Times New Roman', serif;
-    box-shadow: 0 0 10px rgba(230, 0, 0, 0.8);
+    box-shadow: 0 0 1vw rgba(230, 0, 0, 0.8);
 }
 
 button:hover {
     color: #f33;
     background: linear-gradient(to bottom, #700, #400);
-    box-shadow: 0 0 15px rgba(230, 0, 0, 0.8);
+    box-shadow: 0 0 2vw rgba(230, 0, 0, 0.8);
 }
 
 @keyframes blink {
@@ -105,16 +111,16 @@ button:hover {
 }
 .white::selection {
     color: white;
-    text-shadow: 0 0 5px black;
+    text-shadow: 0 0 0.6vw black;
 }
 
 .textButton {
     width: 80px; /* ボタンの幅 */
     height: 80px; /* ボタンの高さ */
-    border: 1px solid white; /* 白い枠 */
+    border: 0.1px solid white; /* 白い枠 */
     background-color: black; /* 黒い背景 */
     color: white; /* 文字色 */
-    font-size: 40px; /* フォントサイズ */
+    font-size: 4vw; /* フォントサイズ */
     font-weight: bold;
     text-align: center; /* テキストを中央揃え */
     cursor: pointer;

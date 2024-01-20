@@ -8,33 +8,36 @@ import arrow from './Images/arrow.png'
 
 <SlideLayout>
     <div class="slide-content">
-        <div class="textArea" style="position: absolute; top: 10px; left: 20px; transform: translate(0%, 0%);">
-            <div class="text first" style="display: inline-block; font-size: 40px; opacity: 1;">
-                おっといきなり<br><span class="white" style="font-size: 56px;">「一貫性のないインターフェース」<br></span>
-                <span style="position: absolute; right: 10px;">が現れた！！</span>
+        <div class="textArea" style="position: absolute; top: max(10px, 1vw); display: flex;">
+            <div class="text first" style="opacity: 1; width: 100%">
+                <div class="ml-6" style="font-size: max(40px, 3.2vw);">おっといきなり</div>
+                <div class="white" style="font-size: max(56px, 5vw); display: flex; justify-content: center;">「一貫性のないインターフェース」</div>
+                <div class="mr-6" style="font-size: max(40px, 3.2vw); text-align: right;">が現れた！！</div>
             </div>
         </div>
+        
+        
         <div class="buttonArea" style="opacity: 1;">
             <button id="no" style="
             top: 85%;
             left: 30%;
             transform: translate(-50%, -50%);
-            width: 450px;
-            height: 50px;
+            width: max(450px, 48vw);
+            height: max(50px, 5vw);
             
             ">NO</button>
             <button id="yes" style="
             top: 85%;
             left: 75%;
             transform: translate(-50%, -50%);
-            width: 300px;
-            height: 50px;
+            width: max(300px, 30vw);
+            height: max(50px, 5vw);
             
             ">YES</button>
         </div>
-        <Image src={ghost} alt="ghost" class="ghost" style="width: 300px; transform: translate(-50%, -50%); opacity: 1; position: absolute; top: 55%; left: 50%; transition: opacity 1s, width 1s, transform 1s;"/>
-        <Image src={arrow} alt="arrow" class="arrow-down" style="position: absolute; top: 240px; left: 190px; width: 200px;"/>
-        <Image src={arrow} alt="arrow" class="arrow-down" style="position: absolute; top: 240px; left: 620px; width: 200px;"/>
+        <Image src={ghost} alt="ghost" class="ghost" style="width: max(300px, 30vw); transform: translate(-50%, -50%); opacity: 1; position: absolute; top: 55%; left: 50%; transition: opacity 1s, width 1s, transform 1s;"/>
+        <Image src={arrow} alt="arrow" class="arrow-down" style="position: absolute; top: max(240px, 26vw); left: max(190px, 20vw); width: max(200px, 20vw);"/>
+        <Image src={arrow} alt="arrow" class="arrow-down" style="position: absolute; top: max(240px, 26vw); left: max(620px, 65vw); width: max(200px, 20vw)"/>
     </div>
     <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
