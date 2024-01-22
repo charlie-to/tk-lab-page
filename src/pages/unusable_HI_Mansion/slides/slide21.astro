@@ -3,24 +3,23 @@ import SlideLayout from '@layouts/slide_layout.astro'
 ---
 
 <SlideLayout>
-    <div class="slide-content" style="position: relative;">
-        <div class="textArea" style="position: relative; display: flex; justify-content: center;">
+    <div class="slide-content" style="position: relative; display: flex; justify-content: center; align-items: center;">
+        <div class="textArea" style="position: relative; text-align: center;">
             <div class="text first"
-                style="font-size: 40px; opacity: 0; position: absolute; top: 150px; width: fit-content; margin: 0 auto;">
+                style="font-size: max(40px, 3.6vw); opacity: 0; margin: 0 auto;">
                 さらに廊下を進んでいくと
             </div>
             <div class="text second"
-                style="font-size: 40px; opacity: 0; position: absolute; top: 220px; width: fit-content; margin: 0 auto;">
+                style="font-size: max(40px, 3.6vw); opacity: 0; margin: 0 auto;">
                 また不気味な笑い声が聞こえてくる。
             </div>
             <div class="text third"
-                style="font-size: 40px; opacity: 0; position: absolute; top: 290px; width: fit-content; margin: 0 auto;">
+                style="font-size: max(40px, 3.6vw); opacity: 0; margin: 0 auto;">
                 今度はたくさん聞こえてくる・・・
             </div>
         </div>
-
     </div>
-
+ 
     <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const textFirst = document.querySelector('.first');
