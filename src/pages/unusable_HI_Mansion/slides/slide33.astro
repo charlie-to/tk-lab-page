@@ -9,37 +9,37 @@ import flight_sim from './Images/flight_sim.jpg'
 
 <SlideLayout>
     <div class="slide-content">
-        <div class="textArea" style="position: relative; top: 30px; left: 280px; opacity: 0;">
-            <div class="text white" style="display: block; font-size: 24px; opacity: 1; margin-top: 0;">
-                高橋・狩川研究室の研究テーマの1つは<br>
-                「ヒューマンインターフェース」です
+        <div class="textArea" style="background-color: blueviolet; padding-left: 30vw; margin-top: 4vw; font-size: max(24px, 2vw); opacity: 0;">
+            <div class="text white" style="display: block; opacity: 1; margin-top: 0;">
+                <div>高橋・狩川研究室の研究テーマの1つは</div>
+                <div>「ヒューマンインターフェース」です</div>
             </div>
-            <div class="text white" style="display: block; font-size: 24px; opacity: 1; margin-top: 20px;">
-                航空分野などを対象に、ユーザーのミスを防ぎ<br>
-                ユーザーを支援するインターフェースの研究を行っています
+            <div class="text white" style="display: block; opacity: 1; margin-top: 20px;">
+                <div>航空分野などを対象に、ユーザーのミスを防ぎ</div>
+                <div>ユーザーを支援するインターフェースの研究を行っています</div>
             </div>
         </div>
 
 
-        <Image src={ghost_teacher} alt="ghost" class="ghost" style="width: 180px; transform: translate(-50%, -50%); opacity: 0; position: absolute; top: 20%; left: 15%; transition: opacity 1s, width 1s, transform 1s;"/>
+        <Image src={ghost_teacher} alt="ghost" class="ghost" style="width: max(180px, 16vw); transform: translate(-50%, -50%); opacity: 0; position: absolute; top: 12vw; left: 15%; transition: opacity 1s, width 1s, transform 1s;"/>
         <div class="imageArea"
-            style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; opacity: 0;">
-            <div style="text-align: center; margin: 50px auto;">
-                <Image src={driving_sim} alt="driving simlator" style="width: 360px;"/>
-                <div><span class="white">ドライブシミュレーター</span></div>
+            style="font-size: max(20px, 1.8vw); margin-top: 3vw; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; opacity: 0;">
+            <div style="text-align: center; margin: 0 auto;">
+                <Image src={driving_sim} alt="driving simlator" style="width: max(340px, 34vw);"/>
+                <div class="white">ドライブシミュレーター</div>
             </div>
-            <div style="text-align: center; margin: 50px auto;">
-                <Image src={flight_sim} alt="flight simlator" style="width: 360px;"/>
-                <div><span class="white">航空管制シミュレーター</span></div>
+            <div style="text-align: center; margin: 0 auto;">
+                <Image src={flight_sim} alt="flight simlator" style="width: max(340px, 34vw);"/>
+                <div class="white">航空管制シミュレーター</div>
             </div>
         </div>
-        <div class="buttonArea" style="opacity: 0;">
+        <div class="buttonArea" style="opacity: 1;">
             <button id="next" style="
             top: 93%;
             left: 80%;
             transform: translate(-50%, -50%);
-            width: 300px;
-            height: 40px;
+            width: max(300px, 30vw);
+            height: max(40px, 4vw);
             
             ">Next →</button>
         </div>

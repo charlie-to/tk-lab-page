@@ -24,14 +24,14 @@ import ghost_teacher from './Images/ghost_teacher.png'
         }
     </style>
     <div class="slide-content">
-        <div class="textArea" style="position: relative; top: 50px; left: 280px; transform: translate(0%, 0%);">
-            <div class="text white" style="position: absolute; display: inline-block; font-size: 40px; opacity: 1;">
+        <div class="textArea" style="position: relative; top: 6%; left: 25%; transform: translate(0%, 0%);">
+            <div class="text white" style="position: absolute; display: inline-block; font-size: max(40px, 3.6vw); opacity: 0;">
                 例えば、色分けすると<br>
                 少しわかりやすくなりますね！
             </div>
         </div>
-        <Image src={ghost_teacher} alt="ghost teacher" class="ghost" style="width: 180px; transform: translate(-50%, -50%); opacity: 1; position: absolute; top: 20%; left: 15%; transition: opacity 1s, width 1s, transform 1s;"/>
-        <div id="container"></div>
+        <Image src={ghost_teacher} alt="ghost teacher" class="ghost" style="width: max(180px, 14vw); opacity: 0; position: absolute; top: 18%; left: 10%;" />
+        <div id="container" style="opacity: 0;"></div>
     </div>
     <script is:inline>
         function createTextButton(text, index, className, color) {
@@ -64,12 +64,23 @@ import ghost_teacher from './Images/ghost_teacher.png'
         window.addEventListener('DOMContentLoaded', function () {
             const shuffledButtons = JSON.parse(localStorage.getItem('shuffledButtons'));
             const container = document.getElementById('container');
+            const text = document.querySelector('.text');
+            const ghost = document.querySelector('.ghost');
 
             shuffledButtons.forEach((button, index) => {
                 const { text, class: className, color: color } = button;
                 const element = createTextButton(text, index, className, color);
                 container.appendChild(element);
             });
+
+            this.setTimeout(() => {
+                container.style.transition = "opacity 2s ease-in-out";
+                text.style.transition = "opacity 2s ease-in-out";
+                ghost.style.transition = "opacity 2s ease-in-out";
+                container.style.opacity = 1;
+                text.style.opacity = 1;
+                ghost.style.opacity = 1;
+            }, 500)
 
             setTimeout(() => {
                 const nextPageUrl = '../slide30/index.html?from=slide27';
@@ -79,7 +90,7 @@ import ghost_teacher from './Images/ghost_teacher.png'
                     // 読み込みが完了したら画面遷移を行う
                     window.location.href = nextPageUrl;
                 });
-            }, 8000);
+            }, 9000);
         });
     </script>
 </SlideLayout>
