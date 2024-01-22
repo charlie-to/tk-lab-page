@@ -7,11 +7,11 @@ import ghost from './Images/ghost.png'
 
 <SlideLayout>
     <div class="slide-content">
-        <div class="textArea flex flex-col items-center justify-center" style="opacity: 1;">
-            <div class="text" style="font-size: max(50px, 4vw); opacity: 1;">
+        <div class="textArea flex flex-col items-center justify-center" style="opacity: 0; transition: opacity 1s;">
+            <div class="text" style="font-size: max(50px, 4vw);">
                 い、いかないで〜♪<br>
             </div>
-            <div class="text" style="font-size: max(40px, 3.6vw); opacity: 1;">
+            <div class="text" style="font-size: max(40px, 3.6vw);">
                 (ハーモニーで)<br>
             </div>
         </div>
@@ -57,6 +57,10 @@ import ghost from './Images/ghost.png'
                     ghosts[i].style.width = "10000px"
                 }, randomDelay);
             }
+
+            setTimeout(() => {
+                text.style.opacity = 1;
+            }, 500);
 
             setTimeout(() => {
                 text.style.opacity = 0;
