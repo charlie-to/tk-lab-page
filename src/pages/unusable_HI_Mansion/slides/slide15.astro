@@ -7,13 +7,13 @@ import ghost from './Images/ghost.png'
 
 <SlideLayout>
     <div class="slide-content">
-        <div class="textArea" style="position: relative; top: 10px; left: 20px; transform: translate(0%, 0%);">
-            <div class="text first" style="position: absolute; top: 70px; left: 300px; font-size: 60px; opacity: 1;">
+        <div class="textArea">
+            <div class="text first" style="position: absolute; top: 20%; left: 40%; font-size: max(60px, 5vw);">
                 <span class="white">「下っ！！」</span>
             </div>
         </div>
-        <Image src={ghost} alt="ghost" class="ghost" style="width: 200px; opacity: 1; position: absolute; top: 150px; left: 140px;"/>
-        <div id="buttonContainer"></div>
+        <Image src={ghost} alt="ghost" class="ghost" style="width: max(200px, 20vw); position: absolute; top: 30%; left: 20%;"/>
+        <div class="flex justify-evenly" id="buttonContainer" style="width: 100%; position: absolute; top: 60%;"></div>
     </div>
     <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
@@ -41,25 +41,24 @@ import ghost from './Images/ghost.png'
                     const div = document.createElement('div');
                     div.classList.add(info.class);
                     div.style.cursor = 'pointer';
-                    div.style.transform = 'translate(-50%, -50%)';
                     div.style.opacity = '1';
-                    div.style.position = 'absolute';
-                    div.style.top = '360px';
-                    div.style.left = `${200 * index + 150}px`;
+                    div.style.display = 'inline-block';
+                    div.style.position = 'relative'; // 親要素に相対位置を設定
 
                     const img = document.createElement('img');
                     img.src = '/arrowButton.png';
-                    img.style.width = '100px';
+                    img.style.width = 'max(100px, 10vw)';
                     img.style.zIndex = '1';
                     img.style.transform = `rotate(${info.rotation}deg)`;
 
                     const span = document.createElement('span');
                     span.classList.add('imageText');
                     span.style.position = 'absolute';
-                    span.style.fontSize = '40px';
+                    span.style.fontSize = 'max(40px, 4vw)';
                     span.style.zIndex = '2';
-                    span.style.top = '20px';
-                    span.style.left = '30px';
+                    span.style.top = '50%';  // 上下中央に配置
+                    span.style.left = '50%';  // 左右中央に配置
+                    span.style.transform = 'translate(-50%, -50%)';  // 中央揃えのための調整
                     span.textContent = info.text;
 
                     div.appendChild(img);
