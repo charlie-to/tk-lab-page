@@ -3,14 +3,12 @@ import SlideLayout from '@layouts/slide_layout.astro'
 ---
 
 <SlideLayout>
-    <div class="slide-content" style="position: relative;">
-        <div class="textArea" style="position: relative;">
-            <div class="text first"
-                style="font-size: 40px; opacity: 0; position: absolute; margin-left: 50%; margin-top: 20%; transform: translate(-50%);">
+    <div class="slide-content flex items-center justify-center" style="position: relative; min-height: 100vh;">
+        <div class="textArea flex flex-col justify-center items-center relative" style="font-size: max(40px, 3.6vw);">
+            <div class="text first opacity-100" style="opacity: 0;">
                 廊下を進んでいくと
             </div>
-            <div class="text second"
-                style="font-size: 40px; opacity: 0; position: absolute; margin-left: 15%; margin-top: 30%;">
+            <div class="text second opacity-100 mt-10" style="opacity: 0;">
                 不気味な笑い声が聞こえてくる・・・
             </div>
         </div>
@@ -36,6 +34,7 @@ import SlideLayout from '@layouts/slide_layout.astro'
                 textFirst.style.opacity = 0;
                 textSecond.style.opacity = 0;
             }, 7000);
+        
 
             // 自動で画面遷移
             setTimeout(() => {
