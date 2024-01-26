@@ -43,7 +43,6 @@ const { links: links } = Astro.props
         }
         html += '">' + slug + '</p></a>'
         html += '</div>'
-        console.log(html)
       }
       return <div set:html={html} />
     })(links)
