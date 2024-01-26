@@ -6,27 +6,32 @@ import ghost from './Images/ghost.png'
 ---
 <SlideLayout>
     <div class="slide-content" style="position: relative;">
-        <div class="textArea" style="margin-left: 20px; margin-top: 180px; z-index: 10; position: relative;">
+        <div class="textArea flex justify-center" style="margin-top: max(180px, 18vw); z-index: 10; position: relative; display: flex; flex-direction: column; align-items: center; font-size: max(40px, 3.6vw);">
             <div class="text first"
-                style="display: inline-block; font-size: 40px; opacity: 0; position: relative; background-color: rgba(0, 0, 0, 0.6); margin-left: 150px;">
+                style="display: inline-block; opacity: 0; position: relative; background-color: rgba(0, 0, 0, 0.6);text-align: center;">
                 今日はこれぐらいにしといてやる
             </div>
             <div class="text second"
-                style="display: inline-block; font-size: 40px; opacity: 0; position: relative; background-color: rgba(0, 0, 0, 0.6); margin-top: 30px; margin-left: 40px;">
-                またどこかで「使いにくインターフェース」に<br>
-                出会ったら、オレたちのことを思い出してくれ！
+                style="display: inline-block; opacity: 0; position: relative; background-color: rgba(0, 0, 0, 0.6); margin-top: max(30px, 3vw); text-align: center;">
+                <div>またどこかで「使いにくインターフェース」に</div>
+                <div>出会ったら、オレたちのことを思い出してくれ！</div>
             </div>
-        </div>
-        <Image src={ghost} alt="ghost" class="ghost" style="width: 800px; opacity: 1; position: absolute; top: 70%; left: 50%;"/>
+        </div>              
+        <Image src={ghost} alt="ghost" class="ghost" style="width: max(800px, 80vw); transform: translate(-50%, -40%); opacity: 0; position: absolute; top: 65%; left: 50%;"/>
     </div>
 
     <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const textFirst = document.querySelector('.first');
             const textSecond = document.querySelector('.second');
-            const ghost = document.querySelector('#ghost');
+            const ghost = document.querySelector('.ghost');
 
             // 画面の要素を時間差で登場させる
+            setTimeout(() => {
+                ghost.style.transition = "opacity 2s ease-in-out"
+                ghost.style.opacity = 1;
+            }, 500);
+
             setTimeout(() => {
                 textFirst.style.transition = "opacity 2s ease-in-out"
                 textFirst.style.opacity = 1;
@@ -42,7 +47,7 @@ import ghost from './Images/ghost.png'
                 textFirst.style.opacity = 0;
                 textSecond.style.opacity = 0;
                 ghost.style.opacity = 0;
-            }, 7000);
+            }, 10000);
 
             // 自動で画面遷移
             setTimeout(() => {

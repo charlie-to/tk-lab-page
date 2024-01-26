@@ -3,13 +3,14 @@ import SlideLayout from '@layouts/slide_layout.astro'
 ---
 
 <SlideLayout>
-    <div class="slide-content">
-        <div class="textArea" style="text-align: center; margin-top: 100px;">
-            <div class="text first" style="display: inline-block; font-size: 60px; opacity: 0;">
-                最恐！使いにくい<br>インターフェースの館
+    <div class="slide-content flex items-center">
+        <div class="textArea" style="text-align: center;">
+            <div class="text first" style="display: block; font-size: max(60px, 5.2vw); opacity: 0;">
+                <div>最恐！使いにくい</div>
+                <div>インターフェースの館</div>
             </div>
-            <div class="text second" style="display: inline-block; font-size: 56px; opacity: 0;">
-                <span class="white" style="font-size: 40px; opacity: 0.8;">ありがとうございました</span>
+            <div class="text second" style="display: block; font-size: max(40px, 3.6vw); opacity: 0;">
+                <span class="white" style="opacity: 0.6;">ありがとうございました</span>
             </div>
         </div>
         <div class="buttonArea" style="opacity: 0;">
@@ -17,8 +18,8 @@ import SlideLayout from '@layouts/slide_layout.astro'
                 top: 85%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                width: 450px;
-                height: 50px;
+                width: max(300px, 30vw);
+                height: max(50px, 5vw);
                 
                 ">最初に戻る</button>
         </div>

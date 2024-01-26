@@ -6,16 +6,15 @@ import ghost from './Images/ghost.png'
 ---
 
 <SlideLayout>
-    <div class="slide-content" style="position: relative;">
-        <div class="textArea">
-            <div class="text first"
-                style="z-index: 2; display: inline-block; font-size: 40px; opacity: 0; position: absolute; background-color: rgba(0, 0, 0, 0.6); top: 360px; left: 80px;">
+    <div class="slide-content" style="position: relative; display: flex; justify-content: center; align-items: center;">
+        <div class="textArea" style="background-color: rgba(0, 0, 0, 0.6); position: absolute; z-index: 2; text-align: center;">
+            <div class="text first" style="font-size: max(40px, 3.6vw); opacity: 0;">
                 そうそう、よくぞひっかかってくれました！
             </div>
         </div>
-        <Image src={ghost} alt="ghost" class="ghost" style="width: 800px; transform: translate(-50%, -40%); opacity: 0; position: absolute; top: 50%; left: 50%;"/>
+        <Image src={ghost} alt="ghost" class="ghost" style="width: max(800px, 70vw); transform: translate(-50%, -40%); opacity: 0; position: absolute; top: 60%; left: 50%; z-index: 1;"/>
     </div>
-
+    
     <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
