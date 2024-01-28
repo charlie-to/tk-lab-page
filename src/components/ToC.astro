@@ -18,32 +18,37 @@ const { links: links } = Astro.props
       if (links.length === 0) {
         return <li class="text-gray-500">No links</li>
       }
-      // links が空でない場合は、links を展開する
+
+      // 1から始まる番号のカウンタ
+      let counter = 1;
+
       // html には、htmlベタ書きの結果を格納する
       let html = ''
       for (let i = 0; i < links.length; i++) {
         const link = links[i]
-        const { depth, text, slug } = link
+        let { depth, text, slug } = link
+        text = text.split('見出し')[0] //見出しだけを取り出す
         html += '<div class="text-gray-500 w-full hover:bg-gray-100">'
         html +=
-          '<a class="" href="#' + slug + '">' + '<p class="py-[4px] text-base '
-        switch (depth) {
-          case 1:
-            html += 'font-semibold'
-            break
-          case 2:
-            html += 'ml-4'
-            break
-          case 3:
-            html += 'ml-8'
-            break
-          default:
-            html += 'ml-12'
-            break
+          '<a class="flex items-center" href="#' + slug + '">'
+        if (depth === 1) {
+          html += `<span class="text-white bg-blue-500 rounded-full px-4 inline-flex items-center justify-center h-8 w-8 mr-4">${counter}</span>`
+          html += '<p class="py-[6px] text-lg font-semibold">'
+          counter++;
+          // break
         }
-        html += '">' + slug + '</p></a>'
+            
+          // case 2:
+          //   html += `<span class="text-white bg-blue-500 rounded-full px-4 inline-flex items-center justify-center h-8 w-8 mr-4">${counter}</span>`
+          //   html += '<p class="py-[4px] text-base">'
+          //   counter++;
+          //   break
+        else {
+          html += `<p class="py-[4px] text-base ml-${(depth + 1) * 4}">`
+          // break
+        }
+        html += text + '</p></a>'
         html += '</div>'
-        console.log(html)
       }
       return <div set:html={html} />
     })(links)

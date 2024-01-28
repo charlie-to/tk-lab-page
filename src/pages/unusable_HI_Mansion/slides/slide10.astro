@@ -7,13 +7,13 @@ import ghost from './Images/ghost.png'
 
 <SlideLayout>
     <div class="slide-content" style="position: relative;">
-        <div class="textArea" style="margin-left: 20px; margin-top: 130px; z-index: 10; position: relative;">
+        <div class="textArea" style="margin-left: max(20px, 2vw); margin-top: max(130px, 12vw); position: relative;">
             <div class="text first"
-                style="display: inline-block; font-size: 80px; opacity: 1; position: relative; transform: rotate(340deg);">
+                style="display: inline-block; font-size: max(80px, 6vw); opacity: 1; position: relative; transform: rotate(340deg);">
                 い、行かないでっ!!
             </div>
         </div>
-        <Image src={ghost} alt="ghost" id="ghost" style="width: 800px; transform: rotate(340deg); opacity: 1; position: absolute; top: 30%; left: 30%;"/>
+        <Image src={ghost} alt="ghost" id="ghost" style="width: max(800px, 80vw); transform: rotate(340deg); opacity: 1; position: absolute; top: 30%; left: 30%;"/>
     </div>
 
     <script is:inline>

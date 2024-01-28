@@ -7,34 +7,33 @@ import ghost from './Images/ghost.png'
 
 <SlideLayout>
     <div class="slide-content">
-        <div class="textArea" style="position: relative;">
-            <div class="text first" style="position: absolute; font-size: 40px; opacity: 0; left: 20px;">
-                おっと<br><span class="white"
-                    style="position: absolute; width: 900px; font-size: 48px; left: 20px;">「情報量が多すぎるインターフェース」<br></span>
-                <span style="position: absolute; width: 200px; top: 120px; left: 730px;">が現れた！</span>
+        <div class="textArea" style="margin-top: max(10px, 1vw); display: flex;">
+            <div class="text first" style="opacity: 1; width: 100%">
+                <div class="ml-6" style="font-size: max(40px, 3.2vw);">おっと</div>
+                <div class="white" style="font-size: max(50px, 4vw); display: flex; justify-content: center;">「情報量が多すぎるインターフェース」</div>
+                <div class="mr-6" style="font-size: max(40px, 3.2vw); text-align: right;">が現れた！！</div>
             </div>
         </div>
         <div class="buttonArea" style="opacity: 0;">
             <button id="fight" style="
-            top: 85%;
+            top: 88%;
             left: 28%;
             transform: translate(-50%, -50%);
-            width: 375px;
-            height: 50px;
-            animation: blink 1s infinite alternate;
+            width: max(375px, 32vw);
+            height: max(50px, 5vw);
             
             ">たたかう</button>
             <button id="escape" style="
-            top: 85%;
+            top: 88%;
             left: 73%;
             transform: translate(-50%, -50%);
-            width: 375px;
-            height: 50px;
-            z-index: 3;
+            width: max(375px, 32vw);
+            height: max(50px, 5vw);
+            z-index: 2;
             
             ">にげる</button>
         </div>
-        <Image src={ghost} alt="ghost" class="ghost" style="width: 300px; transform: translate(-50%, -50%); opacity: 0; position: absolute; top: 55%; left: 50%; transition: opacity 2s ease-in-out;"/>
+        <Image src={ghost} alt="ghost" class="ghost" style="width: max(300px, 26vw); transform: translate(-50%, -50%); opacity: 0; position: absolute; top: 55%; left: 50%; transition: opacity 2s ease-in-out;"/>
     </div>
     <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
@@ -96,14 +95,14 @@ import ghost from './Images/ghost.png'
             let count = 0;
             escapeButton.addEventListener('click', () => {
                 if (count === 2) {
-                    escapeButton.style.top = `85%`;
+                    escapeButton.style.top = `88%`;
                     escapeButton.style.left = `28%`;
                     escapeButton.style.zIndex = '1';
                     fightButton.style.zIndex = '2';
                     fightButton.style.animation = '';
                     fightButton.style.opacity = 0.6;
                 } else {
-                    escapeButton.style.transition = 'top 1s ease-in-out, left 1s ease-in-out';
+                    escapeButton.style.transition = 'top 0.5s ease-in-out, left 0.5s ease-in-out';
                     const randomTop = Math.random() * 85 + 5;
                     const randomLeft = Math.random() * 85 + 5;
                     escapeButton.style.top = `${randomTop}%`;
