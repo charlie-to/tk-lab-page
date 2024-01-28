@@ -79,7 +79,7 @@ const blog_posts = (await getCollection('blog')).sort((a, b) => {
     posts.forEach((post) => {
       if (tag === 'all') {
         post.classList.remove('hidden')
-      } else if (post.dataset.tag === tag) {
+      } else if (post.dataset.tag.includes(tag)) {
         post.classList.remove('hidden')
       } else {
         post.classList.add('hidden')
