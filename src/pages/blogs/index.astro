@@ -46,7 +46,9 @@ const news_posts = blog_posts
         <div class="flex flex-wrap">
           {
             recent_posts.map((recent_post) => (
-              <BlogPostCard post={recent_post} />
+              <div class="md:w-1/3">
+                <BlogPostCard post={recent_post} />
+              </div>
             ))
           }
         </div>
