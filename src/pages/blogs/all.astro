@@ -12,11 +12,6 @@ const blog_posts = (await getCollection('blog')).sort((a, b) => {
 ---
 
 <Layout title="全投稿一覧">
-  <style is:global>
-    .filter li.is-active {
-      @apply bg-primary text-primary-content;
-    }
-  </style>
   <h1 class="my-12 text-center text-3xl font-bold">全投稿</h1>
 
   <!-- フィルター機能 -->
