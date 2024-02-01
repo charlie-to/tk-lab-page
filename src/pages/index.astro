@@ -18,7 +18,6 @@ const youtubeId = 'nue-bLFGKK8'
 
 import UnusableInterface from '@components/unusableInterface.astro'
 
-
 const news_posts = (
   await getCollection('blog', ({ data }) => {
     return data.tag.includes('news')
@@ -392,8 +391,8 @@ const blog_posts = (
       <YoutubeEmbed id={youtubeId} />
     </div>
     <!-- 使いにくいユーザーインターフェースの館 -->
-    <div class="relative w-1/2 h-fit max-w-4xl lg:mx-auto">
-      <UnusableInterface  />
+    <div class="relative hidden h-fit w-1/2 max-w-4xl md:mx-auto md:flex">
+      <UnusableInterface />
     </div>
   </section>
 
