@@ -9,7 +9,8 @@ export interface props {
 }
 const { links: links } = Astro.props
 ---
-
+<!-- 変数を用いて定義するml-⚪︎⚪︎をあらかじめ呼び出してあげることで反映されるようになる。 -->
+<div hidden class="ml-12 ml-16 ml-20 ml-24 ml-28"></div>
 <div class="block">
   {
     // links を展開する関数
@@ -35,17 +36,10 @@ const { links: links } = Astro.props
           html += `<span class="text-white bg-blue-500 rounded-full px-4 inline-flex items-center justify-center h-8 w-8 mr-4">${counter}</span>`
           html += '<p class="py-[6px] text-lg font-semibold">'
           counter++;
-          // break
         }
-            
-          // case 2:
-          //   html += `<span class="text-white bg-blue-500 rounded-full px-4 inline-flex items-center justify-center h-8 w-8 mr-4">${counter}</span>`
-          //   html += '<p class="py-[4px] text-base">'
-          //   counter++;
-          //   break
         else {
+          // 見出しの＃の数に応じてインデントする。
           html += `<p class="py-[4px] text-base ml-${(depth + 1) * 4}">`
-          // break
         }
         html += text + '</p></a>'
         html += '</div>'
