@@ -1,6 +1,6 @@
 ---
 title: 'Go言語の基礎: 初心者向けガイド'
-date: '2023-10-23'
+date: '2023-12-30'
 tag: ['dev']
 lead: 'Go言語の基礎知識をまとめてみました。'
 author_name_main: "二渡　和輝"
