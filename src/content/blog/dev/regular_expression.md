@@ -41,7 +41,7 @@ slide\d+.html
 **じゃぁ早速置換しよう！**と思って、置換文字列を入れようとしたときにあなたは気づくでしょう。
 **あれ、せっかくの数字、反映できなくね…？**
 そうです。今のままでは検索した文字列がそのまま全て置換され、次のようになってしまいます。
-```diff_javascript
+```diff lang="javascript"
 - const nextPageUrl = '../slide23.html';
 + const nextPageUrl = '../slide1/index.html';
 ```
@@ -58,7 +58,7 @@ slide(\d+).html
 slide$1/index.html
 ```
 これで置換結果に一致部分が反映されているはずです。
-```diff_javascript
+```diff lang="javascript"
 - const nextPageUrl = '../slide23.html';
 + const nextPageUrl = '../slide23/index.html';
 ```
@@ -82,7 +82,7 @@ slide$1/index.html
 
 # 正規表現一覧
 ## 一般的なもの
-```
+```js
 \          // エスケープ文字 - ピリオド、括弧などの特殊文字を見つけるために使用。
 .          // 改行以外の任意の文字に一致。
 x          // xに一致する任意の文字。
