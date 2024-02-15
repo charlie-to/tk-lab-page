@@ -59,6 +59,18 @@ const author = await getCollection('member')
       @apply mb-4 list-inside list-decimal pl-4;
     }
 
+    .markdown-body code::before, .markdown-body code::after {
+      @apply hidden;
+    }
+
+    .markdown-body code {
+      @apply bg-slate-300;
+    }
+
+    .markdown-body pre code {
+      @apply bg-inherit;
+    }
+
     .footnotes {
       @apply not-sr-only !mt-12 !border-t-2 !border-dashed !border-primary !border-opacity-50;
     }
