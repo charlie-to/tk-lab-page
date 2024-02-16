@@ -36,6 +36,15 @@ const { post } = Astro.props
       <p class="mt-2 h-12 overflow-hidden text-base leading-relaxed">
         {post.data.lead}
       </p>
+      <p class="text-right">
+        {
+          post.data.author_name_main? (
+            `${post.data.author_name_main.split("　")[0]}`
+          ):(
+            <span>&nbsp;</span>
+          )
+        }
+      </p>
     </div>
 
     <div class="mt-3 flex justify-end">
