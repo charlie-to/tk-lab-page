@@ -40,7 +40,7 @@ const author = await getCollection('member')
       @apply mb-4;
     }
     .markdown-body a {
-      @apply text-primary underline;
+      @apply text-primary no-underline;
     }
     /* ヘディングのアンカーのスタイル */
     .markdown-body a.anchor {
@@ -57,6 +57,22 @@ const author = await getCollection('member')
 
     .markdown-body ol {
       @apply mb-4 list-inside list-decimal pl-4;
+    }
+
+    .markdown-body code::before, .markdown-body code::after {
+      @apply hidden;
+    }
+
+    .markdown-body code {
+      @apply bg-slate-300;
+    }
+
+    .markdown-body pre code {
+      @apply bg-inherit;
+    }
+
+    .markdown-body strong {
+      @apply underline decoration-sky-200 decoration-4 underline-offset-4; 
     }
 
     .footnotes {
