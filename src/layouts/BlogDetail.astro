@@ -6,6 +6,8 @@ import { array } from 'astro/zod'
 const { data, headings } = Astro.props
 const author_name = data.author_name_main
 
+import AuthorCard from '@components/AuthorCard.astro'
+
 const author = await getCollection('member')
   .then((authors) =>
     authors.find((author) => author.data.name.main === author_name)
@@ -40,7 +42,7 @@ const author = await getCollection('member')
       @apply mb-4;
     }
     .markdown-body a {
-      @apply text-primary underline;
+      @apply text-primary no-underline;
     }
     /* ヘディングのアンカーのスタイル */
     .markdown-body a.anchor {
@@ -57,6 +59,22 @@ const author = await getCollection('member')
 
     .markdown-body ol {
       @apply mb-4 list-inside list-decimal pl-4;
+    }
+
+    .markdown-body code::before, .markdown-body code::after {
+      @apply hidden;
+    }
+
+    .markdown-body code {
+      @apply bg-slate-300;
+    }
+
+    .markdown-body pre code {
+      @apply bg-inherit;
+    }
+
+    .markdown-body strong {
+      @apply underline decoration-sky-200 decoration-4 underline-offset-4; 
     }
 
     .footnotes {
@@ -113,33 +131,7 @@ const author = await getCollection('member')
     <div class="hidden w-4/12 space-y-12 py-16 lg:block">
       {
         author && (
-          <div class="border border-gray-600 py-8 text-center">
-            <div class="inline-flex h-20 w-20 items-center justify-center rounded-full bg-gray-200 text-gray-400">
-              <svg
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                class="h-10 w-10"
-                viewBox="0 0 24 24"
-              >
-                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-            </div>
-            <div class="flex flex-col items-center justify-center text-center">
-              <h2 class="title-font mt-4 text-lg font-medium text-gray-900">
-                {author?.data.name.main}
-              </h2>
-              <div class="mb-4 mt-2 h-1 w-12 rounded bg-indigo-500" />
-              <p class="text-base">
-                {author?.data.major}
-                <br />
-                {author?.data.grade}
-              </p>
-            </div>
-          </div>
+          <AuthorCard author={author} />
         )
       }
       {
