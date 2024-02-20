@@ -363,19 +363,6 @@ const nav_links = [
     src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
   ></script>
   <script is:inline>
-    $(function () {
-      $('.hamburger-menu').on('click', function () {
-        $('nav').toggleClass('open') // メニューにopenクラスをつけ外しする
-        $('.hamburger-menu').toggleClass('open')
-      })
-    })
-
-    $(function () {
-      $('.header-Logo-image').on('click', function () {
-        $('body').toggleClass('cursorEffect') // body全体にcursorEffectクラスをつけ外しする
-      })
-    })
-
     let konamiCode = []
     const konamiPattern = [
       'ArrowUp',
