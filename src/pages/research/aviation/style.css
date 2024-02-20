@@ -1,9 +1,5 @@
 @charset "utf-8";
 
-:root {
-    --nav-bar-color: #adadad;
-}
-
 .fadein {
     opacity: 0;
     transform: translate(0, 100px);
@@ -83,8 +79,6 @@ body.cursorEffect {
 .content-wrap {
     margin: 0 auto;
     margin-bottom: 100px;
-    max-width: 2048px;
-    /* background-color: aqua; */
 }
 
 .content-item {
