@@ -14,10 +14,32 @@ import tklab_logo from '../TKLab-Logo.png'
 import aviation from '../Aviation-head.gif'
 // css
 import '../style.css'
+const nav_links = [
+  {
+    name: 'RESEARCH GROUP',
+    url: '/research/index.html'
+  },
+  {
+    name: 'MEMBER',
+    url: '/member/index.html'
+  },
+  {
+    name: 'CAREER PATH',
+    url: '/alumni/index.html'
+  },
+  {
+    name: 'BLOG',
+    url: '/blogs/index.html'
+  },
+  {
+    name: 'ACCESS',
+    url: '/contact/index.html'
+  }
+]
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <title>AviationGroup</title>
     <meta
@@ -45,46 +67,109 @@ import '../style.css'
 
   <body>
     <header id="header">
-      <div class="header-Logo">
-        <Image src={tklab_logo} alt="logo" class="header-Logo-image" />
-        <a href="/">
-          <h1 class="TKLab-Title">高橋・狩川研究室</h1>
-        </a>
-      </div>
-
-      <div class="header-menu">
-        <p class="hamburger-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </p>
-        <nav>
-          <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/research/index.html">RESEARCH GROUP</a></li>
-            <li><a href="/member/index.html">MEMBER</a></li>
-            <li><a href="/alumni/index.html">CAREER PATH</a></li>
-            <li><a href="/contact/index.html">ACCESS</a></li>
-            <li><a href="/blogs/index.html">BLOG</a></li>
-          </ul>
-        </nav>
-      </div>
+      <nav class="bg-blue-200">
+        <div class="navbar">
+          <div class="navbar-start">
+            <div class="mx-auto flex p-5 align-middle">
+              <Image
+                src={tklab_logo}
+                alt="logo"
+                class="header-Logo-image w-10 object-contain"
+              />
+              <a
+                class="title-font mb-0 flex items-center font-medium text-gray-900"
+                href="/"
+              >
+                <span class="ml-3 text-xl lg:text-3xl whitespace-nowrap">高橋・狩川研究室</span>
+              </a>
+            </div>
+          </div>
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+              {
+                nav_links.map((link) => (
+                  <li class="mr-5 text-lg">
+                    <a
+                      href={link.url}
+                      class="hover:text-gray-900 hover:underline"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div class="navbar-end lg:hidden">
+            <div class="dropdown dropdown-end">
+              <label tabindex={0} class="btn btn-ghost">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"></path></svg
+                >
+              </label>
+              <ul
+                tabindex={0}
+                class="menu dropdown-content menu-lg z-[1] mt-6 w-80 rounded-box bg-slate-100 p-4 shadow"
+              >
+                {
+                  nav_links.map((link) => (
+                    <li class="">
+                      <a href={link.url} class="p-4 text-xl">
+                        {link.name}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main>
       <!-- 言語選択メニュー -->
-      <div id="language-selector">
-        <div id="selected-language">Language ▼</div>
-        <ul id="language-select">
-          <li><a href="../../index.html">日本語</a></li>
-          <li>English</li>
-          <!-- 他の言語のオプションを追加できます -->
-        </ul>
-      </div>
-
-      <div id="video-container" class="video-container">
-        <Image src={aviation} alt="研究グループイメージgif" class="head-gif" />
-        <h1>Aviation Group</h1>
+      <div class="relative">
+        <div
+          id="video-container"
+          class="relative w-full overflow-hidden whitespace-nowrap bg-black font-serif text-white/40"
+        >
+          <Image
+            src={aviation}
+            alt="飛行機の写真"
+            class="z-1 w-full opacity-60"
+          />
+          <h1
+            class="z-2 absolute bottom-0 right-1 p-3 font-serif text-4xl text-white lg:text-8xl"
+          >
+            Aviation Group
+          </h1>
+        </div>
+        <div
+          id="language-selector"
+          class="absolute right-0 top-0 rounded-bl-lg bg-white/40 px-2"
+        >
+          <div id="selected-language" class="cursor-pointer p-2 text-white">
+            Language ▼
+          </div>
+          <ul id="language-select" class="hidden pb-2">
+            <li class="cursor-pointer p-2 text-white hover:bg-gray-800/40">
+              <a href="../../index.html">日本語</a>
+            </li>
+            <li class="cursor-pointer p-2 text-white hover:bg-gray-800/40">
+              English
+            </li>
+          </ul>
+        </div>
       </div>
 
       <section id="introduction">
@@ -118,149 +203,154 @@ import '../style.css'
           /> Would you also like to study air traffic control at Takahashi Lab?
         </p>
       </section>
-    </main>
 
-    <section id="services">
-      <div class="content-wrap">
-        <ul class="content-list">
-          <li class="content-item is-right fadein">
-            <div class="content-itemInner">
-              <div class="image-container">
-                <div class="image-containerInner">
-                  <Image src={cockpit_color} alt="Cockpit Color Image" />
-                  <!-- 背景画像 -->
-                  <Image src={cockpit_monotone} alt="Cockpit Monotone Image" />
-                  <!-- 表示画像 -->
+      <section id="research">
+        <div class="content-wrap">
+          <ul class="content-list">
+            <li class="content-item is-right fadein">
+              <div class="content-itemInner">
+                <div class="image-container">
+                  <div class="image-containerInner">
+                    <Image src={cockpit_color} alt="Cockpit Color Image" />
+                    <!-- 背景画像 -->
+                    <Image
+                      src={cockpit_monotone}
+                      alt="Cockpit Monotone Image"
+                    />
+                    <!-- 表示画像 -->
+                  </div>
+                </div>
+                <div class="content-nameArea">
+                  <div class="content-nameInner">
+                    <h2 class="content-name">
+                      Joint research with airline companies “ROM”
+                    </h2>
+                  </div>
+                  <h3 class="content-label">航空会社との共同研究「ROM」</h3>
+                  <p class="content-detailTxt">
+                    Through joint research with Japan Airlines Co., Ltd., we are
+                    developing a new safety monitoring program called "ROM
+                    (Resilience Operation Monitoring)" based on a new safety
+                    concept called Safety-II. Traditionally, we have focused on
+                    "events that did not go well", but by focusing on and
+                    analyzing the actions that were the cause of "successful
+                    events", which are the majority of daily operations, we are
+                    researching new approaches to safety that aim to achieve
+                    higher levels of safety by increasing success.
+                  </p>
                 </div>
               </div>
-              <div class="content-nameArea">
-                <div class="content-nameInner">
-                  <h2 class="content-name">
-                    Joint research with airline companies “ROM”
-                  </h2>
+            </li>
+            <li class="content-item is-left fadein">
+              <div class="content-itemInner">
+                <div class="image-container">
+                  <div class="image-containerInner">
+                    <Image src={professor2} alt="Professor2 Image" />
+                    <!-- 背景画像 -->
+                    <Image src={professor1} alt="Professor1 Image" />
+                    <!-- 表示画像 -->
+                  </div>
                 </div>
-                <h3 class="content-label">航空会社との共同研究「ROM」</h3>
-                <p class="content-detailTxt">
-                  Through joint research with Japan Airlines Co., Ltd., we are
-                  developing a new safety monitoring program called "ROM
-                  (Resilience Operation Monitoring)" based on a new safety
-                  concept called Safety-II. Traditionally, we have focused on
-                  "events that did not go well", but by focusing on and
-                  analyzing the actions that were the cause of "successful
-                  events", which are the majority of daily operations, we are
-                  researching new approaches to safety that aim to achieve
-                  higher levels of safety by increasing success.
-                </p>
-              </div>
-            </div>
-          </li>
-          <li class="content-item is-left fadein">
-            <div class="content-itemInner">
-              <div class="image-container">
-                <div class="image-containerInner">
-                  <Image src={professor2} alt="Professor2 Image" />
-                  <!-- 背景画像 -->
-                  <Image src={professor1} alt="Professor1 Image" />
-                  <!-- 表示画像 -->
-                </div>
-              </div>
-              <div class="content-nameArea">
-                <div class="content-nameInner">
-                  <h2 class="content-name">
-                    Research on flight crew competencies
-                  </h2>
-                </div>
-                <h3 class="content-label">
-                  運航乗務員のコンピテンシーに関する研究
-                </h3>
-                <p class="content-detailTxt">
-                  Safety-II emphasizes resilience, which is the positive human
-                  contribution to safety and the ability to do so. Using
-                  interviews and qualitative research methods, we will
-                  systematize and visualize the competencies for resilience
-                  possessed by flight crew members (pilots), and utilize the
-                  knowledge gained from this for future education and training,
-                  and ultimately for even safer flight operations. We are
-                  conducting practical research aimed at achieving this goal.
-                </p>
-              </div>
-            </div>
-          </li>
-          <li class="content-item is-right fadein">
-            <div class="content-itemInner">
-              <div class="image-container">
-                <div class="image-containerInner">
-                  <Image src={ATC_radar} alt="ATC Radar Image" />
-                  <!-- 背景画像 -->
-                  <Image src={ATC_Tower} alt="ATC Tower Image" />
-                  <!-- 表示画像 -->
+                <div class="content-nameArea">
+                  <div class="content-nameInner">
+                    <h2 class="content-name">
+                      Research on flight crew competencies
+                    </h2>
+                  </div>
+                  <h3 class="content-label">
+                    運航乗務員のコンピテンシーに関する研究
+                  </h3>
+                  <p class="content-detailTxt">
+                    Safety-II emphasizes resilience, which is the positive human
+                    contribution to safety and the ability to do so. Using
+                    interviews and qualitative research methods, we will
+                    systematize and visualize the competencies for resilience
+                    possessed by flight crew members (pilots), and utilize the
+                    knowledge gained from this for future education and
+                    training, and ultimately for even safer flight operations.
+                    We are conducting practical research aimed at achieving this
+                    goal.
+                  </p>
                 </div>
               </div>
-              <div class="content-nameArea">
-                <div class="content-nameInner">
-                  <h2 class="content-name">
-                    Experimental research on team resilience and communication
-                  </h2>
+            </li>
+            <li class="content-item is-right fadein">
+              <div class="content-itemInner">
+                <div class="image-container">
+                  <div class="image-containerInner">
+                    <Image src={ATC_radar} alt="ATC Radar Image" />
+                    <!-- 背景画像 -->
+                    <Image src={ATC_Tower} alt="ATC Tower Image" />
+                    <!-- 表示画像 -->
+                  </div>
                 </div>
-                <h3 class="content-label">
-                  チームレジリエンスとコミュニケーションに関する実験研究
-                </h3>
-                <p class="content-detailTxt">
-                  Using a team task simulator (ASSIST) modeled after air route
-                  control operations, we are conducting research to
-                  experimentally clarify the characteristics of teams that can
-                  respond resiliently to various types of fluctuations. By
-                  focusing in particular on team communication and clarifying
-                  the relationship between the quantity and quality of
-                  information sharing between team members and team performance,
-                  we will contribute to further improvements in education and
-                  training programs for complex systems operated by teams.
-                </p>
-              </div>
-            </div>
-          </li>
-          <li class="content-item is-left fadein">
-            <div class="content-itemInner">
-              <div class="image-container">
-                <div class="image-containerInner">
-                  <Image src={pilot} alt="Pilot Image" />
-                  <!-- 背景画像 -->
-                  <Image src={cabin_Attendant} alt="Cabin Attendant Image" />
-                  <!-- 表示画像 -->
+                <div class="content-nameArea">
+                  <div class="content-nameInner">
+                    <h2 class="content-name">
+                      Experimental research on team resilience and communication
+                    </h2>
+                  </div>
+                  <h3 class="content-label">
+                    チームレジリエンスとコミュニケーションに関する実験研究
+                  </h3>
+                  <p class="content-detailTxt">
+                    Using a team task simulator (ASSIST) modeled after air route
+                    control operations, we are conducting research to
+                    experimentally clarify the characteristics of teams that can
+                    respond resiliently to various types of fluctuations. By
+                    focusing in particular on team communication and clarifying
+                    the relationship between the quantity and quality of
+                    information sharing between team members and team
+                    performance, we will contribute to further improvements in
+                    education and training programs for complex systems operated
+                    by teams.
+                  </p>
                 </div>
               </div>
-              <div class="content-nameArea">
-                <div class="content-nameInner">
-                  <h2 class="content-name">
-                    Basic research on failure tolerance and skill flexibility
-                  </h2>
+            </li>
+            <li class="content-item is-left fadein">
+              <div class="content-itemInner">
+                <div class="image-container">
+                  <div class="image-containerInner">
+                    <Image src={pilot} alt="Pilot Image" />
+                    <!-- 背景画像 -->
+                    <Image src={cabin_Attendant} alt="Cabin Attendant Image" />
+                    <!-- 表示画像 -->
+                  </div>
                 </div>
-                <h3 class="content-label">
-                  失敗許容度とスキルの柔軟性に関する基礎研究
-                </h3>
-                <p class="content-detailTxt">
-                  As a safety measure for various complex systems, "prevention
-                  of failures from recurring" has been emphasized. It is of
-                  course important to prevent safety-related failures, but if
-                  the pursuit of higher safety leads to the creation of an
-                  organizational culture where even the smallest failures are
-                  not tolerated, employees will not have the opportunity to
-                  learn from small failures and improve their skills. Will it
-                  really lead to further improvements in system security? Does
-                  it really contribute to maintaining system safety under
-                  various conditions, including unexpected events? In this
-                  study, as a first step toward answering these questions, we
-                  used a unique task simulator to study the impact that
-                  differences in tolerance for failure have on the flexibility
-                  of skills acquired through education, training, and
-                  experience.
-                </p>
+                <div class="content-nameArea">
+                  <div class="content-nameInner">
+                    <h2 class="content-name">
+                      Basic research on failure tolerance and skill flexibility
+                    </h2>
+                  </div>
+                  <h3 class="content-label">
+                    失敗許容度とスキルの柔軟性に関する基礎研究
+                  </h3>
+                  <p class="content-detailTxt">
+                    As a safety measure for various complex systems, "prevention
+                    of failures from recurring" has been emphasized. It is of
+                    course important to prevent safety-related failures, but if
+                    the pursuit of higher safety leads to the creation of an
+                    organizational culture where even the smallest failures are
+                    not tolerated, employees will not have the opportunity to
+                    learn from small failures and improve their skills. Will it
+                    really lead to further improvements in system security? Does
+                    it really contribute to maintaining system safety under
+                    various conditions, including unexpected events? In this
+                    study, as a first step toward answering these questions, we
+                    used a unique task simulator to study the impact that
+                    differences in tolerance for failure have on the flexibility
+                    of skills acquired through education, training, and
+                    experience.
+                  </p>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
   </body>
 
   <footer>
@@ -274,18 +364,10 @@ import '../style.css'
   ></script>
   <script is:inline>
     $(function () {
-      $('.hamburger-menu').on('click', function () {
-        $('nav').toggleClass('open') // メニューにopenクラスをつけ外しする
-        $('.hamburger-menu').toggleClass('open')
+        $('.header-Logo-image').on('click', function () {
+          $('body').toggleClass('cursorEffect') // body全体にcursorEffectクラスをつけ外しする
+        })
       })
-    })
-
-    $(function () {
-      $('.header-Logo-image').on('click', function () {
-        $('body').toggleClass('cursorEffect') // body全体にcursorEffectクラスをつけ外しする
-      })
-    })
-
     let konamiCode = []
     const konamiPattern = [
       'ArrowUp',
