@@ -14,6 +14,29 @@ import tklab_logo from './TKLab-Logo.png'
 import aviation from './Aviation-head.gif'
 // css
 import './style.css'
+
+const nav_links = [
+  {
+    name: '研究内容',
+    url: '/research/index.html'
+  },
+  {
+    name: 'メンバー',
+    url: '/member/index.html'
+  },
+  {
+    name: '進路',
+    url: '/alumni/index.html'
+  },
+  {
+    name: 'ブログ',
+    url: '/blogs/index.html'
+  },
+  {
+    name: 'アクセス',
+    url: '/contact/index.html'
+  }
+]
 ---
 
 <!doctype html>
@@ -27,46 +50,114 @@ import './style.css'
 
   <body>
     <header id="header">
-      <div class="header-Logo">
-        <Image src={tklab_logo} alt="logo" class="header-Logo-image" />
-        <a href="/">
-          <h1 class="TKLab-Title">高橋・狩川研究室</h1>
-        </a>
-      </div>
-
-      <div class="header-menu">
-        <p class="hamburger-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </p>
-        <nav>
-          <ul>
-            <li><a href="/">ホーム</a></li>
-            <li><a href="/research/index.html">研究グループ</a></li>
-            <li><a href="/member/index.html">メンバー</a></li>
-            <li><a href="/alumni/index.html">卒業後の進路</a></li>
-            <li><a href="/contact/index.html">アクセス</a></li>
-            <li><a href="/blogs/index.html">ブログ</a></li>
-          </ul>
-        </nav>
-      </div>
+      <nav class="bg-blue-200">
+        <div class="navbar">
+          <div class="navbar-start">
+            <div class="mx-auto flex p-5 align-middle">
+              <Image
+                src={tklab_logo}
+                alt="logo"
+                class="header-Logo-image w-10 object-contain"
+              />
+              <a
+                class="title-font mb-0 flex items-center font-medium text-gray-900"
+                href="/"
+              >
+                <span class="ml-3 text-xl lg:text-3xl whitespace-nowrap">高橋・狩川研究室</span>
+              </a>
+            </div>
+          </div>
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+              {
+                nav_links.map((link) => (
+                  <li class="mr-5 text-lg">
+                    <a
+                      href={link.url}
+                      class="hover:text-gray-900 hover:underline"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div class="navbar-end lg:hidden">
+            <div class="dropdown dropdown-end">
+              <label tabindex={0} class="btn btn-ghost">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"></path></svg
+                >
+              </label>
+              <ul
+                tabindex={0}
+                class="menu dropdown-content menu-lg z-[1] mt-6 w-80 rounded-box bg-slate-100 p-4 shadow"
+              >
+                {
+                  nav_links.map((link) => (
+                    <li class="">
+                      <a href={link.url} class="p-4 text-xl">
+                        {link.name}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main>
       <!-- 言語選択メニュー -->
-      <div id="language-selector">
-        <div id="selected-language">Language ▼</div>
-        <ul id="language-select">
-          <li>日本語</li>
-          <li><a href="en/index-en/index.html">English</a></li>
-          <!-- 他の言語のオプションを追加できます -->
-        </ul>
-      </div>
+      <div class="relative">
+        <!-- <div id="video-container" class="video-container">
+          <Image src={aviation} alt="飛行機の写真" class="head-gif" />
+          <h1>航空グループ</h1>
+        </div> -->
+        <div
+          id="video-container"
+          class="relative w-full whitespace-nowrap overflow-hidden bg-black font-serif text-white/40"
+        >
+          <Image
+            src={aviation}
+            alt="飛行機の写真"
+            class="z-1 w-full opacity-60"
+          />
+          <h1
+            class="z-2 absolute bottom-0 right-1 p-3 font-serif text-4xl lg:text-8xl text-white"
+          >
+            航空グループ
+          </h1>
+        </div>
 
-      <div id="video-container" class="video-container">
-        <Image src={aviation} alt="飛行機の写真" class="head-gif" />
-        <h1>航空グループ</h1>
+        <div
+          id="language-selector"
+          class="absolute right-0 top-0 rounded-bl-lg bg-white/40 px-2"
+        >
+          <div id="selected-language" class="cursor-pointer p-2 text-white">
+            Language ▼
+          </div>
+          <ul id="language-select" class="hidden pb-2">
+            <li class="cursor-pointer p-2 text-white hover:bg-gray-800/40">
+              日本語
+            </li>
+            <li class="cursor-pointer p-2 text-white hover:bg-gray-800/40">
+              <a href="en/index-en/index.html">English</a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <section id="contents">
@@ -219,18 +310,10 @@ import './style.css'
     ></script>
     <script is:inline>
       $(function () {
-        $('.hamburger-menu').on('click', function () {
-          $('nav').toggleClass('open') // メニューにopenクラスをつけ外しする
-          $('.hamburger-menu').toggleClass('open')
-        })
-      })
-
-      $(function () {
         $('.header-Logo-image').on('click', function () {
           $('body').toggleClass('cursorEffect') // body全体にcursorEffectクラスをつけ外しする
         })
       })
-
       // コナミコマンドの入力を監視している関数
       let konamiCode = []
       const konamiPattern = [
