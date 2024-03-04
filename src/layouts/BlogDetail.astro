@@ -82,11 +82,11 @@ const author = await getCollection('member')
     }
 
     .astro-code {
-      @apply w-[90vw] overflow-x-scroll;
+      @apply w-[90vw] max-w-xl overflow-x-scroll;
     }
 
     .astro-code code {
-      @apply whitespace-nowrap block flex flex-col
+      @apply whitespace-nowrap block flex flex-col;
     }
 
   </style>
@@ -147,7 +147,7 @@ const author = await getCollection('member')
         Object.keys(headings).length === 0 ? (
           ''
         ) : (
-          <div class="p-3">
+          <div class="p-3 sticky top-0">
             <ToC links={headings} />
           </div>
         )
