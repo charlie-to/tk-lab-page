@@ -80,6 +80,15 @@ const author = await getCollection('member')
     .footnotes {
       @apply not-sr-only !mt-12 !border-t-2 !border-dashed !border-primary !border-opacity-50;
     }
+
+    .astro-code {
+      @apply w-[90vw] overflow-x-scroll;
+    }
+
+    .astro-code code {
+      @apply whitespace-nowrap block flex flex-col
+    }
+
   </style>
 
   <div class="flex">
