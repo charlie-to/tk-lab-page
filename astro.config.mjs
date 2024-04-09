@@ -32,7 +32,7 @@ export default defineConfig({
   ],
   markdown: {
     gfm: true,
-    smartypants: true,
+    smartypants: false,
     remarkPlugins: [remarkSlug, remarkToc,remarkBreaks,remarkDirective,remarkDirectiveRehype],
     rehypePlugins: [
       [
@@ -71,10 +71,13 @@ export default defineConfig({
       ]
     ],
     remarkRehype: {
+      footnoteBackContent: '↩',
       footnoteLabel: '脚注',
       footnoteLabelTagName: "footnote",
       footnoteBackLabel: 'コンテンツに戻る',},
+      footnoteLabelProperties:{class:[""]},
+      footnoteLabelTagName:"hr",
     extendDefaultPlugins:true
-    
+
   }
 })

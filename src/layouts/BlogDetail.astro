@@ -61,7 +61,8 @@ const author = await getCollection('member')
       @apply mb-4 list-inside list-decimal pl-4;
     }
 
-    .markdown-body code::before, .markdown-body code::after {
+    .markdown-body code::before,
+    .markdown-body code::after {
       @apply hidden;
     }
 
@@ -74,11 +75,22 @@ const author = await getCollection('member')
     }
 
     .markdown-body strong {
-      @apply underline decoration-sky-200 decoration-4 underline-offset-4; 
+      @apply underline decoration-sky-200 decoration-4 underline-offset-4;
     }
 
     .footnotes {
       @apply not-sr-only !mt-12 !border-t-2 !border-dashed !border-primary !border-opacity-50;
+    }
+    .footnotes p {
+      display: inline;
+    }
+
+    .astro-code {
+      @apply w-[90vw] max-w-xl overflow-x-scroll;
+    }
+
+    .astro-code code {
+      @apply block flex flex-col whitespace-nowrap;
     }
   </style>
 
@@ -91,7 +103,7 @@ const author = await getCollection('member')
             {data.title}
           </h1>
           <div
-            class="flex w-full flex-col items-start justify-between dark:text-gray-400 md:flex-row md:items-center"
+            class="flex w-full flex-col items-start justify-between md:flex-row md:items-center dark:text-gray-400"
           >
             <div class="flex items-center md:space-x-1">
               <p class="text-sm">
@@ -129,16 +141,12 @@ const author = await getCollection('member')
     <!-- article end -->
     <!-- sidebar start -->
     <div class="hidden w-4/12 space-y-12 py-16 lg:block">
-      {
-        author && (
-          <AuthorCard author={author} />
-        )
-      }
+      {author && <AuthorCard author={author} />}
       {
         Object.keys(headings).length === 0 ? (
           ''
         ) : (
-          <div class="p-3">
+          <div class="sticky top-0 p-3">
             <ToC links={headings} />
           </div>
         )
