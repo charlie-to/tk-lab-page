@@ -78,6 +78,10 @@ const author = await getCollection('member')
       @apply underline decoration-sky-200 decoration-4 underline-offset-4;
     }
 
+    .markdown-body img {
+      @apply mx-auto w-full;
+    }
+
     .footnotes {
       @apply not-sr-only !mt-12 !border-t-2 !border-dashed !border-primary !border-opacity-50;
     }
