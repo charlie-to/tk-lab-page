@@ -65,9 +65,9 @@ const company_name = [
 <Layout title="進路">
   <!--カード -->
   <section class="">
-    <div class="w-full px-2">
+    <div class="w-full">
       <div
-        class="relative flex w-full flex-wrap bg-gray-100 px-6 py-16 sm:px-10 sm:py-24"
+        class="relative flex w-full flex-wrap bg-gray-100 py-16 sm:px-10 sm:py-24"
       >
         <Image
           alt="Graduation Page Image - Unsplash"
@@ -81,6 +81,8 @@ const company_name = [
           </p>
         </div>
       </div>
+    </div>
+    <section class="container mx-auto mt-8 w-full">
       <!-- content - start -->
       <div class="mx-auto">
         <div class="sm:text-center lg:pt-12 lg:text-left">
@@ -90,9 +92,8 @@ const company_name = [
         </div>
       </div>
       <!-- content - end -->
-    </div>
     <!--進路先の企業名のリスト -->
-    <section class="mt-8 w-full">
+    <section class="max-w-6xl mx-auto">
       {
         company_name.map((company_name_grade) => (
           <div class="my-12 bg-base-200 py-12">
@@ -110,6 +111,7 @@ const company_name = [
           </div>
         ))
       }
+    </section>
     </section>
   </section>
 </Layout>

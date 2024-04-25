@@ -9,12 +9,13 @@ const news_posts = await getCollection('blog', ({ data }) => {
 ---
 
 <Layout title="ニュース一覧">
+  <div class="container mx-auto my-4">
   <h1 class="text-3xl font-bold">高橋・狩川研究室のニュース</h1>
   <!-- ニュース一覧 -->
   <section>
     <div>
       <div class="body-font overflow-hidden text-gray-600">
-        <div class="container mx-auto px-5 py-24">
+        <div class="max-w-6xl mx-auto px-5 py-24">
           <div class="-my-8 divide-y-2 divide-gray-100">
             {
               news_posts.map((news_post) => (
@@ -63,4 +64,5 @@ const news_posts = await getCollection('blog', ({ data }) => {
       </div>
     </div>
   </section>
+  </div>
 </Layout>
