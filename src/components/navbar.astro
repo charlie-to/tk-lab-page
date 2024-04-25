@@ -28,12 +28,12 @@ const nav_links = [
 <nav class="bg-blue-200">
   <div class="navbar">
     <div class="navbar-start">
-      <div class="mx-auto flex flex-col flex-wrap p-5 align-middle">
+      <div class="mx-auto flex flex-wrap p-5 align-middle">
+        <img src="/Logo2020_black.png" id="header-Logo-image" class="header-Logo-image h-10 w-10" alt="ロゴ" />
         <a
           class="title-font mb-0 flex items-center font-medium text-gray-900"
           href="/"
         >
-          <img src="/Logo2020_black.png" class="h-10" alt="ロゴ" />
           <span class="ml-3 text-xl lg:text-3xl whitespace-nowrap">高橋・狩川研究室</span>
         </a>
       </div>
@@ -85,3 +85,10 @@ const nav_links = [
     </div>
   </div>
 </nav>
+
+<style>
+  .header-Logo-image.rotate {
+    animation: rotateAnimation 2s linear infinite;
+    /* 無限に繰り返す */
+  }
+</style>
