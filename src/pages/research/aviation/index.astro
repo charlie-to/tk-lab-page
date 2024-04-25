@@ -1,6 +1,5 @@
 ---
 import Layout from '@layouts/Layout.astro'
-import Footer from '@components/footer.astro'
 import ResearchDetail from '@components/researchDetail.astro'
 // images
 import { Image } from 'astro:assets'
@@ -14,29 +13,6 @@ import pilot from './pilot.jpg'
 import cabin_Attendant from './cabin_Attendant.jpg'
 import tklab_logo from './TKLab-Logo.png'
 import aviation from './Aviation-head.gif'
-
-const nav_links = [
-  {
-    name: '研究内容',
-    url: '/research/index.html'
-  },
-  {
-    name: 'メンバー',
-    url: '/member/index.html'
-  },
-  {
-    name: '進路',
-    url: '/alumni/index.html'
-  },
-  {
-    name: 'ブログ',
-    url: '/blogs/index.html'
-  },
-  {
-    name: 'アクセス',
-    url: '/contact/index.html'
-  }
-]
 ---
 
 <Layout title="航空グループ">
@@ -69,9 +45,9 @@ const nav_links = [
     </div>
   </div>
 
-  <section id="contents" class="mx-auto max-w-6xl">
+  <section id="contents" class="container mx-auto max-w-6xl px-5">
     <section id="introduction" class="my-10">
-      <h1 id="top-message" class="mx-auto py-10 text-center text-4xl font-bold">
+      <h1 id="top-message" class="mx-auto py-10 text-center md:text-4xl text-2xl font-bold">
         <!-- 文章はjavascriptに書いてあります -->
       </h1>
       <div id="explanation" class="text-xl">
@@ -104,13 +80,13 @@ const nav_links = [
             <Image
               src={cockpit_color}
               alt="Cockpit Color Image"
-              class="absolute left-0 top-0 h-full w-full duration-500 group-hover:scale-110"
+              class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110"
             />
             <!-- 背景画像 -->
             <Image
               src={cockpit_monotone}
               alt="Cockpit Monotone Image"
-              class="absolute left-0 top-0 h-full w-full duration-500 group-hover:scale-110 group-hover:opacity-0"
+              class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
             />
             <!-- 表示画像 -->
           </ResearchDetail>
@@ -123,13 +99,13 @@ const nav_links = [
             <Image
               src={professor2}
               alt="Professor2 Image"
-              class="absolute left-0 top-0 h-full w-full duration-500 group-hover:scale-110"
+              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110"
             />
             <!-- 背景画像 -->
             <Image
               src={professor1}
               alt="Professor1 Image"
-              class="absolute left-0 top-0 h-full w-full duration-500 group-hover:scale-110 group-hover:opacity-0"
+              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
             />
             <!-- 表示画像 -->
           </ResearchDetail>
@@ -142,13 +118,13 @@ const nav_links = [
             <Image
               src={ATC_radar}
               alt="ATC Radar Image"
-              class="absolute left-0 top-0 h-full w-full duration-500 group-hover:scale-110"
+              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110"
             />
             <!-- 背景画像 -->
             <Image
               src={ATC_Tower}
               alt="ATC Tower Image"
-              class="absolute left-0 top-0 h-full w-full duration-500 group-hover:scale-110 group-hover:opacity-0"
+              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
             />
             <!-- 表示画像 -->
           </ResearchDetail>
@@ -161,13 +137,13 @@ const nav_links = [
             <Image
               src={pilot}
               alt="Pilot Image"
-              class="absolute left-0 top-0 h-full w-full duration-500 group-hover:scale-110"
+              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110"
             />
             <!-- 背景画像 -->
             <Image
               src={cabin_Attendant}
               alt="Cabin Attendant Image"
-              class="absolute left-0 top-0 h-full w-full duration-500 group-hover:scale-110 group-hover:opacity-0"
+              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
             />
             <!-- 表示画像 -->
           </ResearchDetail>
