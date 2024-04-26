@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content'
 // devのタグがついたものを取り出し、Dateに基づいてソート
 const news_posts = await getCollection('blog', ({ data }) => {
   return data.tag.includes('dev')
-}).then(posts => posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date)));
+}).then(posts => posts.sort((a, b) => (new Date(b.data.date) as any) - (new Date(a.data.date) as any)));
 ---
 
 <Layout title="ニュース一覧">
@@ -22,7 +22,7 @@ const news_posts = await getCollection('blog', ({ data }) => {
                 <div class="flex flex-wrap py-8 md:flex-nowrap">
                   <div class="mb-6 flex flex-shrink-0 flex-col md:mb-0 md:w-64">
                     <span class="title-font font-semibold text-gray-700">
-                      {news_post.data.tag.map((tag) => (
+                      {news_post.data.tag.map((tag: string) => (
                         <span class="mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
                           {tag}
                         </span>
