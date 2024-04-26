@@ -5,23 +5,24 @@ import { getCollection } from 'astro:content'
 // devのタグがついたものを取り出し、Dateに基づいてソート
 const news_posts = await getCollection('blog', ({ data }) => {
   return data.tag.includes('dev')
-}).then(posts => posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date)));
+}).then(posts => posts.sort((a, b) => (new Date(b.data.date) as any) - (new Date(a.data.date) as any)));
 ---
 
 <Layout title="ニュース一覧">
+  <div class="container mx-auto my-4">
   <h1 class="text-3xl font-bold">高橋・狩川研究室のニュース</h1>
   <!-- ニュース一覧 -->
   <section>
     <div>
       <div class="body-font overflow-hidden text-gray-600">
-        <div class="container mx-auto px-5 py-24">
+        <div class="max-w-6xl mx-auto px-5 py-24">
           <div class="-my-8 divide-y-2 divide-gray-100">
             {
               news_posts.map((news_post) => (
                 <div class="flex flex-wrap py-8 md:flex-nowrap">
                   <div class="mb-6 flex flex-shrink-0 flex-col md:mb-0 md:w-64">
                     <span class="title-font font-semibold text-gray-700">
-                      {news_post.data.tag.map((tag) => (
+                      {news_post.data.tag.map((tag: string) => (
                         <span class="mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
                           {tag}
                         </span>
@@ -63,4 +64,5 @@ const news_posts = await getCollection('blog', ({ data }) => {
       </div>
     </div>
   </section>
+  </div>
 </Layout>
