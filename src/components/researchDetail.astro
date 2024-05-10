@@ -5,9 +5,9 @@ const {title, subTitle, detail, isLeft} = Astro.props
 <div>
   <li class="group content-item is-right fadein bg-gray-100 w-full my-10 duration-500 lg:hover:-translate-y-2 p-5">
     <div class={`content-itemInner md:flex flex-col md:flex-row justify-center w-full ${isLeft ? 'md:flex-row-reverse' : ''}`}>
-      <div class="image-container md:w-1/3 sm:max-w-sm my-auto">
-        <div class="image-containerInner absolute top-0 left-0 aspect-square relative overflow-hidden">
-          <slot /> <!--表示する画像を呼び出す側で記述 -->
+      <div class="image-container md:w-1/3 sm:max-w-sm relative content-center">
+        <div class="image-containerInner absolute top-1/2 left-0 aspect-square relative">
+          <slot />
         </div>
       </div>
     
