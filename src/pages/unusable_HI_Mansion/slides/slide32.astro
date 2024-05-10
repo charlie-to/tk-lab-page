@@ -6,77 +6,86 @@ import ghost from './Images/ghost.png'
 ---
 
 <SlideLayout>
-    <div class="slide-content">
-        <div class="textArea flex flex-col items-center justify-center" style="opacity: 0;">
-            <div class="text" style="font-size: max(50px, 4vw);">
-                来てくれてありがとう〜♪<br>
-            </div>
-            <div class="text" style="font-size: max(40px, 3.6vw);">
-                (ハーモニーで)<br>
-            </div>
-        </div>
-        
-        <Image src={ghost} alt="ghost" class="ghost" style="width: max(300px, 26vw); transform: translate(-50%, -50%); opacity: 0; position: absolute; top: 55%; left: 50%; transition: opacity 2s ease-in-out;"/>
+  <div class="slide-content">
+    <div
+      class="textArea flex flex-col items-center justify-center"
+      style="opacity: 0;"
+    >
+      <div class="text" style="font-size: max(50px, 4vw);">
+        来てくれてありがとう〜♪<br />
+      </div>
+      <div class="text" style="font-size: max(40px, 3.6vw);">
+        (ハーモニーで)<br />
+      </div>
     </div>
 
-    <script is:inline>
-        window.addEventListener('DOMContentLoaded', () => {
-            const text = document.querySelector('.textArea');
-            const initialGhost = document.querySelector('.ghost');
+    <Image
+      src={ghost}
+      alt="ghost"
+      class="ghost"
+      style="width: max(300px, 26vw); transform: translate(-50%, -50%); opacity: 0; position: absolute; top: 50%; left: 50%; transition: opacity 2s ease-in-out;"
+    />
+  </div>
 
-            const numOfGhosts = 15; // 作成する画像の数
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      const text = document.querySelector('.textArea')
+      const initialGhost = document.querySelector('.ghost')
 
-            for (let i = 1; i < numOfGhosts; i++) {
-                const newGhost = initialGhost.cloneNode(true);
-                const randomTop = Math.random() * 10 + 60;
-                const randomLeft = Math.random() * 80 + 10;
+      const numOfGhosts = 15 // 作成する画像の数
 
-                newGhost.style.top = `${randomTop}%`;
-                newGhost.style.left = `${randomLeft}%`;
+      for (let i = 1; i < numOfGhosts; i++) {
+        const newGhost = initialGhost.cloneNode(true)
+        const randomTop = Math.random() * 10 + 60
+        const randomLeft = Math.random() * 80 + 10
 
-                // ランダムな遅延時間を生成 (0秒から2秒の間でランダム)
-                const randomDelay = Math.random() * 2000;
-                newGhost.style.animationDelay = `${randomDelay}ms`;
+        newGhost.style.top = `${randomTop}%`
+        newGhost.style.left = `${randomLeft}%`
 
-                // アニメーションが適用されるため、opacityを変更して表示させる
-                setTimeout(() => {
-                    newGhost.style.opacity = 0.9;
-                }, randomDelay);
+        // ランダムな遅延時間を生成 (0秒から2秒の間でランダム)
+        const randomDelay = Math.random() * 2000
+        newGhost.style.animationDelay = `${randomDelay}ms`
 
-                initialGhost.parentNode.appendChild(newGhost);
-            }
+        // アニメーションが適用されるため、opacityを変更して表示させる
+        setTimeout(() => {
+          newGhost.style.opacity = 0.9
+        }, randomDelay)
 
-            const ghosts = document.getElementsByClassName('ghost')
+        initialGhost.parentNode.appendChild(newGhost)
+      }
 
-            for (let i = 1; i < ghosts.length; i++) {
-                const randomDelay = Math.random() * 1000 + 4000;
-                // newGhost.style.animationDelay = `${randomDelay}ms`;
+      const ghosts = document.getElementsByClassName('ghost')
 
-                setTimeout(() => {
-                    ghosts[i].style.transition = "opacity 1s ease-in-out, width 2s ease-in-out"
-                    ghosts[i].style.opacity = 0;
-                    ghosts[i].style.width = "10000px"
-                }, randomDelay);
-            }
+      for (let i = 1; i < ghosts.length; i++) {
+        const randomDelay = Math.random() * 1000 + 4000
+        // newGhost.style.animationDelay = `${randomDelay}ms`;
 
-            setTimeout(() => {
-                text.style.transition = "opacity 2s ease-in-out"
-                text.style.opacity = 1;
-            }, 500);
+        setTimeout(() => {
+          ghosts[i].style.transition =
+            'opacity 1s ease-in-out, width 2s ease-in-out'
+          ghosts[i].style.opacity = 0
+          ghosts[i].style.width = '10000px'
+        }, randomDelay)
+      }
 
-            setTimeout(() => {
-                text.style.opacity = 0;
-            }, 4000);
+      setTimeout(() => {
+        text.style.transition = 'opacity 2s ease-in-out'
+        text.style.opacity = 1
+      }, 500)
 
-            setTimeout(() => {
-                const nextPageUrl = '../slide33/index.html';
+      setTimeout(() => {
+        text.style.opacity = 0
+      }, 4000)
 
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-            }, 6000);
-        });        
-    </script>
+      setTimeout(() => {
+        const nextPageUrl = '../slide33/index.html'
+
+        // 次のページを読み込む
+        window.fetch(nextPageUrl).then((response) => {
+          // 読み込みが完了したら画面遷移を行う
+          window.location.href = nextPageUrl
+        })
+      }, 6000)
+    })
+  </script>
 </SlideLayout>
