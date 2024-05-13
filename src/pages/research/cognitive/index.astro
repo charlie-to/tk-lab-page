@@ -1,0 +1,283 @@
+---
+import Layout from '@layouts/Layout.astro'
+import ResearchDetail from '@components/researchDetail.astro'
+// images
+import { Image } from 'astro:assets'
+import aviation from './Aviation-head.gif'
+import bart from './bart.png'
+import image from './image.png'
+
+import image2 from './image2.png'
+---
+
+<Layout title="認知グループ">
+  <!-- 言語選択メニュー -->
+  <div class="relative w-full">
+    <div id="video-container" class="relative w-full overflow-hidden whitespace-nowrap bg-black font-serif text-white/40">
+      <Image src={aviation} alt="飛行機の写真" class="z-1 w-full opacity-60" />
+      <h1
+        class="z-2 absolute bottom-0 right-1 p-3 font-serif text-4xl text-white lg:text-8xl"
+      >
+        認知グループ
+      </h1>
+    </div>
+
+    <div
+      id="language-selector"
+      class="absolute right-0 top-0 rounded-bl-lg bg-white/40 px-2"
+    >
+      <div id="selected-language" class="hidden cursor-pointer p-2 text-white">
+        Language ▼
+      </div>
+      <ul id="language-select" class="hidden pb-2">
+        <li class="cursor-pointer p-2 text-white hover:bg-gray-800/40">
+          日本語
+        </li>
+        <li class="cursor-pointer p-2 text-white hover:bg-gray-800/40">
+          <a href="en/index-en/index.html">English</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="contents" class="container mx-auto max-w-6xl px-5">
+    <section id="introduction" class="my-10">
+      <h1 id="top-message" class="hidden　mx-auto py-10 text-center md:text-4xl text-2xl font-bold">
+        <!-- 文章はjavascriptに書いてあります -->
+      </h1>
+      <div id="explanation" class="text-xl">
+        <p class="my-10">
+          社会システムは人間と機械がそのほとんどを担っており、安全な状態を維持するためには機械だけでなく人間の特性を知る必要があります。本研究グループでは、認知科学・人体生理学を社会システムの安全性向上のために応用することを目的とした研究を行っています。
+        </p>
+      </div>
+    </section>
+
+    <section id="research" class="mx-auto max-w-6xl">
+      <div class="content-wrap">
+        <ul class="content-list">
+          <ResearchDetail
+            title="BARTを用いた危険感受性・危険敢行性の推定"
+            subTitle="Estimation of risk sensitivity and risk taking using BART"
+            detail="BART(Ballon Analogue Risk Task)と呼ばれる、画面上でいつ割れるかわからない風船を膨らませるタスクを行ってもらうことでその人の危険感受性(どの程度危険の敏感か)、危険敢行性(どの程度危険を受け入れるか)を測定することを目的とした研究"
+            isLeft={false}
+          >
+            <Image
+              src={bart}
+              alt="Cockpit Monotone Image"
+              class="absolute left-0 top-0 w-full duration-500 transform -translate-y-1/2"
+            />
+            <!-- 表示画像 -->
+          </ResearchDetail>
+          <ResearchDetail
+            title="自動運転時における段階的な警報の有効性とドライバーの挙動に関する研究"
+            subTitle="Research on the effectiveness of gradual warnings and driver behavior during automated driving"
+            detail="高度自動運転は作動中システムが運転主体となるが、運航設計領域外では人間が運転を引き継ぐ必要がある。本研究では安全な権限委譲を行うための時間猶予を確保するための手法として段階的警報を提案し、警報に対する被験者の対応について視線情報をもとにパターン分けし、分析を行っている。"
+            isLeft={true}
+          >
+            <Image
+              src={image}
+              alt="Cockpit Monotone Image"
+              class="absolute left-0 top-0 w-full duration-500 transform -translate-y-1/2"
+            />
+            <!-- 表示画像 -->
+          </ResearchDetail>
+          <ResearchDetail
+            title="高度な科学技術の社会受容に関する研究"
+            subTitle="Research on social acceptance of advanced science and technology"
+            detail="AIや原子力発電といった、社会に大きな影響を与え得る高度な科学技術の“社会受容”に関する研究も行っています。具体的には・原子力に対する認識を構造的に可視化し、対話の場をデザインする研究・医療現場でのAIテクノロジー活用に関する認識の調査・社会的合意形成における認知バイアスの影響軽減に関する研究などがあります。"
+            isLeft={false}
+          >
+            <Image
+              src={image2}
+              alt="Cockpit Monotone Image"
+              class="absolute left-0 top-0 w-full duration-500 transform -translate-y-1/2"
+            />
+            <!-- 表示画像 -->
+          </ResearchDetail>
+        </ul>
+      </div>
+    </section>
+  </section>
+</Layout>
+
+<script
+  is:inline
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+></script>
+<script is:inline>
+  $(function () {
+    $('#header-Logo-image').on('click', function () {
+      $('body').toggleClass('cursorEffect') // body全体にcursorEffectクラスをつけ外しする
+    })
+  })
+  // コナミコマンドの入力を監視している関数
+  let konamiCode = []
+  const konamiPattern = [
+    'ArrowUp',
+    'ArrowUp',
+    'ArrowDown',
+    'ArrowDown',
+    'ArrowLeft',
+    'ArrowRight',
+    'ArrowLeft',
+    'ArrowRight',
+    'KeyB',
+    'KeyA'
+  ]
+  const headerLogoImage = document.getElementById('header-Logo-image')
+
+  document.addEventListener('keydown', (e) => {
+    konamiCode.push(e.code)
+    konamiCode = konamiCode.slice(-10) // Keep the last 10 key presses
+
+    if (konamiCode.join('') === konamiPattern.join('')) {
+      // Konami code matched, start rotation animation
+      console.log('Konami code matched!')
+      headerLogoImage.classList.add('rotate')
+      konamiCode = [] // Reset the input code
+    }
+  })
+
+  const keywords_J = [
+    '認知バイアス',
+    '危険敢行性',
+    '危険感受性',
+    '社会受容',
+    '原子力',
+    'レジリエンス',
+    '安全文化',
+    '質的研究'
+  ]
+
+  const keywords_E = [
+  'Cognitive bias',
+  'Risk taking propensity',
+  'Danger sensitivity',
+  'Social acceptance',
+  'Nuclear power',
+  'Resilience',
+  'Safety culture',
+  'Qualitative research'
+];
+
+
+  const container = document.getElementById('video-container')
+
+  let count = 0
+
+  // 上部gifに表示しているキーワードたちを操作してる関数
+  setInterval(() => {
+    // Random coordinates
+    const x = Math.floor(Math.random() * (window.innerWidth * 0.9))
+    const y = Math.floor(Math.random() * (window.innerWidth * 0.4)) + 50
+
+    // Random word
+    const word = keywords_E[count]
+
+    count++
+    if (count == keywords_E.length) {
+      count = 0
+    }
+
+    const font_size = Math.floor(Math.random() * (window.innerWidth * 0.1) + 20)
+
+    // Create element
+    const el = document.createElement('div')
+    el.classList.add('keywords')
+    el.innerText = word
+    el.style.position = 'absolute'
+    el.style.left = x + 'px'
+    el.style.top = y + 'px'
+    el.style.fontSize = font_size + 'px'
+
+    // Fade in
+    el.style.opacity = 0
+    container.appendChild(el)
+
+    setTimeout(() => {
+      el.style.transition = '2s ease-in-out'
+      el.style.opacity = 1
+    }, 1000)
+
+    // Fade out after fade in
+    setTimeout(() => {
+      el.style.transition = '2s ease-in-out'
+      el.style.opacity = 0
+
+      setTimeout(() => {
+        el.remove()
+      }, 4000)
+    }, 3000)
+  }, 1500)
+
+  // window.addEventListener('resize', function () {
+  //   var heading = document.getElementById('top-message')
+  //   var screenWidth = window.innerWidth
+
+  //   if (screenWidth <= 640) {
+  //     heading.innerHTML = `
+  //     高橋研究室は航空管制の<br>ヒューマンファクタに関して<br/>
+  //     実践的・学術的研究を行っている<br>日本で<span class="text-sm font-light">(ほぼ)</span>唯一の研究室です
+  //   `
+  //   } else {
+  //     heading.innerHTML = `
+  //     高橋研究室は航空管制のヒューマンファクタに関して<br/>
+  //     実践的・学術的研究を行っている日本で<span class="text-sm font-light">(ほぼ)</span>唯一の研究室です
+  //   `
+  //   }
+  // })
+
+  // 初回読み込み時にも実行するために、リサイズイベントを手動で発火させることもできます
+  window.dispatchEvent(new Event('resize'))
+
+  // 言語選択メニューを開閉する関数
+  function toggleMenu() {
+    var languageList = document.getElementById('language-select')
+    languageList.classList.toggle('show')
+  }
+
+  // selected-languageをクリックした時のイベントを追加
+  var selectedLanguage = document.getElementById('selected-language')
+  selectedLanguage.addEventListener('click', toggleMenu)
+
+  // メニューの外側をクリックした時に閉じる処理
+  window.addEventListener('click', function (event) {
+    if (!event.target.matches('#selected-language')) {
+      var languageList = document.getElementById('language-select')
+      if (languageList.classList.contains('show')) {
+        languageList.classList.remove('show')
+      }
+    }
+  })
+</script>
+
+<style>
+  /* カーソルをpngに変更する↓↓↓↓ */
+  body.cursorEffect {
+    cursor: url('/TKLab-Logo-cursor.png'), auto;
+  }
+
+  /* ヘッダーセクション */
+
+  @keyframes rotateAnimation {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .header-Logo-image.rotate {
+    animation: rotateAnimation 2s linear infinite;
+    /* 無限に繰り返す */
+  }
+
+  /* ページトップ */
+
+  /* 言語選択のプルダウンメニュー */
+  #language-select.show {
+    display: block; /* JavaScriptで追加されるクラスによって表示 */
+  }
+</style>
