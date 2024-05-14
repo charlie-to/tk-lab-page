@@ -2,7 +2,7 @@
 import SlideLayout from '@layouts/slide_layout.astro'
 // images
 import { Image } from 'astro:assets'
-import ghost from './Images/ghost.png'
+import ghost from './Images/ghost_loser.png'
 ---
 
 <SlideLayout>
@@ -10,10 +10,10 @@ import ghost from './Images/ghost.png'
         <div class="textArea">
             <div class="text first"
                 style="z-index: 2; display: inline-block; font-size: max(40px, 3.6vw); opacity: 1; position: absolute; top: 45%; left: 50%;">
-                <span class="white">ぐっ、やられた…</span>
+                <span class="white">うぅ、やられたぁ…</span>
             </div>
         </div>
-        <Image src={ghost} alt="ghost" class="ghost" style="width: max(320px, 30vw); transform: translate(-50%, -40%); opacity: 1; position: absolute; top: 50%; left: 30%;"/>
+        <Image src={ghost} alt="ghost" class="ghost" style="width: max(320px, 30vw); transform: translate(-50%, -40%); opacity: 0.6; position: absolute; top: 50%; left: 30%;"/>
     </div>
 
     <script is:inline>
