@@ -1,0 +1,271 @@
+---
+import Layout from '@layouts/Layout.astro'
+import ResearchDetail from '@components/researchDetail.astro'
+// images
+import { Image } from 'astro:assets'
+
+import oldpeople_drive1 from './koureisya_drive1.jpg'
+import oldpeople_drive2 from './koureisya_drive2.jpg'
+import carla from './team-ai-simulator-1.png'
+import smile from './smile_drive.jpg'
+import frustration from './frustration_drive.jpg'
+import tklab_logo from './TKLab-Logo.png'
+
+import aviation from './Aviation-head.gif'
+---
+
+<Layout title="AIグループ">
+  <main>
+    <!-- 言語選択メニュー -->
+    <div class="relative">
+      <div
+        id="video-container"
+        class="relative w-full whitespace-nowrap overflow-hidden bg-black font-serif text-white/40"
+      >
+        <Image
+          src={aviation}
+          alt="飛行機の写真"
+          class="z-1 w-full opacity-60"
+        />
+        <h1
+          class="z-2 absolute bottom-0 right-1 p-3 font-serif text-4xl lg:text-8xl text-white"
+        >
+          AIグループ
+        </h1>
+      </div>
+
+    </div>
+
+    <section id="contents" class="container mx-auto max-w-6xl px-5">
+      <section id="introduction" class="my-10">
+        <h1 id="top-message" class="mx-auto py-10 text-center md:text-4xl text-2xl font-bold">
+          <!-- 文章はjavascriptに書いてあります -->
+        </h1>
+      </section>
+
+      <section id="research" class="mx-auto max-w-6xl">
+        <div class="content-wrap">
+          <ul class="content-list">
+            <ResearchDetail
+              title="ドライビングデータから運転挙動と危険箇所を推定する研究"
+              subTitle="Research to estimate driving behavior and danger points from driving data"
+              detail="高齢者の交通事故や危険運転が増加し、その対策が喫緊の課題となっています。特に高齢者の運転行動に対する理解が不十分であり、ドライブレコーダーを用いたデータ収集や解析を試みています。分析の際に必要となる危険事象を効率的に抽出する手法の開発や、高齢者の運転の観察をしています。共同研究を通して、実際に得た知見を安全対策へと活かすことを目指しています。"
+              isLeft={false}
+            >
+              <Image
+                src={oldpeople_drive2}
+                alt="oldpeople drive first"
+                class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110"
+              />
+              <!-- 背景画像 -->
+              <Image
+                src={oldpeople_drive1}
+                alt="oldpeople drive second"
+                class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
+              />
+              <!-- 表示画像 -->
+            </ResearchDetail>
+            <ResearchDetail
+              title="個人の運転スタイルに合わせた自動運転の実装の研究"
+              subTitle="Research on implementation of automated driving tailored to individual driving styles"
+              detail="現在 、自動運転の研究開発が進められているが、自動運転技術に不安を感じるドライバーも存在する。不安の原因としてドライバーの操作と自動運転の操作にズレがあることがあげられる。また、先行車との車間距離や減速度にはドライバーごとに個人差があることが分かっている。そこで、個人の運転スタイルに合わせた自動運転を提供することにより、ドライバーの自動運転に対する受容性を高めることを目標とした研究を行っている。"
+              isLeft={true}
+            >
+              <Image
+                src={carla}
+                alt="carla Image"
+                class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110"
+              />
+              <!-- 背景画像 -->
+              <Image
+                src={carla}
+                alt="carla Image"
+                class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
+              />
+              <!-- 表示画像 -->
+            </ResearchDetail>
+            <ResearchDetail
+              title="ドライビングシミュレータを用いた感情推定に関する研究"
+              subTitle="Research on emotion estimation using a driving simulator"
+              detail="自動運転や航空機などの社会技術システムにおいて、安全性向上のために自動化が進められています。しかし、自動化システムの導入によって人間と機械のミスマッチが起こり、事故が発生することがあります。このような事故を防ぐためには、機械が人間の状態を推定し、その状態に応じて適切な支援を行うことが必要です。 そのため、本研究では人間の信頼性を低下させる要因であるフラストレーションに着目して、フラストレーション状態の推定を目指しています。具体的には、ドライビングシミュレータを使って生体指標や行動指標など多面的な情報を収集し、収集したデータを基に機械学習を用いてフラストレーションの推定を行っています。"
+              isLeft={false}
+            >
+              <Image
+                src={smile}
+                alt="smile drive"
+                class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110"
+              />
+              <!-- 背景画像 -->
+              <Image
+                src={frustration}
+                alt="frustration drive"
+                class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
+              />
+              <!-- 表示画像 -->
+            </ResearchDetail>
+          </ul>
+        </div>
+      </section>
+    </section>
+  </main>
+</Layout>
+
+<script
+  is:inline
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+></script>
+<script is:inline>
+  $(function() {
+    $('.header-Logo-image').on('click', function() {
+      $('body').toggleClass('cursorEffect') // body全体にcursorEffectクラスをつけ外しする
+    })
+  })
+  // コナミコマンドの入力を監視している関数
+  let konamiCode = []
+  const konamiPattern = [
+    'ArrowUp',
+    'ArrowUp',
+    'ArrowDown',
+    'ArrowDown',
+    'ArrowLeft',
+    'ArrowRight',
+    'ArrowLeft',
+    'ArrowRight',
+    'KeyB',
+    'KeyA'
+  ]
+  const headerLogoImage = document.querySelector('.header-Logo-image')
+
+  document.addEventListener('keydown', (e) => {
+    konamiCode.push(e.code)
+    konamiCode = konamiCode.slice(-10) // Keep the last 10 key presses
+
+    if (konamiCode.join('') === konamiPattern.join('')) {
+      // Konami code matched, start rotation animation
+      headerLogoImage.classList.add('rotate')
+      konamiCode = [] // Reset the input code
+    }
+  })
+
+  //画面に表示されたコンテンツをフェードインさせる関数
+  $(function() {
+    $(window).scroll(function() {
+      $('.fadein').each(function() {
+        var position = $(this).offset().top
+        var scroll = $(window).scrollTop()
+        var windowHeight = $(window).height()
+        if (scroll > position - windowHeight + 400) {
+          $(this).addClass('active')
+        }
+      })
+    })
+  })
+
+  const keywords_J = [
+    '航空安全',
+    '航空管制',
+    '産学官',
+    'パイロット',
+    'ヒューマンファクター',
+    'レジリエンス',
+    'コンピテンシー',
+    'ノンテクニカルスキル',
+    '安全文化',
+    '質的研究'
+  ]
+
+  const keywords_E = [
+    'Driving simulator',
+    'Heart rate variability',
+    'frustration',
+    'Machine learning',
+    'adaptive automation',
+    'physiological indicator',
+    'automatic operation',
+    'AI'
+  ]
+
+  const container = document.getElementById('video-container')
+
+  let count = 0
+
+  // 上部gifに表示しているキーワードたちを操作してる関数
+  setInterval(() => {
+    // Random coordinates
+    const x = Math.floor(Math.random() * (window.innerWidth * 0.9))
+    const y = Math.floor(Math.random() * (window.innerWidth * 0.4)) + 50
+
+    // Random word
+    const word = keywords_E[count]
+
+    count++
+    if (count == keywords_E.length) {
+      count = 0
+    }
+
+    const font_size = Math.floor(
+      Math.random() * (window.innerWidth * 0.1) + 20
+    )
+
+    // Create element
+    const el = document.createElement('div')
+    el.classList.add('keywords')
+    el.innerText = word
+    el.style.position = 'absolute'
+    el.style.left = x + 'px'
+    el.style.top = y + 'px'
+    el.style.fontSize = font_size + 'px'
+
+    // Fade in
+    el.style.opacity = 0
+    container.appendChild(el)
+
+    setTimeout(() => {
+      el.style.transition = '2s ease-in-out'
+      el.style.opacity = 1
+    }, 1000)
+
+    // Fade out after fade in
+    setTimeout(() => {
+      el.style.transition = '2s ease-in-out'
+      el.style.opacity = 0
+
+      setTimeout(() => {
+        el.remove()
+      }, 4000)
+    }, 3000)
+  }, 1500)
+
+  window.addEventListener('resize', function() {
+    var heading = document.getElementById('top-message')
+    var screenWidth = window.innerWidth
+
+    heading.innerHTML = `
+        ドライビングシミュレータなど<br/>
+        自動車に関する研究を行っています。
+      `
+  })
+
+  // 初回読み込み時にも実行するために、リサイズイベントを手動で発火させることもできます
+  window.dispatchEvent(new Event('resize'))
+
+  // 言語選択メニューを開閉する関数
+  function toggleMenu() {
+    var languageList = document.getElementById('language-select')
+    languageList.classList.toggle('show')
+  }
+
+  // selected-languageをクリックした時のイベントを追加
+  var selectedLanguage = document.getElementById('selected-language')
+  selectedLanguage.addEventListener('click', toggleMenu)
+
+  // メニューの外側をクリックした時に閉じる処理
+  window.addEventListener('click', function(event) {
+    if (!event.target.matches('#selected-language')) {
+      var languageList = document.getElementById('language-select')
+      if (languageList.classList.contains('show')) {
+        languageList.classList.remove('show')
+      }
+    }
+  })
+</script>
