@@ -1,10 +1,10 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 import remarkSmartypants from 'remark-smartypants'
-import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeToc from 'rehype-toc'
+import remarkGithubAlerts from 'remark-github-alerts'
 import remarkBreaks from "remark-breaks";
 import remarkSlug from 'remark-slug'
 import remarkToc from 'remark-toc'
@@ -33,7 +33,7 @@ export default defineConfig({
   markdown: {
     gfm: true,
     smartypants: false,
-    remarkPlugins: [remarkSlug, remarkToc,remarkBreaks,remarkDirective,remarkDirectiveRehype],
+    remarkPlugins: [remarkSlug, remarkToc,remarkGithubAlerts,remarkBreaks,remarkDirective,remarkDirectiveRehype,],
     rehypePlugins: [
       [
         rehypeAutolinkHeadings,
