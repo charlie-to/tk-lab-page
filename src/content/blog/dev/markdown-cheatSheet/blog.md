@@ -382,18 +382,19 @@ width="100%" allowfullscreen="" oading="lazy" referrerpolicy="no-referrer-when-d
 
 ## CodePen
 ```html
-<p data-height="265" data-theme-id="0" data-slug-hash="dJgNLK" data-default-tab="js,result" data-user="tomoasleep" data-embed-version="2" data-pen-title="dJgNLK" class="codepen">See the Pen 
-  <a href="https://codepen.io/tomoasleep/pen/dJgNLK/">dJgNLK</a>
-   by Tomoya Chiba (
-    <a href="https://codepen.io/tomoasleep">@tomoasleep</a>
-    ) on 
-    <a href="https://codepen.io">CodePen</a>
-    .
-    </p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="mdYPywN" data-pen-title="Untitled" data-user="Futty93" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/Futty93/pen/mdYPywN">
+  Untitled</a> by Futty93 (<a href="https://codepen.io/Futty93">@Futty93</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 ```
-<p data-height="265" data-theme-id="0" data-slug-hash="dJgNLK" data-default-tab="js,result" data-user="tomoasleep" data-embed-version="2" data-pen-title="dJgNLK" class="codepen">See the Pen <a href="https://codepen.io/tomoasleep/pen/dJgNLK/">dJgNLK</a> by Tomoya Chiba (<a href="https://codepen.io/tomoasleep">@tomoasleep</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="mdYPywN" data-pen-title="Untitled" data-user="Futty93" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/Futty93/pen/mdYPywN">
+  Untitled</a> by Futty93 (<a href="https://codepen.io/Futty93">@Futty93</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 ## Asciinema
 ```html
