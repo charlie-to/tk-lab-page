@@ -1,13 +1,18 @@
 ---
 title: '研究室ブログで利用できるマークダウンチートシート'
-date: '2023-5-10'
+date: '2024-5-21'
 tag: ['tips', 'Markdown']
 lead: '研究室ブログ内で利用できるマークダウンの記法一覧です'
+cover: './image.png'
 author_name_main: '二渡　和輝'
 ---
 
 研究室内のブログでは実はさまざまなMarkdown記法が利用可能です。
 この記事を参照しながら色々利用してみてください！
+
+> このブログでは研究室のブログで利用できる記法のみを記載しています。
+> より一般的なマークダウンの記法については
+> [Qiita "Markdown記法 チートシート"](https://qiita.com/Qiita/items/c686397e4a0f4f11683d)を確認してください。
 
 # テキストの装飾
 
@@ -404,11 +409,11 @@ width="100%" allowfullscreen="" oading="lazy" referrerpolicy="no-referrer-when-d
 
 ## Figma
 ```html
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" height="300" width="480" 
+<iframe class="aspect-[16/9]" style="border: 1px solid rgba(0, 0, 0, 0.1);" height="auto" width="100%"
 src="https://www.figma.com/embed?embed_host=astra&url=https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File" allowfullscreen >
 </iframe>
 ```
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" height="300" width="480" src="https://www.figma.com/embed?embed_host=astra&url=https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File" allowfullscreen ></iframe>
+<iframe class="aspect-[16/9]" style="border: 1px solid rgba(0, 0, 0, 0.1);" height="auto" width="100%" src="https://www.figma.com/embed?embed_host=astra&url=https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File" allowfullscreen ></iframe>
 
 ## Speaker Deck
 ```html
@@ -416,28 +421,29 @@ src="https://www.figma.com/embed?embed_host=astra&url=https://www.figma.com/file
 class="speakerdeck-iframe" frameborder="0" 
 src="https://speakerdeck.com/player/cd6be68a4e2145068d58808c51318a1a" 
 title="使いにくいヒューマンインターフェースの館" allowfullscreen="true" 
-style="border: 0px; background: padding-box padding-box rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 40px; width: 100%; height: auto; aspect-ratio: 560 / 315;" data-ratio="1.7777777777777777">
+style="border: 0px; background: padding-box padding-box rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 40px; width: 100%; height: auto; aspect-ratio: 16 / 9;" data-ratio="1.7777777777777777">
 </iframe>
 ```
-<iframe class="speakerdeck-iframe" frameborder="0" src="https://speakerdeck.com/player/cd6be68a4e2145068d58808c51318a1a" title="使いにくいヒューマンインターフェースの館" allowfullscreen="true" style="border: 0px; background: padding-box padding-box rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 40px; width: 100%; height: auto; aspect-ratio: 560 / 315;" data-ratio="1.7777777777777777"></iframe>
+<iframe class="speakerdeck-iframe" frameborder="0" src="https://speakerdeck.com/player/cd6be68a4e2145068d58808c51318a1a" title="使いにくいヒューマンインターフェースの館" allowfullscreen="true" style="border: 0px; background: padding-box padding-box rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 40px; width: 100%; height: auto; aspect-ratio: 16 / 9;" data-ratio="1.7777777777777777"></iframe>
 
 ## SlideShare
 ```html
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/B6SfqHFrWhihpr" 
-width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" 
+<iframe class="aspect-[16/9]" src="//www.slideshare.net/slideshow/embed_code/key/B6SfqHFrWhihpr" 
+width="100%" height="auto" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" 
 style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" loading="lazy" allowfullscreen>
 </iframe> 
 ```
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/B6SfqHFrWhihpr" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" loading="lazy" allowfullscreen></iframe> 
+<iframe class="aspect-[6/5]" src="//www.slideshare.net/slideshow/embed_code/key/B6SfqHFrWhihpr" width="100%" height="auto" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" loading="lazy" allowfullscreen></iframe> 
 
 ## Google Slide
 ```html
 <iframe 
+class="aspect-[16/9]"
 src="https://docs.google.com/presentation/d/e/2PACX-1vT6_5Wrpyx9_rwW2CR4EvwzSrpK1K-8wM9bPScv8KIbbIDVTUAEk7T2ZQQWtqDlhJyyHapESHmbFVTu/embed?start=false&loop=false&delayms=3000" 
-frameborder="0" width="480" height="300" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+frameborder="0" width="100%" height="auto" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
 </iframe>
 ```
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT6_5Wrpyx9_rwW2CR4EvwzSrpK1K-8wM9bPScv8KIbbIDVTUAEk7T2ZQQWtqDlhJyyHapESHmbFVTu/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="300" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe class="aspect-[16/9]" src="https://docs.google.com/presentation/d/e/2PACX-1vT6_5Wrpyx9_rwW2CR4EvwzSrpK1K-8wM9bPScv8KIbbIDVTUAEk7T2ZQQWtqDlhJyyHapESHmbFVTu/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="auto" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 ## Docswell
 ```html
