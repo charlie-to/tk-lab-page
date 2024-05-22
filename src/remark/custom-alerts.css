@@ -1,0 +1,18 @@
+.markdown-alert-custom{
+  max-width:500px; /*最大幅は任意*/
+  flex-wrap: wrap;
+  position: relative;
+  padding: 17px 13px 15px 18px;
+  border-radius: 12px;
+  background: #99dddd;/*色は任意*/
+  box-sizing:border-box;
+  margin:0 !important;
+  line-height:1.5;
+}
+.markdown-alert-custom:after{
+  content: "";
+  position: absolute;
+  border: 10px solid transparent;
+  left: -26px;
+  border-right: 22px solid #99dddd;
+}

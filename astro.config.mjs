@@ -14,6 +14,8 @@ import remarkDirective from 'remark-directive'
 import remarkDirectiveRehype from 'remark-directive-rehype'
 import partytown from "@astrojs/partytown"
 
+import remarkCustomAlerts from './src/remark/remark-custom-alert.ts'
+
 // https://astro.build/config
 /** @type {import('astro').AstroUserConfig;} */
 export default defineConfig({
@@ -33,7 +35,7 @@ export default defineConfig({
   markdown: {
     gfm: true,
     smartypants: false,
-    remarkPlugins: [remarkSlug, remarkToc,remarkGithubAlerts,remarkBreaks,remarkDirective,remarkDirectiveRehype,],
+    remarkPlugins: [remarkSlug, remarkToc,remarkGithubAlerts, remarkCustomAlerts,remarkBreaks,remarkDirective,remarkDirectiveRehype,],
     rehypePlugins: [
       [
         rehypeAutolinkHeadings,
