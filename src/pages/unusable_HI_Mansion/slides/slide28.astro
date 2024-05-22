@@ -1,7 +1,7 @@
 ---
 import SlideLayout from '@layouts/slide_layout.astro'
 // images
-import { Image } from 'astro:assets'
+
 import ghost_teacher from './Images/ghost_teacher.png'
 ---
 
@@ -21,7 +21,7 @@ import ghost_teacher from './Images/ghost_teacher.png'
             </div>
         </div>
     
-        <Image src={ghost_teacher} alt="ghost teacher" class="ghost" style="width: max(150px, 12vw); opacity: 0; position: absolute; top: 15%; left: 10%;" />
+        <img src={ghost_teacher.src} alt="ghost teacher" class="ghost" style="width: max(150px, 12vw); opacity: 0; position: absolute; top: 15%; left: 10%;" />
     </div>
 
     <script is:inline>

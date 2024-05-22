@@ -1,7 +1,7 @@
 ---
 import SlideLayout from '@layouts/slide_layout.astro'
 // images
-import { Image } from 'astro:assets'
+
 import ghost from './Images/ghost.png'
 ---
 
@@ -12,7 +12,7 @@ import ghost from './Images/ghost.png'
                 <span class="white">「上っ！！」</span>
             </div>
         </div>
-        <Image src={ghost} alt="ghost" class="ghost" style="width: max(200px, 20vw); position: absolute; top: 30%; left: 20%;"/>
+        <img src={ghost.src} alt="ghost" class="ghost" style="width: max(200px, 20vw); position: absolute; top: 30%; left: 20%;"/>
         <div class="flex justify-evenly" id="buttonContainer" style="width: 100%; position: absolute; top: 60%;"></div>
     </div>
     <script is:inline>

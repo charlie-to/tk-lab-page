@@ -2,7 +2,7 @@
 import Footer from '@components/footer.astro'
 import ResearchDetail from '@components/researchDetail.astro'
 // images
-import { Image } from 'astro:assets'
+
 import cockpit_color from '../cockpit_color.jpg'
 import cockpit_monotone from '../cockpit_monotone.jpg'
 import professor1 from '../professor1.jpg'
@@ -71,8 +71,8 @@ const nav_links = [
         <div class="navbar">
           <div class="navbar-start">
             <div class="mx-auto flex p-5 align-middle">
-              <Image
-                src={tklab_logo}
+              <img
+                src={tklab_logo.src}
                 alt="logo"
                 class="header-Logo-image w-10 object-contain"
               />
@@ -145,8 +145,8 @@ const nav_links = [
           id="video-container"
           class="relative w-full overflow-hidden whitespace-nowrap bg-black font-serif text-white/40"
         >
-          <Image
-            src={aviation}
+          <img
+            src={aviation.src}
             alt="飛行機の写真"
             class="z-1 w-full opacity-60"
           />
@@ -222,14 +222,14 @@ const nav_links = [
               detail='Through joint research with Japan Airlines Co., Ltd., we are developing a new safety monitoring program called "ROM (Resilience Operation Monitoring)" based on a new safety concept called Safety-II. Traditionally, we have focused on "events that did not go well", but by focusing on and analyzing the actions that were the cause of "successful events", which are the majority of daily operations, we are researching new approaches to safety that aim to achieve higher levels of safety by increasing success.'
               isLeft={false}
             >
-              <Image
-                src={cockpit_color}
+              <img
+                src={cockpit_color.src}
                 alt="Cockpit Color Image"
                 class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 transform -translate-y-1/2"
               />
               <!-- 背景画像 -->
-              <Image
-                src={cockpit_monotone}
+              <img
+                src={cockpit_monotone.src}
                 alt="Cockpit Monotone Image"
                 class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0 transform -translate-y-1/2"
               />
@@ -241,14 +241,14 @@ const nav_links = [
             detail="Safety-II emphasizes resilience, which is the positive human contribution to safety and the ability to do so. Using interviews and qualitative research methods, we will systematize and visualize the competencies for resilience possessed by flight crew members (pilots), and utilize the knowledge gained from this for future education and training, and ultimately for even safer flight operations. We are conducting practical research aimed at achieving this goal."
             isLeft={true}
           >
-            <Image
-              src={professor2}
+            <img
+              src={professor2.src}
               alt="Professor2 Image"
               class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 transform -translate-y-1/2"
             />
             <!-- 背景画像 -->
-            <Image
-              src={professor1}
+            <img
+              src={professor1.src}
               alt="Professor1 Image"
               class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0 transform -translate-y-1/2"
             />
@@ -260,14 +260,14 @@ const nav_links = [
             detail="Using a team task simulator (ASSIST) modeled after air route control operations, we are conducting research to experimentally clarify the characteristics of teams that can respond resiliently to various types of fluctuations. By focusing in particular on team communication and clarifying the relationship between the quantity and quality of information sharing between team members and team performance, we will contribute to further improvements in education and training programs for complex systems operated by teams."
             isLeft={false}
           >
-            <Image
-              src={ATC_radar}
+            <img
+              src={ATC_radar.src}
               alt="ATC Radar Image"
               class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 transform -translate-y-1/2"
             />
             <!-- 背景画像 -->
-            <Image
-              src={ATC_Tower}
+            <img
+              src={ATC_Tower.src}
               alt="ATC Tower Image"
               class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0 transform -translate-y-1/2"
             />
@@ -279,14 +279,14 @@ const nav_links = [
             detail='As a safety measure for various complex systems, "prevention of failures from recurring" has been emphasized. It is of course important to prevent safety-related failures, but if the pursuit of higher safety leads to the creation of an organizational culture where even the smallest failures are not tolerated, employees will not have the opportunity to learn from small failures and improve their skills. Will it really lead to further improvements in system security? Does it really contribute to maintaining system safety under various conditions, including unexpected events? In this study, as a first step toward answering these questions, we used a unique task simulator to study the impact that differences in tolerance for failure have on the flexibility of skills acquired through education, training, and experience.'
             isLeft={true}
           >
-            <Image
-              src={pilot}
+            <img
+              src={pilot.src}
               alt="Pilot Image"
               class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 transform -translate-y-1/2"
             />
             <!-- 背景画像 -->
-            <Image
-              src={cabin_Attendant}
+            <img
+              src={cabin_Attendant.src}
               alt="Cabin Attendant Image"
               class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0 transform -translate-y-1/2"
             />

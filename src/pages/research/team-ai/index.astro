@@ -2,7 +2,7 @@
 import Layout from '@layouts/Layout.astro'
 import ResearchDetail from '@components/researchDetail.astro'
 // images
-import { Image } from 'astro:assets'
+
 
 import oldpeople_drive1 from './koureisya_drive1.jpg'
 import oldpeople_drive2 from './koureisya_drive2.jpg'
@@ -22,8 +22,8 @@ import aviation from './Aviation-head.gif'
         id="video-container"
         class="relative w-full whitespace-nowrap overflow-hidden bg-black font-serif text-white/40"
       >
-        <Image
-          src={aviation}
+        <img
+          src={aviation.src}
           alt="飛行機の写真"
           class="z-1 w-full opacity-60"
         />
@@ -52,14 +52,14 @@ import aviation from './Aviation-head.gif'
               detail="高齢者の交通事故や危険運転が増加し、その対策が喫緊の課題となっています。特に高齢者の運転行動に対する理解が不十分であり、ドライブレコーダーを用いたデータ収集や解析を試みています。分析の際に必要となる危険事象を効率的に抽出する手法の開発や、高齢者の運転の観察をしています。共同研究を通して、実際に得た知見を安全対策へと活かすことを目指しています。"
               isLeft={false}
             >
-              <Image
-                src={oldpeople_drive2}
+              <img
+                src={oldpeople_drive2.src}
                 alt="oldpeople drive first"
                 class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110"
               />
               <!-- 背景画像 -->
-              <Image
-                src={oldpeople_drive1}
+              <img
+                src={oldpeople_drive1.src}
                 alt="oldpeople drive second"
                 class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
               />
@@ -71,14 +71,14 @@ import aviation from './Aviation-head.gif'
               detail="現在 、自動運転の研究開発が進められているが、自動運転技術に不安を感じるドライバーも存在する。不安の原因としてドライバーの操作と自動運転の操作にズレがあることがあげられる。また、先行車との車間距離や減速度にはドライバーごとに個人差があることが分かっている。そこで、個人の運転スタイルに合わせた自動運転を提供することにより、ドライバーの自動運転に対する受容性を高めることを目標とした研究を行っている。"
               isLeft={true}
             >
-              <Image
-                src={carla}
+              <img
+                src={carla.src}
                 alt="carla Image"
                 class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110"
               />
               <!-- 背景画像 -->
-              <Image
-                src={carla}
+              <img
+                src={carla.src}
                 alt="carla Image"
                 class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
               />
@@ -90,14 +90,14 @@ import aviation from './Aviation-head.gif'
               detail="自動運転や航空機などの社会技術システムにおいて、安全性向上のために自動化が進められています。しかし、自動化システムの導入によって人間と機械のミスマッチが起こり、事故が発生することがあります。このような事故を防ぐためには、機械が人間の状態を推定し、その状態に応じて適切な支援を行うことが必要です。 そのため、本研究では人間の信頼性を低下させる要因であるフラストレーションに着目して、フラストレーション状態の推定を目指しています。具体的には、ドライビングシミュレータを使って生体指標や行動指標など多面的な情報を収集し、収集したデータを基に機械学習を用いてフラストレーションの推定を行っています。"
               isLeft={false}
             >
-              <Image
-                src={smile}
+              <img
+                src={smile.src}
                 alt="smile drive"
                 class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110"
               />
               <!-- 背景画像 -->
-              <Image
-                src={frustration}
+              <img
+                src={frustration.src}
                 alt="frustration drive"
                 class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
               />

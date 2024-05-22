@@ -1,7 +1,7 @@
 ---
 import SlideLayout from '@layouts/slide_layout.astro'
 // images
-import { Image } from 'astro:assets'
+
 import ghost from './Images/ghost.png'
 ---
 <SlideLayout>
@@ -17,7 +17,7 @@ import ghost from './Images/ghost.png'
                 <div>出会ったら、オレたちのことを思い出してくれ！</div>
             </div>
         </div>              
-        <Image src={ghost} alt="ghost" class="ghost" style="width: max(800px, 80vw); transform: translate(-50%, -40%); opacity: 0; position: absolute; top: 65%; left: 50%;"/>
+        <img src={ghost.src} alt="ghost" class="ghost" style="width: max(800px, 80vw); transform: translate(-50%, -40%); opacity: 0; position: absolute; top: 65%; left: 50%;"/>
     </div>
 
     <script is:inline>

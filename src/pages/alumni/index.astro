@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro'
 
 // Images
-import { Image } from 'astro:assets'
+
 import graduationUnsplash from './graduation-unsplash.jpg'
 
 const company_name = [
@@ -69,10 +69,10 @@ const company_name = [
       <div
         class="relative flex w-full flex-wrap bg-gray-100 py-16 sm:px-10 sm:py-24"
       >
-        <Image
+        <img
           alt="Graduation Page Image - Unsplash"
           class="absolute inset-0 block h-full w-full object-cover object-center brightness-50"
-          src={graduationUnsplash}
+          src={graduationUnsplash.src}
         />
         <div class="relative z-10 w-full text-center">
           <h2 class="mb-2 text-3xl font-bold text-gray-200">卒業後の進路</h2>

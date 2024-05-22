@@ -2,7 +2,7 @@
 import Layout from '@layouts/Layout.astro'
 import ResearchDetail from '@components/researchDetail.astro'
 // images
-import { Image } from 'astro:assets'
+
 import aviation from './Aviation-head.gif'
 import bart from './bart.png'
 import image from './image.png'
@@ -14,7 +14,7 @@ import image2 from './image2.png'
   <!-- 言語選択メニュー -->
   <div class="relative w-full">
     <div id="video-container" class="relative w-full overflow-hidden whitespace-nowrap bg-black font-serif text-white/40">
-      <Image src={aviation} alt="飛行機の写真" class="z-1 w-full opacity-60" />
+      <img src={aviation.src} alt="飛行機の写真" class="z-1 w-full opacity-60" />
       <h1
         class="z-2 absolute bottom-0 right-1 p-3 font-serif text-4xl text-white lg:text-8xl"
       >
@@ -61,8 +61,8 @@ import image2 from './image2.png'
             detail="BART(Ballon Analogue Risk Task)と呼ばれる、画面上でいつ割れるかわからない風船を膨らませるタスクを行ってもらうことでその人の危険感受性(どの程度危険の敏感か)、危険敢行性(どの程度危険を受け入れるか)を測定することを目的とした研究"
             isLeft={false}
           >
-            <Image
-              src={bart}
+            <img
+              src={bart.src}
               alt="Cockpit Monotone Image"
               class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110"
             />
@@ -74,8 +74,8 @@ import image2 from './image2.png'
             detail="高度自動運転は作動中システムが運転主体となるが、運航設計領域外では人間が運転を引き継ぐ必要がある。本研究では安全な権限委譲を行うための時間猶予を確保するための手法として段階的警報を提案し、警報に対する被験者の対応について視線情報をもとにパターン分けし、分析を行っている。"
             isLeft={true}
           >
-            <Image
-              src={image}
+            <img
+              src={image.src}
               alt="Cockpit Monotone Image"
               class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110"
             />
@@ -87,8 +87,8 @@ import image2 from './image2.png'
             detail="AIや原子力発電といった、社会に大きな影響を与え得る高度な科学技術の“社会受容”に関する研究も行っています。具体的には・原子力に対する認識を構造的に可視化し、対話の場をデザインする研究・医療現場でのAIテクノロジー活用に関する認識の調査・社会的合意形成における認知バイアスの影響軽減に関する研究などがあります。"
             isLeft={false}
           >
-            <Image
-              src={image2}
+            <img
+              src={image2.src}
               alt="Cockpit Monotone Image"
               class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110"
             />

@@ -2,7 +2,7 @@
 import Layout from '@layouts/Layout.astro'
 import ResearchDetail from '@components/researchDetail.astro'
 // images
-import { Image } from 'astro:assets'
+
 import cockpit_color from './cockpit_color.jpg'
 import cockpit_monotone from './cockpit_monotone.jpg'
 import professor1 from './professor1.jpg'
@@ -19,7 +19,7 @@ import aviation from './Aviation-head.gif'
   <!-- 言語選択メニュー -->
   <div class="relative w-full">
     <div id="video-container" class="relative w-full overflow-hidden whitespace-nowrap bg-black font-serif text-white/40">
-      <Image src={aviation} alt="飛行機の写真" class="z-1 w-full opacity-60" />
+      <img src={aviation.src} alt="飛行機の写真" class="z-1 w-full opacity-60" />
       <h1
         class="z-2 absolute bottom-0 right-1 p-3 font-serif text-4xl text-white lg:text-8xl"
       >
@@ -77,14 +77,14 @@ import aviation from './Aviation-head.gif'
             detail="日本航空株式会社との共同研究により、Safety-IIという新たな安全の考えに基づいた「ROM(Resilience Operation Monitoring)」という新しい安全モニタリングプログラムの開発に取り組んでいます。従来は“うまくいかなかった事象“、つまり数少ない失敗事例に着目してきましたが、日常の運航の大多数である“うまくいった事象“の要因となった行動にも着目し分析をすることで、「成功を増やす事によって、より高い安全性の実現を目指す」新たな安全へのアプローチを研究しています。"
             isLeft={false}
           >
-            <Image
-              src={cockpit_color}
+            <img
+              src={cockpit_color.src}
               alt="Cockpit Color Image"
               class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 "
             />
             <!-- 背景画像 -->
-            <Image
-              src={cockpit_monotone}
+            <img
+              src={cockpit_monotone.src}
               alt="Cockpit Monotone Image"
               class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
             />
@@ -96,14 +96,14 @@ import aviation from './Aviation-head.gif'
             detail="Safety-IIでは、安全への人間のポジティブな寄与やそれに繋がる能力であるレジリエンスが重要視されています。インタビューや質的研究法を用いながら、運航乗務員(パイロット)がもつレジリエンスのためのコンピテンシーを体系化・可視化し、そこから得られる知見を今後の教育・訓練、ひいては、さらなる安全運航に活かすことを目指した実践的な研究を行なっています。"
             isLeft={true}
           >
-            <Image
-              src={professor2}
+            <img
+              src={professor2.src}
               alt="Professor2 Image"
               class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110"
             />
             <!-- 背景画像 -->
-            <Image
-              src={professor1}
+            <img
+              src={professor1.src}
               alt="Professor1 Image"
               class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
             />
@@ -115,14 +115,14 @@ import aviation from './Aviation-head.gif'
             detail="航空路管制業務をモデルとしたチームタスクシュミレータ(ASSIST)を用いて、様々なタイプの変動に対してレジリエントに対応できるチームの特徴を実験的に明らかにする研究を行なっています。特にチームのコミュニケーションに着目し、チームメンバー間での情報共有の量や質とチームパフォーマンスの関係を明らかにすることで、チームでオペレーションが行われる複雑システムにおける教育・訓練プログラムの一層の改善に資する知見の獲得を目指しています。"
             isLeft={false}
           >
-            <Image
-              src={ATC_radar}
+            <img
+              src={ATC_radar.src}
               alt="ATC Radar Image"
               class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110"
             />
             <!-- 背景画像 -->
-            <Image
-              src={ATC_Tower}
+            <img
+              src={ATC_Tower.src}
               alt="ATC Tower Image"
               class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
             />
@@ -134,14 +134,14 @@ import aviation from './Aviation-head.gif'
             detail="様々な複雑システムにおける安全対策として、「失敗の再発防止」が重視されてきました。安全に関わる失敗を防止することはもちろん重要ですが、より高い安全性の追求がより些細な失敗も許されない組織文化の形成につながれば、小さな失敗から学びを得てスキルを高める機会を得ることが困難となってしまいます。それは、システムのさらなる安全性向上に本当につながるのでしょうか？想定外の事態を含む様々な条件下でシステムの安全性を維持することに本当に貢献するのでしょうか？本研究では、それらの疑問に答えるための第一歩として、失敗に対する許容度の違いが、教育・訓練や経験を通じて獲得されるスキルの柔軟性に与える影響を独自のタスクシミュレーターを用いて研究しています。"
             isLeft={true}
           >
-            <Image
-              src={pilot}
+            <img
+              src={pilot.src}
               alt="Pilot Image"
               class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110"
             />
             <!-- 背景画像 -->
-            <Image
-              src={cabin_Attendant}
+            <img
+              src={cabin_Attendant.src}
               alt="Cabin Attendant Image"
               class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
             />

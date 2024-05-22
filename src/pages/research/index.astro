@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro'
 
 // Images
-import { Image } from 'astro:assets'
+
 import cockpitUnsplash from '../cockpit-unsplash.jpg'
 import carUnsplash from '../car-unsplash.jpg'
 import riskUnsplash from '../risk-unsplash.jpg'
@@ -37,8 +37,8 @@ import balloonUnsplash from '../balloon-unsplash.jpg'
             href="/research/aviation/index.html"
             class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
           >
-            <Image
-              src={cockpitUnsplash}
+            <img
+              src={cockpitUnsplash.src}
               alt="コックピットの写真 Photo from unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -60,8 +60,8 @@ import balloonUnsplash from '../balloon-unsplash.jpg'
             href="/research/team-ai/index.html"
             class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
           >
-            <Image
-              src={carUnsplash}
+            <img
+              src={carUnsplash.src}
               alt="自動車の運転席 Photo from unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -83,8 +83,8 @@ import balloonUnsplash from '../balloon-unsplash.jpg'
             href="/research/cognitive/index.html"
             class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
           >
-            <Image
-              src={riskUnsplash}
+            <img
+              src={riskUnsplash.src}
               alt="原子力発電所の写真 Photo from unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -105,7 +105,7 @@ import balloonUnsplash from '../balloon-unsplash.jpg'
             href="/research/team-cognitive/index.html"
             class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
           >
-            <Image
+            <img
               src={balloonUnsplash}
               alt="風船の写真 Photo from unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"

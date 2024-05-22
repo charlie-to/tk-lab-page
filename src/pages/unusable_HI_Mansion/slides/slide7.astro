@@ -1,7 +1,7 @@
 ---
 import SlideLayout from '@layouts/slide_layout.astro'
 // images
-import { Image } from 'astro:assets'
+
 import ghost from './Images/ghost.png'
 ---
 
@@ -13,7 +13,7 @@ import ghost from './Images/ghost.png'
                 い、行かないでっ!!
             </div>
         </div>
-        <Image src={ghost} alt="ghost" id="ghost" style="width: max(800px, 80vw); transform: rotate(340deg); opacity: 1; position: absolute; top: 30%; left: 30%;"/>
+        <img src={ghost.src} alt="ghost" id="ghost" style="width: max(800px, 80vw); transform: rotate(340deg); opacity: 1; position: absolute; top: 30%; left: 30%;"/>
     </div>
 
     <script is:inline>

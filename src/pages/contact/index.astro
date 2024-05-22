@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro'
 import LinkToForm from '../../components/LinkToForm.astro'
 
 // Images
-import { Image } from 'astro:assets'
+
 import BuildingMap from './building-map.jpg'
 import CampusMap from './campus-map.png'
 ---
@@ -17,7 +17,7 @@ import CampusMap from './campus-map.png'
           <div
             class="relative flex min-h-[500px] items-end justify-start overflow-hidden rounded-lg bg-gray-300 p-10"
           >
-            <Image
+            <img
               src={CampusMap}
               alt="キャンパスマップ"
               class="absolute inset-0 h-full w-full object-none object-center"
@@ -52,7 +52,7 @@ import CampusMap from './campus-map.png'
           <div class="mx-auto block w-full p-4">
             <div class="w-full text-center text-xl">総合研究棟９F</div>
             <div class="mx-auto w-full">
-              <Image src={BuildingMap} alt="総合研究棟９階案内図" />
+              <img src={BuildingMap.src} alt="総合研究棟９階案内図" />
             </div>
             <div class="w-full text-center text-xl">
               赤矢印に沿って学生居室（904号室）にお越しください。

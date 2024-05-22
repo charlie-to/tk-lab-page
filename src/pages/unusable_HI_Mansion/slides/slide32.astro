@@ -1,7 +1,7 @@
 ---
 import SlideLayout from '@layouts/slide_layout.astro'
 // images
-import { Image } from 'astro:assets'
+
 import ghost from './Images/ghost.png'
 ---
 
@@ -19,8 +19,8 @@ import ghost from './Images/ghost.png'
       </div>
     </div>
 
-    <Image
-      src={ghost}
+    <img
+      src={ghost.src}
       alt="ghost"
       class="ghost"
       style="width: max(300px, 26vw); transform: translate(-50%, -50%); opacity: 0; position: absolute; top: 50%; left: 50%; transition: opacity 2s ease-in-out;"

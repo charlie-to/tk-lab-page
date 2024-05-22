@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content'
 import { Icon } from 'astro-icon'
 
 // Images
-import { Image } from 'astro:assets'
+
 import city2Unsplash from './city2-unsplash.jpg'
 import cockpitUnsplash from './cockpit-unsplash.jpg'
 import carUnsplash from './car-unsplash.jpg'
@@ -44,8 +44,8 @@ const blog_posts = (
           <div
             class="group relative mx-auto flex h-60 w-full items-center lg:h-96"
           >
-            <Image
-              src={city2Unsplash}
+            <img
+              src={city2Unsplash.src}
               alt="都市の画像"
               class="absolute h-full w-full object-cover object-center"
             />
@@ -167,8 +167,8 @@ const blog_posts = (
             href="/research/aviation/index.html"
             class="group relative flex h-80 items-end overflow-hidden bg-gray-100 p-4"
           >
-            <Image
-              src={cockpitUnsplash}
+            <img
+              src={cockpitUnsplash.src}
               alt="Cockpit Photo From Unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -192,8 +192,8 @@ const blog_posts = (
             href="/research/team-ai/index.html"
             class="group relative flex h-80 items-end overflow-hidden bg-gray-100 p-4"
           >
-            <Image
-              src={carUnsplash}
+            <img
+              src={carUnsplash.src}
               alt="Photo by Unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -217,7 +217,7 @@ const blog_posts = (
             href="/research/team-risk/index.html"
             class="group relative flex h-80 items-end overflow-hidden bg-gray-100 p-4"
           >
-            <Image
+            <img
               src={riskUnsplash}
               alt="Photo by Unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -242,8 +242,8 @@ const blog_posts = (
             href="/research/cognitive/index.html"
             class="group relative flex h-80 items-end overflow-hidden bg-gray-100 p-4"
           >
-            <Image
-              src={balloonUnsplash}
+            <img
+              src={balloonUnsplash.src}
               alt="Photo by Unsplash"
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />

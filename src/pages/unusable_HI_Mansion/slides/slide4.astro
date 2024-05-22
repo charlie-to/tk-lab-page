@@ -1,7 +1,7 @@
 ---
 import SlideLayout from '@layouts/slide_layout.astro'
 // images
-import { Image } from 'astro:assets'
+
 import ghost from './Images/ghost.png'
 ---
 
@@ -28,7 +28,7 @@ import ghost from './Images/ghost.png'
             ">YES</button>
         </div>
         <!-- どうやって頑張ってもsafariではNoを押した際のghostの位置がずれてしまう。chromeと画僧の座標計算方法が違うっぽい？ -->
-        <Image src={ghost} alt="ghost" class="ghost" style="width: max(400px, 40vw); transition: width 1s, top 1s, left 1s; z-index: -1; position: absolute; top: 70%; left: 50vw; transform: translate(-50%, -50%);"/>
+        <img src={ghost.src} alt="ghost" class="ghost" style="width: max(400px, 40vw); transition: width 1s, top 1s, left 1s; z-index: -1; position: absolute; top: 70%; left: 50vw; transform: translate(-50%, -50%);"/>
     </div>
     <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {

@@ -1,6 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro'
-import { Image } from 'astro:assets'
+
 import Image1 from './team-risk-1.jpg'
 ---
 
@@ -24,7 +24,7 @@ import Image1 from './team-risk-1.jpg'
       </div>
       <div class="flex max-h-80 w-full overflow-hidden">
         <div class="h-full w-1/3 items-center bg-slate-300">
-          <Image src={Image1} alt="学会発表" class="h-full w-full" />
+          <img src={Image1.src} alt="学会発表" class="h-full w-full" />
         </div>
         <div class="ml-10 w-1/3 bg-slate-300">
           <span class="absolute">No Image</span>

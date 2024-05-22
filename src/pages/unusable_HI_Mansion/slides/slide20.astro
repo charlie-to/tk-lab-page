@@ -1,7 +1,7 @@
 ---
 import SlideLayout from '@layouts/slide_layout.astro'
 // images
-import { Image } from 'astro:assets'
+
 import ghost_teacher from './Images/ghost_teacher.png'
 ---
 
@@ -26,7 +26,7 @@ import ghost_teacher from './Images/ghost_teacher.png'
                 これではユーザーのミスの原因になってしまいます・・・
             </div>
         </div>
-        <Image src={ghost_teacher} alt="ghost teacher" class="ghost" style="width: max(150px, 12vw); opacity: 0; position: absolute; top: 15%; left: 10%;"/>
+        <img src={ghost_teacher.src} alt="ghost teacher" class="ghost" style="width: max(150px, 12vw); opacity: 0; position: absolute; top: 15%; left: 10%;"/>
         <div class="flex justify-evenly" id="buttonContainer" style="width: 100%; opacity: 0; position: absolute; top: 80%;"></div>
     </div>
     <script is:inline>
