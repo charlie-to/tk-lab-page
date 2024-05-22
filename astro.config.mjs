@@ -36,7 +36,9 @@ export default defineConfig({
           forward: ['dataLayer.push']
         }
       }),
-    expressiveCode()],
+    expressiveCode({
+      themes:["dark-plus"]
+    })],
   markdown: {
     gfm: true,
     smartypants: false,
