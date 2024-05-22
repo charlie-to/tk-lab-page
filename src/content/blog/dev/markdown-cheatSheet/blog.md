@@ -319,13 +319,13 @@ int main() {
 言語を指定していた部分に`diff`と記述し、半角スペースをあげて言語を指定することで、編集差分の表示を行うことができます。
 行の先頭に`+`, `-`を書きます。
 ~~~
-```diff lang="javascript"
+```diff lang="js"
 - const nextPageUrl = '../slide23.html';
 + const nextPageUrl = '../slide23/index.html';
 ```
 ~~~
 **出力**
-```diff js
+```diff lang="js"
 - const nextPageUrl = '../slide23.html';
 + const nextPageUrl = '../slide23/index.html';
 ```
