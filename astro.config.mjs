@@ -49,7 +49,7 @@ export default defineConfig({
   markdown: {
     gfm: true,
     smartypants: false,
-    remarkPlugins: [remarkSlug, remarkToc,remarkGithubAlerts,remarkBreaks,remarkDirective,remarkDirectiveRehype,],
+    remarkPlugins: [remarkSlug, remarkToc,remarkGithubAlerts,remarkCustomAlerts,remarkBreaks,remarkDirective,remarkDirectiveRehype,],
     rehypePlugins: [
       [
         rehypeAutolinkHeadings,
