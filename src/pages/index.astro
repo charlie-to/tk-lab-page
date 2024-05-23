@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import LinkToForm from '../components/LinkToForm.astro'
 import { getCollection } from 'astro:content'
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 
 // Images
 import { Image } from 'astro:assets'
@@ -17,6 +17,9 @@ import YoutubeEmbed from '@components/YouTubeEmbed.astro'
 const youtubeId = 'nue-bLFGKK8'
 
 import UnusableInterface from '@components/unusableInterface.astro'
+
+// Icon Size
+const Icon_Size_Big = 64
 
 const news_posts = (
   await getCollection('blog', ({ data }) => {
@@ -72,9 +75,9 @@ const blog_posts = (
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
                     <div
-                      class="m-4 mx-auto h-12 w-12 rounded-full text-indigo-600"
+                      class="m-4 mx-auto rounded-full text-indigo-600"
                     >
-                      <Icon name="ph:magnifying-glass" />
+                      <Icon name="mdi:magnify" size={Icon_Size_Big} class="mx-auto"/>
                     </div>
                     <h2 class="title-font text-lg font-medium text-gray-900">
                       研究内容
@@ -83,8 +86,8 @@ const blog_posts = (
                       高橋・狩川研の研究内容を知る
                     </p>
                     <a href="#research" aria-label="研究内容について">
-                      <div class="mx-auto mt-3 h-16 w-16 text-indigo-500">
-                        <Icon name="mdi:chevron-down" />
+                      <div class="mx-auto mt-3  text-indigo-500">
+                        <Icon name="mdi:chevron-down" size={Icon_Size_Big} class="mx-auto"/>
                       </div>
                     </a>
                   </div>
@@ -96,9 +99,9 @@ const blog_posts = (
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
                     <div
-                      class="m-4 mx-auto h-12 w-12 rounded-full text-indigo-600"
+                      class="m-4 mx-auto  text-indigo-600"
                     >
-                      <Icon name="ic:baseline-newspaper" />
+                      <Icon name="mdi:newspaper" size={Icon_Size_Big} class="mx-auto"/>
                     </div>
                     <h2 class="title-font text-lg font-medium text-gray-900">
                       ニュース
@@ -107,8 +110,8 @@ const blog_posts = (
                       高橋・狩川研の最近の様子を知る
                     </p>
                     <a href="#news" aria-label="新着情報">
-                      <div class="mx-auto mt-3 h-16 w-16 text-indigo-500">
-                        <Icon name="mdi:chevron-down" />
+                      <div class="mt-3 text-indigo-500">
+                        <Icon name="mdi:chevron-down" size={Icon_Size_Big} class="mx-auto" />
                       </div>
                     </a>
                   </div>
@@ -120,9 +123,9 @@ const blog_posts = (
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
                     <div
-                      class="m-4 mx-auto h-12 w-12 rounded-full text-indigo-600"
+                      class="m-4 mx-auto  text-indigo-600"
                     >
-                      <Icon name="ic:outline-info" />
+                      <Icon name="mdi:information-slab-circle-outline" size={Icon_Size_Big} class="mx-auto"/>
                     </div>
                     <h2 class="title-font text-lg font-medium text-gray-900">
                       特徴
@@ -131,8 +134,8 @@ const blog_posts = (
                       高橋・狩川研はこんな研究室です
                     </p>
                     <a href="#aboutUs" aria-label="研究室の特徴">
-                      <div class="mx-auto mt-3 h-16 w-16 text-indigo-500">
-                        <Icon name="mdi:chevron-down" />
+                      <div class="mx-auto mt-3 text-indigo-500">
+                        <Icon name="mdi:chevron-down" size={Icon_Size_Big} class="mx-auto" />
                       </div>
                     </a>
                   </div>
@@ -304,7 +307,7 @@ const blog_posts = (
                 </div>
                 <div class="flex-none place-content-center items-center">
                   <Icon
-                    name="ic:baseline-keyboard-arrow-right"
+                    name="mdi:chevron-right"
                     size="40"
                     class="h-full"
                   />
@@ -346,7 +349,7 @@ const blog_posts = (
                 </div>
                 <div class="flex-none place-content-center items-center">
                   <Icon
-                    name="ic:baseline-keyboard-arrow-right"
+                    name="mdi:chevron-right"
                     size="40"
                     class="h-full"
                   />

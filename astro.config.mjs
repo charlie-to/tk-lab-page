@@ -11,6 +11,7 @@ import { h } from 'hastscript'
 import remarkDirective from 'remark-directive'
 import remarkDirectiveRehype from 'remark-directive-rehype'
 import partytown from '@astrojs/partytown'
+import icon from "astro-icon"
 
 import expressiveCode from 'astro-expressive-code'
 import remarkCustomAlerts from './src/remark/remark-custom-alert.ts'
@@ -34,6 +35,7 @@ export default defineConfig({
       configFile: './tailwind.config.cjs'
     }),
     sitemap(),
+    icon(),
     partytown(
       {
         // Adds dataLayer.push as a forwarding-event.
