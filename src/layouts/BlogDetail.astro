@@ -96,6 +96,33 @@ const author = await getCollection('member')
     .astro-code code {
       @apply block flex flex-col whitespace-nowrap;
     }
+
+    .markdown-alert {
+      @apply text-sky-900 border-sky-200 rounded-md;
+    }
+
+    .markdown-alert-note {
+      @apply bg-sky-100;
+    }
+
+    .markdown-alert-tip {
+      @apply bg-green-100;
+    }
+
+    .markdown-alert-important {
+      @apply bg-purple-100;
+    }
+
+    .markdown-alert-warning {
+      @apply bg-amber-100;
+    }
+
+    .markdown-alert-caution {
+      @apply bg-red-100;
+    }
+
+  
+
   </style>
 
   <div class="container mx-auto flex">
