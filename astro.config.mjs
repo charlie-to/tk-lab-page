@@ -22,6 +22,13 @@ export default defineConfig({
   build: {
     format: 'directory'
   },
+  i18n: {
+    defaultLocale: 'ja',
+    locales: ['en', 'ja'],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   integrations: [
     tailwind({
       configFile: './tailwind.config.cjs'
@@ -35,7 +42,7 @@ export default defineConfig({
         }
       }),
     expressiveCode({
-      themes:["dark-plus"]
+      themes: ['dark-plus']
     })],
   markdown: {
     gfm: true,

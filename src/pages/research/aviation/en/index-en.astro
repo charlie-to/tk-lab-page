@@ -1,5 +1,6 @@
 ---
 import Footer from '@components/footer.astro'
+import Layout from '@layouts/Layout.astro'
 import ResearchDetail from '@components/researchDetail.astro'
 // images
 import { Image } from 'astro:assets'
@@ -13,228 +14,93 @@ import pilot from '../pilot.jpg'
 import cabin_Attendant from '../cabin_Attendant.jpg'
 import tklab_logo from '../TKLab-Logo.png'
 import aviation from '../Aviation-head.gif'
-
-const nav_links = [
-  {
-    name: 'RESEARCH GROUP',
-    url: '/research/index.html'
-  },
-  {
-    name: 'MEMBER',
-    url: '/member/index.html'
-  },
-  {
-    name: 'CAREER PATH',
-    url: '/alumni/index.html'
-  },
-  {
-    name: 'BLOG',
-    url: '/blogs/index.html'
-  },
-  {
-    name: 'ACCESS',
-    url: '/contact/index.html'
-  }
-]
 ---
 
-<!doctype html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <title>AviationGroup</title>
-    <meta
-      name="description"
-      content="Introduction to the aviation group's research. We conduct joint research with airline companies and in cooperation with active air traffic controllers and pilots. Using our laboratory's unique simulation system, we are aiming for safer and more efficient air traffic from the perspective of Safety-II."
-    />
-    <meta http-equiv="content-type" charset="UTF-8" />
-    <!-- スマホ対応のための呪文 -->
-    <meta name="viewport" content="width=device-width, intial-scale=1" />
-    <link
-      rel="canonical"
-      href="https://www.takahashi.qse.tohoku.ac.jp/research/aviation/index.html"
-    />
-    <link
-      rel="alternate"
-      hreflang="ja"
-      href="https://www.takahashi.qse.tohoku.ac.jp/research/aviation/index.html"
-    />
-    <link
-      rel="alternate"
-      hreflang="en"
-      href="https://www.takahashi.qse.tohoku.ac.jp/research/aviation/en/index-en.html"
-    />
-  </head>
+<Layout title="AviationGroup">
+  <!-- 言語選択メニュー -->
+  <div class="relative w-full">
+    <div id="video-container" class="relative w-full overflow-hidden whitespace-nowrap bg-black font-serif text-white/40">
+      <Image src={aviation} alt="飛行機の写真" class="z-1 w-full opacity-60" />
+      <h1
+        class="z-2 absolute bottom-0 right-1 p-3 font-serif text-4xl text-white lg:text-8xl"
+      >
+      Aviation Group
+      </h1>
+    </div>
 
-  <body>
-    <header id="header">
-      <nav class="bg-blue-200">
-        <div class="navbar">
-          <div class="navbar-start">
-            <div class="mx-auto flex p-5 align-middle">
-              <Image
-                src={tklab_logo}
-                alt="logo"
-                class="header-Logo-image w-10 object-contain"
-              />
-              <a
-                class="title-font mb-0 flex items-center font-medium text-gray-900"
-                href="/"
-              >
-                <span class="ml-3 whitespace-nowrap text-xl lg:text-3xl"
-                  >高橋・狩川研究室</span
-                >
-              </a>
-            </div>
-          </div>
-          <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1">
-              {
-                nav_links.map((link) => (
-                  <li class="mr-5 text-lg">
-                    <a
-                      href={link.url}
-                      class="hover:text-gray-900 hover:underline"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-          <div class="navbar-end lg:hidden">
-            <div class="dropdown dropdown-end">
-              <label tabindex={0} class="btn btn-ghost">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-8 w-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  ><path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h8m-8 6h16"></path></svg
-                >
-              </label>
-              <ul
-                tabindex={0}
-                class="menu dropdown-content menu-lg z-[1] mt-6 w-80 rounded-box bg-slate-100 p-4 shadow"
-              >
-                {
-                  nav_links.map((link) => (
-                    <li class="">
-                      <a href={link.url} class="p-4 text-xl">
-                        {link.name}
-                      </a>
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <main>
-      <!-- 言語選択メニュー -->
-      <div class="relative">
-        <div
-          id="video-container"
-          class="relative w-full overflow-hidden whitespace-nowrap bg-black font-serif text-white/40"
-        >
-          <Image
-            src={aviation}
-            alt="飛行機の写真"
-            class="z-1 w-full opacity-60"
-          />
-          <h1
-            class="z-2 absolute bottom-0 right-1 p-3 font-serif text-4xl text-white lg:text-8xl"
-          >
-            Aviation Group
-          </h1>
-        </div>
-        <div
-          id="language-selector"
-          class="absolute right-0 top-0 rounded-bl-lg bg-white/40 px-2"
-        >
-          <div id="selected-language" class="cursor-pointer p-2 text-white">
-            Language ▼
-          </div>
-          <ul id="language-select" class="hidden pb-2">
-            <li class="cursor-pointer p-2 text-white hover:bg-gray-800/40">
-              <a href="../../index.html">日本語</a>
-            </li>
-            <li class="cursor-pointer p-2 text-white hover:bg-gray-800/40">
-              English
-            </li>
-          </ul>
-        </div>
+    <div
+      id="language-selector"
+      class="absolute right-0 top-0 rounded-bl-lg bg-white/40 px-2"
+    >
+      <div id="selected-language" class="cursor-pointer p-2 text-white">
+        Language ▼
       </div>
+      <ul id="language-select" class="hidden pb-2">
+        <li class="cursor-pointer p-2 text-white hover:bg-gray-800/40">
+          <a href="../../index.html">日本語</a>
+        </li>
+        <li class="cursor-pointer p-2 text-white hover:bg-gray-800/40">
+          English
+        </li>
+      </ul>
+    </div>
+  </div>
 
-      <section id="contents" class="container mx-auto max-w-6xl px-5">
-        <section id="introduction" class="my-10">
-          <h1
-            id="top-message"
-            class="mx-auto py-10 text-center text-2xl font-bold md:text-4xl"
+  <section id="contents" class="container mx-auto max-w-6xl px-5">
+    <section id="introduction" class="my-10">
+      <h1 id="top-message" class="mx-auto py-10 text-center md:text-4xl text-2xl font-bold">
+        Takahashi Laboratory is one of the only laboratories in Japan<br />
+        that conducts practical and academic research on human factors in Air Traffic Control.
+      </h1>
+      <div id="explanation" class="text-xl">
+        <p class="my-10 text-center">
+          This research group aims to further improve the safety of large-scale
+          complex systems, including those in the aviation field, and works
+          closely with airlines and other organizations to conduct academic
+          research on "resilience," which is the key to realizing Safety-II. We
+          conduct practical research that goes beyond knowledge. Below are some of
+          the research actually being conducted in this group.
+        </p>
+        <p class="my-10 text-center">
+          Takahashi Lab has been conducting research on aviation-related human
+          factors for over 10 years. In our early research, we worked with current
+          ANA pilots on aircraft cockpit interfaces. After that, We shifted the
+          focus of my research to the field of air traffic control, and are
+          conducting research in collaboration with active air traffic
+          controllers. Although those of us who conduct research are required to
+          have a high level of knowledge regarding air traffic control, the
+          content of our research is not merely academic research, such as
+          proposing a system that is highly evaluated as being usable for on-site
+          education. We conduct practical research that goes beyond human factors
+          in air traffic control. These issues are very important to protect air
+          safety, but there is a shortage of human resources.<br /> Would you also
+          like to study air traffic control at Takahashi Lab?
+        </p>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="content-wrap">
+        <ul class="content-list">
+          <ResearchDetail
+            title="Joint research with airline companies “ROM”"
+            subTitle="航空会社との共同研究「ROM」"
+            detail='Through joint research with Japan Airlines Co., Ltd., we are developing a new safety monitoring program called "ROM (Resilience Operation Monitoring)" based on a new safety concept called Safety-II. Traditionally, we have focused on "events that did not go well", but by focusing on and analyzing the actions that were the cause of "successful events", which are the majority of daily operations, we are researching new approaches to safety that aim to achieve higher levels of safety by increasing success.'
+            isLeft={false}
           >
-            Takahashi Laboratory is one of the only laboratories in Japan<br />
-             that conducts practical and academic research on human factors in
-            Air Traffic Control.
-          </h1>
-          <div id="explanation" class="text-xl">
-            <p class="my-10 text-center">
-              This research group aims to further improve the safety of
-              large-scale complex systems, including those in the aviation
-              field, and works closely with airlines and other organizations to
-              conduct academic research on "resilience," which is the key to
-              realizing Safety-II. We conduct practical research that goes
-              beyond knowledge. Below are some of the research actually being
-              conducted in this group.
-            </p>
-            <p class="my-10 text-center">
-              Takahashi Lab has been conducting research on aviation-related
-              human factors for over 10 years. In our early research, we worked
-              with current ANA pilots on aircraft cockpit interfaces. After
-              that, We shifted the focus of my research to the field of air
-              traffic control, and are conducting research in collaboration with
-              active air traffic controllers. Although those of us who conduct
-              research are required to have a high level of knowledge regarding
-              air traffic control, the content of our research is not merely
-              academic research, such as proposing a system that is highly
-              evaluated as being usable for on-site education. We conduct
-              practical research that goes beyond human factors in air traffic
-              control. These issues are very important to protect air safety,
-              but there is a shortage of human resources.<br /> Would you also
-              like to study air traffic control at Takahashi Lab?
-            </p>
-          </div>
-        </section>
-
-        <section id="research">
-          <div class="content-wrap">
-            <ul class="content-list">
-              <ResearchDetail
-              title="Joint research with airline companies “ROM”"
-              subTitle="航空会社との共同研究「ROM」"
-              detail='Through joint research with Japan Airlines Co., Ltd., we are developing a new safety monitoring program called "ROM (Resilience Operation Monitoring)" based on a new safety concept called Safety-II. Traditionally, we have focused on "events that did not go well", but by focusing on and analyzing the actions that were the cause of "successful events", which are the majority of daily operations, we are researching new approaches to safety that aim to achieve higher levels of safety by increasing success.'
-              isLeft={false}
-            >
-              <Image
-                src={cockpit_color}
-                alt="Cockpit Color Image"
-                class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 transform -translate-y-1/2"
-              />
-              <!-- 背景画像 -->
-              <Image
-                src={cockpit_monotone}
-                alt="Cockpit Monotone Image"
-                class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0 transform -translate-y-1/2"
-              />
-              <!-- 表示画像 -->
-            </ResearchDetail>
+            <Image
+              src={cockpit_color}
+              alt="Cockpit Color Image"
+              class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 "
+            />
+            <!-- 背景画像 -->
+            <Image
+              src={cockpit_monotone}
+              alt="Cockpit Monotone Image"
+              class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
+            />
+            <!-- 表示画像 -->
+          </ResearchDetail>
           <ResearchDetail
             title="Research on flight crew competencies"
             subTitle="運航乗務員のコンピテンシーに関する研究"
@@ -244,13 +110,13 @@ const nav_links = [
             <Image
               src={professor2}
               alt="Professor2 Image"
-              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 transform -translate-y-1/2"
+              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110"
             />
             <!-- 背景画像 -->
             <Image
               src={professor1}
               alt="Professor1 Image"
-              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0 transform -translate-y-1/2"
+              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
             />
             <!-- 表示画像 -->
           </ResearchDetail>
@@ -263,13 +129,13 @@ const nav_links = [
             <Image
               src={ATC_radar}
               alt="ATC Radar Image"
-              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 transform -translate-y-1/2"
+              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110"
             />
             <!-- 背景画像 -->
             <Image
               src={ATC_Tower}
               alt="ATC Tower Image"
-              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0 transform -translate-y-1/2"
+              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
             />
             <!-- 表示画像 -->
           </ResearchDetail>
@@ -282,207 +148,184 @@ const nav_links = [
             <Image
               src={pilot}
               alt="Pilot Image"
-              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 transform -translate-y-1/2"
+              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110"
             />
             <!-- 背景画像 -->
             <Image
               src={cabin_Attendant}
               alt="Cabin Attendant Image"
-              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0 transform -translate-y-1/2"
+              class="absolute left-0 top-0 h-full w-full duration-500 lg:group-hover:scale-110 lg:group-hover:opacity-0"
             />
             <!-- 表示画像 -->
           </ResearchDetail>
-            </ul>
-          </div>
-        </section>
-      </section>
-    </main>
+        </ul>
+      </div>
+    </section>
+  </section>
+</Layout>
 
-    <footer>
-      <p>&copy; 2023 AviationGroup</p>
-    </footer>
-  </body>
-  <Footer />
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
-  <script
-    is:inline
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-  ></script>
-  <script is:inline>
-    $(function () {
-      $('.header-Logo-image').on('click', function () {
-        $('body').toggleClass('cursorEffect') // body全体にcursorEffectクラスをつけ外しする
-      })
+<script
+  is:inline
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+></script>
+<script is:inline>
+  $(function () {
+    $('#header-Logo-image').on('click', function () {
+      $('body').toggleClass('cursorEffect') // body全体にcursorEffectクラスをつけ外しする
     })
-    let konamiCode = []
-    const konamiPattern = [
-      'ArrowUp',
-      'ArrowUp',
-      'ArrowDown',
-      'ArrowDown',
-      'ArrowLeft',
-      'ArrowRight',
-      'ArrowLeft',
-      'ArrowRight',
-      'KeyB',
-      'KeyA'
-    ]
-    const headerLogoImage = document.querySelector('.header-Logo-image')
+  })
+  // コナミコマンドの入力を監視している関数
+  let konamiCode = []
+  const konamiPattern = [
+    'ArrowUp',
+    'ArrowUp',
+    'ArrowDown',
+    'ArrowDown',
+    'ArrowLeft',
+    'ArrowRight',
+    'ArrowLeft',
+    'ArrowRight',
+    'KeyB',
+    'KeyA'
+  ]
+  const headerLogoImage = document.getElementById('header-Logo-image')
 
-    document.addEventListener('keydown', (e) => {
-      konamiCode.push(e.code)
-      konamiCode = konamiCode.slice(-10) // Keep the last 10 key presses
+  document.addEventListener('keydown', (e) => {
+    konamiCode.push(e.code)
+    konamiCode = konamiCode.slice(-10) // Keep the last 10 key presses
 
-      if (konamiCode.join('') === konamiPattern.join('')) {
-        // Konami code matched, start rotation animation
-        headerLogoImage.classList.add('rotate')
-        konamiCode = [] // Reset the input code
-      }
-    })
+    if (konamiCode.join('') === konamiPattern.join('')) {
+      // Konami code matched, start rotation animation
+      console.log('Konami code matched!')
+      headerLogoImage.classList.add('rotate')
+      konamiCode = [] // Reset the input code
+    }
+  })
 
-    //画面に表示されたコンテンツをフェードインさせる関数
-    $(function () {
-      $(window).scroll(function () {
-        $('.fadein').each(function () {
-          var position = $(this).offset().top
-          var scroll = $(window).scrollTop()
-          var windowHeight = $(window).height()
-          if (scroll > position - windowHeight + 400) {
-            $(this).addClass('active')
-          }
-        })
-      })
-    })
+  const keywords_J = [
+    '航空安全',
+    '航空管制',
+    '産学官',
+    'パイロット',
+    'ヒューマンファクター',
+    'レジリエンス',
+    'コンピテンシー',
+    'ノンテクニカルスキル',
+    '安全文化',
+    '質的研究'
+  ]
 
-    const keywords_J = [
-      '航空安全',
-      '航空管制',
-      '産学官',
-      'パイロット',
-      'ヒューマンファクター',
-      'レジリエンス',
-      'コンピテンシー',
-      'ノンテクニカルスキル',
-      '安全文化',
-      '質的研究'
-    ]
+  const keywords_E = [
+    'Aviation Safety',
+    'Air Traffic Control',
+    'Industry-Academia-Government Collaboration',
+    'Pilot',
+    'Human Factors',
+    'Resilience',
+    'Safety II',
+    'Competency',
+    'Non-technical Skills',
+    'Safety Culture',
+    'Qualitative Research'
+  ]
 
-    const keywords_E = [
-      'Aviation Safety',
-      'Air Traffic Control',
-      'Industry-Academia-Government Collaboration',
-      'Pilot',
-      'Human Factors',
-      'Resilience',
-      'Safety II',
-      'Competency',
-      'Non-technical Skills',
-      'Safety Culture',
-      'Qualitative Research'
-    ]
+  const container = document.getElementById('video-container')
 
-    const container = document.getElementById('video-container')
+  let count = 0
 
-    let count = 0
+  // 上部gifに表示しているキーワードたちを操作してる関数
+  setInterval(() => {
+    // Random coordinates
+    const x = Math.floor(Math.random() * (window.innerWidth * 0.9))
+    const y = Math.floor(Math.random() * (window.innerWidth * 0.4)) + 50
 
-    // Interval to add words
-    setInterval(() => {
-      // Random coordinates
-      const x = Math.floor(Math.random() * (window.innerWidth * 0.9))
-      const y = Math.floor(Math.random() * (window.innerWidth * 0.4)) + 50
+    // Random word
+    const word = keywords_E[count]
 
-      // Random word
-      const word = keywords_E[count]
+    count++
+    if (count == keywords_E.length) {
+      count = 0
+    }
 
-      count++
-      if (count == keywords_E.length) {
-        count = 0
-      }
+    const font_size = Math.floor(Math.random() * (window.innerWidth * 0.1) + 20)
 
-      const font_size = Math.floor(
-        Math.random() * (window.innerWidth * 0.1) + 20
-      )
+    // Create element
+    const el = document.createElement('div')
+    el.classList.add('keywords')
+    el.innerText = word
+    el.style.position = 'absolute'
+    el.style.left = x + 'px'
+    el.style.top = y + 'px'
+    el.style.fontSize = font_size + 'px'
 
-      // Create element
-      const el = document.createElement('div')
-      el.classList.add('keywords')
-      el.innerText = word
-      el.style.position = 'absolute'
-      el.style.left = x + 'px'
-      el.style.top = y + 'px'
-      el.style.fontSize = font_size + 'px'
+    // Fade in
+    el.style.opacity = 0
+    container.appendChild(el)
 
-      // Fade in
+    setTimeout(() => {
+      el.style.transition = '2s ease-in-out'
+      el.style.opacity = 1
+    }, 1000)
+
+    // Fade out after fade in
+    setTimeout(() => {
+      el.style.transition = '2s ease-in-out'
       el.style.opacity = 0
-      container.appendChild(el)
 
       setTimeout(() => {
-        el.style.transition = '2s ease-in-out'
-        el.style.opacity = 1
-      }, 1000)
+        el.remove()
+      }, 4000)
+    }, 3000)
+  }, 1500)
 
-      // Fade out after fade in
-      setTimeout(() => {
-        el.style.transition = '2s ease-in-out'
-        el.style.opacity = 0
+  // 言語選択メニューを開閉する関数
+  function toggleMenu() {
+    var languageList = document.getElementById('language-select')
+    languageList.classList.toggle('show')
+  }
 
-        setTimeout(() => {
-          el.remove()
-        }, 4000)
-      }, 3000)
-    }, 1500)
+  // selected-languageをクリックした時のイベントを追加
+  var selectedLanguage = document.getElementById('selected-language')
+  selectedLanguage.addEventListener('click', toggleMenu)
 
-    // 初回読み込み時にも実行するために、リサイズイベントを手動で発火させることもできます
-    window.dispatchEvent(new Event('resize'))
-
-    // 言語選択メニューを開閉する関数
-    function toggleMenu() {
+  // メニューの外側をクリックした時に閉じる処理
+  window.addEventListener('click', function (event) {
+    if (!event.target.matches('#selected-language')) {
       var languageList = document.getElementById('language-select')
-      languageList.classList.toggle('show')
-    }
-
-    // selected-languageをクリックした時のイベントを追加
-    var selectedLanguage = document.getElementById('selected-language')
-    selectedLanguage.addEventListener('click', toggleMenu)
-
-    // メニューの外側をクリックした時に閉じる処理
-    window.addEventListener('click', function (event) {
-      if (!event.target.matches('#selected-language')) {
-        var languageList = document.getElementById('language-select')
-        if (languageList.classList.contains('show')) {
-          languageList.classList.remove('show')
-        }
-      }
-    })
-  </script>
-  <style>
-    /* カーソルをpngに変更する↓↓↓↓ */
-    body.cursorEffect {
-      cursor: url('/TKLab-Logo-cursor.png'), auto;
-    }
-
-    /* ヘッダーセクション */
-
-    @keyframes rotateAnimation {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
+      if (languageList.classList.contains('show')) {
+        languageList.classList.remove('show')
       }
     }
+  })
+</script>
 
-    .header-Logo-image.rotate {
-      animation: rotateAnimation 2s linear infinite;
-      /* 無限に繰り返す */
+<style>
+  /* カーソルをpngに変更する↓↓↓↓ */
+  body.cursorEffect {
+    cursor: url('/TKLab-Logo-cursor.png'), auto;
+  }
+
+  /* ヘッダーセクション */
+
+  @keyframes rotateAnimation {
+    0% {
+      transform: rotate(0deg);
     }
 
-    /* ページトップ */
-
-    /* 言語選択のプルダウンメニュー */
-    #language-select.show {
-      display: block; /* JavaScriptで追加されるクラスによって表示 */
+    100% {
+      transform: rotate(360deg);
     }
-  </style>
-</html>
+  }
+
+  .header-Logo-image.rotate {
+    animation: rotateAnimation 2s linear infinite;
+    /* 無限に繰り返す */
+  }
+
+  /* ページトップ */
+
+  /* 言語選択のプルダウンメニュー */
+  #language-select.show {
+    display: block; /* JavaScriptで追加されるクラスによって表示 */
+  }
+</style>
