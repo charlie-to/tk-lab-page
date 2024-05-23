@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeToc from 'rehype-toc'
 import remarkGithubAlerts from 'remark-github-alerts'
 import remarkBreaks from 'remark-breaks'
 import remarkSlug from 'remark-slug'
