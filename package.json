@@ -11,7 +11,7 @@
     "eslint": "eslint ."
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.1.5",
+    "@astrojs/mdx": "^3.0.1",
     "@astrojs/partytown": "^2.1.0",
     "@astrojs/react": "^3.3.4",
     "@astrojs/sitemap": "^3.1.5",
@@ -19,7 +19,7 @@
     "@tailwindcss/typography": "^0.5.13",
     "astro": "^4.8.7",
     "astro-expressive-code": "^0.35.3",
-    "astro-icon": "^0.8.2",
+    "astro-icon": "^1.1.0",
     "astro-m2dx": "^0.7.16",
     "astro-seo": "^0.8.3",
     "daisyui": "^4.11.1",
@@ -37,15 +37,20 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.44.0",
-    "@typescript-eslint/parser": "^6.21.0",
-    "eslint": "^8.57.0",
+    "@eslint/js": "^9.3.0",
+    "@iconify-json/mdi": "^1.1.66",
+    "@playwright/test": "^1.44.1",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
+    "eslint": "^9.3.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-astro": "^0.29.1",
+    "eslint-plugin-astro": "^1.2.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
+    "globals": "^15.3.0",
     "hastscript": "^9.0.0",
     "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.12.3",
-    "prettier-plugin-tailwindcss": "^0.5.14"
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "typescript-eslint": "^7.10.0"
   }
 }
