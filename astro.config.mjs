@@ -13,6 +13,7 @@ import remarkDirectiveRehype from 'remark-directive-rehype'
 import partytown from '@astrojs/partytown'
 
 import expressiveCode from 'astro-expressive-code'
+import remarkCustomAlerts from './src/remark/remark-custom-alert.ts'
 
 // https://astro.build/config
 export default defineConfig({
@@ -39,28 +40,43 @@ export default defineConfig({
   markdown: {
     gfm: true,
     smartypants: false,
-    remarkPlugins: [remarkSlug, remarkToc, remarkGithubAlerts, remarkBreaks, remarkDirective, remarkDirectiveRehype],
-    rehypePlugins: [[rehypeAutolinkHeadings, {
-      behavior: 'append',
-      properties: {
-        class: 'anchor'
-      },
-      group: node => {
-        return h('.heading.--lv' + node.tagName.charAt(1))
-      },
-      content: node => {
-        const heading = node?.children[0]?.value
-        const headingText = typeof heading === 'string' ? `見出し「${heading}」` : 'この見出しのリンク'
-        return [h('svg.anchor-icon', {
-          width: 27,
-          height: 27,
-          viewBox: '0 0 27 27',
-          ariaHidden: 'true'
-        }, h('path', {
-          d: 'M20.6,12l0.4-2h-3.3l0.7-4h-2l-0.7,4h-3l0.7-4h-2l-0.7,4H7l-0.4,2h3.6l-0.5,3H6.1l-0.4,2h3.6l-0.7,4h2l0.7-4h3l-0.7,4h2 l0.7-4h3.3l0.4-2h-3.3l0.5-3H20.6z M14.7,15h-3l0.5-3h3L14.7,15z'
-        })), h('span.sr-only', headingText)]
-      }
-    }]],
+    remarkPlugins: [remarkSlug, remarkToc,remarkGithubAlerts,remarkBreaks,remarkDirective,remarkDirectiveRehype,],
+    rehypePlugins: [
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'append',
+          properties: {
+            class: 'anchor'
+          },
+          group: (node) => {
+            return h('.heading.--lv' + node.tagName.charAt(1))
+          },
+          content: (node) => {
+            const heading = node?.children[0]?.value
+            const headingText =
+              typeof heading === 'string'
+                ? `見出し「${heading}」`
+                : 'この見出しのリンク'
+            return [
+              h(
+                'svg.anchor-icon',
+                {
+                  width: 27,
+                  height: 27,
+                  viewBox: '0 0 27 27',
+                  ariaHidden: 'true'
+                },
+                h('path', {
+                  d: 'M20.6,12l0.4-2h-3.3l0.7-4h-2l-0.7,4h-3l0.7-4h-2l-0.7,4H7l-0.4,2h3.6l-0.5,3H6.1l-0.4,2h3.6l-0.7,4h2l0.7-4h3l-0.7,4h2 l0.7-4h3.3l0.4-2h-3.3l0.5-3H20.6z M14.7,15h-3l0.5-3h3L14.7,15z'
+                })
+              ),
+              h('span.sr-only', headingText)
+            ]
+          }
+        }
+      ]
+    ],
     remarkRehype: {
       footnoteBackContent: '↩',
       footnoteLabel: '脚注',
