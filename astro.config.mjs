@@ -1,7 +1,5 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
-import remarkSmartypants from 'remark-smartypants'
-import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeToc from 'rehype-toc'
 import remarkGithubAlerts from 'remark-github-alerts'
@@ -14,7 +12,6 @@ import remarkDirective from 'remark-directive'
 import remarkDirectiveRehype from 'remark-directive-rehype'
 import partytown from '@astrojs/partytown'
 
-/** @type {import('astro').AstroUserConfig;} */
 import expressiveCode from 'astro-expressive-code'
 
 // https://astro.build/config
@@ -23,6 +20,13 @@ export default defineConfig({
   output: 'static',
   build: {
     format: 'directory'
+  },
+  i18n: {
+    defaultLocale: 'ja',
+    locales: ['en', 'ja'],
+    routing: {
+      prefixDefaultLocale: false
+    }
   },
   integrations: [
     tailwind({
@@ -36,7 +40,9 @@ export default defineConfig({
           forward: ['dataLayer.push']
         }
       }),
-    expressiveCode()],
+    expressiveCode({
+      themes: ['dark-plus']
+    })],
   markdown: {
     gfm: true,
     smartypants: false,
