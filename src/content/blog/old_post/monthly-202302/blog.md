@@ -32,7 +32,7 @@ author_name_main: '本田　温'
 
 ![](./image-2.png)
 ![](./image-3.png)
-![](./image-4.png)
+![](./image-4.jpeg)
 
 
 日本にいながらここまで本格的な中華料理に思わず舌鼓を打ちました。
