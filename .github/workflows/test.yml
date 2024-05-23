@@ -3,7 +3,7 @@ name: Build Test on GitHub
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
