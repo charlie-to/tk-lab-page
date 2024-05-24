@@ -1,0 +1,72 @@
+/* ↓↓↓カスタムアラート全体に適用↓↓↓ */
+.markdown-alert-custom {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  /* border-left: 0.25em solid #888; */
+}
+
+.markdown-alert-custom > :first-child {
+  margin-top: 0;
+}
+
+.markdown-alert-custom > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-alert-custom .markdown-alert-custom-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1;
+}
+
+.markdown-alert-custom .markdown-alert-custom-title .octicon {
+  margin-right: 0.5rem;
+  overflow: visible !important;
+
+  -webkit-mask: var(--oct-icon) no-repeat;
+  mask: var(--oct-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: currentColor;
+  color: inherit;
+  display: inline-block;
+  vertical-align: text-bottom;
+  width: 1em;
+  height: 1em;
+}
+/* ↑↑↑カスタムアラート全体に適用↑↑↑ */
+
+/* ↓↓↓MEMO専用のstyle↓↓↓ */
+.markdown-alert-custom-memo{
+  max-width:500px; /*最大幅は任意*/
+  flex-wrap: wrap;
+  position: relative;
+  padding: 17px 13px 15px 18px;
+  border-radius: 12px;
+  background: #99dddd;/*色は任意*/
+  box-sizing:border-box;
+  margin:0 !important;
+  line-height:1.5;
+}
+.markdown-alert-custom-memo:after{
+  content: "";
+  position: absolute;
+  border: 10px solid transparent;
+  left: -26px;
+  border-right: 22px solid #99dddd;
+}
+
+/* ↓↓↓HINT専用のstyle↓↓↓ */
+.markdown-alert-custom-hint {
+  border-left: 0.25em solid #888;
+}
+
+.markdown-alert-custom.markdown-alert-custom-hint {
+  @apply border-s-yellow-500;
+}
+
+.markdown-alert-custom.markdown-alert-custom-hint .markdown-alert-custom-title {
+  @apply text-yellow-500;
+}

@@ -1,25 +1,28 @@
 ---
-import { Icon } from 'astro-icon'
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const nav_links = [
   {
-    name: '研究内容',
+    name: t('navbar.research'),
     url: '/research/index.html'
   },
   {
-    name: 'メンバー',
+    name: t('navbar.members'),
     url: '/member/index.html'
   },
   {
-    name: '進路',
+    name: t('navbar.alumni'),
     url: '/alumni/index.html'
   },
   {
-    name: 'ブログ',
+    name: t('navbar.blog'),
     url: '/blogs/index.html'
   },
   {
-    name: 'アクセス',
+    name: t('navbar.contact'),
     url: '/contact/index.html'
   }
 ]
