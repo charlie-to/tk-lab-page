@@ -113,7 +113,7 @@ const remarkCustomAlerts: Plugin<RemarkGitHubAlertsOptions[], Root> = (
       const type = match[1]?.toLowerCase() as keyof typeof icons
       let title = match[2]?.trim() || (titles[type] ?? capitalize(type))
       let icon = icons[type]
-      console.log('icon', icon)
+      // console.log('icon', icon)
 
       if (index === undefined || !parent)
         return
@@ -129,7 +129,7 @@ const remarkCustomAlerts: Plugin<RemarkGitHubAlertsOptions[], Root> = (
         color = parameters[1]
         icon_name = parameters[2] as keyof typeof icons
         icon = icons[icon_name]
-        console.log('icon', icon)
+        // console.log('icon', icon)
         if (parameters.length <= 3) {
           title = ' '
         } else {
@@ -142,7 +142,7 @@ const remarkCustomAlerts: Plugin<RemarkGitHubAlertsOptions[], Root> = (
 
       const iconDataUri = `data:image/svg+xml;utf8,${encodeSvg(icon)}`
       
-      console.log(firstContent.value)
+      // console.log(firstContent.value)
 
       node.data = {
         hName: 'div',
