@@ -1,9 +1,12 @@
+/* 普通のアラートのデザインを修正する場合には src/layouts/BlogDetail.astro のtailwindを修正してください */
+
 /* ↓↓↓カスタムアラート全体に適用↓↓↓ */
 .markdown-alert-custom {
   padding: 0.5rem 1rem;
   margin-bottom: 16px;
   color: inherit;
   /* border-left: 0.25em solid #888; */
+  @apply border-l-4;
 }
 
 .markdown-alert-custom > :first-child {
@@ -24,7 +27,6 @@
 .markdown-alert-custom .markdown-alert-custom-title .octicon {
   margin-right: 0.5rem;
   overflow: visible !important;
-
   -webkit-mask: var(--oct-icon) no-repeat;
   mask: var(--oct-icon) no-repeat;
   -webkit-mask-size: 100% 100%;
@@ -40,11 +42,12 @@
 
 /* ↓↓↓MEMO専用のstyle↓↓↓ */
 .markdown-alert-custom-memo{
-  max-width:500px; /*最大幅は任意*/
+  max-width:100%; /*最大幅は任意*/
   flex-wrap: wrap;
   position: relative;
   padding: 17px 13px 15px 18px;
-  border-radius: 12px;
+  border-radius: 6px;
+  border-left: none;
   background: #99dddd;/*色は任意*/
   box-sizing:border-box;
   margin:0 !important;
@@ -53,20 +56,12 @@
 .markdown-alert-custom-memo:after{
   content: "";
   position: absolute;
+  transform: translateY(-15px);
   border: 10px solid transparent;
-  left: -26px;
-  border-right: 22px solid #99dddd;
+  left: -30px;
+  border-right: 30px solid #99dddd;
 }
 
-/* ↓↓↓HINT専用のstyle↓↓↓ */
 .markdown-alert-custom-hint {
-  border-left: 0.25em solid #888;
-}
-
-.markdown-alert-custom.markdown-alert-custom-hint {
-  @apply border-s-yellow-500;
-}
-
-.markdown-alert-custom.markdown-alert-custom-hint .markdown-alert-custom-title {
-  @apply text-yellow-500;
+  @apply bg-yellow-100 border-yellow-500 text-yellow-500;
 }
