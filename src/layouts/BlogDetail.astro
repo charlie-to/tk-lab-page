@@ -97,8 +97,8 @@ const author = await getCollection('member')
       @apply block flex flex-col whitespace-nowrap;
     }
 
-    .markdown-alert {
-      @apply text-sky-900 border-sky-200 rounded-md;
+    .markdown-alert, .markdown-alert-custom {
+      @apply rounded-md my-3;
     }
 
     .markdown-alert-note {
@@ -120,8 +120,6 @@ const author = await getCollection('member')
     .markdown-alert-caution {
       @apply bg-red-100;
     }
-
-
 
   </style>
 
