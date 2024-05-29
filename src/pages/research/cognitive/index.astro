@@ -1,44 +1,27 @@
 ---
 import Layout from '@layouts/Layout.astro'
 import ResearchDetail from '@components/researchDetail.astro'
+import ResearchTop from '@components/researchTop.astro'
 // images
 import { Image } from 'astro:assets'
-import aviation from './Aviation-head.gif'
 import bart from './bart.png'
 import image from './image.png'
-
 import image2 from './image2.png'
+
+const keywords = [
+  'Cognitive Bias',
+  'Risk Taking Propensity',
+  'Danger Sensitivity',
+  'Social Acceptance',
+  'Nuclear Power',
+  'Resilience',
+  'Safety Culture',
+  'Qualitative Research'
+];
 ---
 
 <Layout title="認知グループ">
-  <!-- 言語選択メニュー -->
-  <div class="relative w-full">
-    <div id="video-container" class="relative w-full overflow-hidden whitespace-nowrap bg-black font-serif text-white/40">
-      <Image src={aviation} alt="飛行機の写真" class="z-1 w-full opacity-60" />
-      <h1
-        class="z-2 absolute bottom-0 right-1 p-3 font-serif text-4xl text-white lg:text-8xl"
-      >
-        認知グループ
-      </h1>
-    </div>
-
-    <div
-      id="language-selector"
-      class="absolute right-0 top-0 rounded-bl-lg bg-white/40 px-2"
-    >
-      <div id="selected-language" class="hidden cursor-pointer p-2 text-white">
-        Language ▼
-      </div>
-      <ul id="language-select" class="hidden pb-2">
-        <li class="cursor-pointer p-2 text-white hover:bg-gray-800/40">
-          日本語
-        </li>
-        <li class="cursor-pointer p-2 text-white hover:bg-gray-800/40">
-          <a href="en/index-en/index.html">English</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <ResearchTop title="認知グループ", keywords={keywords} />
 
   <section id="contents" class="container mx-auto max-w-6xl px-5">
     <section id="introduction" class="my-10">
@@ -138,95 +121,7 @@ import image2 from './image2.png'
     }
   })
 
-  const keywords_J = [
-    '認知バイアス',
-    '危険敢行性',
-    '危険感受性',
-    '社会受容',
-    '原子力',
-    'レジリエンス',
-    '安全文化',
-    '質的研究'
-  ]
-
-  const keywords_E = [
-  'Cognitive bias',
-  'Risk taking propensity',
-  'Danger sensitivity',
-  'Social acceptance',
-  'Nuclear power',
-  'Resilience',
-  'Safety culture',
-  'Qualitative research'
-];
-
-
-  const container = document.getElementById('video-container')
-
-  let count = 0
-
-  // 上部gifに表示しているキーワードたちを操作してる関数
-  setInterval(() => {
-    // Random coordinates
-    const x = Math.floor(Math.random() * (window.innerWidth * 0.9))
-    const y = Math.floor(Math.random() * (window.innerWidth * 0.4)) + 50
-
-    // Random word
-    const word = keywords_E[count]
-
-    count++
-    if (count == keywords_E.length) {
-      count = 0
-    }
-
-    const font_size = Math.floor(Math.random() * (window.innerWidth * 0.1) + 20)
-
-    // Create element
-    const el = document.createElement('div')
-    el.classList.add('keywords')
-    el.innerText = word
-    el.style.position = 'absolute'
-    el.style.left = x + 'px'
-    el.style.top = y + 'px'
-    el.style.fontSize = font_size + 'px'
-
-    // Fade in
-    el.style.opacity = 0
-    container.appendChild(el)
-
-    setTimeout(() => {
-      el.style.transition = '2s ease-in-out'
-      el.style.opacity = 1
-    }, 1000)
-
-    // Fade out after fade in
-    setTimeout(() => {
-      el.style.transition = '2s ease-in-out'
-      el.style.opacity = 0
-
-      setTimeout(() => {
-        el.remove()
-      }, 4000)
-    }, 3000)
-  }, 1500)
-
-  // window.addEventListener('resize', function () {
-  //   var heading = document.getElementById('top-message')
-  //   var screenWidth = window.innerWidth
-
-  //   if (screenWidth <= 640) {
-  //     heading.innerHTML = `
-  //     高橋研究室は航空管制の<br>ヒューマンファクタに関して<br/>
-  //     実践的・学術的研究を行っている<br>日本で<span class="text-sm font-light">(ほぼ)</span>唯一の研究室です
-  //   `
-  //   } else {
-  //     heading.innerHTML = `
-  //     高橋研究室は航空管制のヒューマンファクタに関して<br/>
-  //     実践的・学術的研究を行っている日本で<span class="text-sm font-light">(ほぼ)</span>唯一の研究室です
-  //   `
-  //   }
-  // })
-
+  
   // 初回読み込み時にも実行するために、リサイズイベントを手動で発火させることもできます
   window.dispatchEvent(new Event('resize'))
 
