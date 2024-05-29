@@ -28,7 +28,6 @@ const { links: links } = Astro.props
       for (let i = 0; i < links.length; i++) {
         const link = links[i]
         let { depth, text, slug } = link
-        text = text.split('見出し')[0] //見出しだけを取り出す
         html += '<div class="text-gray-500 w-full hover:bg-gray-100">'
         html +=
           '<a class="flex items-center" href="#' + slug + '">'
@@ -41,7 +40,7 @@ const { links: links } = Astro.props
           // 見出しの＃の数に応じてインデントする。
           html += `<p class="py-[4px] text-base ml-${(depth + 1) * 4}">`
         }
-        html += text + '</p></a>'
+        html += slug + '</p></a>'
         html += '</div>'
       }
       return <div set:html={html} />

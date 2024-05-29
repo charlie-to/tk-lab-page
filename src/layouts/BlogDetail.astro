@@ -30,7 +30,7 @@ const author = await getCollection('member')
       @apply border-b-2 border-solid border-gray-200;
     }
     .markdown-body h1 {
-      @apply mt-8 pb-2 text-3xl font-bold;
+      @apply mt-12 pb-2 text-4xl font-bold;
     }
     .markdown-body h2 {
       @apply text-xl font-medium;
@@ -96,6 +96,31 @@ const author = await getCollection('member')
     .astro-code code {
       @apply block flex flex-col whitespace-nowrap;
     }
+
+    .markdown-alert, .markdown-alert-custom {
+      @apply rounded-md my-3;
+    }
+
+    .markdown-alert-note {
+      @apply bg-sky-100;
+    }
+
+    .markdown-alert-tip {
+      @apply bg-green-100;
+    }
+
+    .markdown-alert-important {
+      @apply bg-purple-100;
+    }
+
+    .markdown-alert-warning {
+      @apply bg-amber-100;
+    }
+
+    .markdown-alert-caution {
+      @apply bg-red-100;
+    }
+
   </style>
 
   <div class="container mx-auto flex">

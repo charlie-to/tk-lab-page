@@ -1,39 +1,54 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
-import remarkSmartypants from 'remark-smartypants'
-import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeToc from 'rehype-toc'
 import remarkGithubAlerts from 'remark-github-alerts'
-import remarkBreaks from "remark-breaks";
+import remarkBreaks from 'remark-breaks'
 import remarkSlug from 'remark-slug'
 import remarkToc from 'remark-toc'
 import sitemap from '@astrojs/sitemap'
 import { h } from 'hastscript'
 import remarkDirective from 'remark-directive'
 import remarkDirectiveRehype from 'remark-directive-rehype'
-import partytown from "@astrojs/partytown"
+import partytown from '@astrojs/partytown'
+import icon from "astro-icon"
+
+import expressiveCode from 'astro-expressive-code'
+import remarkCustomAlerts from './src/remark/remark-custom-alert.ts'
 
 // https://astro.build/config
-/** @type {import('astro').AstroUserConfig;} */
 export default defineConfig({
   site: 'https://www.takahashi.qse.tohoku.ac.jp',
   output: 'static',
   build: {
     format: 'directory'
   },
+  i18n: {
+    defaultLocale: 'ja',
+    locales: ['en', 'ja'],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   integrations: [
-    tailwind({ configFile: './tailwind.config.cjs' }),
+    tailwind({
+      configFile: './tailwind.config.cjs'
+    }),
     sitemap(),
-    partytown({
-      // Adds dataLayer.push as a forwarding-event.
-      config: {forward: ["dataLayer.push"]}
-    })
-  ],
+    icon(),
+    partytown(
+      {
+        // Adds dataLayer.push as a forwarding-event.
+        config: {
+          forward: ['dataLayer.push']
+        }
+      }),
+    expressiveCode({
+      themes: ['dark-plus']
+    })],
   markdown: {
     gfm: true,
     smartypants: false,
-    remarkPlugins: [remarkSlug, remarkToc,remarkGithubAlerts,remarkBreaks,remarkDirective,remarkDirectiveRehype,],
+    remarkPlugins: [remarkSlug, remarkToc,remarkGithubAlerts,remarkCustomAlerts,remarkBreaks,remarkDirective,remarkDirectiveRehype,],
     rehypePlugins: [
       [
         rehypeAutolinkHeadings,
@@ -73,11 +88,13 @@ export default defineConfig({
     remarkRehype: {
       footnoteBackContent: '↩',
       footnoteLabel: '脚注',
-      footnoteLabelTagName: "footnote",
-      footnoteBackLabel: 'コンテンツに戻る',},
-      footnoteLabelProperties:{class:[""]},
-      footnoteLabelTagName:"hr",
-    extendDefaultPlugins:true
-
+      footnoteLabelTagName: 'footnote',
+      footnoteBackLabel: 'コンテンツに戻る'
+    },
+    footnoteLabelProperties: {
+      class: ['']
+    },
+    footnoteLabelTagName: 'hr',
+    extendDefaultPlugins: true
   }
 })

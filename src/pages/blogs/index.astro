@@ -36,7 +36,7 @@ const news_posts = blog_posts
             研究室のようす
           </h1>
           <p class="text-gray-600 lg:mx-auto lg:w-6/12">
-            最近の高橋・狩川研究室の中をのぞいてみましょう。
+            最近の高橋・狩川研究室の様子をお届けします。
           </p>
         </div>
         <!-- 題名とリードここまで -->
@@ -47,7 +47,7 @@ const news_posts = blog_posts
         <div class="flex flex-wrap">
           {
             recent_posts.map((recent_post) => (
-              <div class="md:w-1/3">
+              <div class="w-full md:w-1/3">
                 <BlogPostCard post={recent_post} />
               </div>
             ))
