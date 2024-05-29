@@ -1,0 +1,80 @@
+---
+import { Picture } from 'astro:assets'
+import aviation from './Aviation-head.gif'
+
+export interface Props {
+  title: string;
+  keywords: string[];
+}
+const {title, keywords } = Astro.props;
+---
+
+<div class="w-full"  data-keywords={JSON.stringify(keywords)}>
+  <div id="video-container" class="relative w-full overflow-hidden whitespace-nowrap bg-black font-serif text-white/40">
+    <Picture src={aviation} alt="飛行機の写真" class="z-1 w-full opacity-60" />
+    <h1
+      class="z-2 absolute bottom-0 right-1 p-3 font-serif text-4xl text-white lg:text-8xl"
+    >
+      {title}
+    </h1>
+  </div>
+</div>
+
+<script>
+  const container = document.getElementById('video-container') as HTMLDivElement;
+  let keywords: string[] = [];
+  if (container != null && container.parentElement?.getAttribute('data-keywords')) {
+    const dataKeywords = container.parentElement.getAttribute('data-keywords');
+    if (dataKeywords) {
+      keywords = JSON.parse(dataKeywords);
+    }
+  }
+
+  let count = 0;
+
+  // Function to display keywords on the upper GIF
+  setInterval(() => {
+    // Random coordinates
+    const x = Math.floor(Math.random() * (window.innerWidth * 0.9));
+    const y = Math.floor(Math.random() * (window.innerHeight * 0.4)) + 50;
+
+    // Random word
+    const word = keywords[count];
+
+    count++;
+    if (count == keywords.length) {
+      count = 0;
+    }
+
+    const font_size = Math.floor(Math.random() * (window.innerWidth * 0.1) + 20);
+
+    // Create element
+    const el = document.createElement('div');
+    el.classList.add('keywords');
+    el.innerText = word;
+    el.style.position = 'absolute';
+    el.style.left = x + 'px';
+    el.style.top = y + 'px';
+    el.style.fontSize = font_size + 'px';
+
+    // Fade in
+    el.style.opacity = "0";
+    container.appendChild(el);
+
+    setTimeout(() => {
+      el.style.transition = '2s ease-in-out';
+      el.style.opacity = "1";
+    }, 1000);
+
+    // Fade out after fade in
+    setTimeout(() => {
+      el.style.transition = '2s ease-in-out';
+      el.style.opacity = "0";
+
+      setTimeout(() => {
+        el.remove();
+      }, 4000);
+    }, 3000);
+  }, 1500);
+</script>
+
