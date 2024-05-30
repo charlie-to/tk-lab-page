@@ -1,7 +1,7 @@
 ---
-import Footer from '@components/footer.astro'
 import Layout from '@layouts/Layout.astro'
 import ResearchDetail from '@components/researchDetail.astro'
+import ResearchTop from '@components/researchTop.astro'
 // images
 import { Image } from 'astro:assets'
 import cockpit_color from '../cockpit_color.jpg'
@@ -12,25 +12,28 @@ import ATC_radar from '../ATC_radar.jpg'
 import ATC_Tower from '../ATC-Tower.jpg'
 import pilot from '../pilot.jpg'
 import cabin_Attendant from '../cabin_Attendant.jpg'
-import tklab_logo from '../TKLab-Logo.png'
-import aviation from '../Aviation-head.gif'
+
+const keywords = [
+  'Aviation Safety',
+  'Air Traffic Control',
+  'Industry-Academia-Government Collaboration',
+  'Pilot',
+  'Human Factors',
+  'Resilience',
+  'Safety II',
+  'Competency',
+  'Non-technical Skills',
+  'Safety Culture',
+  'Qualitative Research'
+];
 ---
 
 <Layout title="AviationGroup">
   <!-- 言語選択メニュー -->
   <div class="relative w-full">
-    <div id="video-container" class="relative w-full overflow-hidden whitespace-nowrap bg-black font-serif text-white/40">
-      <Image src={aviation} alt="飛行機の写真" class="z-1 w-full opacity-60" />
-      <h1
-        class="z-2 absolute bottom-0 right-1 p-3 font-serif text-4xl text-white lg:text-8xl"
-      >
-      Aviation Group
-      </h1>
-    </div>
-
     <div
       id="language-selector"
-      class="absolute right-0 top-0 rounded-bl-lg bg-white/40 px-2"
+      class="absolute right-0 top-0 rounded-bl-lg bg-white/40 px-2 z-10"
     >
       <div id="selected-language" class="cursor-pointer p-2 text-white">
         Language ▼
@@ -45,6 +48,8 @@ import aviation from '../Aviation-head.gif'
       </ul>
     </div>
   </div>
+
+  <ResearchTop title="Aviation Group", keywords={keywords} />
 
   <section id="contents" class="container mx-auto max-w-6xl px-5">
     <section id="introduction" class="my-10">
@@ -201,82 +206,6 @@ import aviation from '../Aviation-head.gif'
       konamiCode = [] // Reset the input code
     }
   })
-
-  const keywords_J = [
-    '航空安全',
-    '航空管制',
-    '産学官',
-    'パイロット',
-    'ヒューマンファクター',
-    'レジリエンス',
-    'コンピテンシー',
-    'ノンテクニカルスキル',
-    '安全文化',
-    '質的研究'
-  ]
-
-  const keywords_E = [
-    'Aviation Safety',
-    'Air Traffic Control',
-    'Industry-Academia-Government Collaboration',
-    'Pilot',
-    'Human Factors',
-    'Resilience',
-    'Safety II',
-    'Competency',
-    'Non-technical Skills',
-    'Safety Culture',
-    'Qualitative Research'
-  ]
-
-  const container = document.getElementById('video-container')
-
-  let count = 0
-
-  // 上部gifに表示しているキーワードたちを操作してる関数
-  setInterval(() => {
-    // Random coordinates
-    const x = Math.floor(Math.random() * (window.innerWidth * 0.9))
-    const y = Math.floor(Math.random() * (window.innerWidth * 0.4)) + 50
-
-    // Random word
-    const word = keywords_E[count]
-
-    count++
-    if (count == keywords_E.length) {
-      count = 0
-    }
-
-    const font_size = Math.floor(Math.random() * (window.innerWidth * 0.1) + 20)
-
-    // Create element
-    const el = document.createElement('div')
-    el.classList.add('keywords')
-    el.innerText = word
-    el.style.position = 'absolute'
-    el.style.left = x + 'px'
-    el.style.top = y + 'px'
-    el.style.fontSize = font_size + 'px'
-
-    // Fade in
-    el.style.opacity = 0
-    container.appendChild(el)
-
-    setTimeout(() => {
-      el.style.transition = '2s ease-in-out'
-      el.style.opacity = 1
-    }, 1000)
-
-    // Fade out after fade in
-    setTimeout(() => {
-      el.style.transition = '2s ease-in-out'
-      el.style.opacity = 0
-
-      setTimeout(() => {
-        el.remove()
-      }, 4000)
-    }, 3000)
-  }, 1500)
 
   // 言語選択メニューを開閉する関数
   function toggleMenu() {
