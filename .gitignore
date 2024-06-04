@@ -23,6 +23,8 @@ pnpm-debug.log*
 /playwright-report/
 /playwright/.cache/
 
+# Project IDX-specific files
+.idx
 
 # test
 /test-results/
