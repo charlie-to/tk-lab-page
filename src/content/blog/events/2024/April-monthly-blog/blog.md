@@ -1,7 +1,7 @@
 ---
 title: '新入生きました！'
 date: '2024-05-22'
-tag: ['blog']
+tag: ['blog', 'event', 'monthly']
 lead: '新入生にインタビューしてみました'
 author_name_main: '竹崎　賢也'
 ---
