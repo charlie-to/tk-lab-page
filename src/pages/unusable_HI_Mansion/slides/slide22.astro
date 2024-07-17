@@ -2,7 +2,7 @@
 import SlideLayout from '@layouts/slide_layout.astro'
 // images
 import { Image } from 'astro:assets'
-import ghost from './Images/ghost.png'
+import ghost from './Images/_ghost.png'
 ---
 
 <SlideLayout>
@@ -21,7 +21,7 @@ import ghost from './Images/ghost.png'
             transform: translate(-50%, -50%);
             width: max(375px, 32vw);
             height: max(50px, 5vw);
-            
+
             ">たたかう</button>
             <button id="escape" style="
             top: 88%;
@@ -29,7 +29,7 @@ import ghost from './Images/ghost.png'
             transform: translate(-50%, -50%);
             width: max(375px, 32vw);
             height: max(50px, 5vw);
-            
+
             ">にげる</button>
         </div>
         <Image src={ghost} alt="ghost" class="ghost" style="width: max(300px, 26vw); transform: translate(-50%, -50%); opacity: 0; position: absolute; top: 50%; left: 50%; transition: opacity 2s ease-in-out;"/>
@@ -100,6 +100,6 @@ import ghost from './Images/ghost.png'
                     window.location.href = nextPageUrl;
                 });
             });
-        });        
+        });
     </script>
 </SlideLayout>

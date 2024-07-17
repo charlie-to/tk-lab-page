@@ -2,7 +2,7 @@
 import SlideLayout from '@layouts/slide_layout.astro'
 // images
 import { Image } from 'astro:assets'
-import ghost from './Images/ghost.png'
+import ghost from './Images/_ghost.png'
 ---
 
 <SlideLayout>
@@ -16,7 +16,7 @@ import ghost from './Images/ghost.png'
                 style="display: inline-block; font-size: max(48px, 4vw); opacity: 0; position: relative; background-color: rgba(0, 0, 0, 0.6); margin-top: max(30px, 3vw); width: 100%; text-align: center;">
                 キミはもう、この館から逃れられない!!
             </div>
-        </div>              
+        </div>
         <Image src={ghost} alt="ghost" class="ghost" style="width: max(800px, 80vw); transform: translate(-50%, -40%); opacity: 0; position: absolute; top: 65%; left: 50%;"/>
     </div>
 
