@@ -2,8 +2,8 @@
 import SlideLayout from '@layouts/slide_layout.astro'
 // images
 import { Image } from 'astro:assets'
-import ghost from './Images/ghost.png'
-import arrow from './Images/arrow.png'
+import ghost from './Images/_ghost.png'
+import arrow from './Images/_arrow.png'
 ---
 
 <SlideLayout>
@@ -15,8 +15,8 @@ import arrow from './Images/arrow.png'
                 <div class="mr-6" style="font-size: max(40px, 3.2vw); text-align: right;">が現れた！！</div>
             </div>
         </div>
-        
-        
+
+
         <div class="buttonArea" style="opacity: 1;">
             <button id="no" style="
             top: 85%;
@@ -24,7 +24,7 @@ import arrow from './Images/arrow.png'
             transform: translate(-50%, -50%);
             width: max(450px, 48vw);
             height: max(50px, 5vw);
-            
+
             ">NO</button>
             <button id="yes" style="
             top: 85%;
@@ -32,7 +32,7 @@ import arrow from './Images/arrow.png'
             transform: translate(-50%, -50%);
             width: max(300px, 30vw);
             height: max(50px, 5vw);
-            
+
             ">YES</button>
         </div>
         <Image src={ghost} alt="ghost" class="ghost" style="width: max(300px, 30vw); transform: translate(-50%, -50%); opacity: 1; position: absolute; top: 50%; left: 50%; transition: opacity 1s, width 1s, transform 1s;"/>

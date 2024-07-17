@@ -2,7 +2,7 @@
 import SlideLayout from '@layouts/slide_layout.astro'
 // images
 import { Image } from 'astro:assets'
-import ghost from './Images/ghost.png'
+import ghost from './Images/_ghost.png'
 ---
 
 <SlideLayout>
@@ -24,7 +24,7 @@ import ghost from './Images/ghost.png'
             transform: translate(-50%, -50%);
             width: max(300px, 30vw);
             height: max(50px, 5vw);
-            
+
             ">YES</button>
         </div>
         <!-- どうやって頑張ってもsafariではNoを押した際のghostの位置がずれてしまう。chromeと画僧の座標計算方法が違うっぽい？ -->

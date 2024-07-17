@@ -4,9 +4,9 @@ import ResearchDetail from '@components/researchDetail.astro'
 import ResearchTop from '@components/researchTop.astro'
 // images
 import { Image } from 'astro:assets'
-import bart from './bart.png'
-import image from './image.png'
-import image2 from './image2.png'
+import bart from './_bart.png'
+import image from './_image.png'
+import image2 from './_image2.png'
 
 const keywords = [
   'Cognitive Bias',
@@ -121,7 +121,7 @@ const keywords = [
     }
   })
 
-  
+
   // 初回読み込み時にも実行するために、リサイズイベントを手動で発火させることもできます
   window.dispatchEvent(new Event('resize'))
 
