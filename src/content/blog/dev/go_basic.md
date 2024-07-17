@@ -62,7 +62,7 @@ b := "Hello"
 println("Value of a:", a, "and value of b:", b)
 ```
 これは、aの値とbの値をスペースで区切って出力し、最後に改行を追加します。出力は以下のようになります：
-```response
+```txt
 Value of a: 10 and value of b: Hello
 ```
 
