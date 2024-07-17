@@ -2,7 +2,7 @@
 import SlideLayout from '@layouts/slide_layout.astro'
 // images
 import { Image } from 'astro:assets'
-import ghost from './Images/ghost.png'
+import ghost from './Images/_ghost.png'
 ---
 
 <SlideLayout>
@@ -14,7 +14,7 @@ import ghost from './Images/ghost.png'
         </div>
         <Image src={ghost} alt="ghost" class="ghost" style="width: max(800px, 70vw); transform: translate(-50%, -40%); opacity: 0; position: absolute; top: 60%; left: 50%; z-index: 1;"/>
     </div>
-    
+
     <script is:inline>
         window.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
