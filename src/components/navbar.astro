@@ -27,31 +27,23 @@ const nav_links = [
   }
 ]
 ---
-
 <nav class="bg-blue-200">
-  <div class="navbar">
+  <div class="navbar mx-auto max-w-7xl">
     <div class="navbar-start">
-      <div class="mx-auto flex flex-wrap p-5 align-middle">
-        <img src="/Logo2020_black.png" id="header-Logo-image" class="header-Logo-image h-10 w-10" alt="ロゴ" />
-        <a
-          class="title-font mb-0 flex items-center font-medium text-gray-900"
-          href="/"
-        >
-          <span class="ml-3 text-xl lg:text-3xl whitespace-nowrap">高橋・狩川研究室</span>
-        </a>
+      <div class="flex p-5 items-center">
+        <img src="/Logo2020_black.png" id="header-Logo-image" class="h-10 w-10" alt="ロゴ" />
+        <a href="/" class="ml-3 text-xl lg:text-3xl text-gray-900">高橋・狩川研究室</a>
       </div>
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
-        {
-          nav_links.map((link) => (
-            <li class="mr-5 text-lg">
-              <a href={link.url} class="hover:text-gray-900 hover:underline">
-                {link.name}
-              </a>
-            </li>
-          ))
-        }
+        {nav_links.map((link) => (
+          <li class="mr-5 text-lg">
+            <a href={link.url} class="hover:text-gray-900 hover:underline">
+              {link.name}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
     <div class="navbar-end lg:hidden">
@@ -63,26 +55,26 @@ const nav_links = [
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            ><path
+          >
+            <path
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M4 6h16M4 12h8m-8 6h16"></path></svg
-          >
+              d="M4 6h16M4 12h8m-8 6h16"
+            ></path>
+          </svg>
         </label>
         <ul
           tabindex={0}
-          class="menu dropdown-content menu-lg z-[1] mt-6 w-80 rounded-box bg-slate-100 p-4 shadow"
+          class="menu dropdown-content z-[1] mt-6 w-80 bg-slate-100 p-4 shadow"
         >
-          {
-            nav_links.map((link) => (
-              <li class="">
-                <a href={link.url} class="p-4 text-xl">
-                  {link.name}
-                </a>
-              </li>
-            ))
-          }
+          {nav_links.map((link) => (
+            <li>
+              <a href={link.url} class="p-4 text-xl">
+                {link.name}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
