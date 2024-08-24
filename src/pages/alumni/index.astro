@@ -6,10 +6,10 @@ import { Image } from 'astro:assets'
 import graduationUnsplash from './_graduation-unsplash.jpg'
 
 const company_name = [
-  { text: '博士（QSE）', company_names: ['NEC'] },
+  { text: '博士(QSE)', company_names: ['NEC'] },
   { text: '博士(MOST)', company_names: ['AIG'] },
   {
-    text: '修士（QSE）',
+    text: '修士(QSE)',
     company_names: [
       'いすゞ自動車',
       '原子力規制庁',
@@ -71,14 +71,13 @@ const company_name = [
       >
         <Image
           alt="Graduation Page Image - Unsplash"
-          class="absolute inset-0 block h-full w-full object-cover object-center brightness-50"
+          class="absolute inset-0 block h-full w-full object-cover object-center"
           src={graduationUnsplash}
         />
+        <div class="absolute inset-0 bg-gray-800 opacity-60"></div>
         <div class="relative z-10 w-full text-center">
-          <h2 class="mb-2 text-3xl font-bold text-gray-200">卒業後の進路</h2>
-          <p class="leading-relaxed text-gray-300">
-            掲載企業以外にも様々な進路に進んでいる卒業生がいます。これを見ても参考にならないかもしれません。
-          </p>
+          <h2 class="mb-2 text-4xl font-bold text-white drop-shadow-lg">卒業後の進路</h2>
+          <p class="leading-relaxed text-gray-100">掲載企業以外にも様々な進路に進んでいる卒業生がいます。これを見ても参考にならないかもしれません。</p>
         </div>
       </div>
     </div>
@@ -96,12 +95,16 @@ const company_name = [
     <section class="max-w-6xl mx-auto">
       {
         company_name.map((company_name_grade) => (
-          <div class="my-12 bg-base-200 py-12">
+          // <div class="my-12 bg-base-200 py-12">
+          <div class="my-12 bg-gradient-to-r from-base-200 via-base-300 to-base-200 py-12 shadow-lg">
             <div class="mx-auto text-center">
-              <h2 class="text-3xl">{company_name_grade.text}</h2>
+              {/* <h2 class="text-3xl"> */}
+              <h2 class="text-3xl font-semibold mb-6 tracking-wide">
+                {company_name_grade.text}
+              </h2>
             </div>
             <div class="mx-auto max-w-xl">
-              <ul class="flex w-full list-inside flex-wrap align-bottom text-xl text-gray-800">
+              <ul class="flex w-full list-inside flex-wrap align-bottom text-xl">
                 {company_name_grade.company_names.map((name) => (
                   <li class="w-full px-8 py-4 lg:w-1/2">{name}</li>
                 ))}
