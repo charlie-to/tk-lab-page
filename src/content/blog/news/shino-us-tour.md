@@ -9,4 +9,4 @@ tag: ['news']
 椎野さんの活躍が[専攻HP](https://www.most.tohoku.ac.jp/blog/2023/nea_risingstars_shiino/)に掲載されました。
 
 # 旅行記
-椎野さんに[ブログ記事](https://www.takahashi.qse.tohoku.ac.jp/blogs/events/shino-us-trip/blog/index.html)として旅行記を書いてもらいました。
+椎野さんに[ブログ記事](https://www.takahashi.qse.tohoku.ac.jp/blogs/events/2023/shino-us-trip/blog/index.html)として旅行記を書いてもらいました。
