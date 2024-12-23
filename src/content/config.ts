@@ -10,11 +10,7 @@ const memberCollection = defineCollection({
       }),
       major: z.string(),
       grade: z.string(),
-      cover: image()
-        .refine((img) => img.width >= 300, {
-          message: "Image must be at least 300px wide",
-        })
-        .optional(),
+      cover: image().optional(),
       coverAlt: z.string().optional(),
       order: z.number(),
       tag: z.array(z.string()).optional(),
@@ -29,11 +25,7 @@ const blogsCollection = defineCollection({
       date: z.string(),
       tag: z.array(z.string()),
       lead: z.string().optional(),
-      cover: image()
-        .refine((img) => img.width >= 300, {
-          message: "Image must be at least 300px wide",
-        })
-        .optional(),
+      cover: image().optional(),
       coverAlt: z.string().optional(),
       author_name_main: z.string().optional(),
     }),
