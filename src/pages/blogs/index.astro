@@ -1,5 +1,4 @@
 ---
-import { date, map } from 'astro/zod'
 import Layout from '../../layouts/Layout.astro'
 import { getCollection } from 'astro:content'
 import BlogPostCard from '@components/BlogPostCard.astro'
@@ -11,6 +10,7 @@ import defaultImage from './blog_default.jpg'
 const blog_posts = await getCollection('blog')
 const recent_posts = blog_posts
   .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
+  .filter((post) => !post.data.tag.includes('dev'))
   .slice(0, 3)
 const limit = 5
 const event_posts = blog_posts
@@ -26,94 +26,94 @@ const news_posts = blog_posts
 
 <Layout title="研究室のようす">
   <div class="container mx-auto my-4">
-  <section>
-    <div>
-      <!-- コンテント -->
-      <div class="">
-        <!-- 題名とリード -->
-        <div class="mb-12 space-y-2 text-center">
-          <h1 class="text-3xl font-bold text-gray-800 md:text-4xl">
-            研究室のようす
-          </h1>
-          <p class="text-gray-600 lg:mx-auto lg:w-6/12">
-            最近の高橋・狩川研究室の様子をお届けします。
-          </p>
+    <section>
+      <div>
+        <!-- コンテント -->
+        <div class="">
+          <!-- 題名とリード -->
+          <div class="mb-12 space-y-2 text-center">
+            <h1 class="text-3xl font-bold text-gray-800 md:text-4xl">
+              研究室のようす
+            </h1>
+            <p class="text-gray-600 lg:mx-auto lg:w-6/12">
+              最近の高橋・狩川研究室の様子をお届けします。
+            </p>
+          </div>
+          <!-- 題名とリードここまで -->
+          <!-- ここからブログ投稿のカード -->
+          <div class="mx-auto text-center">
+            <h2 class="py-12 text-3xl font-bold">最近の投稿</h2>
+          </div>
+          <div class="flex flex-wrap">
+            {
+              recent_posts.map((recent_post) => (
+                <div class="w-full md:w-1/3">
+                  <BlogPostCard post={recent_post} />
+                </div>
+              ))
+            }
+          </div>
+          <!-- ここまでブログ投稿のカード -->
         </div>
-        <!-- 題名とリードここまで -->
-        <!-- ここからブログ投稿のカード -->
-        <div class="mx-auto text-center">
-          <h2 class="py-12 text-3xl font-bold">最近の投稿</h2>
+        <!-- コンテントここまで -->
+      </div>
+
+      <!-- 詳細へ -->
+      <div class="mt-10">
+        <div class="justify-center">
+          <a href="/blogs/all/index.html" class="">
+            <div class="btn btn-primary btn-lg btn-block m-4 mx-auto">
+              <div class="">
+                <p class="text-lg font-bold">もっと見る</p>
+                <p class="text-sm font-light text-gray-200">
+                  全投稿を見ることができます
+                </p>
+              </div>
+            </div>
+          </a>
         </div>
-        <div class="flex flex-wrap">
+      </div>
+      <!-- 詳細へここまで -->
+    </section>
+
+    <!-- 各コンテンツごとに最近の記事を表示 -->
+    <section class="my-24 rounded-sm bg-base-200 py-8">
+      <h1 class="py-12 text-center text-3xl font-bold text-gray-800">
+        ジャンル別投稿
+      </h1>
+
+      <div class="container mx-auto w-full px-8 md:flex">
+        <div class="mx-8 py-8 md:w-1/2">
+          <div><h3 class="text-xl font-bold">ニュース</h3></div>
           {
-            recent_posts.map((recent_post) => (
-              <div class="w-full md:w-1/3">
-                <BlogPostCard post={recent_post} />
+            news_posts.map((post) => (
+              <div class="m-4">
+                <a
+                  href={`/blogs/${post.slug}/index.html`}
+                  class="link link-primary  py-2 text-lg"
+                >
+                  {post.data.title}
+                </a>
               </div>
             ))
           }
         </div>
-        <!-- ここまでブログ投稿のカード -->
+        <div class="mx-8 py-8 md:w-1/2">
+          <div><h3 class="text-xl font-bold">ブログ</h3></div>
+          {
+            event_posts.map((post) => (
+              <div class="m-4">
+                <a
+                  href={`/blogs/${post.slug}/index.html`}
+                  class="link link-primary py-2 text-lg"
+                >
+                  {post.data.title}
+                </a>
+              </div>
+            ))
+          }
+        </div>
       </div>
-      <!-- コンテントここまで -->
-    </div>
-
-    <!-- 詳細へ -->
-    <div class="mt-10">
-      <div class="justify-center">
-        <a href="/blogs/all/index.html" class="">
-          <div class="btn btn-primary btn-lg btn-block m-4 mx-auto">
-            <div class="">
-              <p class="text-lg font-bold">もっと見る</p>
-              <p class="text-sm font-light text-gray-200">
-                全投稿を見ることができます
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-    <!-- 詳細へここまで -->
-  </section>
-
-  <!-- 各コンテンツごとに最近の記事を表示 -->
-  <section class="my-24 rounded-sm bg-base-200 py-8">
-    <h1 class="py-12 text-center text-3xl font-bold text-gray-800">
-      ジャンル別投稿
-    </h1>
-
-    <div class="container mx-auto w-full px-8 md:flex">
-      <div class="mx-8 py-8 md:w-1/2">
-        <div><h3 class="text-xl font-bold">ニュース</h3></div>
-        {
-          news_posts.map((post) => (
-            <div class="m-4">
-              <a
-                href={`/blogs/${post.slug}/index.html`}
-                class="link link-primary  py-2 text-lg"
-              >
-                {post.data.title}
-              </a>
-            </div>
-          ))
-        }
-      </div>
-      <div class="mx-8 py-8 md:w-1/2">
-        <div><h3 class="text-xl font-bold">ブログ</h3></div>
-        {
-          event_posts.map((post) => (
-            <div class="m-4">
-              <a
-                href={`/blogs/${post.slug}/index.html`}
-                class="link link-primary py-2 text-lg"
-              >
-                {post.data.title}
-              </a>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+    </section>
   </div>
 </Layout>
