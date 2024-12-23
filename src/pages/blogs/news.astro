@@ -1,13 +1,15 @@
 ---
-import Layout from '@layouts/Layout.astro'
-import { getCollection } from 'astro:content'
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
 
 // newsのタグがついたものを取り出し、Dateに基づいてソート
-const news_posts = await getCollection('blog', ({ data }) => {
-  return data.tag.includes('news')
+const news_posts = await getCollection("blog", ({ data }) => {
+  return data.tag.includes("news");
 }).then((posts) =>
-  posts.sort((a, b) => (new Date(b.data.date) as any) - (new Date(a.data.date) as any))
-)
+  posts.sort(
+    (a, b) => (new Date(b.data.date) as any) - (new Date(a.data.date) as any),
+  ),
+);
 ---
 
 <Layout title="ニュース一覧">

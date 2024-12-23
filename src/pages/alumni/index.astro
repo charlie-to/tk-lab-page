@@ -1,65 +1,65 @@
 ---
-import Layout from '../../layouts/Layout.astro'
+import Layout from "../../layouts/Layout.astro";
 
 // Images
-import { Image } from 'astro:assets'
-import graduationUnsplash from './_graduation-unsplash.jpg'
+import { Image } from "astro:assets";
+import graduationUnsplash from "./_graduation-unsplash.jpg";
 
 const company_name = [
-  { text: '博士(QSE)', company_names: ['NEC'] },
-  { text: '博士(MOST)', company_names: ['AIG'] },
+  { text: "博士(QSE)", company_names: ["NEC"] },
+  { text: "博士(MOST)", company_names: ["AIG"] },
   {
-    text: '修士(QSE)',
+    text: "修士(QSE)",
     company_names: [
-      'いすゞ自動車',
-      '原子力規制庁',
-      '七十七銀行',
-      '全日本空輸',
-      '中部電気保安協会',
-      'デンソー',
-      '日本航空',
-      '三菱化学エンジニアリング',
-      '明電舎',
-      '三菱重工業',
-      'NEC',
-      'ヤフー',
-      'アルプス技研',
-      '野村総合研究所',
-      'コマツ',
-      'NTTデータ',
-      '日本郵船',
-      '群馬銀行',
-      '東京エレクトロン',
-      'JR西日本'
-    ]
+      "いすゞ自動車",
+      "原子力規制庁",
+      "七十七銀行",
+      "全日本空輸",
+      "中部電気保安協会",
+      "デンソー",
+      "日本航空",
+      "三菱化学エンジニアリング",
+      "明電舎",
+      "三菱重工業",
+      "NEC",
+      "ヤフー",
+      "アルプス技研",
+      "野村総合研究所",
+      "コマツ",
+      "NTTデータ",
+      "日本郵船",
+      "群馬銀行",
+      "東京エレクトロン",
+      "JR西日本",
+    ],
   },
   {
-    text: '修士(MOST)',
+    text: "修士(MOST)",
     company_names: [
-      'アルプス電気',
-      '仙台市',
-      '東京機材工業',
-      '豊田自動織機',
-      '日本貨物鉄道',
-      'オロ',
-      'JR東海',
-      'パーソナルプロセス＆テクノロジー',
-      '日本貨物鉄道',
-      '国際石油開発帝石',
-      '三菱UFJモルガンスタンレー証券'
-    ]
+      "アルプス電気",
+      "仙台市",
+      "東京機材工業",
+      "豊田自動織機",
+      "日本貨物鉄道",
+      "オロ",
+      "JR東海",
+      "パーソナルプロセス＆テクノロジー",
+      "日本貨物鉄道",
+      "国際石油開発帝石",
+      "三菱UFJモルガンスタンレー証券",
+    ],
   },
   {
-    text: '学士',
+    text: "学士",
     company_names: [
-      '特許庁',
-      '日本貨物航空',
-      '日本航空',
-      '住友ケミカルエンジニアリング',
-      '全日本空輸'
-    ]
-  }
-]
+      "特許庁",
+      "日本貨物航空",
+      "日本航空",
+      "住友ケミカルエンジニアリング",
+      "全日本空輸",
+    ],
+  },
+];
 ---
 
 <Layout title="進路">

@@ -1,13 +1,13 @@
 ---
 interface link {
-  depth: number
-  text: string
-  slug: string
+  depth: number;
+  text: string;
+  slug: string;
 }
 export interface props {
-  links: link[]
+  links: link[];
 }
-const { links: links } = Astro.props
+const { links } = Astro.props;
 ---
 <!-- 変数を用いて定義するml-⚪︎⚪︎をあらかじめ呼び出してあげることで反映されるようになる。 -->
 <div hidden class="ml-12 ml-16 ml-20 ml-24 ml-28"></div>

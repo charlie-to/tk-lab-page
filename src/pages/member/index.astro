@@ -1,24 +1,24 @@
 ---
-import Layout from '../../layouts/Layout.astro'
+import Layout from "../../layouts/Layout.astro";
 
 // Images
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets";
 
-import { getCollection, getEntryBySlug } from 'astro:content'
-const members = await getCollection('member')
+import { getCollection, getEntryBySlug } from "astro:content";
+const members = await getCollection("member");
 const student = members
-  .filter((member) => member.data.major !== '')
+  .filter((member) => member.data.major !== "")
   .sort((a, b) => {
-    return a.data.order - b.data.order
-  })
+    return a.data.order - b.data.order;
+  });
 const staff = members
-  .filter((member) => member.data.major === '')
+  .filter((member) => member.data.major === "")
   .sort((a, b) => {
-    return a.data.order - b.data.order
-  })
+    return a.data.order - b.data.order;
+  });
 
 // member card
-import MemberCard from '@components/MemberCard.astro'
+import MemberCard from "@components/MemberCard.astro";
 ---
 
 <Layout title="メンバー">

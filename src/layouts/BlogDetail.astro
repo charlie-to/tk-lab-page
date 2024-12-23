@@ -1,18 +1,18 @@
 ---
-import Layout from '@layouts/Layout.astro'
-import ToC from '@components/ToC.astro'
-import { getCollection } from 'astro:content'
-import { array } from 'astro/zod'
-const { data, headings } = Astro.props
-const author_name = data.author_name_main
+import { getCollection } from "astro:content";
+import ToC from "@components/ToC.astro";
+import Layout from "@layouts/Layout.astro";
+import { array } from "astro/zod";
+const { data, headings } = Astro.props;
+const author_name = data.author_name_main;
 
-import AuthorCard from '@components/AuthorCard.astro'
+import AuthorCard from "@components/AuthorCard.astro";
 
-const author = await getCollection('member')
+const author = await getCollection("member")
   .then((authors) =>
-    authors.find((author) => author.data.name.main === author_name)
+    authors.find((author) => author.data.name.main === author_name),
   )
-  .catch((e) => console.error(e))
+  .catch((e) => console.error(e));
 ---
 
 <Layout title={data.title} description={data.lead}>
