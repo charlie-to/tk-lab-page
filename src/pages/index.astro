@@ -1,41 +1,41 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import LinkToForm from '../components/LinkToForm.astro'
-import { getCollection } from 'astro:content'
-import { Icon } from 'astro-icon/components'
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+import LinkToForm from "../components/LinkToForm.astro";
+import Layout from "../layouts/Layout.astro";
 
 // Images
-import { Image } from 'astro:assets'
-import city2Unsplash from './_city2-unsplash.jpg'
-import cockpitUnsplash from './_cockpit-unsplash.jpg'
-import carUnsplash from './_car-unsplash.jpg'
-import riskUnsplash from './_risk-unsplash.jpg'
-import balloonUnsplash from './_balloon-unsplash.jpeg'
+import { Image } from "astro:assets";
+import balloonUnsplash from "./_balloon-unsplash.jpeg";
+import carUnsplash from "./_car-unsplash.jpg";
+import city2Unsplash from "./_city2-unsplash.jpg";
+import cockpitUnsplash from "./_cockpit-unsplash.jpg";
+import riskUnsplash from "./_risk-unsplash.jpg";
 
 // Youtube
-import YoutubeEmbed from '@components/YouTubeEmbed.astro'
-const youtubeId = 'nue-bLFGKK8'
+import YoutubeEmbed from "@components/YouTubeEmbed.astro";
+const youtubeId = "nue-bLFGKK8";
 
-import UnusableInterface from '@components/unusableInterface.astro'
+import UnusableInterface from "@components/unusableInterface.astro";
 
 // Icon Size
-const Icon_Size_Big = 64
+const Icon_Size_Big = 64;
 
 const news_posts = (
-  await getCollection('blog', ({ data }) => {
-    return data.tag.includes('news')
+  await getCollection("blog", ({ data }) => {
+    return data.tag.includes("news");
   })
 ).sort((a, b) => {
-  return Date.parse(b.data.date) - Date.parse(a.data.date)
-})
+  return Date.parse(b.data.date) - Date.parse(a.data.date);
+});
 
 const blog_posts = (
-  await getCollection('blog', ({ data }) => {
-    return data.tag.includes('blog')
+  await getCollection("blog", ({ data }) => {
+    return data.tag.includes("blog");
   })
 ).sort((a, b) => {
-  return Date.parse(b.data.date) - Date.parse(a.data.date)
-})
+  return Date.parse(b.data.date) - Date.parse(a.data.date);
+});
 ---
 
 <Layout title="高橋・狩川研究室">

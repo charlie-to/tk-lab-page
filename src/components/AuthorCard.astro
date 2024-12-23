@@ -1,11 +1,11 @@
 ---
-import { Image } from 'astro:assets'
-import Icon from 'astro-icon'
-import { type CollectionEntry } from 'astro:content'
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import Icon from "astro-icon";
 export interface Props {
-  author: CollectionEntry<'member'>
+  author: CollectionEntry<"member">;
 }
-const { author } = Astro.props
+const { author } = Astro.props;
 ---
 
 <div class="max-w-xs">

@@ -1,25 +1,25 @@
 ---
-import { Image } from 'astro:assets'
-import { Icon } from 'astro-icon/components'
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
-import { getCollection } from 'astro:content'
+import { getCollection } from "astro:content";
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('member')
+  const blogEntries = await getCollection("member");
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
-    props: { entry }
-  }))
+    props: { entry },
+  }));
 }
 
-import Layout from '@layouts/Layout.astro'
-import { imageConfig } from 'astro:assets'
-const { entry } = Astro.props
-const { Content } = await entry.render()
+import { imageConfig } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+const { entry } = Astro.props;
+const { Content } = await entry.render();
 
-const blog_posts = await getCollection('blog')
+const blog_posts = await getCollection("blog");
 const wrote_posts = blog_posts
   .filter((post) => post.data.author_name_main == entry.data.name.main)
-  .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
+  .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 ---
 
 <Layout title={entry.data.name.main}>

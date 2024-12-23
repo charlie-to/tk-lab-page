@@ -1,14 +1,14 @@
 ---
-import Layout from '@layouts/Layout.astro'
-import { getCollection } from 'astro:content'
-import BlogPostCard from '@components/BlogPostCard.astro'
 // images
-import { Image } from 'astro:assets'
-import defaultImage from './blog_default.jpg'
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import BlogPostCard from "@components/BlogPostCard.astro";
+import Layout from "@layouts/Layout.astro";
+import defaultImage from "./blog_default.jpg";
 // 時系列に並べる
-const blog_posts = (await getCollection('blog')).sort((a, b) => {
-  return Date.parse(b.data.date) - Date.parse(a.data.date)
-})
+const blog_posts = (await getCollection("blog")).sort((a, b) => {
+  return Date.parse(b.data.date) - Date.parse(a.data.date);
+});
 ---
 
 <Layout title="全投稿一覧">

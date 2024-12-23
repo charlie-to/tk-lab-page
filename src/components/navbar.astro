@@ -1,31 +1,31 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const nav_links = [
   {
-    name: t('navbar.research'),
-    url: '/research/index.html'
+    name: t("navbar.research"),
+    url: "/research/index.html",
   },
   {
-    name: t('navbar.members'),
-    url: '/member/index.html'
+    name: t("navbar.members"),
+    url: "/member/index.html",
   },
   {
-    name: t('navbar.alumni'),
-    url: '/alumni/index.html'
+    name: t("navbar.alumni"),
+    url: "/alumni/index.html",
   },
   {
-    name: t('navbar.blog'),
-    url: '/blogs/index.html'
+    name: t("navbar.blog"),
+    url: "/blogs/index.html",
   },
   {
-    name: t('navbar.contact'),
-    url: '/contact/index.html'
-  }
-]
+    name: t("navbar.contact"),
+    url: "/contact/index.html",
+  },
+];
 ---
 <nav class="bg-blue-200">
   <div class="navbar mx-auto max-w-7xl">

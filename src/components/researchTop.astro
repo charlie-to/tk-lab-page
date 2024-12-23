@@ -1,12 +1,12 @@
 ---
-import { Picture } from 'astro:assets'
-import aviation from './Aviation-head.gif'
+import { Picture } from "astro:assets";
+import aviation from "./Aviation-head.gif";
 
 export interface Props {
   title: string;
   keywords: string[];
 }
-const {title, keywords } = Astro.props;
+const { title, keywords } = Astro.props;
 ---
 
 <div class="w-full"  data-keywords={JSON.stringify(keywords)}>

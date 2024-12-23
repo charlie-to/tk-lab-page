@@ -1,129 +1,129 @@
-body, html {
-    margin: 0;
-    height: 100%;
+body,
+html {
+  margin: 0;
+  height: 100%;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
 }
 
 .slide-content {
-    background-color: black;
-    width: max(960px, 100vw); /* 画面高さの16/9倍 */
-    height: max(540px, calc(100vw * 9 / 16)); /* 画面高さいっぱいに */
-    position: relative;
-    overflow: hidden;
-    font-family: 'ヒラギノ明朝 ProN', 'Hiragino Mincho ProN', 'HiraMinProN-W3', 'MS PMincho', sans-serif;
+  background-color: black;
+  width: max(960px, 100vw); /* 画面高さの16/9倍 */
+  height: max(540px, calc(100vw * 9 / 16)); /* 画面高さいっぱいに */
+  position: relative;
+  overflow: hidden;
+  font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "HiraMinProN-W3",
+    "MS PMincho", sans-serif;
 }
 
 .textArea {
-    width: 100%;
+  width: 100%;
 }
 
-
 .text {
-    color: red;
-    align-items: center; 
-    font-weight: bold;
+  color: red;
+  align-items: center;
+  font-weight: bold;
 }
 
 .imageText {
-    font-family: 'Helvetica Neue', Helvetica, Arial, 'Roboto', 'Noto Sans', sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Roboto", "Noto Sans",
+    sans-serif;
 }
 
 ::selection {
-    color: #000;
-    text-shadow: 0 0 0.6vw white;
-    background: red;
+  color: #000;
+  text-shadow: 0 0 0.6vw white;
+  background: red;
 }
 
 .buttonArea {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 button {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: max(30px, 3.1vw);
-    text-align: center;
-    border: none;
-    border-radius: 0.5vw;
-    background: linear-gradient(to bottom, #4d0000, #330000);
-    cursor: pointer;
-    color: #a33;
-    font-family: 'Times New Roman', serif;
-    box-shadow: 0 0 1vw rgba(230, 0, 0, 0.8);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: max(30px, 3.1vw);
+  text-align: center;
+  border: none;
+  border-radius: 0.5vw;
+  background: linear-gradient(to bottom, #4d0000, #330000);
+  cursor: pointer;
+  color: #a33;
+  font-family: "Times New Roman", serif;
+  box-shadow: 0 0 1vw rgba(230, 0, 0, 0.8);
 }
 
 button:hover {
-    color: #f33;
-    background: linear-gradient(to bottom, #700, #400);
-    box-shadow: 0 0 2vw rgba(230, 0, 0, 0.8);
+  color: #f33;
+  background: linear-gradient(to bottom, #700, #400);
+  box-shadow: 0 0 2vw rgba(230, 0, 0, 0.8);
 }
 
 @keyframes blink {
-    0% {
+  0% {
     opacity: 1;
-    }
-    100% {
+  }
+  100% {
     opacity: 0.7;
-    }
-} 
+  }
+}
 
 .ghost {
-    animation: updown 2s infinite alternate;
+  animation: updown 2s infinite alternate;
 }
 
 @keyframes updown {
-    0% {
-        transform: translate(-50%, -50%) translateY(0);
-    }
-    50% {
-        transform: translate(-50%, -50%) translateY(-5%);
-    }
-    100% {
-        transform: translate(-50%, -50%) translateY(0);
-    }
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-5%);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
 }
 
 .disable {
-    opacity: 1;
-    background: linear-gradient(to bottom, #330000, #220000); /* 背景色を変更 */
-    color: #700;
-    transform: rotate(3deg);
-    transition: transform 0.2s ease-in-out; /* アニメーションを追加 */
+  opacity: 1;
+  background: linear-gradient(to bottom, #330000, #220000); /* 背景色を変更 */
+  color: #700;
+  transform: rotate(3deg);
+  transition: transform 0.2s ease-in-out; /* アニメーションを追加 */
 }
 
 .disable:hover {
-    transform: rotate(-3deg);
+  transform: rotate(-3deg);
 }
-
-
 
 .white {
-    color: white;
+  color: white;
 }
 .white::selection {
-    color: white;
-    text-shadow: 0 0 0.6vw black;
+  color: white;
+  text-shadow: 0 0 0.6vw black;
 }
 
 .textButton {
-    width: max(80px, 8.3vw); /* ボタンの幅 */
-    height: max(80px, 8.3vw); /* ボタンの高さ */
-    border: 0.1px solid white; /* 白い枠 */
-    background-color: black; /* 黒い背景 */
-    color: white; /* 文字色 */
-    font-size: max(40px, 4vw); /* フォントサイズ */
-    font-weight: bold;
-    text-align: center; /* テキストを中央揃え */
-    cursor: pointer;
-    line-height: max(80px, 8.3vw); /* テキストを垂直方向に中央揃え */
-    outline: none; /* ボタンにフォーカス時の枠を消す */
+  width: max(80px, 8.3vw); /* ボタンの幅 */
+  height: max(80px, 8.3vw); /* ボタンの高さ */
+  border: 0.1px solid white; /* 白い枠 */
+  background-color: black; /* 黒い背景 */
+  color: white; /* 文字色 */
+  font-size: max(40px, 4vw); /* フォントサイズ */
+  font-weight: bold;
+  text-align: center; /* テキストを中央揃え */
+  cursor: pointer;
+  line-height: max(80px, 8.3vw); /* テキストを垂直方向に中央揃え */
+  outline: none; /* ボタンにフォーカス時の枠を消す */
 }
