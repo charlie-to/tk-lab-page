@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "eslint": "eslint ."
+    "eslint": "eslint .",
+    "check": "biome check --write ./src"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

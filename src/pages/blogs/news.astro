@@ -7,7 +7,7 @@ const news_posts = await getCollection("blog", ({ data }) => {
   return data.tag.includes("news");
 }).then((posts) =>
   posts.sort(
-    (a, b) => (new Date(b.data.date) as any) - (new Date(a.data.date) as any),
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
   ),
 );
 ---
@@ -16,7 +16,7 @@ const news_posts = await getCollection("blog", ({ data }) => {
   <div class="container mx-auto my-4">
     <h1 class="text-3xl font-bold">高橋・狩川研究室のニュース</h1>
     <!-- ニュース一覧 -->
-    <section class="max-w-6xl mx-auto">
+    <section class="mx-auto max-w-6xl">
       <div>
         <div class="body-font overflow-hidden text-gray-600">
           <div class="container mx-auto px-5 py-24">
