@@ -9,6 +9,7 @@ export interface props {
 }
 const { links } = Astro.props;
 ---
+
 <!-- 変数を用いて定義するml-⚪︎⚪︎をあらかじめ呼び出してあげることで反映されるようになる。 -->
 <div hidden class="ml-12 ml-16 ml-20 ml-24 ml-28"></div>
 <div class="block">
@@ -17,33 +18,31 @@ const { links } = Astro.props;
     (function (links: link[]) {
       // links が空の場合は No links と表示する
       if (links.length === 0) {
-        return <li class="text-gray-500">No links</li>
+        return <li class="text-gray-500">No links</li>;
       }
 
       // 1から始まる番号のカウンタ
       let counter = 1;
 
       // html には、htmlベタ書きの結果を格納する
-      let html = ''
+      let html = '';
       for (let i = 0; i < links.length; i++) {
-        const link = links[i]
-        let { depth, text, slug } = link
-        html += '<div class="text-gray-500 w-full hover:bg-gray-100">'
-        html +=
-          '<a class="flex items-center" href="#' + slug + '">'
+        const link = links[i];
+        let { depth, text, slug } = link;
+        html += '<div class="text-gray-500 w-full hover:bg-gray-100">';
+        html += '<a class="flex items-center" href="#' + slug + '">';
         if (depth === 1) {
-          html += `<span class="text-white bg-blue-500 rounded-full px-4 inline-flex items-center justify-center h-8 w-8 mr-4">${counter}</span>`
-          html += '<p class="py-[6px] text-lg font-semibold">'
+          html += `<span class="text-white bg-blue-500 rounded-full px-4 inline-flex items-center justify-center h-8 w-8 mr-4">${counter}</span>`;
+          html += '<p class="py-[6px] text-lg font-semibold">';
           counter++;
-        }
-        else {
+        } else {
           // 見出しの＃の数に応じてインデントする。
-          html += `<p class="py-[4px] text-base ml-${(depth + 1) * 4}">`
+          html += `<p class="py-[4px] text-base ml-${(depth + 1) * 4}">`;
         }
-        html += slug + '</p></a>'
-        html += '</div>'
+        html += slug + '</p></a>';
+        html += '</div>';
       }
-      return <div set:html={html} />
+      return <div set:html={html} />;
     })(links)
   }
 </div>

@@ -1,19 +1,27 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import Layout from '@layouts/Layout.astro';
 ---
 
-<Layout title="Page Not Found" description="The page you requested could not be found.">
-  <div class="mx-auto max-w-xl text-center py-10">
-    <h1 class="text-4xl">Page Not Found</h2>
+<Layout
+  title="Page Not Found"
+  description="The page you requested could not be found."
+>
+  <div class="mx-auto max-w-xl py-10 text-center">
+    <h1 class="text-4xl">Page Not Found</h1>
     <div class="imageContainer">
-      <img src="/404.png">
+      <img src="/404.png" />
     </div>
-    <p class="text-xl p-2">ヒューマンエラーを完全に無くすのは とても難しいですね</p>
-    <p class="text-xl pt-6">少しでもヒューマンエラーを減らす研究</p>
+    <p class="p-2 text-xl">
+      ヒューマンエラーを完全に無くすのは とても難しいですね
+    </p>
+    <p class="pt-6 text-xl">少しでもヒューマンエラーを減らす研究</p>
     <p class="text-2xl">一緒にしませんか？</p>
 
-    <div class="buttonArea grid md:grid-cols-2 gap-10 p-10">
-      <a href="/contact/index.html#form" class="btn btn-primary text-white">お問い合わせ</a>
+    <div class="buttonArea grid gap-10 p-10 md:grid-cols-2">
+      <a href="/contact/index.html#form" class="btn btn-primary text-white"
+        >お問い合わせ</a
+      >
       <a href="/" class="btn btn-primary text-white">トップページに戻る</a>
+    </div>
   </div>
 </Layout>

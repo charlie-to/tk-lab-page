@@ -1,7 +1,7 @@
-import { defaultLang, ui } from "./ui.ts";
+import { defaultLang, ui } from './ui.ts';
 
 export function getLangFromUrl(url: URL) {
-  const segments = url.pathname.split("/").filter(Boolean);
+  const segments = url.pathname.split('/').filter(Boolean);
   // console.log(segments);
 
   for (const segment of segments) {

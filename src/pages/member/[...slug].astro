@@ -1,22 +1,22 @@
 ---
-import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("member");
+  const blogEntries = await getCollection('member');
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
 }
 
-import { imageConfig } from "astro:assets";
-import Layout from "@layouts/Layout.astro";
+import { imageConfig } from 'astro:assets';
+import Layout from '@layouts/Layout.astro';
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-const blog_posts = await getCollection("blog");
+const blog_posts = await getCollection('blog');
 const wrote_posts = blog_posts
   .filter((post) => post.data.author_name_main === entry.data.name.main)
   .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
@@ -81,33 +81,39 @@ const wrote_posts = blog_posts
           <p class="text-center text-xl font-bold text-gray-600 md:text-left">
             投稿したブログ
           </p>
-            {
-              wrote_posts.length ? (
-                <ul>
-                  {
-                    wrote_posts.map((post) => (
-                      <li class="pt-5">
-                        <div>
-                          <p class="text-xs pb-2">{post.data.date.replace("-", "/").replace("-", "/")}</p>
-                          <a href={`../../../../../blogs/${post.slug}/index.html`} class="text-xl ml-4 font-bold text-blue-500 hover:underline">{post.data.title}</a>
-                        </div>
-                      </li>
-                    ))
-                  }
-                </ul>
-              ):(
-                <p class="leading-relaxed">
-                  <br />
-                  とても素晴らしいブログを書いてくれるでしょう。<br />
-                  たぶん。きっと。そのはず。。。<br />
-                </p>
-              )
-            }
+          {
+            wrote_posts.length ? (
+              <ul>
+                {wrote_posts.map((post) => (
+                  <li class="pt-5">
+                    <div>
+                      <p class="pb-2 text-xs">
+                        {post.data.date.replace('-', '/').replace('-', '/')}
+                      </p>
+                      <a
+                        href={`../../../../../blogs/${post.slug}/index.html`}
+                        class="ml-4 text-xl font-bold text-blue-500 hover:underline"
+                      >
+                        {post.data.title}
+                      </a>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="leading-relaxed">
+                <br />
+                とても素晴らしいブログを書いてくれるでしょう。
+                <br />
+                たぶん。きっと。そのはず。。。
+                <br />
+              </p>
+            )
+          }
         </div>
       </div>
     </div>
   </div>
 </Layout>
-
 
 <!-- /blogs/events/imoni-2023/blog/index.html -->

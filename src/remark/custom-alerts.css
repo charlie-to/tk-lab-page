@@ -63,5 +63,5 @@
 }
 
 .markdown-alert-custom-hint {
-  @apply bg-yellow-100 border-yellow-500 text-yellow-500;
+  @apply border-yellow-500 bg-yellow-100 text-yellow-500;
 }

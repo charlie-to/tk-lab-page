@@ -1,9 +1,10 @@
 {
-  "semi": false,
+  "semi": true,
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "none",
-  "astroAllowShorthand": false,"plugins": ["prettier-plugin-astro","prettier-plugin-tailwindcss"],
+  "astroAllowShorthand": false,
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
   "overrides": [
     {
       "files": "*.astro",

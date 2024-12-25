@@ -7,5 +7,3 @@ major: '技術社会システム専攻'
 order: 8
 cover: './machida_ryoya.jpg'
 ---
-
-

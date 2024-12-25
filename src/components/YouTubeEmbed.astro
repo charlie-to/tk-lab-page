@@ -20,28 +20,28 @@ const { id } = Astro.props;
 <script>
   const callback: IntersectionObserverCallback = (entries, observer) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting) return
+      if (!entry.isIntersecting) return;
 
-      const embed = entry.target
+      const embed = entry.target;
 
-      const iframe = embed.children[0] as HTMLIFrameElement | null
-      const iframeOverlay = embed.children[1] as HTMLDivElement | null
-      if (!iframe || !iframeOverlay) return
+      const iframe = embed.children[0] as HTMLIFrameElement | null;
+      const iframeOverlay = embed.children[1] as HTMLDivElement | null;
+      if (!iframe || !iframeOverlay) return;
 
-      const src = iframe.getAttribute('data-src')
-      if (!src) return
+      const src = iframe.getAttribute('data-src');
+      if (!src) return;
 
-      iframe.setAttribute('src', src)
-      iframe.onload = () => iframeOverlay.remove()
+      iframe.setAttribute('src', src);
+      iframe.onload = () => iframeOverlay.remove();
 
-      observer.unobserve(embed)
-    })
-  }
+      observer.unobserve(embed);
+    });
+  };
 
   const observer = new IntersectionObserver(callback, {
     rootMargin: '1000px'
-  })
+  });
 
-  const targets = document.querySelectorAll('.youtube-embed')
-  targets.forEach((target) => observer.observe(target))
+  const targets = document.querySelectorAll('.youtube-embed');
+  targets.forEach((target) => observer.observe(target));
 </script>

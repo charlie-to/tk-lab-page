@@ -1,8 +1,8 @@
 ---
 // images
-import { Image } from "astro:assets";
-import SlideLayout from "@layouts/slide_layout.astro";
-import ghost from "./Images/_ghost.png";
+import { Image } from 'astro:assets';
+import SlideLayout from '@layouts/slide_layout.astro';
+import ghost from './Images/_ghost.png';
 ---
 
 <SlideLayout>
@@ -62,44 +62,44 @@ import ghost from "./Images/_ghost.png";
   </div>
   <script is:inline>
     window.addEventListener('DOMContentLoaded', () => {
-      const textFirst = document.querySelector('.first')
-      const ghost = document.querySelector('.ghost')
-      const buttonArea = document.querySelector('.buttonArea')
-      const fightButton = document.querySelector('#fight')
+      const textFirst = document.querySelector('.first');
+      const ghost = document.querySelector('.ghost');
+      const buttonArea = document.querySelector('.buttonArea');
+      const fightButton = document.querySelector('#fight');
 
       // 画面の要素を時間差で登場させる
       setTimeout(() => {
-        textFirst.style.transition = 'opacity 1s ease-in-out'
-        ghost.style.transition = 'opacity 1s ease-in-out'
-        textFirst.style.opacity = 1
-        ghost.style.opacity = 1
-      }, 1000)
+        textFirst.style.transition = 'opacity 1s ease-in-out';
+        ghost.style.transition = 'opacity 1s ease-in-out';
+        textFirst.style.opacity = 1;
+        ghost.style.opacity = 1;
+      }, 1000);
 
       setTimeout(() => {
-        buttonArea.style.transition = 'opacity 1s ease-in-out'
-        buttonArea.style.opacity = 1
-      }, 3000)
+        buttonArea.style.transition = 'opacity 1s ease-in-out';
+        buttonArea.style.opacity = 1;
+      }, 3000);
 
       // ボタンが押されたら画面遷移
       fightButton.addEventListener('click', () => {
-        const nextPageUrl = '../slide12/index.html'
+        const nextPageUrl = '../slide12/index.html';
 
         // 次のページを読み込む
         window.fetch(nextPageUrl).then((response) => {
           // 読み込みが完了したら画面遷移を行う
-          window.location.href = nextPageUrl
-        })
-      })
+          window.location.href = nextPageUrl;
+        });
+      });
 
-      const escapeButton = document.querySelector('#escape')
+      const escapeButton = document.querySelector('#escape');
       escapeButton.addEventListener('click', () => {
-        fightButton.style.background = 'linear-gradient(to bottom, #a00, #700)'
-        fightButton.style.color = '#e33'
-        fightButton.style.boxShadow = '0 0 50px 20px rgba(255, 255, 255, 0.3)'
-        escapeButton.style.transition = 'top 2s, transform 1s'
-        escapeButton.style.transform = 'rotateX(90deg)'
-        escapeButton.style.top = '110%'
-      })
-    })
+        fightButton.style.background = 'linear-gradient(to bottom, #a00, #700)';
+        fightButton.style.color = '#e33';
+        fightButton.style.boxShadow = '0 0 50px 20px rgba(255, 255, 255, 0.3)';
+        escapeButton.style.transition = 'top 2s, transform 1s';
+        escapeButton.style.transform = 'rotateX(90deg)';
+        escapeButton.style.top = '110%';
+      });
+    });
   </script>
 </SlideLayout>

@@ -1,35 +1,38 @@
 ---
 // images
-import { Image } from "astro:assets";
-import ResearchDetail from "@components/researchDetail.astro";
-import ResearchTop from "@components/researchTop.astro";
-import Layout from "@layouts/Layout.astro";
+import { Image } from 'astro:assets';
+import ResearchDetail from '@components/researchDetail.astro';
+import ResearchTop from '@components/researchTop.astro';
+import Layout from '@layouts/Layout.astro';
 
-import frustration from "./_frustration_drive.jpg";
-import oldpeople_drive1 from "./_koureisya_drive1.jpg";
-import oldpeople_drive2 from "./_koureisya_drive2.jpg";
-import smile from "./_smile_drive.jpg";
-import carla from "./_team-ai-simulator-1.png";
+import frustration from './_frustration_drive.jpg';
+import oldpeople_drive1 from './_koureisya_drive1.jpg';
+import oldpeople_drive2 from './_koureisya_drive2.jpg';
+import smile from './_smile_drive.jpg';
+import carla from './_team-ai-simulator-1.png';
 
 const keywords = [
-  "Driving simulator",
-  "Heart Rate Variability",
-  "Frustration",
-  "Machine Learning",
-  "Adaptive Automation",
-  "Physiological Indicator",
-  "Automatic Operation",
-  "AI",
+  'Driving simulator',
+  'Heart Rate Variability',
+  'Frustration',
+  'Machine Learning',
+  'Adaptive Automation',
+  'Physiological Indicator',
+  'Automatic Operation',
+  'AI',
 ];
 ---
 
 <Layout title="AIグループ">
   <main>
-    <ResearchTop title="AIグループ", keywords={keywords} />
+    <ResearchTop title="AIグループ" , keywords={keywords} />
 
     <section id="contents" class="container mx-auto max-w-6xl px-5">
       <section id="introduction" class="my-10">
-        <h1 id="top-message" class="mx-auto py-10 text-center md:text-4xl text-2xl font-bold">
+        <h1
+          id="top-message"
+          class="mx-auto py-10 text-center text-2xl font-bold md:text-4xl"
+        >
           <!-- 文章はjavascriptに書いてあります -->
         </h1>
       </section>
@@ -106,13 +109,13 @@ const keywords = [
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 ></script>
 <script is:inline>
-  $(function() {
-    $('.header-Logo-image').on('click', function() {
-      $('body').toggleClass('cursorEffect') // body全体にcursorEffectクラスをつけ外しする
-    })
-  })
+  $(function () {
+    $('.header-Logo-image').on('click', function () {
+      $('body').toggleClass('cursorEffect'); // body全体にcursorEffectクラスをつけ外しする
+    });
+  });
   // コナミコマンドの入力を監視している関数
-  let konamiCode = []
+  let konamiCode = [];
   const konamiPattern = [
     'ArrowUp',
     'ArrowUp',
@@ -124,50 +127,50 @@ const keywords = [
     'ArrowRight',
     'KeyB',
     'KeyA'
-  ]
-  const headerLogoImage = document.querySelector('.header-Logo-image')
+  ];
+  const headerLogoImage = document.querySelector('.header-Logo-image');
 
   document.addEventListener('keydown', (e) => {
-    konamiCode.push(e.code)
-    konamiCode = konamiCode.slice(-10) // Keep the last 10 key presses
+    konamiCode.push(e.code);
+    konamiCode = konamiCode.slice(-10); // Keep the last 10 key presses
 
     if (konamiCode.join('') === konamiPattern.join('')) {
       // Konami code matched, start rotation animation
-      headerLogoImage.classList.add('rotate')
-      konamiCode = [] // Reset the input code
+      headerLogoImage.classList.add('rotate');
+      konamiCode = []; // Reset the input code
     }
-  })
+  });
 
-  window.addEventListener('resize', function() {
-    var heading = document.getElementById('top-message')
-    var screenWidth = window.innerWidth
+  window.addEventListener('resize', function () {
+    var heading = document.getElementById('top-message');
+    var screenWidth = window.innerWidth;
 
     heading.innerHTML = `
         ドライビングシミュレータなど<br/>
         自動車に関する研究を行っています。
-      `
-  })
+      `;
+  });
 
   // 初回読み込み時にも実行するために、リサイズイベントを手動で発火させることもできます
-  window.dispatchEvent(new Event('resize'))
+  window.dispatchEvent(new Event('resize'));
 
   // 言語選択メニューを開閉する関数
   function toggleMenu() {
-    var languageList = document.getElementById('language-select')
-    languageList.classList.toggle('show')
+    var languageList = document.getElementById('language-select');
+    languageList.classList.toggle('show');
   }
 
   // selected-languageをクリックした時のイベントを追加
-  var selectedLanguage = document.getElementById('selected-language')
-  selectedLanguage.addEventListener('click', toggleMenu)
+  var selectedLanguage = document.getElementById('selected-language');
+  selectedLanguage.addEventListener('click', toggleMenu);
 
   // メニューの外側をクリックした時に閉じる処理
-  window.addEventListener('click', function(event) {
+  window.addEventListener('click', function (event) {
     if (!event.target.matches('#selected-language')) {
-      var languageList = document.getElementById('language-select')
+      var languageList = document.getElementById('language-select');
       if (languageList.classList.contains('show')) {
-        languageList.classList.remove('show')
+        languageList.classList.remove('show');
       }
     }
-  })
+  });
 </script>

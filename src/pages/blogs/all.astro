@@ -1,12 +1,12 @@
 ---
 // images
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-import BlogPostCard from "@components/BlogPostCard.astro";
-import Layout from "@layouts/Layout.astro";
-import defaultImage from "./blog_default.jpg";
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BlogPostCard from '@components/BlogPostCard.astro';
+import Layout from '@layouts/Layout.astro';
+import defaultImage from './blog_default.jpg';
 // 時系列に並べる
-const blog_posts = (await getCollection("blog")).sort((a, b) => {
+const blog_posts = (await getCollection('blog')).sort((a, b) => {
   return Date.parse(b.data.date) - Date.parse(a.data.date);
 });
 ---
@@ -49,39 +49,39 @@ const blog_posts = (await getCollection("blog")).sort((a, b) => {
 
 <!-- フィルター機能: javascript -->
 <script is:inline>
-  const filterButtons = document.querySelectorAll('[data-filter]')
-  const posts = document.querySelectorAll('[data-tag]')
+  const filterButtons = document.querySelectorAll('[data-filter]');
+  const posts = document.querySelectorAll('[data-tag]');
 
   // events when filter button clicked
   filterButtons.forEach((button) => {
-    button.addEventListener('click', buttonClicked)
-    button.addEventListener('click', tagFilter)
-  })
+    button.addEventListener('click', buttonClicked);
+    button.addEventListener('click', tagFilter);
+  });
 
   // change active filter button
   function buttonClicked() {
     filterButtons.forEach((button) => {
       // make all buttons inactive
-      button.classList.remove('btn-success')
-      button.classList.add('btn-ghost')
+      button.classList.remove('btn-success');
+      button.classList.add('btn-ghost');
       // make clicked button active
-      this.classList.add('btn-success')
-      this.classList.remove('btn-ghost')
-    })
+      this.classList.add('btn-success');
+      this.classList.remove('btn-ghost');
+    });
   }
 
   // posts filter function
   // hide posts that don't match the tag
   function tagFilter() {
-    const tag = this.dataset.filter
+    const tag = this.dataset.filter;
     posts.forEach((post) => {
       if (tag === 'all') {
-        post.classList.remove('hidden')
+        post.classList.remove('hidden');
       } else if (post.dataset.tag.includes(tag)) {
-        post.classList.remove('hidden')
+        post.classList.remove('hidden');
       } else {
-        post.classList.add('hidden')
+        post.classList.add('hidden');
       }
-    })
+    });
   }
 </script>

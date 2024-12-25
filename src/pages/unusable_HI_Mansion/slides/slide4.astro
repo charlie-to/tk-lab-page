@@ -1,72 +1,96 @@
 ---
 // images
-import { Image } from "astro:assets";
-import SlideLayout from "@layouts/slide_layout.astro";
-import ghost from "./Images/_ghost.png";
+import { Image } from 'astro:assets';
+import SlideLayout from '@layouts/slide_layout.astro';
+import ghost from './Images/_ghost.png';
 ---
 
 <SlideLayout>
-    <div class="slide-content flex" style="align-items: center; position: relative;">
-        <div class="textArea flex justify-center" style="flex: 1; display: flex; justify-content: center; align-items: center;">
-            <div class="text first" style="font-size: max(60px, 5vw); opacity: 1; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Are You Sure?</div>
-        </div>
-        <div class="buttonArea" style="opacity: 0;">
-            <button id="no" style="
+  <div
+    class="slide-content flex"
+    style="align-items: center; position: relative;"
+  >
+    <div
+      class="textArea flex justify-center"
+      style="flex: 1; display: flex; justify-content: center; align-items: center;"
+    >
+      <div
+        class="text first"
+        style="font-size: max(60px, 5vw); opacity: 1; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
+      >
+        Are You Sure?
+      </div>
+    </div>
+    <div class="buttonArea" style="opacity: 0;">
+      <button
+        id="no"
+        style="
             top: 85%;
             left: 30%;
             transform: translate(-50%, -50%);
             width: max(450px, 40vw);
             height: max(50px, 5vw);
-            ">NO</button>
-            <button id="yes" style="
+            "
+        >NO</button
+      >
+      <button
+        id="yes"
+        style="
             top: 85%;
             left: 75%;
             transform: translate(-50%, -50%);
             width: max(300px, 30vw);
             height: max(50px, 5vw);
 
-            ">YES</button>
-        </div>
-        <!-- どうやって頑張ってもsafariではNoを押した際のghostの位置がずれてしまう。chromeと画僧の座標計算方法が違うっぽい？ -->
-        <Image src={ghost} alt="ghost" class="ghost" style="width: max(400px, 40vw); transition: width 1s, top 1s, left 1s; z-index: -1; position: absolute; top: 70%; left: 50vw; transform: translate(-50%, -50%);"/>
+            "
+        >YES</button
+      >
     </div>
-    <script is:inline>
-        window.addEventListener('DOMContentLoaded', () => {
-            const buttonArea = document.querySelector('.buttonArea');
-            const ghost = document.querySelector('.ghost');
+    <!-- どうやって頑張ってもsafariではNoを押した際のghostの位置がずれてしまう。chromeと画僧の座標計算方法が違うっぽい？ -->
+    <Image
+      src={ghost}
+      alt="ghost"
+      class="ghost"
+      style="width: max(400px, 40vw); transition: width 1s, top 1s, left 1s; z-index: -1; position: absolute; top: 70%; left: 50vw; transform: translate(-50%, -50%);"
+    />
+  </div>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      const buttonArea = document.querySelector('.buttonArea');
+      const ghost = document.querySelector('.ghost');
 
-            setTimeout(() => {
-                buttonArea.style.transition = "opacity 1s ease-in-out"
-                buttonArea.style.opacity = 1;
-            }, 300);
+      setTimeout(() => {
+        buttonArea.style.transition = 'opacity 1s ease-in-out';
+        buttonArea.style.opacity = 1;
+      }, 300);
 
-            // ボタンが押されたら画面遷移
-            const noButton = document.getElementById('no');
-            noButton.addEventListener('click', () => {
-                ghost.style.width = "max(800px, 80vw)";
-                ghost.style.zIndex = 10;
-                setTimeout(() => {
-                    const nextPageUrl = '../slide5/index.html';
+      // ボタンが押されたら画面遷移
+      const noButton = document.getElementById('no');
+      noButton.addEventListener('click', () => {
+        ghost.style.width = 'max(800px, 80vw)';
+        ghost.style.zIndex = 10;
+        setTimeout(() => {
+          const nextPageUrl = '../slide5/index.html';
 
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-                }, 3000);
-            });
+          // 次のページを読み込む
+          window.fetch(nextPageUrl).then((response) => {
+            // 読み込みが完了したら画面遷移を行う
+            window.location.href = nextPageUrl;
+          });
+        }, 3000);
+      });
 
-            // ボタンが押されたら画面遷移
-            const yesButton = document.getElementById('yes');
-            yesButton.addEventListener('click', () => {
-                const nextPageUrl = '../slide6/index.html';
+      // ボタンが押されたら画面遷移
+      const yesButton = document.getElementById('yes');
+      yesButton.addEventListener('click', () => {
+        const nextPageUrl = '../slide6/index.html';
 
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-            });
+        // 次のページを読み込む
+        window.fetch(nextPageUrl).then((response) => {
+          // 読み込みが完了したら画面遷移を行う
+          window.location.href = nextPageUrl;
         });
-    </script>
+      });
+    });
+  </script>
 </SlideLayout>

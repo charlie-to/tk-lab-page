@@ -26,24 +26,30 @@ B4以上の研究室メンバー全員が何かしらの研究グループに所
 1. Aviation Safety-G
    - 航空安全、特にパイロットのパフォーマンスについての研究
 1. NTS-G
+
    - Non-Technical Skill についての研究
 
 1. Event Analysis Method-G
+
    - 事故事例分析の研究
 
-2. Organizational Management
+1. Organizational Management
+
    - 失敗許容度などの組織のマネジメントに関する研究
 
-3. DICE-G
+1. DICE-G
+
    - 企業との共同研究のグループ。生体指標からイライラを検出しようと頑張っています。
 
-4. Cognitive Safety-G
+1. Cognitive Safety-G
+
    - 認知実験をする人たちのグループ。
 
-5. Real world-G
+1. Real world-G
+
    - 社会人学生の研究グループ。社会人のみなさんエネルギッシュですごい。
 
-6. GPAI-G
+1. GPAI-G
    - Grobal Partnership on AI という国際的なイニシアチブに協力するグループ。
 
 とこんな形に分かれました。

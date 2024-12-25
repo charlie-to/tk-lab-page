@@ -8,8 +8,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "eslint": "eslint .",
-    "check": "biome check --write ./src"
+    "fmt:prettier": "prettier --write .",
+    "fmt:biome": "biome check --write ./src",
+    "check": "pnpm fmt:prettier && pnpm fmt:biome && astro check"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -44,10 +45,12 @@
     "@eslint/js": "^9.17.0",
     "@iconify-json/mdi": "^1.2.2",
     "@playwright/test": "^1.49.1",
+    "@types/mdast": "^4.0.4",
     "globals": "^15.14.0",
     "hastscript": "^9.0.0",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-tailwindcss": "^0.5.14"
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "unified": "^11.0.5"
   }
 }

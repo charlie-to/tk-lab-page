@@ -1,68 +1,79 @@
 ---
 // images
-import { Image } from "astro:assets";
-import SlideLayout from "@layouts/slide_layout.astro";
-import ghost from "./Images/_ghost.png";
+import { Image } from 'astro:assets';
+import SlideLayout from '@layouts/slide_layout.astro';
+import ghost from './Images/_ghost.png';
 ---
 
 <SlideLayout>
-    <div class="slide-content" style="position: relative; display: flex; justify-content: center; align-items: center;">
-        <div class="textArea" style="background-color: rgba(0, 0, 0, 0.6); position: absolute; z-index: 2; width: 100%; text-align: center;">
-            <div class="text first" style="font-size: max(40px, 3.6vw); opacity: 0;">
-                そうそう、よくぞひっかかってくれました！
-            </div>
-        </div>
-        <Image src={ghost} alt="ghost" class="ghost" style="width: max(800px, 70vw); transform: translate(-50%, -40%); opacity: 0; position: absolute; top: 60%; left: 50%; z-index: 1;"/>
+  <div
+    class="slide-content"
+    style="position: relative; display: flex; justify-content: center; align-items: center;"
+  >
+    <div
+      class="textArea"
+      style="background-color: rgba(0, 0, 0, 0.6); position: absolute; z-index: 2; width: 100%; text-align: center;"
+    >
+      <div class="text first" style="font-size: max(40px, 3.6vw); opacity: 0;">
+        そうそう、よくぞひっかかってくれました！
+      </div>
     </div>
+    <Image
+      src={ghost}
+      alt="ghost"
+      class="ghost"
+      style="width: max(800px, 70vw); transform: translate(-50%, -40%); opacity: 0; position: absolute; top: 60%; left: 50%; z-index: 1;"
+    />
+  </div>
 
-    <script is:inline>
-        window.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-            const fromPage = params.get('from');
-            const textFirst = document.querySelector('.first');
-            const ghost = document.querySelector('.ghost');
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const fromPage = params.get('from');
+      const textFirst = document.querySelector('.first');
+      const ghost = document.querySelector('.ghost');
 
-            // 画面の要素を時間差で登場させる
-            setTimeout(() => {
-                textFirst.style.transition = "opacity 2s ease-in-out"
-                ghost.style.transition = "opacity 2s ease-in-out"
-                textFirst.style.opacity = 1;
-                ghost.style.opacity = 1;
-            }, 1000);
+      // 画面の要素を時間差で登場させる
+      setTimeout(() => {
+        textFirst.style.transition = 'opacity 2s ease-in-out';
+        ghost.style.transition = 'opacity 2s ease-in-out';
+        textFirst.style.opacity = 1;
+        ghost.style.opacity = 1;
+      }, 1000);
 
-            setTimeout(() => {
-                textFirst.style.opacity = 0;
-                ghost.style.opacity = 0;
-            }, 4000);
+      setTimeout(() => {
+        textFirst.style.opacity = 0;
+        ghost.style.opacity = 0;
+      }, 4000);
 
-            // 自動で画面遷移
-            setTimeout(() => {
-                if (fromPage === 'slide16') {
-                    const nextPageUrl = '../slide20/index.html';
+      // 自動で画面遷移
+      setTimeout(() => {
+        if (fromPage === 'slide16') {
+          const nextPageUrl = '../slide20/index.html';
 
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-                } else if (fromPage === 'slide27') {
-                    const nextPageUrl = '../slide28/index.html';
+          // 次のページを読み込む
+          window.fetch(nextPageUrl).then((response) => {
+            // 読み込みが完了したら画面遷移を行う
+            window.location.href = nextPageUrl;
+          });
+        } else if (fromPage === 'slide27') {
+          const nextPageUrl = '../slide28/index.html';
 
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-                } else {
-                    const nextPageUrl = '../slide20/index.html';
+          // 次のページを読み込む
+          window.fetch(nextPageUrl).then((response) => {
+            // 読み込みが完了したら画面遷移を行う
+            window.location.href = nextPageUrl;
+          });
+        } else {
+          const nextPageUrl = '../slide20/index.html';
 
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-                }
-            }, 6000);
-        });
-    </script>
+          // 次のページを読み込む
+          window.fetch(nextPageUrl).then((response) => {
+            // 読み込みが完了したら画面遷移を行う
+            window.location.href = nextPageUrl;
+          });
+        }
+      }, 6000);
+    });
+  </script>
 </SlideLayout>

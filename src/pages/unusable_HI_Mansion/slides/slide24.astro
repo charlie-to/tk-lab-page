@@ -1,8 +1,8 @@
 ---
 // images
-import { Image } from "astro:assets";
-import SlideLayout from "@layouts/slide_layout.astro";
-import ghost from "./Images/_ghost.png";
+import { Image } from 'astro:assets';
+import SlideLayout from '@layouts/slide_layout.astro';
+import ghost from './Images/_ghost.png';
 ---
 
 <SlideLayout>
@@ -60,80 +60,80 @@ import ghost from "./Images/_ghost.png";
   </div>
   <script is:inline>
     window.addEventListener('DOMContentLoaded', () => {
-      const textFirst = document.querySelector('.first')
-      const buttonArea = document.querySelector('.buttonArea')
+      const textFirst = document.querySelector('.first');
+      const buttonArea = document.querySelector('.buttonArea');
 
-      const initialGhost = document.querySelector('.ghost')
+      const initialGhost = document.querySelector('.ghost');
 
       // 初期位置
-      const initialTop = 55
-      const initialLeft = 50
-      const numOfGhosts = 15 // 作成する画像の数
+      const initialTop = 55;
+      const initialLeft = 50;
+      const numOfGhosts = 15; // 作成する画像の数
 
       for (let i = 1; i < numOfGhosts; i++) {
-        const newGhost = initialGhost.cloneNode(true)
-        const randomTop = Math.random() * 10 + 50
-        const randomLeft = Math.random() * 80 + 10
+        const newGhost = initialGhost.cloneNode(true);
+        const randomTop = Math.random() * 10 + 50;
+        const randomLeft = Math.random() * 80 + 10;
 
-        newGhost.style.top = `${randomTop}%`
-        newGhost.style.left = `${randomLeft}%`
+        newGhost.style.top = `${randomTop}%`;
+        newGhost.style.left = `${randomLeft}%`;
 
         // ランダムな遅延時間を生成 (0秒から2秒の間でランダム)
-        const randomDelay = Math.random() * 2000
-        newGhost.style.animationDelay = `${randomDelay}ms`
+        const randomDelay = Math.random() * 2000;
+        newGhost.style.animationDelay = `${randomDelay}ms`;
 
         // アニメーションが適用されるため、opacityを変更して表示させる
         setTimeout(() => {
-          newGhost.style.opacity = 0.9
-        }, randomDelay)
+          newGhost.style.opacity = 0.9;
+        }, randomDelay);
 
-        initialGhost.parentNode.appendChild(newGhost)
+        initialGhost.parentNode.appendChild(newGhost);
       }
 
       // 画面の要素を時間差で登場させる
       setTimeout(() => {
-        textFirst.style.transition = 'opacity 1s ease-in-out'
-        textFirst.style.opacity = 1
-      }, 1000)
+        textFirst.style.transition = 'opacity 1s ease-in-out';
+        textFirst.style.opacity = 1;
+      }, 1000);
 
       setTimeout(() => {
-        buttonArea.style.transition = 'opacity 1s ease-in-out'
-        buttonArea.style.opacity = 1
-      }, 3000)
+        buttonArea.style.transition = 'opacity 1s ease-in-out';
+        buttonArea.style.opacity = 1;
+      }, 3000);
 
       // ボタンが押されたら画面遷移
-      const fightButton = document.getElementById('fight')
+      const fightButton = document.getElementById('fight');
       fightButton.addEventListener('click', () => {
-        const nextPageUrl = '../slide25/index.html'
+        const nextPageUrl = '../slide25/index.html';
 
         // 次のページを読み込む
         window.fetch(nextPageUrl).then((response) => {
           // 読み込みが完了したら画面遷移を行う
-          window.location.href = nextPageUrl
-        })
-      })
+          window.location.href = nextPageUrl;
+        });
+      });
 
       // ボタンが押されたら画面遷移
-      const escapeButton = document.getElementById('escape')
-      let count = 0
+      const escapeButton = document.getElementById('escape');
+      let count = 0;
       escapeButton.addEventListener('click', () => {
         if (count === 2) {
-          escapeButton.style.top = `88%`
-          escapeButton.style.left = `28%`
-          escapeButton.style.zIndex = '1'
-          fightButton.style.zIndex = '2'
-          fightButton.style.animation = ''
-          fightButton.style.opacity = 0.6
+          escapeButton.style.top = `88%`;
+          escapeButton.style.left = `28%`;
+          escapeButton.style.zIndex = '1';
+          fightButton.style.zIndex = '2';
+          fightButton.style.animation = '';
+          fightButton.style.opacity = 0.6;
         } else {
           escapeButton.style.transition =
-            'top 0.5s ease-in-out, left 0.5s ease-in-out'
-          const randomTop = Math.random() * 85 + 5
-          const randomLeft = Math.random() * 85 + 5
-          escapeButton.style.top = `${randomTop}%`
-          escapeButton.style.left = `${randomLeft}%`
-          count++
+            'top 0.5s ease-in-out, left 0.5s ease-in-out';
+          const randomTop = Math.random() * 85 + 5;
+          const randomLeft = Math.random() * 85 + 5;
+          escapeButton.style.top = `${randomTop}%`;
+          escapeButton.style.left = `${randomLeft}%`;
+          count++;
         }
-      })
-    })
+      });
+    });
   </script>
 </SlideLayout>

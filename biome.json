@@ -24,11 +24,14 @@
     }
   },
   "javascript": {
-    "globals": [
-      "Astro"
-    ],
+    "globals": ["Astro"],
     "formatter": {
-      "quoteStyle": "double"
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "semicolons": "always",
+      "quoteStyle": "single",
+      "attributePosition": "auto"
     }
   }
 }

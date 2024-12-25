@@ -1,44 +1,54 @@
 ---
 // images
-import { Image } from "astro:assets";
-import SlideLayout from "@layouts/slide_layout.astro";
-import ghost from "./Images/_ghost.png";
+import { Image } from 'astro:assets';
+import SlideLayout from '@layouts/slide_layout.astro';
+import ghost from './Images/_ghost.png';
 ---
 
 <SlideLayout>
-    <div class="slide-content" style="position: relative;">
-        <div class="textArea" style="margin-left: max(20px, 2vw); margin-top: max(130px, 12vw); position: relative;">
-            <div class="text first"
-                style="display: inline-block; font-size: max(80px, 6vw); opacity: 1; position: relative; transform: rotate(340deg);">
-                い、行かないでっ!!
-            </div>
-        </div>
-        <Image src={ghost} alt="ghost" id="ghost" style="width: max(800px, 80vw); transform: rotate(340deg); opacity: 1; position: absolute; top: 30%; left: 30%;"/>
+  <div class="slide-content" style="position: relative;">
+    <div
+      class="textArea"
+      style="margin-left: max(20px, 2vw); margin-top: max(130px, 12vw); position: relative;"
+    >
+      <div
+        class="text first"
+        style="display: inline-block; font-size: max(80px, 6vw); opacity: 1; position: relative; transform: rotate(340deg);"
+      >
+        い、行かないでっ!!
+      </div>
     </div>
+    <Image
+      src={ghost}
+      alt="ghost"
+      id="ghost"
+      style="width: max(800px, 80vw); transform: rotate(340deg); opacity: 1; position: absolute; top: 30%; left: 30%;"
+    />
+  </div>
 
-    <script is:inline>
-        window.addEventListener('DOMContentLoaded', () => {
-            const textFirst = document.querySelector('.first');
-            const ghost = document.querySelector('#ghost');
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      const textFirst = document.querySelector('.first');
+      const ghost = document.querySelector('#ghost');
 
-            ghost.style.transform = "rotate(340deg)"
-            setTimeout(() => {
-                textFirst.style.transition = "opacity 2s ease-in-out"
-                ghost.style.transition = "opacity 2s ease-in-out"
-                textFirst.style.opacity = 0;
-                ghost.style.opacity = 0;
-            }, 3000);
+      ghost.style.transform = 'rotate(340deg)';
+      setTimeout(() => {
+        textFirst.style.transition = 'opacity 2s ease-in-out';
+        ghost.style.transition = 'opacity 2s ease-in-out';
+        textFirst.style.opacity = 0;
+        ghost.style.opacity = 0;
+      }, 3000);
 
-            // 自動で画面遷移
-            setTimeout(() => {
-                const nextPageUrl = '../slide11/index.html';
+      // 自動で画面遷移
+      setTimeout(() => {
+        const nextPageUrl = '../slide11/index.html';
 
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-            }, 5000);
+        // 次のページを読み込む
+        window.fetch(nextPageUrl).then((response) => {
+          // 読み込みが完了したら画面遷移を行う
+          window.location.href = nextPageUrl;
         });
-    </script>
+      }, 5000);
+    });
+  </script>
 </SlideLayout>

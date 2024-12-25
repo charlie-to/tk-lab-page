@@ -1,9 +1,9 @@
 ---
-import { Image } from "astro:assets";
-import type { CollectionEntry } from "astro:content";
-import { Icon } from "astro-icon/components";
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { Icon } from 'astro-icon/components';
 export interface Props {
-  member: CollectionEntry<"member">;
+  member: CollectionEntry<'member'>;
 }
 const { member } = Astro.props;
 ---
@@ -33,7 +33,7 @@ const { member } = Astro.props;
       {
         () => {
           if (member.data.major !== '') {
-            return <div class="badge badge-outline">{member.data.major}</div>
+            return <div class="badge badge-outline">{member.data.major}</div>;
           }
         }
       }
@@ -49,7 +49,7 @@ const { member } = Astro.props;
                     <span>#{tag}</span>
                   ))}
                 </div>
-              )
+              );
             }
           }
         }

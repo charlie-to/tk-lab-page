@@ -1,26 +1,26 @@
 ---
-import { getCollection } from "astro:content";
-import BlogPostCard from "@components/BlogPostCard.astro";
-import Layout from "../../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+import BlogPostCard from '@components/BlogPostCard.astro';
+import Layout from '../../layouts/Layout.astro';
 
 // images
-import { Image } from "astro:assets";
-import defaultImage from "./blog_default.jpg";
+import { Image } from 'astro:assets';
+import defaultImage from './blog_default.jpg';
 
-const blog_posts = await getCollection("blog");
+const blog_posts = await getCollection('blog');
 const recent_posts = blog_posts
   .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
-  .filter((post) => !post.data.tag.includes("dev"))
+  .filter((post) => !post.data.tag.includes('dev'))
   .slice(0, 3);
 const limit = 5;
 const event_posts = blog_posts
   .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
-  .filter((post) => post.data.tag.includes("blog"))
+  .filter((post) => post.data.tag.includes('blog'))
   .slice(0, limit + 1);
 
 const news_posts = blog_posts
   .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
-  .filter((post) => post.data.tag.includes("news"))
+  .filter((post) => post.data.tag.includes('news'))
   .slice(0, limit + 1);
 ---
 

@@ -1,14 +1,14 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
 export async function getStaticPaths() {
-  const newsEntries = await getCollection("blog");
+  const newsEntries = await getCollection('blog');
   return newsEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
 }
-import BlogDetail from "@layouts/BlogDetail.astro";
-import "src/remark/custom-alerts.css";
+import BlogDetail from '@layouts/BlogDetail.astro';
+import 'src/remark/custom-alerts.css';
 
 const { entry } = Astro.props;
 const { Content, remarkPluginFrontmatter, headings } = await entry.render();

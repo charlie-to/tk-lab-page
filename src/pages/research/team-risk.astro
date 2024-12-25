@@ -1,36 +1,36 @@
 ---
-import { Image } from "astro:assets";
-import Layout from "@layouts/Layout.astro";
-import Image1 from "./_team-risk-1.jpg";
+import { Image } from 'astro:assets';
+import Layout from '@layouts/Layout.astro';
+import Image1 from './_team-risk-1.jpg';
 ---
 
 <Layout title="社会受容グループ">
   <div class="container mx-auto">
-  <section class="my-6">
-    <div class="w-full">
-      <h1 class="w-full text-center text-3xl">社会受容グループ</h1>
-      <p class="w-full text-center text-base">
-        社会受容をテーマに研究しています。
-      </p>
-    </div>
-  </section>
-  <section class="my-6">
-    <article>
-      <div class="my-8">
-        <p>
-          社会受容グループでは、AIや原子力発電など、社会に大きな影響を与え得る高度な科学技術に対する”社会受容”をテーマに研究を行っております。
-          例えば、原子力発電に対する認識の全体像を構造的に可視化することを通した対話の研究や、医療現場でのAIテクノロジー活用に関する認識の調査などが本グループの研究テーマです。
+    <section class="my-6">
+      <div class="w-full">
+        <h1 class="w-full text-center text-3xl">社会受容グループ</h1>
+        <p class="w-full text-center text-base">
+          社会受容をテーマに研究しています。
         </p>
       </div>
-      <div class="flex max-h-80 w-full overflow-hidden">
-        <div class="h-full w-1/3 items-center bg-slate-300">
-          <Image src={Image1} alt="学会発表" class="h-full w-full" />
+    </section>
+    <section class="my-6">
+      <article>
+        <div class="my-8">
+          <p>
+            社会受容グループでは、AIや原子力発電など、社会に大きな影響を与え得る高度な科学技術に対する”社会受容”をテーマに研究を行っております。
+            例えば、原子力発電に対する認識の全体像を構造的に可視化することを通した対話の研究や、医療現場でのAIテクノロジー活用に関する認識の調査などが本グループの研究テーマです。
+          </p>
         </div>
-        <div class="ml-10 w-1/3 bg-slate-300">
-          <span class="absolute">No Image</span>
+        <div class="flex max-h-80 w-full overflow-hidden">
+          <div class="h-full w-1/3 items-center bg-slate-300">
+            <Image src={Image1} alt="学会発表" class="h-full w-full" />
+          </div>
+          <div class="ml-10 w-1/3 bg-slate-300">
+            <span class="absolute">No Image</span>
+          </div>
         </div>
-      </div>
-    </article>
-  </section>
+      </article>
+    </section>
   </div>
 </Layout>

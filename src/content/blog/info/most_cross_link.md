@@ -6,6 +6,7 @@ tag: ['info']
 ---
 
 # 高橋先生の記事
+
 [専攻HPにて高橋先生の記事](https://www.most.tohoku.ac.jp/crosslink/takahashi/)が紹介されています。
 研究内容について紹介しています。
 ぜひご覧ください。

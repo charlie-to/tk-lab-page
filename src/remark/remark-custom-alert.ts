@@ -1,6 +1,6 @@
-import type { Paragraph, Root } from "mdast";
-import type { Plugin } from "unified";
-import { visit } from "unist-util-visit";
+import type { Paragraph, Root } from 'mdast';
+import type { Plugin } from 'unified';
+import { visit } from 'unist-util-visit';
 // import { GITHUB_ICONS } from './github_icons.ts';
 
 export type RemarkGitHubAlertsOptions = {
@@ -8,7 +8,7 @@ export type RemarkGitHubAlertsOptions = {
    * List of markers to match.
    * @default ['TIP', 'NOTE', 'IMPORTANT', 'WARNING', 'CAUTION']
    */
-  markers?: string[] | "*";
+  markers?: string[] | '*';
 
   /**
    * If markers case sensitively on matching.
@@ -57,56 +57,56 @@ function capitalize(str: string) {
 function encodeSvg(svg: string) {
   return svg
     .replace(
-      "<svg",
-      ~svg.indexOf("xmlns")
-        ? "<svg"
+      '<svg',
+      ~svg.indexOf('xmlns')
+        ? '<svg'
         : '<svg xmlns="http://www.w3.org/2000/svg"',
     )
     .replaceAll('"', "'")
-    .replaceAll("%", "%25")
-    .replaceAll("#", "%23")
-    .replaceAll("{", "%7B")
-    .replaceAll("}", "%7D")
-    .replaceAll("<", "%3C")
-    .replaceAll(">", "%3E");
+    .replaceAll('%', '%25')
+    .replaceAll('#', '%23')
+    .replaceAll('{', '%7B')
+    .replaceAll('}', '%7D')
+    .replaceAll('<', '%3C')
+    .replaceAll('>', '%3E');
 }
 
 const remarkCustomAlerts: Plugin<RemarkGitHubAlertsOptions[], Root> = (
   options = {},
 ) => {
   const {
-    markers = ["MEMO", "HINT", "ひとことメモ", "CUSTOM"],
+    markers = ['MEMO', 'HINT', 'ひとことメモ', 'CUSTOM'],
     icons = DEFAULT_GITHUB_ICONS,
     matchCaseSensitive = false,
     titles = {},
-    classPrefix = "markdown-alert-custom",
+    classPrefix = 'markdown-alert-custom',
     ignoreSquareBracket = false,
   } = options;
 
-  const markerNameRE = markers === "*" ? "\\w+" : markers.join("|");
+  const markerNameRE = markers === '*' ? '\\w+' : markers.join('|');
   const RE = new RegExp(
     ignoreSquareBracket
       ? `^!(${markerNameRE})\\s?`
       : `^\\[\\!(${markerNameRE})\\]\\s`,
-    matchCaseSensitive ? "" : "i",
+    matchCaseSensitive ? '' : 'i',
   );
 
   return (tree) => {
-    visit(tree, "blockquote", (node, index, parent) => {
+    visit(tree, 'blockquote', (node, index, parent) => {
       const children = node.children as Paragraph[];
       const firstParagraph = children[0];
       if (!firstParagraph) return;
       let firstContent = firstParagraph.children[0];
       if (!firstContent) return;
       if (
-        !("value" in firstContent) &&
-        "children" in firstContent &&
+        !('value' in firstContent) &&
+        'children' in firstContent &&
         firstContent.children[0]
       )
         firstContent = firstContent.children[0];
       // console.log('firstContent', firstContent)
 
-      if (firstContent.type !== "text") return;
+      if (firstContent.type !== 'text') return;
       const match = firstContent.value.match(RE);
       // console.log('match', match)
       if (!match) return;
@@ -118,22 +118,22 @@ const remarkCustomAlerts: Plugin<RemarkGitHubAlertsOptions[], Root> = (
 
       if (index === undefined || !parent) return;
 
-      let color = "yellow";
-      let icon_name = "" as keyof typeof icons;
-      if (type === "custom") {
-        let parameters = firstContent.value.split("\n");
+      let color = 'yellow';
+      let icon_name = '' as keyof typeof icons;
+      if (type === 'custom') {
+        let parameters = firstContent.value.split('\n');
         // console.log('parameters', parameters)
         firstContent.value = parameters[1].trimStart();
-        parameters = parameters[0].split(" ");
+        parameters = parameters[0].split(' ');
         // console.log('parameters', parameters)
         color = parameters[1];
         icon_name = parameters[2] as keyof typeof icons;
         icon = icons[icon_name];
         // console.log('icon', icon)
         if (parameters.length <= 3) {
-          title = " ";
+          title = ' ';
         } else {
-          title = parameters.slice(3).join(" ");
+          title = parameters.slice(3).join(' ');
         }
         // console.log('title', title)
       } else {
@@ -147,10 +147,10 @@ const remarkCustomAlerts: Plugin<RemarkGitHubAlertsOptions[], Root> = (
       // console.log(firstContent.value)
 
       node.data = {
-        hName: "div",
+        hName: 'div',
         hProperties: {
           class:
-            type === "custom"
+            type === 'custom'
               ? `${classPrefix} ${classPrefix}-${type} bg-${color}-100 border-${color}-500`
               : `${classPrefix} ${classPrefix}-${type}`,
           // style: `color: ${color}`,
@@ -158,12 +158,12 @@ const remarkCustomAlerts: Plugin<RemarkGitHubAlertsOptions[], Root> = (
       };
       node.children = [
         {
-          type: "paragraph",
+          type: 'paragraph',
           data: {
-            hName: "p",
+            hName: 'p',
             hProperties: {
               class:
-                type === "custom"
+                type === 'custom'
                   ? `${classPrefix}-title text-${color}-500`
                   : `${classPrefix}-title`,
             },
@@ -171,12 +171,12 @@ const remarkCustomAlerts: Plugin<RemarkGitHubAlertsOptions[], Root> = (
           children: [
             {
               // @ts-expect-error can not use span
-              type: "span",
+              type: 'span',
               data: {
-                hName: "span",
+                hName: 'span',
                 hProperties: {
                   class:
-                    type === "custom"
+                    type === 'custom'
                       ? `octicon octicon-${icon_name}`
                       : `octicon octicon-${type}`,
                   style: `--oct-icon: url("${iconDataUri}")`,
@@ -184,7 +184,7 @@ const remarkCustomAlerts: Plugin<RemarkGitHubAlertsOptions[], Root> = (
               },
             },
             {
-              type: "text",
+              type: 'text',
               value: title,
             },
           ],

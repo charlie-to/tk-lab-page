@@ -3,27 +3,34 @@ const { title, subTitle, detail, isLeft } = Astro.props;
 ---
 
 <div>
-  <li class="group content-item is-right fadein bg-gray-100 w-full my-10 duration-500 lg:hover:-translate-y-2 p-5">
-    <div class={`content-itemInner md:flex flex-col md:flex-row justify-center w-full ${isLeft ? 'md:flex-row-reverse' : ''}`}>
-      <div class="image-container md:w-1/3 sm:max-w-sm relative content-center overflow-hidden mx-auto">
-        <div class="image-containerInner aspect-square relative">
+  <li
+    class="content-item is-right fadein group my-10 w-full bg-gray-100 p-5 duration-500 lg:hover:-translate-y-2"
+  >
+    <div
+      class={`content-itemInner md:flex flex-col md:flex-row justify-center w-full ${isLeft ? 'md:flex-row-reverse' : ''}`}
+    >
+      <div
+        class="image-container relative mx-auto content-center overflow-hidden sm:max-w-sm md:w-1/3"
+      >
+        <div class="image-containerInner relative aspect-square">
           <slot />
         </div>
       </div>
-    
-      <div class="content-nameArea md:w-2/3 my-auto text-center md:px-5">
+
+      <div class="content-nameArea my-auto text-center md:w-2/3 md:px-5">
         <div class="content-nameInner">
-          <h2 class="content-name text-3xl font-serif my-5">{title}</h2>
+          <h2 class="content-name my-5 font-serif text-3xl">{title}</h2>
         </div>
-        <h3 class="content-label text-2xl font-serif text-stone-500">
+        <h3 class="content-label font-serif text-2xl text-stone-500">
           {subTitle}
         </h3>
-        <hr class="content-line lg:w-0 mx-auto my-2 border-px border-blue-300 duration-500 lg:group-hover:w-full" />
+        <hr
+          class="content-line border-px mx-auto my-2 border-blue-300 duration-500 lg:w-0 lg:group-hover:w-full"
+        />
         <p class="content-detailTxt text-md mt-10">
-          {detail}          
+          {detail}
         </p>
       </div>
     </div>
   </li>
 </div>
-
