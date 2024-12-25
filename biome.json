@@ -24,6 +24,9 @@
     }
   },
   "javascript": {
+    "globals": [
+      "Astro"
+    ],
     "formatter": {
       "quoteStyle": "double"
     }
