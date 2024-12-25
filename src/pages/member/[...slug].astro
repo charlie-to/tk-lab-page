@@ -18,7 +18,7 @@ const { Content } = await entry.render();
 
 const blog_posts = await getCollection("blog");
 const wrote_posts = blog_posts
-  .filter((post) => post.data.author_name_main == entry.data.name.main)
+  .filter((post) => post.data.author_name_main === entry.data.name.main)
   .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 ---
 
