@@ -32,13 +32,31 @@ lead: '研究室HPの更新方法を紹介'
 
 ---
 
+# 大元のリポジトリをフォーク
+ホームページ管理係が管理している大元となるリポジトリを自分のGithubにフォーク(コピーを作成)します。
+1. 大元のリポジトリをブラウザで開きます。(URL等はホームページ管理係に確認してください)
+2. 画面右上部にあるForkをクリックします。
+![Github Fork](./img-git-flow/Github-fork.png)
+3. Create先のOwnerとして自分のアカウントを選択してください。
+4. Create forkをクリックし、自分のリポジトリに`tk-lab-page`が追加されたことを確認してください。
+
+---
+
 # リポジトリのクローン
 GitKrakenを使って研究室のホームページのソースコードを取得（クローン）します。
 1. GitKrakenを起動します。
 2. 左側のメニューから「Clone a Repo」を選択します。
-3. 「Repository URL」に、研究室のGitHubリポジトリURLを入力します。
-  - 例: `https://github.com/username/tk-lab-page.git` (実際のURLをホームページ管理係に確認してください)
-4. 保存先のフォルダを選択して「Clone」をクリックします。
+![Clone a Repo](./img-git-flow/GitKrakenTop.png)
+3. 「Where to clone to」 に自分のパソコン内の保存したい場所を入力してください。
+4. 「Repository URL」に、先ほど作成した`自分のGitHubリポジトリURL`を入力します。
+  - 例: `https://github.com/username/tk-lab-page.git`
+![Inpput Repo's info](./img-git-flow/Clone-a-Repo.png)
+5. **`Create the repo!`** をクリック。
+  - 左下にローディングが表示されるので、終わるまで待ちます。
+  ![Now loading](./img-git-flow/now-loading.png)
+6. クローンが完了したら、Open Nowをクリックします。Git KrakenにGRAPHが表示されたら完了です。
+![Open Now](./img-git-flow/open-now.png)
+![Git Kraken Graph](./img-git-flow/GitKrakenGraph.png)
 
 ---
 
