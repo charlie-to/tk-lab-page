@@ -3,6 +3,7 @@ title: 'スタディツアー1日目「充実した企業研修の始まり」'
 date: '2024-12-20'
 tag: ['blog','event']
 lead: 'すすきの2泊3日の企業研修'
+cover: './5.jpg'
 author_name_main: '鈴木　海晴'
 ---
 
