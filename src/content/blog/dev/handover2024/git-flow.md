@@ -62,49 +62,9 @@ GitKrakenを使って研究室のホームページのソースコードを取�
 
 # GPGキーの設定
 GitHubでは、セキュリティを向上させるためにGPGキーを利用することが推奨されています。ホームページ管理係でもGPGキーの登録を推奨しています。
-本ブログではGitKrakenを利用してGPGキーを生成する方法を紹介します。自分でGPGキーを生成する場合には[GitHubのGPGキーガイド](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)に従って、GPGキーを生成し、GitKrakenにGPGキーを追加してください。
-## GPGキーの生成
-1. GitKrakenの右上の歯車マークから設定(Preferences)を開き、左のリストから `Comit Signing` を選択します。
-4. 「GPG Format」は`OPENPGP`を選択し、「GPG Program」には`gpg`と表示されていることを確認してください。表示されない場合には入力してください。
-5. 「Signing Key」はすでにGPGキーを生成している場合に選択する部分です。今回は新たに生成するため、`None`のまま進めます。
-6. **`Generate`** をクリックすると新たなGPGキーが生成されます。生成されると「Signing Key」に自動的に生成されたキーが選択されます。
-![Generate GPG Key](./img-git-flow/GenerateGPG.png)
-## GithubへGPGキーの登録
-1. 自身のパソコンのコマンドラインを立ち上げてください。MacOSであれば標準で`Terminal`が用意されています。
-2. 次のテキストを入力してください。
-  ```Shell
-  gpg --list-secret-keys --keyid-format=long
-  ```
-  エンターキーを押すと次のような表示が出ることを確認してください。
-  ```Shell
-  $ gpg --list-secret-keys --keyid-format=long
-  /Users/hubot/.gnupg/pubring.kbx
-  ------------------------------------
-  sec   rsa4096/3AA5C34371567BD2 2025-01-09 [SC] [expires: 2027-01-09]
-  uid                          [ultimate] Futty93 <yamada.taro.b8@dc.tohoku.ac.jp>
-  ssb   rsa4096/4BB6D45482678BE3 2025-01-09 [SEA] [expires: 2027-01-09]
-  ```
-  作成したGPGキーのリストが表示されるため、複数のGPGキーが存在する場合には、GitKrakenで生成したものを選択し、GPGキーIDをコピーします。
-  この例ではGPGキーIDは`3AA5C34371567BD2`です。
-3. 次のテキストを入力してください。ただし`3AA5C34371567BD2`は自分のものに変更してください。
-  ```Shell
-  gpg --armor --export 3AA5C34371567BD2
-  ```
-  エンターキーを押すと次のような長い文字列が表示されます。
-  ```Shell
-  -----BEGIN PGP PUBLIC KEY BLOCK-----
-  
-  navlauihvangnvae;vasdkjvna;kvbKKDFNK+VDSKHKGNVjvnglghva;unvNv
-  agvaer/gaLGVMEg/,abJEgve/gambael;zugajrgaeorgma?avaierab/sghh
-  Qr2948qtb+KGagnoaer
-  =jFro
-  -----END PGP PUBLIC KEY BLOCK-----
-  ```
-  出力されたテキストを`-----BEGIN PGP PUBLIC KEY BLOCK-----`から`-----END PGP PUBLIC KEY BLOCK-----`を含んですべてコピーしてください。
-4. Githubで右上の自分のアイコンをクリックし`Settings`を選択します。
-5. 左側のリストから`SSH and GPG keys`を開いてください。
-6. 「GPG Keys」の`New GPG key`をクリックし、「Title」は任意のものを入力し、「Key」には先ほどコピーしたテキストをペーストし、`Add GPG key`をクリックします。
-7. 一覧に追加したGPGキーが表示されていれば完了です。
+1. [GitHubのGPGキーガイド](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)に従って、GPGキーを生成します。
+2. 生成したGPGキーをGitHubのアカウント設定で登録します。
+3. GitKrakenで設定する場合は、「Preferences > GPG Key」でキーを設定します。
 
 ---
 
@@ -145,6 +105,15 @@ GitHubでは、セキュリティを向上させるためにGPGキーを利用�
 リモートリポジトリに変更が加わった場合、ローカルリポジトリを最新状態に更新します。
 1. GitKrakenで、左上の「Pull」ボタンをクリックします。
 2. 最新の状態が反映されることを確認します。
+
+---
+
+# トラブルシューティング（追加項目）
+以下は、作業中に起こりうる問題とその解決方法です。
+1. **コンフリクト（競合）が発生した場合**:
+  - GitKrakenの「Conflict」ビューで競合箇所を確認し、適切に解決します。
+2. **クローンやプッシュ時の認証エラー**:
+  - GitHubアカウントの設定やSSHキーの設定を確認してください。
 
 ---
 
