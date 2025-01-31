@@ -5,6 +5,10 @@ on:
     branches:
       - production
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -23,6 +27,8 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          role-session-name: samplesession
+          aws-region: ap-northeast-1
       - name: Install modules
         run: pnpm install
       - name: Build application
