@@ -1,130 +1,139 @@
 ---
-import SlideLayout from '@layouts/slide_layout.astro'
 // images
-import { Image } from 'astro:assets'
-import ghost from './Images/_ghost.png'
+import { Image } from 'astro:assets';
+import SlideLayout from '@layouts/slide_layout.astro';
+import ghost from './Images/_ghost.png';
 ---
 
 <SlideLayout>
-    <div class="slide-content">
-        <div class="textArea" style="position: relative; top: 12%; left: 35%; transform: translate(0%, 0%);">
-            <div class="text white" style="position: absolute; display: inline-block; font-size: max(60px, 5vw); opacity: 1;">
-                「大」！！
-            </div>
-        </div>
-        <Image src={ghost} alt="ghost" class="ghost" style="width: max(180px, 16vw); transform: translate(-50%, -50%); opacity: 1; position: absolute; top: 20%; left: 25%;"/>
-        <div id="container"></div>
+  <div class="slide-content">
+    <div
+      class="textArea"
+      style="position: relative; top: 12%; left: 35%; transform: translate(0%, 0%);"
+    >
+      <div
+        class="text white"
+        style="position: absolute; display: inline-block; font-size: max(60px, 5vw); opacity: 1;"
+      >
+        「大」！！
+      </div>
     </div>
-    <script is:inline>
-        function createTextButton(text, index, className, color) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            div.classList.add('textButton', className, color);
-            div.style.position = 'absolute';
-            div.style.top = getTop(index);
-            div.style.left = getLeft(index);
-            return div;
+    <Image
+      src={ghost}
+      alt="ghost"
+      class="ghost"
+      style="width: max(180px, 16vw); transform: translate(-50%, -50%); opacity: 1; position: absolute; top: 20%; left: 25%;"
+    />
+    <div id="container"></div>
+  </div>
+  <script is:inline>
+    function createTextButton(text, index, className, color) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      div.classList.add('textButton', className, color);
+      div.style.position = 'absolute';
+      div.style.top = getTop(index);
+      div.style.left = getLeft(index);
+      return div;
+    }
+
+    function getTop(index) {
+      if (index < 7) {
+        return '40%';
+      }
+      if (index < 14) {
+        return '60%';
+      }
+      if (index < 21) {
+        return '80%';
+      }
+      return 0;
+    }
+
+    function getLeft(index) {
+      return `${(index % 7) * 12 + 10}%`;
+    }
+
+    window.addEventListener('DOMContentLoaded', function () {
+      let textButtons = [
+        { text: '太', class: 'wrong', color: 'blue' },
+        { text: '太', class: 'wrong', color: 'blue' },
+        { text: '太', class: 'wrong', color: 'blue' },
+        { text: '太', class: 'wrong', color: 'blue' },
+        { text: '太', class: 'wrong', color: 'blue' },
+        { text: '太', class: 'wrong', color: 'blue' },
+        { text: '犬', class: 'wrong', color: 'green' },
+        { text: '犬', class: 'wrong', color: 'green' },
+        { text: '犬', class: 'wrong', color: 'green' },
+        { text: '犬', class: 'wrong', color: 'green' },
+        { text: '犬', class: 'wrong', color: 'green' },
+        { text: '犬', class: 'wrong', color: 'green' },
+        { text: '犬', class: 'wrong', color: 'green' },
+        { text: '人', class: 'wrong', color: 'orange' },
+        { text: '人', class: 'wrong', color: 'orange' },
+        { text: '人', class: 'wrong', color: 'orange' },
+        { text: '木', class: 'wrong', color: 'brown' },
+        { text: '木', class: 'wrong', color: 'brown' },
+        { text: '木', class: 'wrong', color: 'brown' },
+        { text: '木', class: 'wrong', color: 'brown' },
+        { text: '大', class: 'correct', color: 'black' }
+      ];
+
+      const container = document.getElementById('container');
+
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
         }
+        return array;
+      }
 
-        function getTop(index) {
-            if (index < 7) {
-                return '40%';
-            }
-            if (index < 14) {
-                return '60%';
-            }
-            if (index < 21) {
-                return '80%';
-            }
-            return 0;
-        }
+      textButtons = shuffleArray(textButtons);
+      localStorage.setItem('shuffledButtons', JSON.stringify(textButtons));
 
-        function getLeft(index) {
-            return `${(index % 7) * 12 + 10}%`;
-        }
+      textButtons.forEach((button, index) => {
+        const { text, class: className, color: color } = button;
+        const element = createTextButton(text, index, className, color);
+        container.appendChild(element);
+      });
 
-        window.addEventListener('DOMContentLoaded', function () {
-            let textButtons = [
-                { text: '太', class: 'wrong', color: 'blue' },
-                { text: '太', class: 'wrong', color: 'blue' },
-                { text: '太', class: 'wrong', color: 'blue' },
-                { text: '太', class: 'wrong', color: 'blue' },
-                { text: '太', class: 'wrong', color: 'blue' },
-                { text: '太', class: 'wrong', color: 'blue' },
-                { text: '犬', class: 'wrong', color: 'green' },
-                { text: '犬', class: 'wrong', color: 'green' },
-                { text: '犬', class: 'wrong', color: 'green' },
-                { text: '犬', class: 'wrong', color: 'green' },
-                { text: '犬', class: 'wrong', color: 'green' },
-                { text: '犬', class: 'wrong', color: 'green' },
-                { text: '犬', class: 'wrong', color: 'green' },
-                { text: '人', class: 'wrong', color: 'orange' },
-                { text: '人', class: 'wrong', color: 'orange' },
-                { text: '人', class: 'wrong', color: 'orange' },
-                { text: '木', class: 'wrong', color: 'brown' },
-                { text: '木', class: 'wrong', color: 'brown' },
-                { text: '木', class: 'wrong', color: 'brown' },
-                { text: '木', class: 'wrong', color: 'brown' },
-                { text: '大', class: 'correct', color: 'black' },
-            ];
+      const wrong = document.getElementsByClassName('wrong');
+      const correct = document.getElementsByClassName('correct')[0];
 
-            const container = document.getElementById('container');
+      // ボタンが押されたら画面遷移
+      for (let i = 0; i < wrong.length; i++) {
+        wrong[i].addEventListener('click', () => {
+          const nextPageUrl = '../slide18/index.html?from=slide27';
 
-            function shuffleArray(array) {
-                for (let i = array.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [array[i], array[j]] = [array[j], array[i]];
-                }
-                return array;
-            }
-
-            textButtons = shuffleArray(textButtons);
-            localStorage.setItem('shuffledButtons', JSON.stringify(textButtons));
-
-            textButtons.forEach((button, index) => {
-                const { text, class: className, color: color } = button;
-                const element = createTextButton(text, index, className, color);
-                container.appendChild(element);
-            });
-
-            const wrong = document.getElementsByClassName('wrong');
-            const correct = document.getElementsByClassName('correct')[0];
-
-            // ボタンが押されたら画面遷移
-            for (let i = 0; i < wrong.length; i++) {
-                wrong[i].addEventListener('click', () => {
-                    const nextPageUrl = '../slide18/index.html?from=slide27';
-
-                    // 次のページを読み込む
-                    window.fetch(nextPageUrl).then((response) => {
-                        // 読み込みが完了したら画面遷移を行う
-                        window.location.href = nextPageUrl;
-                    });
-                });
-            }
-
-            // ボタンが押されたら画面遷移
-            correct.addEventListener('click', () => {
-                const nextPageUrl = '../slide19/index.html?from=slide27';
-
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-            });
-
-            setTimeout(() => {
-                const nextPageUrl = '../slide18/index.html?from=slide27';
-
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-            }, 5000);
+          // 次のページを読み込む
+          window.fetch(nextPageUrl).then((response) => {
+            // 読み込みが完了したら画面遷移を行う
+            window.location.href = nextPageUrl;
+          });
         });
-    </script>
-</body>
+      }
 
-</html>
+      // ボタンが押されたら画面遷移
+      correct.addEventListener('click', () => {
+        const nextPageUrl = '../slide19/index.html?from=slide27';
+
+        // 次のページを読み込む
+        window.fetch(nextPageUrl).then((response) => {
+          // 読み込みが完了したら画面遷移を行う
+          window.location.href = nextPageUrl;
+        });
+      });
+
+      setTimeout(() => {
+        const nextPageUrl = '../slide18/index.html?from=slide27';
+
+        // 次のページを読み込む
+        window.fetch(nextPageUrl).then((response) => {
+          // 読み込みが完了したら画面遷移を行う
+          window.location.href = nextPageUrl;
+        });
+      }, 5000);
+    });
+  </script>
+</SlideLayout>

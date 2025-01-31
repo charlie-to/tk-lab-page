@@ -1,18 +1,18 @@
 ---
-import { SEO } from 'astro-seo'
-import Navbar from '../components/navbar.astro'
-import Footer from '../components/footer.astro'
+import { SEO } from 'astro-seo';
+import Footer from '../components/footer.astro';
+import Navbar from '../components/navbar.astro';
 
-import "remark-github-alerts/styles/github-colors-light.css";
-import "remark-github-alerts/styles/github-colors-dark-class.css";
-import "remark-github-alerts/styles/github-base.css";
+import 'remark-github-alerts/styles/github-colors-light.css';
+import 'remark-github-alerts/styles/github-colors-dark-class.css';
+import 'remark-github-alerts/styles/github-base.css';
 
 export interface Props {
-  title: string
-  description?: string
+  title: string;
+  description?: string;
 }
 
-const { title, description } = Astro.props
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -25,13 +25,13 @@ const { title, description } = Astro.props
       type="text/partytown"
       src="https://www.googletagmanager.com/gtag/js?id=G-ZG7PN8PVWQ"></script>
     <script type="text/partytown">
-      window.dataLayer = window.dataLayer || []
+      window.dataLayer = window.dataLayer || [];
       function gtag() {
-        dataLayer.push(arguments)
+        dataLayer.push(arguments);
       }
-      gtag('js', new Date())
+      gtag('js', new Date());
 
-      gtag('config', 'G-ZG7PN8PVWQ')
+      gtag('config', 'G-ZG7PN8PVWQ');
     </script>
     <!-- End Google tag (gtag.js) -->
 
@@ -65,7 +65,7 @@ const { title, description } = Astro.props
   </head>
   <body>
     <Navbar />
-    <div class="max-w-7xl mx-auto">
+    <div class="mx-auto max-w-7xl">
       <slot />
     </div>
 

@@ -26,5 +26,4 @@ author_name_main: ''
 ![](./image-5.jpeg)
 ![](./image-6.jpg)
 
-
 一緒に美味しいラーメン食べましょう

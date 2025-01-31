@@ -1,96 +1,109 @@
 ---
-import SlideLayout from '@layouts/slide_layout.astro'
 // images
-import { Image } from 'astro:assets'
-import ghost_teacher from './Images/_ghost_teacher.png'
+import { Image } from 'astro:assets';
+import SlideLayout from '@layouts/slide_layout.astro';
+import ghost_teacher from './Images/_ghost_teacher.png';
 ---
 
 <SlideLayout>
-    <style is:inline>
-        .blue {
-            background-color: #47c;
-        }
+  <style is:inline>
+    .blue {
+      background-color: #47c;
+    }
 
-        .green {
-            background-color: #7a4;
-        }
+    .green {
+      background-color: #7a4;
+    }
 
-        .orange {
-            background-color: #e73;
-        }
+    .orange {
+      background-color: #e73;
+    }
 
-        .brown {
-            background-color: #831;
-        }
-    </style>
-    <div class="slide-content">
-        <div class="textArea" style="position: relative; top: 6%; left: 25%; transform: translate(0%, 0%);">
-            <div class="text white" style="position: absolute; display: inline-block; font-size: max(40px, 3.6vw); opacity: 0;">
-                例えば、色分けすると<br>
-                少しわかりやすくなりますね！
-            </div>
-        </div>
-        <Image src={ghost_teacher} alt="ghost teacher" class="ghost" style="width: max(180px, 14vw); opacity: 0; position: absolute; top: 18%; left: 10%;" />
-        <div id="container" style="opacity: 0;"></div>
+    .brown {
+      background-color: #831;
+    }
+  </style>
+  <div class="slide-content">
+    <div
+      class="textArea"
+      style="position: relative; top: 6%; left: 25%; transform: translate(0%, 0%);"
+    >
+      <div
+        class="text white"
+        style="position: absolute; display: inline-block; font-size: max(40px, 3.6vw); opacity: 0;"
+      >
+        例えば、色分けすると<br />
+        少しわかりやすくなりますね！
+      </div>
     </div>
-    <script is:inline>
-        function createTextButton(text, index, className, color) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            div.classList.add('textButton', className, color);
-            div.style.position = 'absolute';
-            div.style.top = getTop(index);
-            div.style.left = getLeft(index);
-            return div;
-        }
+    <Image
+      src={ghost_teacher}
+      alt="ghost teacher"
+      class="ghost"
+      style="width: max(180px, 14vw); opacity: 0; position: absolute; top: 18%; left: 10%;"
+    />
+    <div id="container" style="opacity: 0;"></div>
+  </div>
+  <script is:inline>
+    function createTextButton(text, index, className, color) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      div.classList.add('textButton', className, color);
+      div.style.position = 'absolute';
+      div.style.top = getTop(index);
+      div.style.left = getLeft(index);
+      return div;
+    }
 
-        function getTop(index) {
-            if (index < 7) {
-                return '40%';
-            }
-            if (index < 14) {
-                return '60%';
-            }
-            if (index < 21) {
-                return '80%';
-            }
-            return 0;
-        }
+    function getTop(index) {
+      if (index < 7) {
+        return '40%';
+      }
+      if (index < 14) {
+        return '60%';
+      }
+      if (index < 21) {
+        return '80%';
+      }
+      return 0;
+    }
 
-        function getLeft(index) {
-            return `${(index % 7) * 12 + 10}%`;
-        }
+    function getLeft(index) {
+      return `${(index % 7) * 12 + 10}%`;
+    }
 
-        window.addEventListener('DOMContentLoaded', function () {
-            const shuffledButtons = JSON.parse(localStorage.getItem('shuffledButtons'));
-            const container = document.getElementById('container');
-            const text = document.querySelector('.text');
-            const ghost = document.querySelector('.ghost');
+    window.addEventListener('DOMContentLoaded', function () {
+      const shuffledButtons = JSON.parse(
+        localStorage.getItem('shuffledButtons')
+      );
+      const container = document.getElementById('container');
+      const text = document.querySelector('.text');
+      const ghost = document.querySelector('.ghost');
 
-            shuffledButtons.forEach((button, index) => {
-                const { text, class: className, color: color } = button;
-                const element = createTextButton(text, index, className, color);
-                container.appendChild(element);
-            });
+      shuffledButtons.forEach((button, index) => {
+        const { text, class: className, color: color } = button;
+        const element = createTextButton(text, index, className, color);
+        container.appendChild(element);
+      });
 
-            this.setTimeout(() => {
-                container.style.transition = "opacity 2s ease-in-out";
-                text.style.transition = "opacity 2s ease-in-out";
-                ghost.style.transition = "opacity 2s ease-in-out";
-                container.style.opacity = 1;
-                text.style.opacity = 1;
-                ghost.style.opacity = 1;
-            }, 500)
+      this.setTimeout(() => {
+        container.style.transition = 'opacity 2s ease-in-out';
+        text.style.transition = 'opacity 2s ease-in-out';
+        ghost.style.transition = 'opacity 2s ease-in-out';
+        container.style.opacity = 1;
+        text.style.opacity = 1;
+        ghost.style.opacity = 1;
+      }, 500);
 
-            setTimeout(() => {
-                const nextPageUrl = '../slide30/index.html?from=slide27';
+      setTimeout(() => {
+        const nextPageUrl = '../slide30/index.html?from=slide27';
 
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-            }, 9000);
+        // 次のページを読み込む
+        window.fetch(nextPageUrl).then((response) => {
+          // 読み込みが完了したら画面遷移を行う
+          window.location.href = nextPageUrl;
         });
-    </script>
+      }, 9000);
+    });
+  </script>
 </SlideLayout>

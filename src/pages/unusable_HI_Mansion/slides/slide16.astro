@@ -1,124 +1,135 @@
 ---
-import SlideLayout from '@layouts/slide_layout.astro'
 // images
-import { Image } from 'astro:assets'
-import ghost from './Images/_ghost.png'
+import { Image } from 'astro:assets';
+import SlideLayout from '@layouts/slide_layout.astro';
+import ghost from './Images/_ghost.png';
 ---
 
 <SlideLayout>
-    <div class="slide-content">
-        <div class="textArea">
-            <div class="text first" style="position: absolute; top: 20%; left: 40%; font-size: max(60px, 5vw);">
-                <span class="white">「左っ！！」</span>
-            </div>
-        </div>
-        <Image src={ghost} alt="ghost" class="ghost" style="width: max(200px, 20vw); position: absolute; top: 30%; left: 20%;"/>
-        <div class="flex justify-evenly" id="buttonContainer" style="width: 100%; position: absolute; top: 60%;"></div>
+  <div class="slide-content">
+    <div class="textArea">
+      <div
+        class="text first"
+        style="position: absolute; top: 20%; left: 40%; font-size: max(60px, 5vw);"
+      >
+        <span class="white">「左っ！！」</span>
+      </div>
     </div>
-    <script is:inline>
-        window.addEventListener('DOMContentLoaded', () => {
-            function addElementsToContainer() {
-                let elementsInfo = [
-                    { class: 'correct', rotation: '270', text: '下' },
-                    { class: 'incorrect', rotation: '90', text: '左' },
-                    { class: 'wrong', rotation: '180', text: '上' },
-                    { class: 'wrong', rotation: '0', text: '右' }
-                ];
+    <Image
+      src={ghost}
+      alt="ghost"
+      class="ghost"
+      style="width: max(200px, 20vw); position: absolute; top: 30%; left: 20%;"
+    />
+    <div
+      class="flex justify-evenly"
+      id="buttonContainer"
+      style="width: 100%; position: absolute; top: 60%;"
+    >
+    </div>
+  </div>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      function addElementsToContainer() {
+        let elementsInfo = [
+          { class: 'correct', rotation: '270', text: '下' },
+          { class: 'incorrect', rotation: '90', text: '左' },
+          { class: 'wrong', rotation: '180', text: '上' },
+          { class: 'wrong', rotation: '0', text: '右' }
+        ];
 
-                function shuffleArray(array) {
-                    for (let i = array.length - 1; i > 0; i--) {
-                        const j = Math.floor(Math.random() * (i + 1));
-                        [array[i], array[j]] = [array[j], array[i]];
-                    }
-                    return array;
-                }
+        function shuffleArray(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+          }
+          return array;
+        }
 
-                elementsInfo = shuffleArray(elementsInfo);
-                localStorage.setItem('shuffledArrows', JSON.stringify(elementsInfo));
+        elementsInfo = shuffleArray(elementsInfo);
+        localStorage.setItem('shuffledArrows', JSON.stringify(elementsInfo));
 
-                const container = document.getElementById('buttonContainer');
+        const container = document.getElementById('buttonContainer');
 
-                elementsInfo.forEach((info, index) => {
-                    const div = document.createElement('div');
-                    div.classList.add(info.class);
-                    div.style.cursor = 'pointer';
-                    div.style.opacity = '1';
-                    div.style.display = 'inline-block';
-                    div.style.position = 'relative'; // 親要素に相対位置を設定
+        elementsInfo.forEach((info, index) => {
+          const div = document.createElement('div');
+          div.classList.add(info.class);
+          div.style.cursor = 'pointer';
+          div.style.opacity = '1';
+          div.style.display = 'inline-block';
+          div.style.position = 'relative'; // 親要素に相対位置を設定
 
-                    const img = document.createElement('img');
-                    img.src = '/arrowButton.png';
-                    img.style.width = 'max(100px, 10vw)';
-                    img.style.zIndex = '1';
-                    img.style.transform = `rotate(${info.rotation}deg)`;
+          const img = document.createElement('img');
+          img.src = '/arrowButton.png';
+          img.style.width = 'max(100px, 10vw)';
+          img.style.zIndex = '1';
+          img.style.transform = `rotate(${info.rotation}deg)`;
 
-                    const span = document.createElement('span');
-                    span.classList.add('imageText');
-                    span.style.position = 'absolute';
-                    span.style.fontSize = 'max(40px, 4vw)';
-                    span.style.zIndex = '2';
-                    span.style.top = '50%';  // 上下中央に配置
-                    span.style.left = '50%';  // 左右中央に配置
-                    span.style.transform = 'translate(-50%, -50%)';  // 中央揃えのための調整
-                    span.textContent = info.text;
+          const span = document.createElement('span');
+          span.classList.add('imageText');
+          span.style.position = 'absolute';
+          span.style.fontSize = 'max(40px, 4vw)';
+          span.style.zIndex = '2';
+          span.style.top = '50%'; // 上下中央に配置
+          span.style.left = '50%'; // 左右中央に配置
+          span.style.transform = 'translate(-50%, -50%)'; // 中央揃えのための調整
+          span.textContent = info.text;
 
-                    div.appendChild(img);
-                    div.appendChild(span);
-                    container.appendChild(div);
-                });
-            }
-
-            addElementsToContainer();
-
-            const correct = document.getElementsByClassName('correct')[0];
-            const wrong = document.getElementsByClassName('wrong');
-            const incorrect = document.getElementsByClassName('incorrect')[0];
-
-            // ボタンが押されたら画面遷移
-            correct.addEventListener('click', () => {
-                const nextPageUrl = '../slide19/index.html?from=slide16'; // -> ぐっ、やられた…
-
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-            });
-
-            for (let i = 0; i < wrong.length; i++) {
-                wrong[i].addEventListener('click', () => {
-                    const nextPageUrl = '../slide17/index.html';
-
-                    // 次のページを読み込む
-                    window.fetch(nextPageUrl).then((response) => {
-                        // 読み込みが完了したら画面遷移を行う
-                        window.location.href = nextPageUrl;
-                    }); // -> やり直しっ！
-                });
-            }
-
-            // ボタンが押されたら画面遷移
-            incorrect.addEventListener('click', () => {
-                const nextPageUrl = '../slide18/index.html';
-
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                }); // -> よくぞ引っかかってくれました
-            });
-
-            setTimeout(() => {
-                const nextPageUrl = '../slide17/index.html';
-
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-            }, 3000);
+          div.appendChild(img);
+          div.appendChild(span);
+          container.appendChild(div);
         });
-    </script>
-</body>
+      }
 
-</html>
+      addElementsToContainer();
+
+      const correct = document.getElementsByClassName('correct')[0];
+      const wrong = document.getElementsByClassName('wrong');
+      const incorrect = document.getElementsByClassName('incorrect')[0];
+
+      // ボタンが押されたら画面遷移
+      correct.addEventListener('click', () => {
+        const nextPageUrl = '../slide19/index.html?from=slide16'; // -> ぐっ、やられた…
+
+        // 次のページを読み込む
+        window.fetch(nextPageUrl).then((response) => {
+          // 読み込みが完了したら画面遷移を行う
+          window.location.href = nextPageUrl;
+        });
+      });
+
+      for (let i = 0; i < wrong.length; i++) {
+        wrong[i].addEventListener('click', () => {
+          const nextPageUrl = '../slide17/index.html';
+
+          // 次のページを読み込む
+          window.fetch(nextPageUrl).then((response) => {
+            // 読み込みが完了したら画面遷移を行う
+            window.location.href = nextPageUrl;
+          }); // -> やり直しっ！
+        });
+      }
+
+      // ボタンが押されたら画面遷移
+      incorrect.addEventListener('click', () => {
+        const nextPageUrl = '../slide18/index.html';
+
+        // 次のページを読み込む
+        window.fetch(nextPageUrl).then((response) => {
+          // 読み込みが完了したら画面遷移を行う
+          window.location.href = nextPageUrl;
+        }); // -> よくぞ引っかかってくれました
+      });
+
+      setTimeout(() => {
+        const nextPageUrl = '../slide17/index.html';
+
+        // 次のページを読み込む
+        window.fetch(nextPageUrl).then((response) => {
+          // 読み込みが完了したら画面遷移を行う
+          window.location.href = nextPageUrl;
+        });
+      }, 3000);
+    });
+  </script>
+</SlideLayout>

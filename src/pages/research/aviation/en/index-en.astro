@@ -1,17 +1,17 @@
 ---
-import Layout from '@layouts/Layout.astro'
-import ResearchDetail from '@components/researchDetail.astro'
-import ResearchTop from '@components/researchTop.astro'
 // images
-import { Image } from 'astro:assets'
-import cockpit_color from '../_cockpit_color.jpg'
-import cockpit_monotone from '../_cockpit_monotone.jpg'
-import professor1 from '../_professor1.jpg'
-import professor2 from '../_professor2.jpg'
-import ATC_radar from '../_ATC_radar.jpg'
-import ATC_Tower from '../_ATC-Tower.jpg'
-import pilot from '../_pilot.jpg'
-import cabin_Attendant from '../_cabin_Attendant.jpg'
+import { Image } from 'astro:assets';
+import ResearchDetail from '@components/researchDetail.astro';
+import ResearchTop from '@components/researchTop.astro';
+import Layout from '@layouts/Layout.astro';
+import ATC_Tower from '../_ATC-Tower.jpg';
+import ATC_radar from '../_ATC_radar.jpg';
+import cabin_Attendant from '../_cabin_Attendant.jpg';
+import cockpit_color from '../_cockpit_color.jpg';
+import cockpit_monotone from '../_cockpit_monotone.jpg';
+import pilot from '../_pilot.jpg';
+import professor1 from '../_professor1.jpg';
+import professor2 from '../_professor2.jpg';
 
 const keywords = [
   'Aviation Safety',
@@ -24,7 +24,7 @@ const keywords = [
   'Competency',
   'Non-technical Skills',
   'Safety Culture',
-  'Qualitative Research'
+  'Qualitative Research',
 ];
 ---
 
@@ -33,7 +33,7 @@ const keywords = [
   <div class="relative w-full">
     <div
       id="language-selector"
-      class="absolute right-0 top-0 rounded-bl-lg bg-white/40 px-2 z-10"
+      class="absolute right-0 top-0 z-10 rounded-bl-lg bg-white/40 px-2"
     >
       <div id="selected-language" class="cursor-pointer p-2 text-white">
         Language ▼
@@ -49,13 +49,17 @@ const keywords = [
     </div>
   </div>
 
-  <ResearchTop title="Aviation Group", keywords={keywords} />
+  <ResearchTop title="Aviation Group" , keywords={keywords} />
 
   <section id="contents" class="container px-5">
     <section id="introduction" class="my-10">
-      <h1 id="top-message" class="mx-auto py-10 text-center md:text-4xl text-2xl font-bold">
+      <h1
+        id="top-message"
+        class="mx-auto py-10 text-center text-2xl font-bold md:text-4xl"
+      >
         Takahashi Laboratory is one of the only laboratories in Japan<br />
-        that conducts practical and academic research on human factors in Air Traffic Control.
+        that conducts practical and academic research on human factors in Air Traffic
+        Control.
       </h1>
       <div id="explanation" class="text-xl">
         <p class="my-10 text-center">
@@ -63,23 +67,23 @@ const keywords = [
           complex systems, including those in the aviation field, and works
           closely with airlines and other organizations to conduct academic
           research on "resilience," which is the key to realizing Safety-II. We
-          conduct practical research that goes beyond knowledge. Below are some of
-          the research actually being conducted in this group.
+          conduct practical research that goes beyond knowledge. Below are some
+          of the research actually being conducted in this group.
         </p>
         <p class="my-10 text-center">
           Takahashi Lab has been conducting research on aviation-related human
-          factors for over 10 years. In our early research, we worked with current
-          ANA pilots on aircraft cockpit interfaces. After that, We shifted the
-          focus of my research to the field of air traffic control, and are
-          conducting research in collaboration with active air traffic
+          factors for over 10 years. In our early research, we worked with
+          current ANA pilots on aircraft cockpit interfaces. After that, We
+          shifted the focus of my research to the field of air traffic control,
+          and are conducting research in collaboration with active air traffic
           controllers. Although those of us who conduct research are required to
           have a high level of knowledge regarding air traffic control, the
           content of our research is not merely academic research, such as
-          proposing a system that is highly evaluated as being usable for on-site
-          education. We conduct practical research that goes beyond human factors
-          in air traffic control. These issues are very important to protect air
-          safety, but there is a shortage of human resources.<br /> Would you also
-          like to study air traffic control at Takahashi Lab?
+          proposing a system that is highly evaluated as being usable for
+          on-site education. We conduct practical research that goes beyond
+          human factors in air traffic control. These issues are very important
+          to protect air safety, but there is a shortage of human resources.<br
+          /> Would you also like to study air traffic control at Takahashi Lab?
         </p>
       </div>
     </section>
@@ -96,7 +100,7 @@ const keywords = [
             <Image
               src={cockpit_color}
               alt="Cockpit Color Image"
-              class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110 "
+              class="absolute left-0 top-0 w-full duration-500 lg:group-hover:scale-110"
             />
             <!-- 背景画像 -->
             <Image
@@ -176,11 +180,11 @@ const keywords = [
 <script is:inline>
   $(function () {
     $('#header-Logo-image').on('click', function () {
-      $('body').toggleClass('cursorEffect') // body全体にcursorEffectクラスをつけ外しする
-    })
-  })
+      $('body').toggleClass('cursorEffect'); // body全体にcursorEffectクラスをつけ外しする
+    });
+  });
   // コナミコマンドの入力を監視している関数
-  let konamiCode = []
+  let konamiCode = [];
   const konamiPattern = [
     'ArrowUp',
     'ArrowUp',
@@ -192,40 +196,40 @@ const keywords = [
     'ArrowRight',
     'KeyB',
     'KeyA'
-  ]
-  const headerLogoImage = document.getElementById('header-Logo-image')
+  ];
+  const headerLogoImage = document.getElementById('header-Logo-image');
 
   document.addEventListener('keydown', (e) => {
-    konamiCode.push(e.code)
-    konamiCode = konamiCode.slice(-10) // Keep the last 10 key presses
+    konamiCode.push(e.code);
+    konamiCode = konamiCode.slice(-10); // Keep the last 10 key presses
 
     if (konamiCode.join('') === konamiPattern.join('')) {
       // Konami code matched, start rotation animation
-      console.log('Konami code matched!')
-      headerLogoImage.classList.add('rotate')
-      konamiCode = [] // Reset the input code
+      console.log('Konami code matched!');
+      headerLogoImage.classList.add('rotate');
+      konamiCode = []; // Reset the input code
     }
-  })
+  });
 
   // 言語選択メニューを開閉する関数
   function toggleMenu() {
-    var languageList = document.getElementById('language-select')
-    languageList.classList.toggle('show')
+    var languageList = document.getElementById('language-select');
+    languageList.classList.toggle('show');
   }
 
   // selected-languageをクリックした時のイベントを追加
-  var selectedLanguage = document.getElementById('selected-language')
-  selectedLanguage.addEventListener('click', toggleMenu)
+  var selectedLanguage = document.getElementById('selected-language');
+  selectedLanguage.addEventListener('click', toggleMenu);
 
   // メニューの外側をクリックした時に閉じる処理
   window.addEventListener('click', function (event) {
     if (!event.target.matches('#selected-language')) {
-      var languageList = document.getElementById('language-select')
+      var languageList = document.getElementById('language-select');
       if (languageList.classList.contains('show')) {
-        languageList.classList.remove('show')
+        languageList.classList.remove('show');
       }
     }
-  })
+  });
 </script>
 
 <style>

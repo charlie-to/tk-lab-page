@@ -1,5 +1,5 @@
 // 1. Import utilities from `astro:content`
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z } from 'astro:content';
 // 2. Define a schema for each collection you'd like to validate.
 const memberCollection = defineCollection({
   schema: ({ image }) =>
@@ -10,9 +10,7 @@ const memberCollection = defineCollection({
       }),
       major: z.string(),
       grade: z.string(),
-      cover: image().refine((img) => img.width >= 300, {
-        message: "Image must be at least 300px wide",
-      }).optional(),
+      cover: image().optional(),
       coverAlt: z.string().optional(),
       order: z.number(),
       tag: z.array(z.string()).optional(),
@@ -27,9 +25,7 @@ const blogsCollection = defineCollection({
       date: z.string(),
       tag: z.array(z.string()),
       lead: z.string().optional(),
-      cover: image().refine((img) => img.width >= 300, {
-        message: "Image must be at least 300px wide",
-      }).optional(),
+      cover: image().optional(),
       coverAlt: z.string().optional(),
       author_name_main: z.string().optional(),
     }),
@@ -37,6 +33,6 @@ const blogsCollection = defineCollection({
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
-  "member": memberCollection,
-  "blog": blogsCollection,
+  member: memberCollection,
+  blog: blogsCollection,
 };

@@ -1,63 +1,72 @@
 ---
-import SlideLayout from '@layouts/slide_layout.astro'
+import SlideLayout from '@layouts/slide_layout.astro';
 ---
 
 <SlideLayout>
-    <div class="slide-content" style="position: relative; display: flex; justify-content: center; align-items: center;">
-        <div class="textArea" style="position: relative; text-align: center;">
-            <div class="text first"
-                style="font-size: max(40px, 3.6vw); opacity: 0; margin: 0 auto;">
-                さらに廊下を進んでいくと
-            </div>
-            <div class="text second"
-                style="font-size: max(40px, 3.6vw); opacity: 0; margin: 0 auto;">
-                また不気味な笑い声が聞こえてくる。
-            </div>
-            <div class="text third"
-                style="font-size: max(40px, 3.6vw); opacity: 0; margin: 0 auto;">
-                今度はたくさん聞こえてくる・・・
-            </div>
-        </div>
+  <div
+    class="slide-content"
+    style="position: relative; display: flex; justify-content: center; align-items: center;"
+  >
+    <div class="textArea" style="position: relative; text-align: center;">
+      <div
+        class="text first"
+        style="font-size: max(40px, 3.6vw); opacity: 0; margin: 0 auto;"
+      >
+        さらに廊下を進んでいくと
+      </div>
+      <div
+        class="text second"
+        style="font-size: max(40px, 3.6vw); opacity: 0; margin: 0 auto;"
+      >
+        また不気味な笑い声が聞こえてくる。
+      </div>
+      <div
+        class="text third"
+        style="font-size: max(40px, 3.6vw); opacity: 0; margin: 0 auto;"
+      >
+        今度はたくさん聞こえてくる・・・
+      </div>
     </div>
- 
-    <script is:inline>
-        window.addEventListener('DOMContentLoaded', () => {
-            const textFirst = document.querySelector('.first');
-            const textSecond = document.querySelector('.second');
-            const textThird = document.querySelector('.third');
+  </div>
 
-            // 画面の要素を時間差で登場させる
-            setTimeout(() => {
-                textFirst.style.transition = "opacity 2s ease-in-out"
-                textFirst.style.opacity = 1;
-            }, 1000);
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      const textFirst = document.querySelector('.first');
+      const textSecond = document.querySelector('.second');
+      const textThird = document.querySelector('.third');
 
-            setTimeout(() => {
-                textSecond.style.transition = "opacity 2s ease-in-out"
-                textSecond.style.opacity = 1;
-            }, 3000);
+      // 画面の要素を時間差で登場させる
+      setTimeout(() => {
+        textFirst.style.transition = 'opacity 2s ease-in-out';
+        textFirst.style.opacity = 1;
+      }, 1000);
 
-            setTimeout(() => {
-                textThird.style.transition = "opacity 2s ease-in-out"
-                textThird.style.opacity = 1;
-            }, 7000);
+      setTimeout(() => {
+        textSecond.style.transition = 'opacity 2s ease-in-out';
+        textSecond.style.opacity = 1;
+      }, 3000);
 
-            setTimeout(() => {
-                textFirst.style.opacity = 0;
-                textSecond.style.opacity = 0;
-                textThird.style.opacity = 0;
-            }, 9000);
+      setTimeout(() => {
+        textThird.style.transition = 'opacity 2s ease-in-out';
+        textThird.style.opacity = 1;
+      }, 7000);
 
-            // 自動で画面遷移
-            setTimeout(() => {
-                const nextPageUrl = '../slide22/index.html';
+      setTimeout(() => {
+        textFirst.style.opacity = 0;
+        textSecond.style.opacity = 0;
+        textThird.style.opacity = 0;
+      }, 9000);
 
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-            }, 11000);
+      // 自動で画面遷移
+      setTimeout(() => {
+        const nextPageUrl = '../slide22/index.html';
+
+        // 次のページを読み込む
+        window.fetch(nextPageUrl).then((response) => {
+          // 読み込みが完了したら画面遷移を行う
+          window.location.href = nextPageUrl;
         });
-    </script>
+      }, 11000);
+    });
+  </script>
 </SlideLayout>

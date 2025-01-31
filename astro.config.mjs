@@ -1,19 +1,19 @@
-import { defineConfig } from 'astro/config'
-import tailwind from '@astrojs/tailwind'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import remarkGithubAlerts from 'remark-github-alerts'
-import remarkBreaks from 'remark-breaks'
-import remarkSlug from 'remark-slug'
-import remarkToc from 'remark-toc'
-import sitemap from '@astrojs/sitemap'
-import { h } from 'hastscript'
-import remarkDirective from 'remark-directive'
-import remarkDirectiveRehype from 'remark-directive-rehype'
-import partytown from '@astrojs/partytown'
-import icon from "astro-icon"
+import partytown from '@astrojs/partytown';
+import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
+import icon from 'astro-icon';
+import { defineConfig } from 'astro/config';
+import { h } from 'hastscript';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import remarkBreaks from 'remark-breaks';
+import remarkDirective from 'remark-directive';
+import remarkDirectiveRehype from 'remark-directive-rehype';
+import remarkGithubAlerts from 'remark-github-alerts';
+import remarkSlug from 'remark-slug';
+import remarkToc from 'remark-toc';
 
-import expressiveCode from 'astro-expressive-code'
-import remarkCustomAlerts from './src/remark/remark-custom-alert.ts'
+import expressiveCode from 'astro-expressive-code';
+import remarkCustomAlerts from './src/remark/remark-custom-alert.ts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -35,20 +35,28 @@ export default defineConfig({
     }),
     sitemap(),
     icon(),
-    partytown(
-      {
-        // Adds dataLayer.push as a forwarding-event.
-        config: {
-          forward: ['dataLayer.push']
-        }
-      }),
+    partytown({
+      // Adds dataLayer.push as a forwarding-event.
+      config: {
+        forward: ['dataLayer.push']
+      }
+    }),
     expressiveCode({
       themes: ['dark-plus']
-    })],
+    })
+  ],
   markdown: {
     gfm: true,
     smartypants: false,
-    remarkPlugins: [remarkSlug, remarkToc,remarkGithubAlerts,remarkCustomAlerts,remarkBreaks,remarkDirective,remarkDirectiveRehype,],
+    remarkPlugins: [
+      remarkSlug,
+      remarkToc,
+      remarkGithubAlerts,
+      remarkCustomAlerts,
+      remarkBreaks,
+      remarkDirective,
+      remarkDirectiveRehype
+    ],
     rehypePlugins: [
       [
         rehypeAutolinkHeadings,
@@ -58,14 +66,14 @@ export default defineConfig({
             class: 'anchor'
           },
           group: (node) => {
-            return h('.heading.--lv' + node.tagName.charAt(1))
+            return h('.heading.--lv' + node.tagName.charAt(1));
           },
           content: (node) => {
-            const heading = node?.children[0]?.value
+            const heading = node?.children[0]?.value;
             const headingText =
               typeof heading === 'string'
                 ? `見出し「${heading}」`
-                : 'この見出しのリンク'
+                : 'この見出しのリンク';
             return [
               h(
                 'svg.anchor-icon',
@@ -80,7 +88,7 @@ export default defineConfig({
                 })
               ),
               h('span.sr-only', headingText)
-            ]
+            ];
           }
         }
       ]
@@ -97,4 +105,4 @@ export default defineConfig({
     footnoteLabelTagName: 'hr',
     extendDefaultPlugins: true
   }
-})
+});

@@ -1,103 +1,114 @@
 ---
-import SlideLayout from '@layouts/slide_layout.astro'
 // images
-import { Image } from 'astro:assets'
-import ghost_teacher from './Images/_ghost_teacher.png'
+import { Image } from 'astro:assets';
+import SlideLayout from '@layouts/slide_layout.astro';
+import ghost_teacher from './Images/_ghost_teacher.png';
 ---
 
 <SlideLayout>
-    <div class="slide-content">
-        <div class="textArea px-5" style="font-size: max(30px, 2.6vw); margin-top: max(160px, 16vw);">
-            <div class="text" style="opacity: 0;">
-                <div>直感に合わないインターフェースはとても使いにくくなります。</div>
-                <div>
-                    <div>
-                        さっきの問題のインターフェースは、
-                    </div>
-                    <div style="text-align: center">
-                        <span class="white" style="font-size: max(36px, 3.2vw);">「矢印の向き」</span>と<span class="white"style="font-size: max(36px, 3.2vw);">「表示されている漢字」</span>
-                    </div>
-                    <div style="text-align: right;">
-                        が合ってないですね。
-                    </div>
-                </div>
-            </div>
-            <div class="text" style="opacity: 0;">
-                これではユーザーのミスの原因になってしまいます・・・
-            </div>
+  <div class="slide-content">
+    <div
+      class="textArea px-5"
+      style="font-size: max(30px, 2.6vw); margin-top: max(160px, 16vw);"
+    >
+      <div class="text" style="opacity: 0;">
+        <div>直感に合わないインターフェースはとても使いにくくなります。</div>
+        <div>
+          <div>さっきの問題のインターフェースは、</div>
+          <div style="text-align: center">
+            <span class="white" style="font-size: max(36px, 3.2vw);"
+              >「矢印の向き」</span
+            >と<span class="white" style="font-size: max(36px, 3.2vw);"
+              >「表示されている漢字」</span
+            >
+          </div>
+          <div style="text-align: right;">が合ってないですね。</div>
         </div>
-        <Image src={ghost_teacher} alt="ghost teacher" class="ghost" style="width: max(150px, 12vw); opacity: 0; position: absolute; top: 15%; left: 10%;"/>
-        <div class="flex justify-evenly" id="buttonContainer" style="width: 100%; opacity: 0; position: absolute; top: 80%;"></div>
+      </div>
+      <div class="text" style="opacity: 0;">
+        これではユーザーのミスの原因になってしまいます・・・
+      </div>
     </div>
-    <script is:inline>
-        window.addEventListener('DOMContentLoaded', () => {
-            const elementsInfo = JSON.parse(localStorage.getItem('shuffledArrows'));
-            const container = document.getElementById('buttonContainer');
-            function addElementsToContainer() {
+    <Image
+      src={ghost_teacher}
+      alt="ghost teacher"
+      class="ghost"
+      style="width: max(150px, 12vw); opacity: 0; position: absolute; top: 15%; left: 10%;"
+    />
+    <div
+      class="flex justify-evenly"
+      id="buttonContainer"
+      style="width: 100%; opacity: 0; position: absolute; top: 80%;"
+    >
+    </div>
+  </div>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      const elementsInfo = JSON.parse(localStorage.getItem('shuffledArrows'));
+      const container = document.getElementById('buttonContainer');
+      function addElementsToContainer() {
+        elementsInfo.forEach((info, index) => {
+          const div = document.createElement('div');
+          div.classList.add(info.class);
+          div.style.cursor = 'pointer';
+          div.style.opacity = '1';
+          div.style.display = 'inline-block';
+          div.style.position = 'relative'; // 親要素に相対位置を設定
 
-                elementsInfo.forEach((info, index) => {
-                    const div = document.createElement('div');
-                    div.classList.add(info.class);
-                    div.style.cursor = 'pointer';
-                    div.style.opacity = '1';
-                    div.style.display = 'inline-block';
-                    div.style.position = 'relative'; // 親要素に相対位置を設定
+          const img = document.createElement('img');
+          img.src = '/arrowButton.png';
+          img.style.width = 'max(100px, 10vw)';
+          img.style.zIndex = '1';
+          img.style.transform = `rotate(${info.rotation}deg)`;
 
-                    const img = document.createElement('img');
-                    img.src = '/arrowButton.png';
-                    img.style.width = 'max(100px, 10vw)';
-                    img.style.zIndex = '1';
-                    img.style.transform = `rotate(${info.rotation}deg)`;
+          const span = document.createElement('span');
+          span.classList.add('imageText');
+          span.style.position = 'absolute';
+          span.style.fontSize = 'max(40px, 4vw)';
+          span.style.zIndex = '2';
+          span.style.top = '50%'; // 上下中央に配置
+          span.style.left = '50%'; // 左右中央に配置
+          span.style.transform = 'translate(-50%, -50%)'; // 中央揃えのための調整
+          span.textContent = info.text;
 
-                    const span = document.createElement('span');
-                    span.classList.add('imageText');
-                    span.style.position = 'absolute';
-                    span.style.fontSize = 'max(40px, 4vw)';
-                    span.style.zIndex = '2';
-                    span.style.top = '50%';  // 上下中央に配置
-                    span.style.left = '50%';  // 左右中央に配置
-                    span.style.transform = 'translate(-50%, -50%)';  // 中央揃えのための調整
-                    span.textContent = info.text;
-
-                    div.appendChild(img);
-                    div.appendChild(span);
-                    container.appendChild(div);
-                });
-            }
-
-            addElementsToContainer();
-            const ghost = document.querySelector('.ghost');
-            const elements = document.querySelectorAll('.text, .image'); // textとimageクラスを持つ全ての要素を取得
-
-            setTimeout(() => {
-                elements.forEach(element => {
-                    element.style.transition = "opacity 2s ease-in-out";
-                    element.style.opacity = 1;
-                });
-                ghost.style.transition = "opacity 2s ease-in-out";
-                ghost.style.opacity = 1;
-                container.style.transition = "opacity 2s ease-in-out";
-                container.style.opacity = 1;
-
-            }, 500);
-
-            setTimeout(() => {
-                elements.forEach(element => {
-                    element.style.opacity = 0;
-                });
-                ghost.style.opacity = 0;
-                container.style.opacity = 0;
-            }, 12000);
-
-            setTimeout(() => {
-                const nextPageUrl = '../slide21/index.html';
-
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                }); // -> さらに廊下を進んでいくと
-            }, 14000);
+          div.appendChild(img);
+          div.appendChild(span);
+          container.appendChild(div);
         });
-    </script>
+      }
+
+      addElementsToContainer();
+      const ghost = document.querySelector('.ghost');
+      const elements = document.querySelectorAll('.text, .image'); // textとimageクラスを持つ全ての要素を取得
+
+      setTimeout(() => {
+        elements.forEach((element) => {
+          element.style.transition = 'opacity 2s ease-in-out';
+          element.style.opacity = 1;
+        });
+        ghost.style.transition = 'opacity 2s ease-in-out';
+        ghost.style.opacity = 1;
+        container.style.transition = 'opacity 2s ease-in-out';
+        container.style.opacity = 1;
+      }, 500);
+
+      setTimeout(() => {
+        elements.forEach((element) => {
+          element.style.opacity = 0;
+        });
+        ghost.style.opacity = 0;
+        container.style.opacity = 0;
+      }, 12000);
+
+      setTimeout(() => {
+        const nextPageUrl = '../slide21/index.html';
+
+        // 次のページを読み込む
+        window.fetch(nextPageUrl).then((response) => {
+          // 読み込みが完了したら画面遷移を行う
+          window.location.href = nextPageUrl;
+        }); // -> さらに廊下を進んでいくと
+      }, 14000);
+    });
+  </script>
 </SlideLayout>

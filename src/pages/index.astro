@@ -1,41 +1,41 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import LinkToForm from '../components/LinkToForm.astro'
-import { getCollection } from 'astro:content'
-import { Icon } from 'astro-icon/components'
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import LinkToForm from '../components/LinkToForm.astro';
+import Layout from '../layouts/Layout.astro';
 
 // Images
-import { Image } from 'astro:assets'
-import city2Unsplash from './_city2-unsplash.jpg'
-import cockpitUnsplash from './_cockpit-unsplash.jpg'
-import carUnsplash from './_car-unsplash.jpg'
-import riskUnsplash from './_risk-unsplash.jpg'
-import balloonUnsplash from './_balloon-unsplash.jpeg'
+import { Image } from 'astro:assets';
+import balloonUnsplash from './_balloon-unsplash.jpeg';
+import carUnsplash from './_car-unsplash.jpg';
+import city2Unsplash from './_city2-unsplash.jpg';
+import cockpitUnsplash from './_cockpit-unsplash.jpg';
+import riskUnsplash from './_risk-unsplash.jpg';
 
 // Youtube
-import YoutubeEmbed from '@components/YouTubeEmbed.astro'
-const youtubeId = 'nue-bLFGKK8'
+import YoutubeEmbed from '@components/YouTubeEmbed.astro';
+const youtubeId = 'nue-bLFGKK8';
 
-import UnusableInterface from '@components/unusableInterface.astro'
+import UnusableInterface from '@components/unusableInterface.astro';
 
 // Icon Size
-const Icon_Size_Big = 64
+const Icon_Size_Big = 64;
 
 const news_posts = (
   await getCollection('blog', ({ data }) => {
-    return data.tag.includes('news')
+    return data.tag.includes('news');
   })
 ).sort((a, b) => {
-  return Date.parse(b.data.date) - Date.parse(a.data.date)
-})
+  return Date.parse(b.data.date) - Date.parse(a.data.date);
+});
 
 const blog_posts = (
   await getCollection('blog', ({ data }) => {
-    return data.tag.includes('blog')
+    return data.tag.includes('blog');
   })
 ).sort((a, b) => {
-  return Date.parse(b.data.date) - Date.parse(a.data.date)
-})
+  return Date.parse(b.data.date) - Date.parse(a.data.date);
+});
 ---
 
 <Layout title="高橋・狩川研究室">
@@ -74,10 +74,12 @@ const blog_posts = (
               <div class="w-full p-4 lg:w-1/3">
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
-                    <div
-                      class="m-4 mx-auto rounded-full text-indigo-600"
-                    >
-                      <Icon name="mdi:magnify" size={Icon_Size_Big} class="mx-auto"/>
+                    <div class="m-4 mx-auto rounded-full text-indigo-600">
+                      <Icon
+                        name="mdi:magnify"
+                        size={Icon_Size_Big}
+                        class="mx-auto"
+                      />
                     </div>
                     <h2 class="title-font text-lg font-medium text-gray-900">
                       研究内容
@@ -86,8 +88,12 @@ const blog_posts = (
                       高橋・狩川研の研究内容を知る
                     </p>
                     <a href="#research" aria-label="研究内容について">
-                      <div class="mx-auto mt-3  text-indigo-500">
-                        <Icon name="mdi:chevron-down" size={Icon_Size_Big} class="mx-auto"/>
+                      <div class="mx-auto mt-3 text-indigo-500">
+                        <Icon
+                          name="mdi:chevron-down"
+                          size={Icon_Size_Big}
+                          class="mx-auto"
+                        />
                       </div>
                     </a>
                   </div>
@@ -98,10 +104,12 @@ const blog_posts = (
               <div class="w-full p-4 lg:w-1/3">
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
-                    <div
-                      class="m-4 mx-auto  text-indigo-600"
-                    >
-                      <Icon name="mdi:newspaper" size={Icon_Size_Big} class="mx-auto"/>
+                    <div class="m-4 mx-auto text-indigo-600">
+                      <Icon
+                        name="mdi:newspaper"
+                        size={Icon_Size_Big}
+                        class="mx-auto"
+                      />
                     </div>
                     <h2 class="title-font text-lg font-medium text-gray-900">
                       ニュース
@@ -111,7 +119,11 @@ const blog_posts = (
                     </p>
                     <a href="#news" aria-label="新着情報">
                       <div class="mt-3 text-indigo-500">
-                        <Icon name="mdi:chevron-down" size={Icon_Size_Big} class="mx-auto" />
+                        <Icon
+                          name="mdi:chevron-down"
+                          size={Icon_Size_Big}
+                          class="mx-auto"
+                        />
                       </div>
                     </a>
                   </div>
@@ -122,10 +134,12 @@ const blog_posts = (
               <div class="w-full p-4 lg:w-1/3">
                 <div class="block items-center rounded-lg bg-slate-100 p-8">
                   <div class="relative overflow-hidden text-center">
-                    <div
-                      class="m-4 mx-auto  text-indigo-600"
-                    >
-                      <Icon name="mdi:information-slab-circle-outline" size={Icon_Size_Big} class="mx-auto"/>
+                    <div class="m-4 mx-auto text-indigo-600">
+                      <Icon
+                        name="mdi:information-slab-circle-outline"
+                        size={Icon_Size_Big}
+                        class="mx-auto"
+                      />
                     </div>
                     <h2 class="title-font text-lg font-medium text-gray-900">
                       特徴
@@ -135,7 +149,11 @@ const blog_posts = (
                     </p>
                     <a href="#aboutUs" aria-label="研究室の特徴">
                       <div class="mx-auto mt-3 text-indigo-500">
-                        <Icon name="mdi:chevron-down" size={Icon_Size_Big} class="mx-auto" />
+                        <Icon
+                          name="mdi:chevron-down"
+                          size={Icon_Size_Big}
+                          class="mx-auto"
+                        />
                       </div>
                     </a>
                   </div>
@@ -306,11 +324,7 @@ const blog_posts = (
                   </div>
                 </div>
                 <div class="flex-none place-content-center items-center">
-                  <Icon
-                    name="mdi:chevron-right"
-                    size={40}
-                    class="h-full"
-                  />
+                  <Icon name="mdi:chevron-right" size={40} class="h-full" />
                 </div>
               </div>
             </a>
@@ -348,11 +362,7 @@ const blog_posts = (
                   </div>
                 </div>
                 <div class="flex-none place-content-center items-center">
-                  <Icon
-                    name="mdi:chevron-right"
-                    size={40}
-                    class="h-full"
-                  />
+                  <Icon name="mdi:chevron-right" size={40} class="h-full" />
                 </div>
               </div>
             </a>
@@ -374,36 +384,44 @@ const blog_posts = (
       <h1 class="text-3xl font-bold">研究の特徴</h1>
     </div>
     <div class="mx-8">
-      <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <ul class="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2">
         <li>
-          <div class="bg-base-200 py-8 h-64">
-            <Icon name="mdi:plane-car" class="w-full h-24 mb-4" />
-            <p class="text-center text-xl font-semibold" >
-            航空システム、原子力プラント等の<br/>大規模複雑システムを対象にした<br class="hidden md:block lg:hidden"/>実践的な研究
+          <div class="h-64 bg-base-200 py-8">
+            <Icon name="mdi:plane-car" class="mb-4 h-24 w-full" />
+            <p class="text-center text-xl font-semibold">
+              航空システム、原子力プラント等の<br
+              />大規模複雑システムを対象にした<br
+                class="hidden md:block lg:hidden"
+              />実践的な研究
             </p>
           </div>
         </li>
         <li>
-          <div class="bg-base-200 py-8 h-64">
-            <Icon name="mdi:worker" class="w-full h-24 mb-4" />
-            <p class="text-center text-xl font-semibold" >
-              人間の認知モデルや<br class="hidden md:block lg:hidden"/>行動経済学的視点に基づく<br/>安全性向上に関する研究
+          <div class="h-64 bg-base-200 py-8">
+            <Icon name="mdi:worker" class="mb-4 h-24 w-full" />
+            <p class="text-center text-xl font-semibold">
+              人間の認知モデルや<br
+                class="hidden md:block lg:hidden"
+              />行動経済学的視点に基づく<br />安全性向上に関する研究
             </p>
           </div>
         </li>
         <li>
-          <div class="bg-base-200 py-8 h-64">
-            <Icon name="mdi:head-question-outline" class="w-full h-24 mb-4" />
-            <p class="text-center text-xl font-semibold" >
-              視覚系情報・心拍変動・脳活動等の<br class="hidden md:block lg:hidden"/>生体情報に基づく<br/>人間状態推定技術の開発
+          <div class="h-64 bg-base-200 py-8">
+            <Icon name="mdi:head-question-outline" class="mb-4 h-24 w-full" />
+            <p class="text-center text-xl font-semibold">
+              視覚系情報・心拍変動・脳活動等の<br
+                class="hidden md:block lg:hidden"
+              />生体情報に基づく<br />人間状態推定技術の開発
             </p>
           </div>
         </li>
         <li>
-          <div class="bg-base-200 py-8 h-64">
-            <Icon name="mdi:account-multiple-plus" class="w-full h-24 mb-4" />
-            <p class="text-center text-xl font-semibold" >
-              主観的リスク認知の考え方に基づく<br/>先端技術（AI,原子力）の<br/>社会受容に関する研究
+          <div class="h-64 bg-base-200 py-8">
+            <Icon name="mdi:account-multiple-plus" class="mb-4 h-24 w-full" />
+            <p class="text-center text-xl font-semibold">
+              主観的リスク認知の考え方に基づく<br />先端技術（AI,原子力）の<br
+              />社会受容に関する研究
             </p>
           </div>
         </li>

@@ -1,18 +1,29 @@
 ---
-import SlideLayout from '@layouts/slide_layout.astro'
 // images
-import { Image } from 'astro:assets'
-import ghost from './Images/_ghost.png'
+import { Image } from 'astro:assets';
+import SlideLayout from '@layouts/slide_layout.astro';
+import ghost from './Images/_ghost.png';
 ---
 
 <SlideLayout>
-    <div class="slide-content" style="position: relative; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-        <div class="textArea" style="position: relative; z-index: 2; background-color: rgba(0, 0, 0, 0.6);">
-            <div class="text first" style="font-size: max(60px, 4vw); opacity: 1; width: 100%; text-align: center;">
-                や、やりなおし！！
-            </div>
-        </div>
-        <div class="drop-shape" style="
+  <div
+    class="slide-content"
+    style="position: relative; display: flex; justify-content: center; align-items: center; flex-direction: column;"
+  >
+    <div
+      class="textArea"
+      style="position: relative; z-index: 2; background-color: rgba(0, 0, 0, 0.6);"
+    >
+      <div
+        class="text first"
+        style="font-size: max(60px, 4vw); opacity: 1; width: 100%; text-align: center;"
+      >
+        や、やりなおし！！
+      </div>
+    </div>
+    <div
+      class="drop-shape"
+      style="
                 position: absolute;
                 width: max(30px, 3vw);
                 height: max(30px, 3vw);
@@ -21,35 +32,41 @@ import ghost from './Images/_ghost.png'
                 transform: rotate(45deg) skew(10deg, 10deg);
                 top: 36%;
                 left: 54%;
-                z-index: 2;">
-        </div>
-        <Image src={ghost} alt="ghost" class="ghost" style="width: max(500px, 40vw); position: absolute; top: 50%; left: 50%;"/>
+                z-index: 2;"
+    >
     </div>
-    <script is:inline>
-        window.addEventListener('DOMContentLoaded', () => {
-            const textFirst = document.querySelector('.first');
-            const dropShape = document.querySelector('.drop-shape');
-            const ghost = document.querySelector('.ghost');
+    <Image
+      src={ghost}
+      alt="ghost"
+      class="ghost"
+      style="width: max(500px, 40vw); position: absolute; top: 50%; left: 50%;"
+    />
+  </div>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      const textFirst = document.querySelector('.first');
+      const dropShape = document.querySelector('.drop-shape');
+      const ghost = document.querySelector('.ghost');
 
-            setTimeout(() => {
-                textFirst.style.transition = "opacity 1s ease-in-out"
-                dropShape.style.transition = "opacity 1s ease-in-out"
-                ghost.style.transition = "opacity 1s ease-in-out"
-                textFirst.style.opacity = 0;
-                dropShape.style.opacity = 0;
-                ghost.style.opacity = 0;
-            }, 1000);
+      setTimeout(() => {
+        textFirst.style.transition = 'opacity 1s ease-in-out';
+        dropShape.style.transition = 'opacity 1s ease-in-out';
+        ghost.style.transition = 'opacity 1s ease-in-out';
+        textFirst.style.opacity = 0;
+        dropShape.style.opacity = 0;
+        ghost.style.opacity = 0;
+      }, 1000);
 
-            // 自動で画面遷移
-            setTimeout(() => {
-                const nextPageUrl = '../slide14/index.html';
+      // 自動で画面遷移
+      setTimeout(() => {
+        const nextPageUrl = '../slide14/index.html';
 
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-            }, 3000);
+        // 次のページを読み込む
+        window.fetch(nextPageUrl).then((response) => {
+          // 読み込みが完了したら画面遷移を行う
+          window.location.href = nextPageUrl;
         });
-    </script>
+      }, 3000);
+    });
+  </script>
 </SlideLayout>

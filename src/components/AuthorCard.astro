@@ -1,55 +1,53 @@
 ---
-import { Image } from 'astro:assets'
-import Icon from 'astro-icon'
-import { type CollectionEntry } from 'astro:content'
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import Icon from 'astro-icon';
 export interface Props {
-  author: CollectionEntry<'member'>
+  author: CollectionEntry<'member'>;
 }
-const { author } = Astro.props
+const { author } = Astro.props;
 ---
 
 <div class="max-w-xs">
-<a
-  href={`/member/${author?.slug}/index.html`}
->
-  <div class="border border-gray-600 py-8 text-center">
-    <div
-      class="inline-flex h-20 w-20 items-center justify-center rounded-full bg-gray-200 text-gray-400"
-    >
-      {
-        author.data.cover ? (
-          <Image
-            src={author.data.cover}
-            alt={author.data.coverAlt || author.data.name.main}
-            class="h-20 rounded-full object-cover"
-          />
-        ) : (
-          <svg
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            class="h-10 w-10"
-            viewBox="0 0 24 24"
-          >
-            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-            <circle cx="12" cy="7" r="4" />
-          </svg>
-        )
-      }
+  <a href={`/member/${author?.slug}/index.html`}>
+    <div class="border border-gray-600 py-8 text-center">
+      <div
+        class="inline-flex h-20 w-20 items-center justify-center rounded-full bg-gray-200 text-gray-400"
+      >
+        {
+          author.data.cover ? (
+            <Image
+              src={author.data.cover}
+              alt={author.data.coverAlt || author.data.name.main}
+              class="h-20 rounded-full object-cover"
+            />
+          ) : (
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="h-10 w-10"
+              viewBox="0 0 24 24"
+            >
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          )
+        }
+      </div>
+      <div class="flex flex-col items-center justify-center text-center">
+        <h2 class="title-font mt-4 text-lg font-medium text-gray-900">
+          {author.data.name.main}
+        </h2>
+        <div class="mb-4 mt-2 h-1 w-12 rounded bg-indigo-500"></div>
+        <p class="text-base">
+          {author.data.major}
+          <br />
+          {author.data.grade}
+        </p>
+      </div>
     </div>
-    <div class="flex flex-col items-center justify-center text-center">
-      <h2 class="title-font mt-4 text-lg font-medium text-gray-900">
-        {author.data.name.main}
-      </h2>
-      <div class="mb-4 mt-2 h-1 w-12 rounded bg-indigo-500"></div>
-      <p class="text-base">
-        {author.data.major}
-        <br />
-        {author.data.grade}
-      </p>
-    </div>
-  </div>
-</a>
+  </a>
 </div>

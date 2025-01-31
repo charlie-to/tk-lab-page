@@ -41,19 +41,19 @@
 /* ↑↑↑カスタムアラート全体に適用↑↑↑ */
 
 /* ↓↓↓MEMO専用のstyle↓↓↓ */
-.markdown-alert-custom-memo{
-  max-width:100%; /*最大幅は任意*/
+.markdown-alert-custom-memo {
+  max-width: 100%; /*最大幅は任意*/
   flex-wrap: wrap;
   position: relative;
   padding: 17px 13px 15px 18px;
   border-radius: 6px;
   border-left: none;
-  background: #99dddd;/*色は任意*/
-  box-sizing:border-box;
-  margin:0 !important;
-  line-height:1.5;
+  background: #99dddd; /*色は任意*/
+  box-sizing: border-box;
+  margin: 0 !important;
+  line-height: 1.5;
 }
-.markdown-alert-custom-memo:after{
+.markdown-alert-custom-memo:after {
   content: "";
   position: absolute;
   transform: translateY(-15px);
@@ -63,5 +63,5 @@
 }
 
 .markdown-alert-custom-hint {
-  @apply bg-yellow-100 border-yellow-500 text-yellow-500;
+  @apply border-yellow-500 bg-yellow-100 text-yellow-500;
 }

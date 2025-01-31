@@ -1,73 +1,86 @@
 ---
-import SlideLayout from '@layouts/slide_layout.astro'
+import SlideLayout from '@layouts/slide_layout.astro';
 ---
 
 <SlideLayout>
-    <div class="slide-content">
-        <div class="textArea flex justify-center" style="margin-top: max(220px, 24vw);">
-            <div class="text first" style="display: inline-block; font-size: max(40px, 4vw); opacity: 0;">
-                本気ですか？
-            </div>
-        </div>
-        <div class="buttonArea" style="opacity: 0;">
-            <button id="yes" style="
+  <div class="slide-content">
+    <div
+      class="textArea flex justify-center"
+      style="margin-top: max(220px, 24vw);"
+    >
+      <div
+        class="text first"
+        style="display: inline-block; font-size: max(40px, 4vw); opacity: 0;"
+      >
+        本気ですか？
+      </div>
+    </div>
+    <div class="buttonArea" style="opacity: 0;">
+      <button
+        id="yes"
+        style="
             top: 85%;
             left: 30%;
             transform: translate(-50%, -50%);
             width: max(450px, 40vw);
             height: max(50px, 5vw);
             
-            ">YES</button>
-            <button id="no" style="
+            "
+        >YES</button
+      >
+      <button
+        id="no"
+        style="
             top: 85%;
             left: 75%;
             transform: translate(-50%, -50%);
             width: max(300px, 30vw);
             height: max(50px, 5vw);
             
-            ">NO</button>
-        </div>
+            "
+        >NO</button
+      >
     </div>
-    <script is:inline>
-        window.addEventListener('DOMContentLoaded', () => {
+  </div>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      const textFirst = document.querySelector('.first');
+      const buttonArea = document.querySelector('.buttonArea');
 
-            const textFirst = document.querySelector('.first');
-            const buttonArea = document.querySelector('.buttonArea');
+      // 画面の要素を時間差で登場させる
+      setTimeout(() => {
+        textFirst.style.transition = 'opacity 2s ease-in-out';
+        textFirst.style.opacity = 1;
+      }, 1000);
 
-            // 画面の要素を時間差で登場させる
-            setTimeout(() => {
-                textFirst.style.transition = "opacity 2s ease-in-out"
-                textFirst.style.opacity = 1;
-            }, 1000);
+      setTimeout(() => {
+        buttonArea.style.transition = 'opacity 1s ease-in-out';
+        buttonArea.style.opacity = 1;
+      }, 3000);
 
-            setTimeout(() => {
-                buttonArea.style.transition = "opacity 1s ease-in-out"
-                buttonArea.style.opacity = 1;
-            }, 3000);
+      // ボタンが押されたら画面遷移
+      const yesButton = document.getElementById('yes');
+      yesButton.addEventListener('click', () => {
+        const nextPageUrl = '../slide4/index.html';
 
-            // ボタンが押されたら画面遷移
-            const yesButton = document.getElementById('yes');
-            yesButton.addEventListener('click', () => {
-                const nextPageUrl = '../slide4/index.html';
-
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-            });
-
-            // ボタンが押されたら画面遷移
-            const noButton = document.getElementById('no');
-            noButton.addEventListener('click', () => {
-                const nextPageUrl = '../slide7/index.html';
-
-                // 次のページを読み込む
-                window.fetch(nextPageUrl).then((response) => {
-                    // 読み込みが完了したら画面遷移を行う
-                    window.location.href = nextPageUrl;
-                });
-            });
+        // 次のページを読み込む
+        window.fetch(nextPageUrl).then((response) => {
+          // 読み込みが完了したら画面遷移を行う
+          window.location.href = nextPageUrl;
         });
-    </script>
+      });
+
+      // ボタンが押されたら画面遷移
+      const noButton = document.getElementById('no');
+      noButton.addEventListener('click', () => {
+        const nextPageUrl = '../slide7/index.html';
+
+        // 次のページを読み込む
+        window.fetch(nextPageUrl).then((response) => {
+          // 読み込みが完了したら画面遷移を行う
+          window.location.href = nextPageUrl;
+        });
+      });
+    });
+  </script>
 </SlideLayout>

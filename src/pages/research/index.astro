@@ -1,107 +1,107 @@
 ---
-import Layout from '../../layouts/Layout.astro'
+import Layout from '../../layouts/Layout.astro';
 
 // Images
-import { Image } from 'astro:assets'
-import cockpitUnsplash from '../_cockpit-unsplash.jpg'
-import carUnsplash from '../_car-unsplash.jpg'
-import riskUnsplash from '../_risk-unsplash.jpg'
-import balloonUnsplash from '../_balloon-unsplash.jpeg'
+import { Image } from 'astro:assets';
+import balloonUnsplash from '../_balloon-unsplash.jpeg';
+import carUnsplash from '../_car-unsplash.jpg';
+import cockpitUnsplash from '../_cockpit-unsplash.jpg';
+import riskUnsplash from '../_risk-unsplash.jpg';
 ---
 
 <Layout title="研究">
   <div class="container mx-auto">
-  <!-- hero - start -->
-  <section>
-    <div class="bg-white py-6 sm:py-8 lg:py-12">
-      <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-        <!-- text - start -->
-        <div class="mb-10 md:mb-16">
-          <h2
-            class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl"
-          >
-            研究紹介
-          </h2>
-
-          <p
-            class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg"
-          >
-            様々な分野において研究を行っています。研究グループに分かれてそれぞれ行っています。
-          </p>
-        </div>
-        <!-- text - end -->
-
-        <div class="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-3 xl:gap-8">
-          <!-- image - start -->
-          <a
-            href="/research/aviation/index.html"
-            class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
-          >
-            <Image
-              src={cockpitUnsplash}
-              alt="コックピットの写真 Photo from unsplash"
-              class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-            />
-
-            <div
-              class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"
+    <!-- hero - start -->
+    <section>
+      <div class="bg-white py-6 sm:py-8 lg:py-12">
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+          <!-- text - start -->
+          <div class="mb-10 md:mb-16">
+            <h2
+              class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl"
             >
-            </div>
+              研究紹介
+            </h2>
 
-            <span
-              class="relative mb-3 mr-3 inline-block rounded-lg border border-gray-500 px-2 py-1 text-lg text-gray-200 backdrop-blur md:px-3"
-              >航空システムの安全性向上</span
+            <p
+              class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg"
             >
-          </a>
-          <!-- image - end -->
+              様々な分野において研究を行っています。研究グループに分かれてそれぞれ行っています。
+            </p>
+          </div>
+          <!-- text - end -->
 
-          <!-- image - start -->
-          <a
-            href="/research/team-ai/index.html"
-            class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
-          >
-            <Image
-              src={carUnsplash}
-              alt="自動車の運転席 Photo from unsplash"
-              class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-            />
-
-            <div
-              class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"
+          <div class="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-3 xl:gap-8">
+            <!-- image - start -->
+            <a
+              href="/research/aviation/index.html"
+              class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
             >
-            </div>
+              <Image
+                src={cockpitUnsplash}
+                alt="コックピットの写真 Photo from unsplash"
+                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+              />
 
-            <span
-              class="relative mb-3 mr-3 inline-block rounded-lg border border-gray-500 px-2 py-1 text-lg text-gray-200 backdrop-blur md:px-3"
-              >高度自動化システムと人間の協調</span
+              <div
+                class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"
+              >
+              </div>
+
+              <span
+                class="relative mb-3 mr-3 inline-block rounded-lg border border-gray-500 px-2 py-1 text-lg text-gray-200 backdrop-blur md:px-3"
+                >航空システムの安全性向上</span
+              >
+            </a>
+            <!-- image - end -->
+
+            <!-- image - start -->
+            <a
+              href="/research/team-ai/index.html"
+              class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
             >
-          </a>
-          <!-- image - end -->
+              <Image
+                src={carUnsplash}
+                alt="自動車の運転席 Photo from unsplash"
+                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+              />
 
-          <!-- image - start -->
-          <a
-            href="/research/cognitive/index.html"
-            class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
-          >
-            <Image
-              src={riskUnsplash}
-              alt="原子力発電所の写真 Photo from unsplash"
-              class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-            />
+              <div
+                class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"
+              >
+              </div>
 
-            <div
-              class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"
+              <span
+                class="relative mb-3 mr-3 inline-block rounded-lg border border-gray-500 px-2 py-1 text-lg text-gray-200 backdrop-blur md:px-3"
+                >高度自動化システムと人間の協調</span
+              >
+            </a>
+            <!-- image - end -->
+
+            <!-- image - start -->
+            <a
+              href="/research/cognitive/index.html"
+              class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
             >
-            </div>
+              <Image
+                src={riskUnsplash}
+                alt="原子力発電所の写真 Photo from unsplash"
+                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+              />
 
-            <span
-              class="relative mb-3 mr-3 inline-block rounded-lg border border-gray-500 px-2 py-1 text-lg text-gray-200 backdrop-blur md:px-3"
-              >安全性向上のための危険感受性・敢行性に関する研究</span
-            >
-          </a>
-          <!-- image - end -->
-          <!-- image - start -->
-          <!-- <a
+              <div
+                class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"
+              >
+              </div>
+
+              <span
+                class="relative mb-3 mr-3 inline-block rounded-lg border border-gray-500 px-2 py-1 text-lg text-gray-200 backdrop-blur md:px-3"
+                >安全性向上のための危険感受性・敢行性に関する研究</span
+              >
+            </a>
+            <!-- image - end -->
+            <!-- image - start -->
+            <!-- <a
             href="/research/team-cognitive/index.html"
             class="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96"
           >
@@ -121,11 +121,11 @@ import balloonUnsplash from '../_balloon-unsplash.jpeg'
               >安全性向上のための危険感受性・敢行性に関する研究</span
             >
           </a> -->
-          <!-- image - end -->
+            <!-- image - end -->
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- hero - end -->
+    </section>
+    <!-- hero - end -->
   </div>
 </Layout>
