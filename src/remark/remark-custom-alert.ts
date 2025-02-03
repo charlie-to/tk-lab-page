@@ -120,31 +120,41 @@ const remarkCustomAlerts: Plugin<RemarkGitHubAlertsOptions[], Root> = (
 
       let color = 'yellow';
       let icon_name = '' as keyof typeof icons;
+
       if (type === 'custom') {
-        let parameters = firstContent.value.split('\n');
-        // console.log('parameters', parameters)
-        firstContent.value = parameters[1].trimStart();
-        parameters = parameters[0].split(' ');
-        // console.log('parameters', parameters)
-        color = parameters[1];
-        icon_name = parameters[2] as keyof typeof icons;
+        const parameters = firstContent.value.split('\n');
+        color = parameters[0].split(' ')[1];
+        icon_name = parameters[0].split(' ')[2] as keyof typeof icons;
         icon = icons[icon_name];
-        // console.log('icon', icon)
-        if (parameters.length <= 3) {
-          title = ' ';
-        } else {
-          title = parameters.slice(3).join(' ');
-        }
-        // console.log('title', title)
+        title = parameters[0].split(' ').slice(3).join(' ') || ' ';
+
+        // 改行後のテキストを保持し、<br> タグを挿入
+        const textLines = parameters.slice(1);
+        firstParagraph.children = textLines.flatMap((line, index) =>
+          index === 0
+            ? [{ type: 'text', value: line.trim() }]
+            : [
+              { type: 'element', tagName: 'br', children: [] },
+              { type: 'text', value: line.trim() },
+            ]
+        );
       } else {
-        firstContent.value = firstContent.value
+        const textLines = firstContent.value
           .slice(match[0].length)
-          .trimStart();
+          .split('\n')
+          .map((line) => line.trim());
+        firstParagraph.children = textLines.flatMap((line, index) =>
+          index === 0
+            ? [{ type: 'text', value: line }]
+            : [
+              { type: 'element', tagName: 'br', children: [] },
+              { type: 'text', value: line },
+            ]
+        );
       }
 
       const iconDataUri = `data:image/svg+xml;utf8,${encodeSvg(icon)}`;
 
-      // console.log(firstContent.value)
 
       node.data = {
         hName: 'div',
@@ -192,7 +202,6 @@ const remarkCustomAlerts: Plugin<RemarkGitHubAlertsOptions[], Root> = (
         ...node.children,
       ];
     });
-
     return tree;
   };
 };
