@@ -5,6 +5,10 @@ on:
     branches:
       - production
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,12 +22,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: "pnpm"
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          role-session-name: PushFromGithubAction
           aws-region: ap-northeast-1
       - name: Install modules
         run: pnpm install
